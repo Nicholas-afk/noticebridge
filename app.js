@@ -104,6 +104,7 @@ async function registerTools(){
 try{
   const response=await fetch('./model.json');if(!response.ok)throw new Error('Model file unavailable.');model=await response.json();
   $('analyze-button').disabled=false;$('analyze-button').textContent='Find instructions';
+  document.querySelectorAll('[data-example]').forEach(button=>button.disabled=false);
   $('model-facts').textContent=`TF–IDF + logistic regression · ${model.training_examples} authored training sentences · ${model.holdout_examples} separate synthetic test sentences · ${Math.round(model.accuracy*1000)/10}% sentence-category accuracy on that test set. Two of twelve test instructions were missed. This is a prototype benchmark, not real-world validation.`;
   await registerTools();
 }catch(error){$('analyze-button').textContent='Model unavailable';$('input-error').textContent='The local model could not load. Refresh the page to try again.';}
