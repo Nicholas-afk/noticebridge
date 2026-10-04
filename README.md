@@ -50,6 +50,7 @@ Training uses unigrams and bigrams, sublinear term frequency, IDF weighting, L2 
 ```sh
 python3 -m pip install -r requirements.txt
 python3 train.py
+node prepare.mjs
 node test.mjs
 ```
 
@@ -68,6 +69,8 @@ Pasted notice (tab memory only)
 ```
 
 Only local assets are requested by the application. The hosting provider receives ordinary page requests; pasted notices are not included in them. The app does not cache itself for offline startup, but inference can continue without network access after its assets load. Exported plans contain the original notice, so readers should choose where to save them.
+
+Run `node prepare.mjs` after changing browser code, styles or the trained model and before publishing. It adds content fingerprints to asset URLs, including the engine and model dependencies, so a cached older script cannot be paired with a newer page. No build dependencies are required.
 
 ## Accessibility and design
 
