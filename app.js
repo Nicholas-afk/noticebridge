@@ -7,55 +7,81 @@ const examples={
 };
 let model=null,result=null,view='plan',selected=null,completed=new Set();
 function node(tag,attrs={},text){const el=document.createElement(tag);for(const [key,value]of Object.entries(attrs)){if(key==='class')el.className=value;else el.setAttribute(key,value);}if(text!==undefined)el.textContent=text;return el;}
-function count(){ $('characters').textContent=`${$('notice').value.length.toLocaleString()} / 20,000 characters`;if(result){$('stale-note').hidden=result.source===$('notice').value&&result.anchorDate===$('anchor-date').value;}}
-function loadExample(name){if(!examples[name])throw new Error('Unknown example.');$('notice').value=examples[name].text;$('anchor-date').value=examples[name].date;count();return runAnalysis();}
+function isStale(){return !!result&&(result.source!==$('notice').value||result.anchorDate!==$('anchor-date').value);}
+function reviewStatus(){if(result)$('result-status').textContent=`${completed.size} of ${result.cards.length} reviewed`;}
+function count(){
+  $('characters').textContent=`${$('notice').value.length.toLocaleString()} / 20,000 characters`;
+  const stale=isStale();$('stale-note').hidden=!stale;$('export-button').disabled=stale;
+  document.querySelectorAll('#cards input[type="checkbox"]').forEach(check=>check.disabled=stale);
+  if(model)$('analyze-button').textContent=stale?'Update checklist':'Find instructions';
+  if(stale)$('result-status').textContent='Update needed';else reviewStatus();
+}
+function scrollToPlan(){if(window.innerWidth<=700){$('result-panel').scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});$('plan-heading').setAttribute('tabindex','-1');$('plan-heading').focus({preventScroll:true});}}
+function loadExample(name){if(!examples[name])throw new Error('Unknown example.');$('notice').value=examples[name].text;$('anchor-date').value=examples[name].date;count();return runAnalysis({focusResults:true});}
 function setView(next){view=next;$('plan-view').hidden=next!=='plan';$('source-view').hidden=next!=='source';document.querySelectorAll('.view').forEach(b=>{b.classList.toggle('active',b.dataset.view===next);b.setAttribute('aria-pressed',String(b.dataset.view===next));});}
-function showSource(id){selected=id;const card=result.cards.find(x=>x.id===id);const el=$('source-text');el.replaceChildren();if(card){el.append(document.createTextNode(result.source.slice(0,card.start)),node('mark',{},result.source.slice(card.start,card.end)),document.createTextNode(result.source.slice(card.end)));}else el.textContent=result.source;setView('source');el.setAttribute('tabindex','-1');el.focus({preventScroll:true});el.querySelector('mark')?.scrollIntoView({behavior:'smooth',block:'nearest'});}
+function showSource(id){selected=id;const card=result.cards.find(x=>x.id===id);const el=$('source-text');el.replaceChildren();if(card){el.append(document.createTextNode(result.source.slice(0,card.start)),node('mark',{},result.source.slice(card.start,card.end)),document.createTextNode(result.source.slice(card.end)));$('source-help').textContent=`Sentence ${card.index+1} is highlighted in the complete notice used for this checklist.`;}else el.textContent=result.source;setView('source');el.setAttribute('tabindex','-1');el.focus({preventScroll:true});el.querySelector('mark')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});}
 function render(){
   $('empty-state').hidden=true;$('results').hidden=false;$('stale-note').hidden=true;
   const summary=result.summary;
-  $('stats').replaceChildren(...[[summary.actions,'instructions'],[summary.details,'useful details'],[summary.review,'need a check']].map(([value,label])=>{const s=node('div',{class:'stat'});s.append(node('strong',{},value),node('span',{},label));return s;}));
+  $('stats').replaceChildren();
+  [[summary.actions,'instructions'],[summary.details,'details'],[summary.review,'with review notes']].forEach(([value,label],i)=>{if(i)$('stats').append(document.createTextNode(' · '));$('stats').append(node('strong',{},value),document.createTextNode(' '+label));});
   $('warnings').replaceChildren(...result.overallWarnings.map(t=>node('p',{class:'banner'},t)));
-  $('result-status').textContent='Linked to original text';
+  reviewStatus();
   $('cards').replaceChildren();
   const names={action:'Instruction',event:'Detail',contact:'Contact',review:'Review'};
-  result.cards.forEach((card,i)=>{
-    const article=node('article',{class:'card','data-card':card.id});
-    const main=node('div',{class:'card-main'}),heading=node('div',{class:'card-heading'}),title=node('div',{class:'card-title'});
-    title.append(node('span',{class:'card-number'},String(i+1).padStart(2,'0')),node('h3',{},card.title));heading.append(title,node('span',{class:'kind-tag'},names[card.kind]));main.append(heading,node('p',{class:'instruction'},card.text));
-    const chips=node('div',{class:'chips'});
-    [...card.dates,...card.times,...card.amounts].forEach(d=>chips.append(node('span',{class:'chip'},d.text+(d.resolved?` (${d.resolved})`:''))));
-    if(chips.childNodes.length)main.append(chips);
+  const groups=[
+    {kinds:['action'],title:'Instructions',help:'Read the exact wording, including restrictions and exceptions.'},
+    {kinds:['review'],title:'Questions to check',help:'These sentences need a closer look before you rely on them.'},
+    {kinds:['event','contact'],title:'Dates & contacts',help:'Supporting information from the same notice.'}
+  ];
+  groups.forEach(({kinds,title,help})=>{
+    const members=result.cards.filter(card=>kinds.includes(card.kind));if(!members.length)return;
+    const group=node('section',{class:'plan-group'}),heading=node('h3',{class:'group-heading'});
+    heading.append(document.createTextNode(title),node('span',{},members.length));group.append(heading,node('p',{class:'group-help'},help));
+    members.forEach(card=>{
+    const i=result.cards.indexOf(card),article=node('article',{class:'card','data-card':card.id,tabindex:'-1'});
+    const main=node('div',{class:'card-main'});
+    main.append(node('p',{class:'card-context'},`Sentence ${card.index+1}${kinds.length>1?' · '+names[card.kind]:''}`),node('p',{class:'instruction'},card.text));
+    const extracted=node('div',{class:'extracted'});
+    [...card.dates,...card.times,...card.amounts].forEach(d=>extracted.append(node('span',{},d.text+(d.resolved?` → ${d.resolved}`:''))));
+    if(extracted.childNodes.length)main.append(extracted);
     card.flags.forEach(flag=>main.append(node('p',{class:'flag'},flag)));
-    const explanation=node('details');explanation.append(node('summary',{},'Why this card?'),node('p',{},`Local model category: ${names[card.prediction.label]||'Background'}. Model score: ${Math.round(card.prediction.score*100)}%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The card text is an exact source extract.`));main.append(explanation);
-    const bottom=node('div',{class:'card-bottom'}),label=node('label'),check=node('input',{type:'checkbox','aria-label':`Mark card ${i+1} checked`});
+    const explanation=node('details');explanation.append(node('summary',{},'How this was identified'),node('p',{},`Local model category: ${names[card.prediction.label]||'Background'}. Model score: ${Math.round(card.prediction.score*100)}%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract.`));main.append(explanation);
+    const bottom=node('div',{class:'card-bottom'}),label=node('label'),check=node('input',{type:'checkbox','aria-label':`Mark excerpt ${i+1} reviewed`});
     check.checked=completed.has(card.id);article.classList.toggle('checked',check.checked);
-    check.addEventListener('change',()=>{if(check.checked)completed.add(card.id);else completed.delete(card.id);article.classList.toggle('checked',check.checked);$('live-status').textContent=`Card ${i+1} ${check.checked?'checked':'unchecked'}.`;});label.append(check,document.createTextNode('Checked'));
-    const evidence=node('button',{class:'source-button'},'Check source');evidence.addEventListener('click',()=>showSource(card.id));bottom.append(label,evidence);article.append(main,bottom);$('cards').append(article);
+    check.addEventListener('change',()=>{if(check.checked)completed.add(card.id);else completed.delete(card.id);article.classList.toggle('checked',check.checked);reviewStatus();$('live-status').textContent=`Excerpt ${i+1} ${check.checked?'reviewed':'not reviewed'}. ${completed.size} of ${result.cards.length} reviewed.`;});label.append(check,document.createTextNode('Reviewed'));
+    const evidence=node('button',{class:'source-button'},'Check source');evidence.addEventListener('click',()=>showSource(card.id));bottom.append(label,evidence);main.append(bottom);article.append(node('span',{class:'card-number','aria-hidden':'true'},String(i+1).padStart(2,'0')),main);group.append(article);
+    });$('cards').append(group);
   });
   $('background-details').hidden=!result.background.length;$('background-summary').textContent=`Other sentences (${result.background.length})`;
   $('background-list').replaceChildren(...result.background.map(x=>node('p',{},x.text)));
-  $('source-text').textContent=result.source;setView('plan');
+  $('source-text').textContent=result.source;$('source-help').textContent='The complete notice used for this checklist. A selected excerpt will be highlighted.';setView('plan');count();
   $('live-status').textContent=`Plan ready. ${summary.actions} instructions, ${summary.details} useful details, ${summary.review} cards need a check.`;
 }
-function runAnalysis(){
+function runAnalysis({focusResults=false}={}){
   if(!model)throw new Error('The model is still loading.');
   $('input-error').textContent='';
-  try{result=analyzeNotice($('notice').value,model,{anchorDate:$('anchor-date').value});completed=new Set();selected=null;render();return {summary:result.summary,cards:result.cards.map(({id,text,kind,start,end,flags})=>({id,text,kind,start,end,flags}))};}
+  try{result=analyzeNotice($('notice').value,model,{anchorDate:$('anchor-date').value});completed=new Set();selected=null;render();if(focusResults)scrollToPlan();return {summary:result.summary,cards:result.cards.map(({id,text,kind,start,end,flags})=>({id,text,kind,start,end,flags}))};}
   catch(error){$('input-error').textContent=error.message;throw error;}
 }
 function exportPlan(){
-  if(!result)return;
+  if(!result||isStale())return;
   const lines=['NOTICEBRIDGE — ACTION PLAN','',`Reference date: ${result.anchorDate||'Not supplied'}`,'','Review the original notice before acting. This prototype may miss or misclassify instructions.',''];
   result.cards.forEach((card,i)=>{lines.push(`${completed.has(card.id)?'[x]':'[ ]'} ${i+1}. ${card.text}`,`    Category: ${card.kind}`,...card.flags.map(f=>'    Check: '+f),'');});
   lines.push('ORIGINAL NOTICE',result.source);
-  const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'})),link=node('a',{href:url,download:'noticebridge-plan.txt'});document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('live-status').textContent='Plan saved as a text file.';
+  const url=URL.createObjectURL(new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'})),link=node('a',{href:url,download:'noticebridge-plan.txt'});document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('live-status').textContent='Text-file download requested. It includes the original notice.';
 }
 $('notice').addEventListener('input',count);$('anchor-date').addEventListener('input',count);
-$('analyze-button').addEventListener('click',()=>{try{runAnalysis();}catch{}});
+$('analyze-button').addEventListener('click',()=>{try{runAnalysis({focusResults:true});}catch{}});
 document.querySelectorAll('[data-example]').forEach(b=>b.addEventListener('click',()=>{try{loadExample(b.dataset.example);}catch{}}));
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
-$('clear-button').addEventListener('click',()=>{$('notice').value='';$('anchor-date').value='';result=null;completed.clear();$('results').hidden=true;$('empty-state').hidden=false;$('input-error').textContent='';$('result-status').textContent='Ready when you are';count();$('notice').focus();$('live-status').textContent='Notice cleared.';});
+$('clear-button').addEventListener('click',()=>{
+  $('notice').value='';$('anchor-date').value='';result=null;selected=null;completed.clear();
+  for(const id of ['cards','source-text','background-list','warnings','stats'])$(id).replaceChildren();
+  $('results').hidden=true;$('empty-state').hidden=false;$('input-error').textContent='';$('result-status').textContent='No notice yet';
+  setView('plan');count();$('notice').focus();$('live-status').textContent='Notice and checklist cleared.';
+});
+$('back-to-plan').addEventListener('click',()=>{setView('plan');const card=selected?document.querySelector(`[data-card="${selected}"]`):$('plan-heading');card?.focus({preventScroll:true});card?.scrollIntoView({block:'nearest',behavior:'instant'});});
 $('export-button').addEventListener('click',exportPlan);
 for(const id of ['about-button','model-button'])$(id).addEventListener('click',()=>$('about-dialog').showModal());
 $('close-dialog').addEventListener('click',()=>$('about-dialog').close());
@@ -77,7 +103,7 @@ async function registerTools(){
 }
 try{
   const response=await fetch('./model.json');if(!response.ok)throw new Error('Model file unavailable.');model=await response.json();
-  $('analyze-button').disabled=false;$('analyze-button').textContent='Find my next steps';
+  $('analyze-button').disabled=false;$('analyze-button').textContent='Find instructions';
   $('model-facts').textContent=`TF–IDF + logistic regression · ${model.training_examples} authored training sentences · ${model.holdout_examples} separate synthetic test sentences · ${Math.round(model.accuracy*1000)/10}% sentence-category accuracy on that test set. Two of twelve test instructions were missed. This is a prototype benchmark, not real-world validation.`;
   await registerTools();
 }catch(error){$('analyze-button').textContent='Model unavailable';$('input-error').textContent='The local model could not load. Refresh the page to try again.';}
