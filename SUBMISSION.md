@@ -6,9 +6,9 @@ We chose a focused challenge: make everyday notices easier to act on without rep
 
 ## What it does
 
-Paste an English school or community notice. NoticeBridge organizes its sentences into instructions, event details, contacts and background. It puts instructions first, shows dates, times and amounts exactly as written, and highlights questions the reader should confirm. Every card has a **Check source** button that highlights the exact sentence in the complete original notice.
+Paste an English school or community notice. NoticeBridge organizes its sentences into instructions, event details, contacts and background. A numbered checklist puts instructions first, shows dates, times and amounts exactly as written, and highlights questions the reader should confirm. Every item has a **Check source** button that highlights the exact sentence in the complete original notice, with a direct return to the checklist.
 
-The fictional school-trip demo surfaces a consent form, a $12 payment, a lunch requirement and “Do not bring cash.” The unclear-deadline demo shows why “tomorrow” needs the notice's issue date and why `08/10` should not be silently interpreted. Readers can check cards and download a plan as a local text file.
+The fictional school-trip demo surfaces a consent form, a $12 payment, a lunch requirement and “Do not bring cash.” The unclear-deadline demo shows why “tomorrow” needs the notice's issue date and why `08/10` should not be silently interpreted. Readers can mark excerpts reviewed and request a local text-file download. If the input changes, marking and downloading pause until the checklist is refreshed, preventing an old plan from being used for an edited notice.
 
 No account or API key is required. The model runs in the browser, and pasted notices are not sent to cloud AI or saved in a history.
 
@@ -20,7 +20,7 @@ The vocabulary, IDF values, coefficients and intercepts are exported as JSON. A 
 
 Rules supplement the model with conservative checks for instruction cues, relative dates, missing years, numeric date ambiguity, missing instruction dates and invalid ISO dates. These checks are visible review prompts, not inferred facts. Negative instructions are preserved. All background sentences remain accessible.
 
-The interface is built with HTML, CSS and JavaScript, including semantic labels, keyboard-accessible controls, live announcements, a small-screen layout, a checklist and local text export. Optional WebMCP tools let an agent run the same visible analysis workflow and read back its results.
+The interface is built with HTML, CSS and JavaScript. Its document workspace uses flat reading groups, clear labels, keyboard-accessible controls, source highlighting and review progress. Instructions have the strongest hierarchy; uncertainty appears beside the relevant sentence. Optional WebMCP tools let an agent run the same visible analysis workflow and read back its results.
 
 ## Challenges we ran into
 
@@ -35,7 +35,7 @@ Dates were another challenge. A weekday or “tomorrow” is not a reliable dead
 - **44/48 correct sentence categories (91.7%)** on the separate synthetic holdout; instruction recall **10/12 (83.3%)**. This is a small prototype benchmark, not real-world validation.
 - JavaScript/Python prediction and score parity on all 48 holdout sentences.
 - Passing checks for source-span integrity, ambiguous and relative dates, preserved negation, invalid dates and input bounds.
-- Browser checks of checklist updates, source highlighting, uncertainty handling and WebMCP valid/invalid-input behavior.
+- Browser checks of review progress, exact source highlighting, returning to the checklist, uncertainty handling, stale-plan protection and WebMCP valid/invalid-input behavior.
 
 ## What we learned
 

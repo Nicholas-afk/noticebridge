@@ -2,7 +2,7 @@
 
 Evidence-linked next steps for school and community notices.
 
-NoticeBridge helps readers find what they need to do, when it is due and which details need clarification. Paste a notice, review the locally generated cards, and select **Check source** to highlight the exact original sentence. The browser never sends pasted text to cloud AI.
+NoticeBridge helps readers find what they need to do, when it is due and which details need clarification. Paste a notice, review its instructions in a numbered checklist, and select **Check source** to highlight the exact original sentence. The browser never sends pasted text to cloud AI.
 
 ## Try it
 
@@ -14,7 +14,7 @@ Choose **School trip** for a complete example. You can also serve the `dist` dir
 python3 -m http.server 48137 --bind 127.0.0.1 --directory dist
 ```
 
-Visit `http://127.0.0.1:48137`. Choose **School trip** for the complete workflow or **An unclear deadline** for uncertainty handling. All examples are fictional. This is a static application, with no API key, account, backend or paid inference service.
+Visit `http://127.0.0.1:48137`. Choose **School trip** for the complete workflow or **Unclear deadline** for uncertainty handling. All examples are fictional. This is a static application, with no API key, account, backend or paid inference service.
 
 ## What it does
 
@@ -26,6 +26,8 @@ Visit `http://127.0.0.1:48137`. Choose **School trip** for the complete workflow
 - Resolves only “today” and “tomorrow”, and only against an explicitly supplied notice issue date.
 - Keeps every sentence accessible, including those assigned to background.
 - Offers a checklist and local text-file export. It does not save a history.
+- Shows review progress, with a direct return from a highlighted source sentence to its checklist item.
+- Pauses marking and downloads when the notice or issue date changes, until the checklist is refreshed. Previous excerpts are explicitly identified as an older snapshot.
 - Exposes optional WebMCP tools that use the same local action pipeline as the interface.
 
 This is extractive information organization, not generative rewriting. Generic card headings are assigned by explicit rules; full instructions remain verbatim. Details from another sentence are not silently attached to an instruction.
@@ -69,9 +71,9 @@ Only local assets are requested by the application. The hosting provider receive
 
 ## Accessibility and design
 
-The interface uses visible labels, semantic headings, keyboard-accessible controls, a skip link, live result announcements, source highlighting, a single-column small-screen layout and reduced complexity. The direction is informed by [W3C cognitive accessibility guidance on clear step-by-step instructions](https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p07-step-instructions/).
+The interface puts the source input beside a flat, numbered reading list. Instructions lead; uncertain categories and supporting dates or contacts form separate groups. A restrained green accent, paper-colored background, serif introduction and plain labels replace the original purple hero and nested card layout. Containers are limited to editable source text, its preserved snapshot, and meaningful notices. The direction is informed by [W3C cognitive accessibility guidance on clear step-by-step instructions](https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p07-step-instructions/).
 
-No accessibility certification or user study is claimed. Browser functional checks passed, and an actual screenshot of the live application was reviewed at a 694-pixel viewport. Phone-width overrides did not take effect, so phone layout and screen-reader QA remain unverified. The screenshot is in `media/noticebridge-live-demo.jpg`.
+No accessibility certification or user study is claimed. Browser checks verified review progress, exact source highlighting, returning to the checklist, stale-plan protection, refreshed analysis and ambiguity prompts. Layouts were inspected at actual CSS widths of 960 and 1,280 pixels without horizontal overflow. Browser scaling prevented a reliable phone-width check, so phone layout and screen-reader QA remain unverified. The actual application screenshot is in `media/noticebridge-live-demo.jpg`. Download feedback was checked, but the browser did not confirm a completed file download.
 
 ## Limitations and next work
 
