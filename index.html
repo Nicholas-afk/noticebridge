@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn school and community notices into checkable action cards. Every instruction stays linked to its original source. Processing happens on your device.">
+  <title>NoticeBridge — Find your next step</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%234535da'/%3E%3Cpath d='M7 23V10l9 6 9-6v13M7 10l9-4 9 4' fill='none' stroke='white' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#notice">Skip to notice</a>
+<header class="topbar">
+  <a href="./" class="brand" aria-label="NoticeBridge home"><span class="brandmark" aria-hidden="true">N</span>NoticeBridge</a>
+  <div class="header-right"><span class="private-label"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8V6a5 5 0 0 1 10 0v2M4 8h12v10H4z"/></svg>Processed on your device</span><button class="quiet" id="about-button">How it works</button></div>
+</header>
+<main>
+  <div class="intro"><div><p class="eyebrow">LESS READING. CLEARER NEXT STEPS.</p><h1>A notice. A plan.<br><span>Every step, in context.</span></h1><p class="lede">Find the actions in a school or community notice.<br>Check every step against the original words.</p></div><div class="intro-aside"><span class="aside-line">01 / Read</span><span class="aside-line">02 / Check</span><span class="aside-line">03 / Act</span><p>Small steps,<br>backed by the source.</p></div></div>
+  <section class="workspace" aria-label="Notice workspace">
+    <div class="input-panel">
+      <div class="panel-heading"><div><span class="step">01</span><h2>Your notice</h2></div><span class="small-label">English text</span></div>
+      <label for="notice" class="field-label">Paste the original notice</label>
+      <textarea id="notice" maxlength="20000" spellcheck="false" placeholder="Paste a school letter, library notice, club announcement or community event message…"></textarea>
+      <div class="input-meta"><span id="characters">0 / 20,000 characters</span><button class="text-button" id="clear-button">Clear notice</button></div>
+      <div class="date-field"><label for="anchor-date">Date the notice was issued <span>(optional)</span></label><input id="anchor-date" type="date"><p>Only used to interpret “today” or “tomorrow”.</p></div>
+      <button id="analyze-button" class="primary" disabled>Loading local model…</button>
+      <p id="input-error" class="error" role="alert"></p>
+      <div class="examples"><p class="field-label">Try a fictional notice</p><div class="example-list"><button class="example" data-example="trip">School trip</button><button class="example" data-example="library">Library workshop</button><button class="example" data-example="unclear">An unclear deadline</button></div></div>
+      <div class="privacy-note"><span aria-hidden="true">◈</span><p>Your notice stays in this tab. No account, cloud AI, or saved history. <strong>Check the source before acting.</strong></p></div>
+    </div>
+    <div class="result-panel" id="result-panel">
+      <div class="panel-heading"><div><span class="step">02</span><h2>Your next steps</h2></div><span class="small-label" id="result-status">Ready when you are</span></div>
+      <div class="empty-state" id="empty-state"><div class="empty-motif" aria-hidden="true"><span></span><span></span><span></span></div><h3>Make the important bits visible.</h3><p>Paste a notice or choose an example.<br>Instructions, dates and questions will appear here.</p></div>
+      <div id="results" hidden>
+        <div class="stats" id="stats"></div>
+        <p id="stale-note" class="banner" hidden>The notice has changed. Find next steps again to update this plan.</p>
+        <div id="warnings"></div>
+        <div class="result-tools"><div role="group" aria-label="Result view"><button class="view active" data-view="plan" aria-pressed="true">Action plan</button><button class="view" data-view="source" aria-pressed="false">Original notice</button></div><button class="quiet" id="export-button">Save plan</button></div>
+        <div id="plan-view"><div id="cards"></div><details id="background-details"><summary id="background-summary">Other sentences</summary><div id="background-list"></div></details><p class="review-reminder">The model can miss instructions. Compare the plan with the original notice, especially before paying or meeting a deadline.</p></div>
+        <div id="source-view" hidden><p class="source-help">Select a card’s “Check source” button to highlight its exact wording here.</p><div id="source-text" class="source-text"></div></div>
+      </div>
+      <p id="live-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+    </div>
+  </section>
+  <footer><p>Built for everyday notices. Designed around evidence.</p><p>Prototype · English · <button class="text-button" id="model-button">Model &amp; limitations</button></p></footer>
+</main>
+<dialog id="about-dialog" aria-labelledby="about-title"><button id="close-dialog" class="dialog-close" aria-label="Close explanation">×</button><p class="eyebrow">UNDER THE BRIDGE</p><h2 id="about-title">Small model. Visible evidence.</h2><p>A trained text classifier groups each sentence into an instruction, event detail, contact or background. Rules extract dates and amounts exactly as written.</p><ol><li><strong>Read locally.</strong> Text is processed in your browser. Nothing you paste is sent to a server.</li><li><strong>Keep the evidence.</strong> Every card points to the exact sentence in your notice. There is no AI-generated paraphrase.</li><li><strong>Show uncertainty.</strong> Missing years, relative dates and uncertain categories are highlighted for you to check.</li></ol><div class="model-facts" id="model-facts"></div><p>Trained on authored synthetic examples, not real notices. Model scores are uncalibrated and do not measure factual accuracy. English only. This prototype may miss or misclassify instructions. It does not interpret legal, medical or emergency guidance.</p><p>Checks follow ideas from <a href="https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p07-step-instructions/" target="_blank" rel="noreferrer">W3C cognitive accessibility guidance</a>. Accessibility benefits have not been tested with users.</p></dialog>
+</body></html>
