@@ -1,0 +1,4 @@
+.sites-runtime/
+.openai/*credential*
+*.tar.gz
+.DS_Store

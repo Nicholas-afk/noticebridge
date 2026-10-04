@@ -1,0 +1,1179 @@
+{
+  "provenance": "Author-created synthetic school and community notice sentences; no personal data.",
+  "train": [
+    {
+      "text": "Please complete the attached form before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Return the signed permission slip to your teacher.",
+      "label": "action"
+    },
+    {
+      "text": "Bring a packed lunch and a bottle of water.",
+      "label": "action"
+    },
+    {
+      "text": "Do not bring cash on the day of the visit.",
+      "label": "action"
+    },
+    {
+      "text": "You must register online to reserve your place.",
+      "label": "action"
+    },
+    {
+      "text": "Parents need to sign the consent form.",
+      "label": "action"
+    },
+    {
+      "text": "Pay the fee through the school portal.",
+      "label": "action"
+    },
+    {
+      "text": "Submit your application by 5 October.",
+      "label": "action"
+    },
+    {
+      "text": "Collect your child from the main entrance.",
+      "label": "action"
+    },
+    {
+      "text": "Make sure you arrive ten minutes early.",
+      "label": "action"
+    },
+    {
+      "text": "Wear comfortable shoes for the walk.",
+      "label": "action"
+    },
+    {
+      "text": "Check the timetable before travelling.",
+      "label": "action"
+    },
+    {
+      "text": "Keep this letter for your records.",
+      "label": "action"
+    },
+    {
+      "text": "If you wish to attend, confirm your attendance.",
+      "label": "action"
+    },
+    {
+      "text": "Students should bring their notebooks.",
+      "label": "action"
+    },
+    {
+      "text": "Applications must be received no later than Monday.",
+      "label": "action"
+    },
+    {
+      "text": "The consent form is due on 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Registration closes at noon on 6 June.",
+      "label": "action"
+    },
+    {
+      "text": "The deadline for responses is 10 October.",
+      "label": "action"
+    },
+    {
+      "text": "Remember to pack a raincoat.",
+      "label": "action"
+    },
+    {
+      "text": "Sign in at reception on arrival.",
+      "label": "action"
+    },
+    {
+      "text": "Do not enter the building before staff arrive.",
+      "label": "action"
+    },
+    {
+      "text": "Take your student card with you.",
+      "label": "action"
+    },
+    {
+      "text": "No payment is required for this activity.",
+      "label": "action"
+    },
+    {
+      "text": "Please let us know about dietary needs.",
+      "label": "action"
+    },
+    {
+      "text": "Choose one workshop on the booking form.",
+      "label": "action"
+    },
+    {
+      "text": "Return the equipment to the library.",
+      "label": "action"
+    },
+    {
+      "text": "Update your emergency contact details.",
+      "label": "action"
+    },
+    {
+      "text": "Download and fill out the application.",
+      "label": "action"
+    },
+    {
+      "text": "Write your name clearly on the envelope.",
+      "label": "action"
+    },
+    {
+      "text": "Please cancel your booking if you cannot attend.",
+      "label": "action"
+    },
+    {
+      "text": "Ask your guardian to approve the request.",
+      "label": "action"
+    },
+    {
+      "text": "Participants are required to attend the induction.",
+      "label": "action"
+    },
+    {
+      "text": "Please read the attached instructions carefully.",
+      "label": "action"
+    },
+    {
+      "text": "Book your appointment through the website.",
+      "label": "action"
+    },
+    {
+      "text": "Wait outside until your name is called.",
+      "label": "action"
+    },
+    {
+      "text": "You do not need to purchase a ticket.",
+      "label": "action"
+    },
+    {
+      "text": "If you need transport, tick the box on the form.",
+      "label": "action"
+    },
+    {
+      "text": "The application has to reach us before 4 pm.",
+      "label": "action"
+    },
+    {
+      "text": "Payment is due by 15 September.",
+      "label": "action"
+    },
+    {
+      "text": "Please do not send money by post.",
+      "label": "action"
+    },
+    {
+      "text": "Renew your library membership this month.",
+      "label": "action"
+    },
+    {
+      "text": "Upload a copy of your student identification.",
+      "label": "action"
+    },
+    {
+      "text": "Only registered volunteers may join the activity.",
+      "label": "action"
+    },
+    {
+      "text": "Please bring proof of address to the appointment.",
+      "label": "action"
+    },
+    {
+      "text": "Parents must collect children at 3 pm.",
+      "label": "action"
+    },
+    {
+      "text": "Let the office know if your child is absent.",
+      "label": "action"
+    },
+    {
+      "text": "All visitors must show their booking confirmation.",
+      "label": "action"
+    },
+    {
+      "text": "Do not share your account password with anyone.",
+      "label": "action"
+    },
+    {
+      "text": "Please return this reply slip even if you cannot attend.",
+      "label": "action"
+    },
+    {
+      "text": "The school trip will take place on 14 October.",
+      "label": "event"
+    },
+    {
+      "text": "The meeting begins at 6 pm in the main hall.",
+      "label": "event"
+    },
+    {
+      "text": "The library is open from 9 am until 5 pm.",
+      "label": "event"
+    },
+    {
+      "text": "The bus leaves the school at 8 am.",
+      "label": "event"
+    },
+    {
+      "text": "Children will return to school at 3 pm.",
+      "label": "event"
+    },
+    {
+      "text": "The workshop is scheduled for Saturday morning.",
+      "label": "event"
+    },
+    {
+      "text": "The event will be held at the community centre.",
+      "label": "event"
+    },
+    {
+      "text": "The office will be closed on Monday.",
+      "label": "event"
+    },
+    {
+      "text": "The session lasts for two hours.",
+      "label": "event"
+    },
+    {
+      "text": "Lunch will be provided at noon.",
+      "label": "event"
+    },
+    {
+      "text": "The venue is the sports centre on Bridge Street.",
+      "label": "event"
+    },
+    {
+      "text": "Doors open at 5 pm.",
+      "label": "event"
+    },
+    {
+      "text": "The coach departs from the east gate.",
+      "label": "event"
+    },
+    {
+      "text": "The activity costs ten dollars per student.",
+      "label": "event"
+    },
+    {
+      "text": "There are twenty places available.",
+      "label": "event"
+    },
+    {
+      "text": "The class meets every Tuesday.",
+      "label": "event"
+    },
+    {
+      "text": "The presentation will start at 10 am.",
+      "label": "event"
+    },
+    {
+      "text": "The fair runs from 12 to 14 June.",
+      "label": "event"
+    },
+    {
+      "text": "The collection point is outside the library.",
+      "label": "event"
+    },
+    {
+      "text": "The parent evening is on 2 November.",
+      "label": "event"
+    },
+    {
+      "text": "Lessons resume on 6 January.",
+      "label": "event"
+    },
+    {
+      "text": "The entrance is on the ground floor.",
+      "label": "event"
+    },
+    {
+      "text": "The information session is free of charge.",
+      "label": "event"
+    },
+    {
+      "text": "The play area is closed for repairs this week.",
+      "label": "event"
+    },
+    {
+      "text": "The visit includes a guided tour of the museum.",
+      "label": "event"
+    },
+    {
+      "text": "The afternoon session starts after lunch.",
+      "label": "event"
+    },
+    {
+      "text": "Transport is included in the cost.",
+      "label": "event"
+    },
+    {
+      "text": "The classroom is located upstairs.",
+      "label": "event"
+    },
+    {
+      "text": "Students will travel by bus.",
+      "label": "event"
+    },
+    {
+      "text": "The service operates during term time.",
+      "label": "event"
+    },
+    {
+      "text": "For questions, email the school office.",
+      "label": "contact"
+    },
+    {
+      "text": "Contact the coordinator if you need help.",
+      "label": "contact"
+    },
+    {
+      "text": "Call reception on 555 0123 for further information.",
+      "label": "contact"
+    },
+    {
+      "text": "If you have questions, speak to your teacher.",
+      "label": "contact"
+    },
+    {
+      "text": "Please contact the office about accessibility needs.",
+      "label": "contact"
+    },
+    {
+      "text": "For more details, visit our website.",
+      "label": "contact"
+    },
+    {
+      "text": "Questions can be sent to events@example.org.",
+      "label": "contact"
+    },
+    {
+      "text": "Our help desk can assist with registration.",
+      "label": "contact"
+    },
+    {
+      "text": "The school office can be reached at office@example.org.",
+      "label": "contact"
+    },
+    {
+      "text": "Contact Ms Lee to discuss travel arrangements.",
+      "label": "contact"
+    },
+    {
+      "text": "You can ask the community team for support.",
+      "label": "contact"
+    },
+    {
+      "text": "For enquiries, telephone the library.",
+      "label": "contact"
+    },
+    {
+      "text": "The coordinator is available to answer questions.",
+      "label": "contact"
+    },
+    {
+      "text": "If you need an interpreter, contact reception.",
+      "label": "contact"
+    },
+    {
+      "text": "Further information is available from the centre manager.",
+      "label": "contact"
+    },
+    {
+      "text": "Email help@example.org if the form does not work.",
+      "label": "contact"
+    },
+    {
+      "text": "Speak to the duty supervisor for assistance.",
+      "label": "contact"
+    },
+    {
+      "text": "Get in touch with the volunteers team.",
+      "label": "contact"
+    },
+    {
+      "text": "Call us if you are unsure which session to choose.",
+      "label": "contact"
+    },
+    {
+      "text": "The contact person for this event is Mr Patel.",
+      "label": "contact"
+    },
+    {
+      "text": "Visit the school website for frequently asked questions.",
+      "label": "contact"
+    },
+    {
+      "text": "Write to the office if you need a paper copy.",
+      "label": "contact"
+    },
+    {
+      "text": "For advice about the timetable, ask the administrator.",
+      "label": "contact"
+    },
+    {
+      "text": "If you need help completing the form, call the centre.",
+      "label": "contact"
+    },
+    {
+      "text": "Enquiries should be directed to the reception desk.",
+      "label": "contact"
+    },
+    {
+      "text": "The bookings team handles questions about places.",
+      "label": "contact"
+    },
+    {
+      "text": "Support is available by telephone during office hours.",
+      "label": "contact"
+    },
+    {
+      "text": "Reach out to our team for more information.",
+      "label": "contact"
+    },
+    {
+      "text": "For transport enquiries contact the trip leader.",
+      "label": "contact"
+    },
+    {
+      "text": "Our email address is community@example.org.",
+      "label": "contact"
+    },
+    {
+      "text": "We are pleased to announce a new community programme.",
+      "label": "background"
+    },
+    {
+      "text": "Thank you for your continued support.",
+      "label": "background"
+    },
+    {
+      "text": "This project aims to help young people learn together.",
+      "label": "background"
+    },
+    {
+      "text": "We look forward to welcoming everyone.",
+      "label": "background"
+    },
+    {
+      "text": "The school values cooperation and kindness.",
+      "label": "background"
+    },
+    {
+      "text": "This notice contains information about the upcoming term.",
+      "label": "background"
+    },
+    {
+      "text": "We hope you enjoyed the recent festival.",
+      "label": "background"
+    },
+    {
+      "text": "The programme has been running for five years.",
+      "label": "background"
+    },
+    {
+      "text": "Our volunteers make a valuable contribution.",
+      "label": "background"
+    },
+    {
+      "text": "The students have worked hard this term.",
+      "label": "background"
+    },
+    {
+      "text": "We appreciate your patience during the repairs.",
+      "label": "background"
+    },
+    {
+      "text": "This is an opportunity to meet other families.",
+      "label": "background"
+    },
+    {
+      "text": "Learning outside the classroom is important to us.",
+      "label": "background"
+    },
+    {
+      "text": "The event celebrates local culture and history.",
+      "label": "background"
+    },
+    {
+      "text": "We are proud of the achievements of our community.",
+      "label": "background"
+    },
+    {
+      "text": "This letter is for the parents of students in Year Six.",
+      "label": "background"
+    },
+    {
+      "text": "The activity is designed for beginners.",
+      "label": "background"
+    },
+    {
+      "text": "The previous workshop was very well attended.",
+      "label": "background"
+    },
+    {
+      "text": "Our team is committed to improving the service.",
+      "label": "background"
+    },
+    {
+      "text": "This message replaces the earlier announcement.",
+      "label": "background"
+    },
+    {
+      "text": "We apologise for the inconvenience.",
+      "label": "background"
+    },
+    {
+      "text": "The centre received a generous donation.",
+      "label": "background"
+    },
+    {
+      "text": "The club provides a friendly space for young people.",
+      "label": "background"
+    },
+    {
+      "text": "Dear parents and carers.",
+      "label": "background"
+    },
+    {
+      "text": "Best wishes from the school team.",
+      "label": "background"
+    },
+    {
+      "text": "Everyone is welcome at our community events.",
+      "label": "background"
+    },
+    {
+      "text": "The newsletter shares news from the last month.",
+      "label": "background"
+    },
+    {
+      "text": "We encourage families to take an interest in the programme.",
+      "label": "background"
+    },
+    {
+      "text": "The project supports environmental awareness.",
+      "label": "background"
+    },
+    {
+      "text": "The children enjoyed their visit last year.",
+      "label": "background"
+    },
+    {
+      "text": "Please submit your consent form by 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "The consent form must arrive before 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your consent form by 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "The consent form must arrive before 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your consent form by Friday.",
+      "label": "action"
+    },
+    {
+      "text": "The consent form must arrive before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your consent form by tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "The consent form must arrive before tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your consent form by next week.",
+      "label": "action"
+    },
+    {
+      "text": "The consent form must arrive before next week.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your reply slip by 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "The reply slip must arrive before 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your reply slip by 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "The reply slip must arrive before 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your reply slip by Friday.",
+      "label": "action"
+    },
+    {
+      "text": "The reply slip must arrive before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your reply slip by tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "The reply slip must arrive before tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your reply slip by next week.",
+      "label": "action"
+    },
+    {
+      "text": "The reply slip must arrive before next week.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your application by 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "The application must arrive before 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your application by 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "The application must arrive before 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your application by Friday.",
+      "label": "action"
+    },
+    {
+      "text": "The application must arrive before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your application by tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "The application must arrive before tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your application by next week.",
+      "label": "action"
+    },
+    {
+      "text": "The application must arrive before next week.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your registration form by 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "The registration form must arrive before 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your registration form by 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "The registration form must arrive before 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your registration form by Friday.",
+      "label": "action"
+    },
+    {
+      "text": "The registration form must arrive before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your registration form by tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "The registration form must arrive before tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your registration form by next week.",
+      "label": "action"
+    },
+    {
+      "text": "The registration form must arrive before next week.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your payment by 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "The payment must arrive before 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your payment by 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "The payment must arrive before 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your payment by Friday.",
+      "label": "action"
+    },
+    {
+      "text": "The payment must arrive before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your payment by tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "The payment must arrive before tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your payment by next week.",
+      "label": "action"
+    },
+    {
+      "text": "The payment must arrive before next week.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your booking request by 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "The booking request must arrive before 9 October.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your booking request by 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "The booking request must arrive before 12 March.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your booking request by Friday.",
+      "label": "action"
+    },
+    {
+      "text": "The booking request must arrive before Friday.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your booking request by tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "The booking request must arrive before tomorrow.",
+      "label": "action"
+    },
+    {
+      "text": "Please submit your booking request by next week.",
+      "label": "action"
+    },
+    {
+      "text": "The booking request must arrive before next week.",
+      "label": "action"
+    },
+    {
+      "text": "The workshop takes place at the main hall.",
+      "label": "event"
+    },
+    {
+      "text": "The workshop begins at 10 am.",
+      "label": "event"
+    },
+    {
+      "text": "The workshop takes place at the library.",
+      "label": "event"
+    },
+    {
+      "text": "The workshop takes place at the community centre.",
+      "label": "event"
+    },
+    {
+      "text": "The workshop takes place at the sports building.",
+      "label": "event"
+    },
+    {
+      "text": "The parent meeting takes place at the main hall.",
+      "label": "event"
+    },
+    {
+      "text": "The parent meeting begins at 10 am.",
+      "label": "event"
+    },
+    {
+      "text": "The parent meeting takes place at the library.",
+      "label": "event"
+    },
+    {
+      "text": "The parent meeting takes place at the community centre.",
+      "label": "event"
+    },
+    {
+      "text": "The parent meeting takes place at the sports building.",
+      "label": "event"
+    },
+    {
+      "text": "The club session takes place at the main hall.",
+      "label": "event"
+    },
+    {
+      "text": "The club session begins at 10 am.",
+      "label": "event"
+    },
+    {
+      "text": "The club session takes place at the library.",
+      "label": "event"
+    },
+    {
+      "text": "The club session takes place at the community centre.",
+      "label": "event"
+    },
+    {
+      "text": "The club session takes place at the sports building.",
+      "label": "event"
+    },
+    {
+      "text": "The school visit takes place at the main hall.",
+      "label": "event"
+    },
+    {
+      "text": "The school visit begins at 10 am.",
+      "label": "event"
+    },
+    {
+      "text": "The school visit takes place at the library.",
+      "label": "event"
+    },
+    {
+      "text": "The school visit takes place at the community centre.",
+      "label": "event"
+    },
+    {
+      "text": "The school visit takes place at the sports building.",
+      "label": "event"
+    },
+    {
+      "text": "The community fair takes place at the main hall.",
+      "label": "event"
+    },
+    {
+      "text": "The community fair begins at 10 am.",
+      "label": "event"
+    },
+    {
+      "text": "The community fair takes place at the library.",
+      "label": "event"
+    },
+    {
+      "text": "The community fair takes place at the community centre.",
+      "label": "event"
+    },
+    {
+      "text": "The community fair takes place at the sports building.",
+      "label": "event"
+    },
+    {
+      "text": "For questions about booking, contact the teacher.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about transport, contact the teacher.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about forms, contact the teacher.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about accessibility, contact the teacher.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about booking, contact the coordinator.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about transport, contact the coordinator.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about forms, contact the coordinator.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about accessibility, contact the coordinator.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about booking, contact the receptionist.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about transport, contact the receptionist.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about forms, contact the receptionist.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about accessibility, contact the receptionist.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about booking, contact the club leader.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about transport, contact the club leader.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about forms, contact the club leader.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about accessibility, contact the club leader.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about booking, contact the office team.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about transport, contact the office team.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about forms, contact the office team.",
+      "label": "contact"
+    },
+    {
+      "text": "For questions about accessibility, contact the office team.",
+      "label": "contact"
+    }
+  ],
+  "holdout": [
+    {
+      "text": "Hand your completed reply to the front desk by Thursday.",
+      "label": "action"
+    },
+    {
+      "text": "Reserve a seat using the online booking page.",
+      "label": "action"
+    },
+    {
+      "text": "You will need to carry a refillable water bottle.",
+      "label": "action"
+    },
+    {
+      "text": "Do not pay the driver directly.",
+      "label": "action"
+    },
+    {
+      "text": "Make your selection before the end of the week.",
+      "label": "action"
+    },
+    {
+      "text": "The final date to send your response is 23 August.",
+      "label": "action"
+    },
+    {
+      "text": "Tell reception if you require a large print letter.",
+      "label": "action"
+    },
+    {
+      "text": "Ensure that the consent section has been signed.",
+      "label": "action"
+    },
+    {
+      "text": "Everyone attending must bring their membership card.",
+      "label": "action"
+    },
+    {
+      "text": "Bookings are required by 17 November at 4 pm.",
+      "label": "action"
+    },
+    {
+      "text": "If your child is participating, return the enclosed slip.",
+      "label": "action"
+    },
+    {
+      "text": "You do not have to buy any materials.",
+      "label": "action"
+    },
+    {
+      "text": "The outing is scheduled for 21 October at 9 am.",
+      "label": "event"
+    },
+    {
+      "text": "Our doors will reopen on 3 February.",
+      "label": "event"
+    },
+    {
+      "text": "Families will meet in the assembly room.",
+      "label": "event"
+    },
+    {
+      "text": "The minibus returns at half past four.",
+      "label": "event"
+    },
+    {
+      "text": "The morning session is ninety minutes long.",
+      "label": "event"
+    },
+    {
+      "text": "Tickets cost eight pounds each.",
+      "label": "event"
+    },
+    {
+      "text": "The centre shuts at 7 pm on weekdays.",
+      "label": "event"
+    },
+    {
+      "text": "The rehearsal happens in the theatre.",
+      "label": "event"
+    },
+    {
+      "text": "The annual celebration takes place in the park.",
+      "label": "event"
+    },
+    {
+      "text": "The appointment is at 2 pm on Wednesday.",
+      "label": "event"
+    },
+    {
+      "text": "The meal is included in the price.",
+      "label": "event"
+    },
+    {
+      "text": "The venue has a step free entrance.",
+      "label": "event"
+    },
+    {
+      "text": "If anything is unclear, speak with the head of year.",
+      "label": "contact"
+    },
+    {
+      "text": "For assistance with your booking, ring the help line.",
+      "label": "contact"
+    },
+    {
+      "text": "Address any questions to the programme organiser.",
+      "label": "contact"
+    },
+    {
+      "text": "The duty librarian can answer your questions.",
+      "label": "contact"
+    },
+    {
+      "text": "Email trips@example.org to discuss individual needs.",
+      "label": "contact"
+    },
+    {
+      "text": "The accessibility team can help arrange an interpreter.",
+      "label": "contact"
+    },
+    {
+      "text": "You can find additional details on our information page.",
+      "label": "contact"
+    },
+    {
+      "text": "If you are unsure, call the front desk.",
+      "label": "contact"
+    },
+    {
+      "text": "Please ask the supervisor about alternative travel options.",
+      "label": "contact"
+    },
+    {
+      "text": "For queries about the fee, contact accounts.",
+      "label": "contact"
+    },
+    {
+      "text": "Our team answers enquiries by email.",
+      "label": "contact"
+    },
+    {
+      "text": "The support office is available to explain the process.",
+      "label": "contact"
+    },
+    {
+      "text": "We are delighted by the success of last year's activities.",
+      "label": "background"
+    },
+    {
+      "text": "The scheme builds connections between neighbours.",
+      "label": "background"
+    },
+    {
+      "text": "Many thanks for helping our school community.",
+      "label": "background"
+    },
+    {
+      "text": "Our mission is to make learning accessible to everyone.",
+      "label": "background"
+    },
+    {
+      "text": "This circular outlines the arrangements for the new term.",
+      "label": "background"
+    },
+    {
+      "text": "The organisers are grateful for the support of families.",
+      "label": "background"
+    },
+    {
+      "text": "We hope the children have an enjoyable experience.",
+      "label": "background"
+    },
+    {
+      "text": "The new initiative encourages creative thinking.",
+      "label": "background"
+    },
+    {
+      "text": "We have received positive feedback from residents.",
+      "label": "background"
+    },
+    {
+      "text": "Dear members of the community.",
+      "label": "background"
+    },
+    {
+      "text": "Kind regards from the library team.",
+      "label": "background"
+    },
+    {
+      "text": "The programme was established in 2021.",
+      "label": "background"
+    }
+  ]
+}

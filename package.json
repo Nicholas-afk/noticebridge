@@ -1,0 +1,1 @@
+{"name":"noticebridge","version":"1.0.0","private":true,"type":"module","description":"Local machine-learning action cards grounded in notice evidence","scripts":{"test":"node test.mjs","serve":"python3 -m http.server 4173 --bind 127.0.0.1 --directory dist","train":"python3 train.py"}}
