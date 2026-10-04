@@ -71,7 +71,7 @@ Only local assets are requested by the application. The hosting provider receive
 
 The interface uses visible labels, semantic headings, keyboard-accessible controls, a skip link, live result announcements, source highlighting, a single-column small-screen layout and reduced complexity. The direction is informed by [W3C cognitive accessibility guidance on clear step-by-step instructions](https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p07-step-instructions/).
 
-No accessibility certification or user study is claimed. Browser functional checks passed; automated screenshot capture and responsive viewport override were unavailable in the Codex browser session, so visual/mobile QA remains unverified.
+No accessibility certification or user study is claimed. Browser functional checks passed, and an actual screenshot of the live application was reviewed at a 694-pixel viewport. Phone-width overrides did not take effect, so phone layout and screen-reader QA remain unverified. The screenshot is in `media/noticebridge-live-demo.jpg`.
 
 ## Limitations and next work
 
