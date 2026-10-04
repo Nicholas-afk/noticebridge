@@ -6,7 +6,9 @@ NoticeBridge helps readers find what they need to do, when it is due and which d
 
 ## Try it
 
-Open the live demo linked on the Devpost project, or serve the `dist` directory locally:
+**[Open the public demo](https://nicholas-afk.github.io/noticebridge/)** · **[Devpost project](https://devpost.com/software/noticebridge)**
+
+Choose **School trip** for a complete example. You can also serve the `dist` directory locally:
 
 ```sh
 python3 -m http.server 48137 --bind 127.0.0.1 --directory dist
