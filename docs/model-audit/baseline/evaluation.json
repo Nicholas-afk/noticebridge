@@ -1,0 +1,367 @@
+{
+  "training_examples": 245,
+  "holdout_examples": 48,
+  "accuracy": 0.9166666666666666,
+  "classes": [
+    "action",
+    "background",
+    "contact",
+    "event"
+  ],
+  "classification_report": {
+    "action": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.9090909090909091,
+      "support": 12.0
+    },
+    "background": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.9090909090909091,
+      "support": 12.0
+    },
+    "contact": {
+      "precision": 0.9230769230769231,
+      "recall": 1.0,
+      "f1-score": 0.96,
+      "support": 12.0
+    },
+    "event": {
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1-score": 0.8888888888888888,
+      "support": 12.0
+    },
+    "accuracy": 0.9166666666666666,
+    "macro avg": {
+      "precision": 0.9307692307692308,
+      "recall": 0.9166666666666667,
+      "f1-score": 0.9167676767676768,
+      "support": 48.0
+    },
+    "weighted avg": {
+      "precision": 0.9307692307692309,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9167676767676767,
+      "support": 48.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      10,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      10,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      12,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      12
+    ]
+  ],
+  "limitations": "Authored synthetic examples only; one small held-out benchmark; no real-world user study, no calibrated confidence, English only.",
+  "predictions": [
+    {
+      "text": "Hand your completed reply to the front desk by Thursday.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.5884284523012409
+    },
+    {
+      "text": "Reserve a seat using the online booking page.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.44679843421126847
+    },
+    {
+      "text": "You will need to carry a refillable water bottle.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.4103411065654565
+    },
+    {
+      "text": "Do not pay the driver directly.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.6724882330818308
+    },
+    {
+      "text": "Make your selection before the end of the week.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.6026061813441225
+    },
+    {
+      "text": "The final date to send your response is 23 August.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.44948531660868235
+    },
+    {
+      "text": "Tell reception if you require a large print letter.",
+      "label": "action",
+      "prediction": "contact",
+      "score": 0.5715745976878682
+    },
+    {
+      "text": "Ensure that the consent section has been signed.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.3767121756386575
+    },
+    {
+      "text": "Everyone attending must bring their membership card.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.6173689889879581
+    },
+    {
+      "text": "Bookings are required by 17 November at 4 pm.",
+      "label": "action",
+      "prediction": "event",
+      "score": 0.45719759252659764
+    },
+    {
+      "text": "If your child is participating, return the enclosed slip.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.7121294568849552
+    },
+    {
+      "text": "You do not have to buy any materials.",
+      "label": "action",
+      "prediction": "action",
+      "score": 0.5763074355043721
+    },
+    {
+      "text": "The outing is scheduled for 21 October at 9 am.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.793746768185584
+    },
+    {
+      "text": "Our doors will reopen on 3 February.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.5726756560790849
+    },
+    {
+      "text": "Families will meet in the assembly room.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.4658770595097301
+    },
+    {
+      "text": "The minibus returns at half past four.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.8729160258424007
+    },
+    {
+      "text": "The morning session is ninety minutes long.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.612782951071039
+    },
+    {
+      "text": "Tickets cost eight pounds each.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.3530127888442382
+    },
+    {
+      "text": "The centre shuts at 7 pm on weekdays.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.7284350624434728
+    },
+    {
+      "text": "The rehearsal happens in the theatre.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.4641222893265511
+    },
+    {
+      "text": "The annual celebration takes place in the park.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.7912625051705248
+    },
+    {
+      "text": "The appointment is at 2 pm on Wednesday.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.7041848757709966
+    },
+    {
+      "text": "The meal is included in the price.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.6404692386900935
+    },
+    {
+      "text": "The venue has a step free entrance.",
+      "label": "event",
+      "prediction": "event",
+      "score": 0.4023793120256561
+    },
+    {
+      "text": "If anything is unclear, speak with the head of year.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.3809674456342069
+    },
+    {
+      "text": "For assistance with your booking, ring the help line.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.4693187112239966
+    },
+    {
+      "text": "Address any questions to the programme organiser.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.4013503706001628
+    },
+    {
+      "text": "The duty librarian can answer your questions.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.573581494288623
+    },
+    {
+      "text": "Email trips@example.org to discuss individual needs.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.7486556706064625
+    },
+    {
+      "text": "The accessibility team can help arrange an interpreter.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.6033416106809908
+    },
+    {
+      "text": "You can find additional details on our information page.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.5488150814658246
+    },
+    {
+      "text": "If you are unsure, call the front desk.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.6834590574296306
+    },
+    {
+      "text": "Please ask the supervisor about alternative travel options.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.5190030344361285
+    },
+    {
+      "text": "For queries about the fee, contact accounts.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.6028461786342871
+    },
+    {
+      "text": "Our team answers enquiries by email.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.5953838802136067
+    },
+    {
+      "text": "The support office is available to explain the process.",
+      "label": "contact",
+      "prediction": "contact",
+      "score": 0.6586902320697057
+    },
+    {
+      "text": "We are delighted by the success of last year's activities.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.8231093906051659
+    },
+    {
+      "text": "The scheme builds connections between neighbours.",
+      "label": "background",
+      "prediction": "event",
+      "score": 0.6181744940376807
+    },
+    {
+      "text": "Many thanks for helping our school community.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.4257997815572972
+    },
+    {
+      "text": "Our mission is to make learning accessible to everyone.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.6956784769977847
+    },
+    {
+      "text": "This circular outlines the arrangements for the new term.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.5993251999603183
+    },
+    {
+      "text": "The organisers are grateful for the support of families.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.5740385795642925
+    },
+    {
+      "text": "We hope the children have an enjoyable experience.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.7809268423349878
+    },
+    {
+      "text": "The new initiative encourages creative thinking.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.3712830919429205
+    },
+    {
+      "text": "We have received positive feedback from residents.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.7753069064498685
+    },
+    {
+      "text": "Dear members of the community.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.3781573857743445
+    },
+    {
+      "text": "Kind regards from the library team.",
+      "label": "background",
+      "prediction": "event",
+      "score": 0.34591397878677
+    },
+    {
+      "text": "The programme was established in 2021.",
+      "label": "background",
+      "prediction": "background",
+      "score": 0.6524940988768009
+    }
+  ]
+}
