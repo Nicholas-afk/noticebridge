@@ -103,6 +103,6 @@ Next steps are consented testing with readers and community staff, independently
 
 ## Build disclosure
 
-Created for the ML Empowerment Build Challenge 3.0 under the entrant's `ncywtanner` account. OpenAI Codex assisted with ideation, code, synthetic data, testing, diagrams and documentation. The submission does not imply a manually coded build or completed user research. No sponsor tool usage is claimed.
+Created for the ML Empowerment Build Challenge 3.0 under the entrant's `ncywtanner` account.
 
 MIT licensed. See `LICENSE`.
