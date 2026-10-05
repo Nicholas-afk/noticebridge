@@ -31,10 +31,10 @@
 
 **Interfaces:** `dateSuggestions(card)` returns `{date,source}[]`; `buildCalendar(result, entries, {now, uidPrefix})` returns an ICS string, with entries `{id,date,confirmed}`; `buildQuestions(result)` returns a source-linked draft string.
 
-- [ ] Write tests with literal expected dates, calendar properties, byte limits and question excerpts. Run and observe missing-feature failure.
-- [ ] Implement conservative helpers. Calendar validates entries and serializes escaped, folded text.
-- [ ] Run follow-up tests and the full existing suite. Add new module fingerprinting to prepare.mjs.
-- [ ] Commit the helpers and tests.
+- [x] Write tests with literal expected dates, calendar properties, byte limits and question excerpts. Run and observe missing-feature failure.
+- [x] Implement conservative helpers. Calendar validates entries and serializes escaped, folded text.
+- [x] Run follow-up tests and the full existing suite. Add new module fingerprinting to prepare.mjs.
+- [x] Commit the helpers and tests.
 
 ### Task 2: Next steps interaction
 
@@ -42,16 +42,16 @@
 
 **Interfaces:** consume Task 1 helpers; saved entries live in a Map, draft in the visible textarea. `isStale()` gates all mutation and export controls.
 
-- [ ] Browser probe current UI: Next steps absent (expected missing feature).
-- [ ] Add labeled date and confirmation controls, saved counts, calendar download and editable question draft download. Clear/refresh reset the state; changing a reminder date withdraws confirmation.
-- [ ] Verify browser school-trip date suggestion, explicit confirmation, edit-withdrawal, missing-date blank, source edit gates, view-switch preservation, Clear and refresh. Build and full suite must pass.
-- [ ] Commit the interface.
+- [x] Browser probe current UI: Next steps absent (expected missing feature).
+- [x] Add labeled date and confirmation controls, saved counts, calendar download and editable question draft download. Clear/refresh reset the state; changing a reminder date withdraws confirmation.
+- [x] Verify browser school-trip date suggestion, explicit confirmation, edit-withdrawal, missing-date blank, source edit gates, view-switch preservation, Clear and refresh. Build and full suite must pass.
+- [x] Commit the interface.
 
 ### Task 3: Review, release and submission draft
 
 **Files:** README.md, SUBMISSION.md, media/noticebridge-live-demo.jpg; outputs status and source archive
 
-- [ ] Obtain an independent whole-change review; fix important findings with regression tests.
-- [ ] Update accurate capability descriptions and verification limits.
-- [ ] Integrate verified commits into main; publish dist to gh-pages. Verify build success and live Next steps flow.
-- [ ] Save a real interface screenshot, update Devpost description and gallery, verify saved draft. Leave final agreement and prize submission for the user.
+- [x] Obtain an independent whole-change review; fix important findings with regression tests.
+- [x] Update accurate capability descriptions and verification limits.
+- [x] Integrate verified commits into main; publish dist to gh-pages. Verify build success and live Next steps flow.
+- [x] Save a real interface screenshot, update Devpost description and gallery, verify saved draft. Leave final agreement and prize submission for the user.
