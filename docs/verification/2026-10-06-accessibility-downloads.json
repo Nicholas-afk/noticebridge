@@ -1,0 +1,39 @@
+{
+  "parser": "icalendar 6.3.2",
+  "actual_downloads": [
+    "noticebridge-plan (4).txt",
+    "noticebridge-questions (2).txt",
+    "noticebridge-reminders (2).ics",
+    "noticebridge-reminders (3).ics"
+  ],
+  "checklist_source_review_and_confirmed_date": true,
+  "edited_questions_byte_equal": true,
+  "repeated_calendar_uid_equal": true,
+  "calendars": [
+    {
+      "filename": "noticebridge-reminders (2).ics",
+      "bytes": 722,
+      "sha256": "94a5734cd73e87b38d405aebf98629491f6b9c800a62ddd7961ae3a2682b3dfa",
+      "events": 1,
+      "start": "2026-10-09",
+      "exclusive_end": "2026-10-10",
+      "all_day": true,
+      "alarm": false,
+      "TZID": false,
+      "parse_errors": []
+    },
+    {
+      "filename": "noticebridge-reminders (3).ics",
+      "bytes": 722,
+      "sha256": "94a5734cd73e87b38d405aebf98629491f6b9c800a62ddd7961ae3a2682b3dfa",
+      "events": 1,
+      "start": "2026-10-09",
+      "exclusive_end": "2026-10-10",
+      "all_day": true,
+      "alarm": false,
+      "TZID": false,
+      "parse_errors": []
+    }
+  ],
+  "calendar_client_import": "not performed; independent parser compatibility only"
+}

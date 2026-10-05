@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NoticeBridge//Source-linked reminders//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:0b4f4206-9709-43f8-bb0b-75afaea06e65-0@noticebridge.local
+DTSTAMP:20261005T182705Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:NoticeBridge: Please return the signed form by 9 October 2026.
+DESCRIPTION:Original sentence 1:\nPlease return the signed form by 9 Octobe
+ r 2026.\n\nReminder date confirmed by the reader: 2026-10-09. This is an a
+ ll-day reminder\, not an inferred event time.\n\n\nCheck the complete noti
+ ce before acting. NoticeBridge can miss instructions.
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

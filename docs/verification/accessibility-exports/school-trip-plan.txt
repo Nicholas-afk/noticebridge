@@ -1,0 +1,42 @@
+NOTICEBRIDGE — ACTION PLAN
+
+Reference date: 2026-10-05
+
+Review the original notice before acting. This prototype may miss or misclassify instructions.
+
+[x] 1. Please return the signed consent form to your teacher by 9 October 2026.
+    Category: action
+
+[ ] 2. Pay the $12 trip fee through the school portal by 9 October 2026.
+    Category: action
+
+[ ] 3. Bring a packed lunch and a bottle of water.
+    Category: action
+    Check: No date is stated in this instruction. Check the rest of the notice.
+
+[ ] 4. Do not bring cash on the day of the visit.
+    Category: action
+    Check: No date is stated in this instruction. Check the rest of the notice.
+
+[ ] 5. Our Year 6 museum visit will take place on 14 October 2026.
+    Category: event
+
+[ ] 6. The bus leaves school at 9 am and returns at 3 pm.
+    Category: event
+
+[ ] 7. For questions or accessibility needs, email trips@example.org.
+    Category: contact
+
+READER-CONFIRMED ALL-DAY REMINDERS
+2026-10-09: Please return the signed consent form to your teacher by 9 October 2026.
+
+ORIGINAL NOTICE
+Dear parents and carers,
+
+Our Year 6 museum visit will take place on 14 October 2026. The bus leaves school at 9 am and returns at 3 pm.
+
+Please return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.
+
+For questions or accessibility needs, email trips@example.org.
+
+Thank you for your support.

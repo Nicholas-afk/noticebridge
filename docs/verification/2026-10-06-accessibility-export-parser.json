@@ -1,0 +1,78 @@
+{
+  "parser": "icalendar 6.3.2",
+  "calendars": [
+    {
+      "fixture": "school-trip.ics",
+      "bytes": 722,
+      "sha256": "94a5734cd73e87b38d405aebf98629491f6b9c800a62ddd7961ae3a2682b3dfa",
+      "dates": [
+        [
+          "2026-10-09",
+          "2026-10-10"
+        ]
+      ],
+      "parse_errors": [],
+      "all_day": true,
+      "alarm": false,
+      "TZID": false,
+      "max_line_bytes": 75
+    },
+    {
+      "fixture": "school-trip-repeat.ics",
+      "bytes": 722,
+      "sha256": "94a5734cd73e87b38d405aebf98629491f6b9c800a62ddd7961ae3a2682b3dfa",
+      "dates": [
+        [
+          "2026-10-09",
+          "2026-10-10"
+        ]
+      ],
+      "parse_errors": [],
+      "all_day": true,
+      "alarm": false,
+      "TZID": false,
+      "max_line_bytes": 75
+    },
+    {
+      "fixture": "escaping-boundaries.ics",
+      "bytes": 1433,
+      "sha256": "bebb81cca6829d44258e4f77e707e32dd2c6357b473de61635f920278acad9f6",
+      "dates": [
+        [
+          "2026-12-31",
+          "2027-01-01"
+        ],
+        [
+          "2028-02-29",
+          "2028-03-01"
+        ]
+      ],
+      "parse_errors": [],
+      "all_day": true,
+      "alarm": false,
+      "TZID": false,
+      "max_line_bytes": 75
+    },
+    {
+      "fixture": "server-stopped.ics",
+      "bytes": 668,
+      "sha256": "8a89ff08db2f8b0f2c7128b179149fe86cd362f5b2925c1463f6ad19c69c593e",
+      "dates": [
+        [
+          "2026-10-09",
+          "2026-10-10"
+        ]
+      ],
+      "parse_errors": [],
+      "all_day": true,
+      "alarm": false,
+      "TZID": false,
+      "max_line_bytes": 75
+    }
+  ],
+  "source_round_trip_with_punctuation_and_unicode": true,
+  "questions_byte_equal_to_reader_edits": true,
+  "checklist_retains_original_notice_and_review_progress": true,
+  "repeated_export_uid_equal": true,
+  "calendar_client_import": "not performed; parser compatibility only"
+}

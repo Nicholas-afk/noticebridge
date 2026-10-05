@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NoticeBridge//Source-linked reminders//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:a0f89fc8-cb28-4e2b-bab5-8bd8a21ebb28-0@noticebridge.local
+DTSTAMP:20261005T182511Z
+DTSTART;VALUE=DATE:20261231
+DTEND;VALUE=DATE:20270101
+SUMMARY:NoticeBridge: Please bring the signed form\, code A\;B\\C\, and the
+  café receipt with 香港確認書 Please
+DESCRIPTION:Original sentence 1:\nPlease bring the signed form\, code A\;B\
+ \C\, and the café receipt with 香港確認書 Please bring the signed fo
+ rm\, code A\;B\\C\, and the café receipt with 香港確認書 by 31 Decem
+ ber 2026 at 10 am.\n\nReminder date confirmed by the reader: 2026-12-31. T
+ his is an all-day reminder\, not an inferred event time.\n\n\nCheck the co
+ mplete notice before acting. NoticeBridge can miss instructions.
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:a0f89fc8-cb28-4e2b-bab5-8bd8a21ebb28-1@noticebridge.local
+DTSTAMP:20261005T182511Z
+DTSTART;VALUE=DATE:20280229
+DTEND;VALUE=DATE:20280301
+SUMMARY:NoticeBridge: Please pay the workshop fee by 29 February 2028.
+DESCRIPTION:Original sentence 2:\nPlease pay the workshop fee by 29 Februar
+ y 2028.\n\nReminder date confirmed by the reader: 2028-02-29. This is an a
+ ll-day reminder\, not an inferred event time.\n\n\nCheck the complete noti
+ ce before acting. NoticeBridge can miss instructions.
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
