@@ -37,7 +37,7 @@ const YEAR_LIST=`\\d{4}\\b(?:${DAY_SEPARATOR}\\d{4}\\b)*`;
 const ISO_DATE='\\d{4}-\\d{2}-\\d{2}\\b';
 // A shortened endpoint must end like a date. Do not consume the day of a
 // following named date, a clock time, or a number-led statement.
-const SHORT_DAY=`(?!${DAY_LIST}\\s+${MONTH_TOKEN})${DAY}(?=$|[,.!?;)]|${DAY_SEPARATOR}(?:${ISO_DATE}|${DAY})|\\s+(?:at|by|on|with|before|after)\\b)`;
+const SHORT_DAY=`(?!${DAY}[,.]\\d)(?!${DAY_LIST}\\s+${MONTH_TOKEN})${DAY}(?=$|[,.!?;)]|${DAY_SEPARATOR}(?:${ISO_DATE}|${DAY})|\\s+(?:at|by|on|with|before|after)\\b)`;
 const SHORT_TAIL=`(?:${DAY_SEPARATOR}${SHORT_DAY})*`;
 const NAMED_DATE=`(?:${DAY_LIST}\\s+${MONTH_TOKEN}(?:,?\\s+${YEAR_LIST})?|${MONTH_TOKEN}\\s+${DAY_LIST}(?:,?\\s+${YEAR_LIST})?)`;
 const ISO_LIST=`${ISO_DATE}(?:${DAY_SEPARATOR}(?:${ISO_DATE}|${SHORT_DAY}))*`;
