@@ -34,10 +34,67 @@ const DAY='\\d{1,2}(?:st|nd|rd|th)?\\b';
 const DAY_SEPARATOR='(?:\\s*[-–—&/]\\s*|\\s+(?:to|through|until|till|and/or|and|or)\\s+|\\s*,\\s*(?:(?:and/or|and|or|&)\\s+)?)';
 const DAY_LIST=`${DAY}(?:${DAY_SEPARATOR}${DAY})*`;
 const YEAR_LIST=`\\d{4}\\b(?:${DAY_SEPARATOR}\\d{4}\\b)*`;
-const DATE_RE=new RegExp(`\\b(?:${DAY_LIST}\\s+${MONTH_TOKEN}(?:,?\\s+${YEAR_LIST})?|${MONTH_TOKEN}\\s+${DAY_LIST}(?:,?\\s+${YEAR_LIST})?|\\d{4}-\\d{2}-\\d{2}\\b|\\d{1,2}[/-]\\d{1,2}(?:[/-]\\d{2,4})?\\b|(?:next\\s+|this\\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b|today\\b|tomorrow\\b|next week\\b|within\\s+\\d+\\s+days?\\b)`,'gi');
+const ISO_DATE='\\d{4}-\\d{2}-\\d{2}\\b';
+const ISO_LIST=`${ISO_DATE}(?:${DAY_SEPARATOR}(?:${ISO_DATE}|${DAY}))*`;
+const DATE_RE=new RegExp(`\\b(?:${DAY_LIST}\\s+${MONTH_TOKEN}(?:,?\\s+${YEAR_LIST})?|${MONTH_TOKEN}\\s+${DAY_LIST}(?:,?\\s+${YEAR_LIST})?|${ISO_LIST}|\\d{1,2}[/-]\\d{1,2}(?:[/-]\\d{2,4})?\\b|(?:next\\s+|this\\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b|today\\b|tomorrow\\b|next week\\b|within\\s+\\d+\\s+days?\\b)`,'gi');
 const NAMED_MONTH_RE=new RegExp(`\\b(?:${MONTHS})\\b`,'i');
-const GROUPED_DAY_RE=new RegExp(`\\b${DAY}${DAY_SEPARATOR}${DAY}`,'i');
-const GROUPED_YEAR_RE=new RegExp(`\\b\\d{4}\\b${DAY_SEPARATOR}\\d{4}\\b`,'i');
+const DAY_FIRST_GROUP_RE=new RegExp(`^(${DAY_LIST})\\s+(${MONTHS})\\.?[,]?(?:\\s+(${YEAR_LIST}))?$`,'i');
+const MONTH_FIRST_GROUP_RE=new RegExp(`^(${MONTHS})\\.?\\s+(${DAY_LIST})[,]?(?:\\s+(${YEAR_LIST}))?$`,'i');
+const DATE_JOIN_RE=new RegExp(`^${DAY_SEPARATOR}$`,'i');
+const DATE_RELATION_NOTES={
+  list:'This date phrase lists multiple dates. Confirm which dates apply to this step.',
+  alternatives:'This date phrase gives alternatives. Confirm which date applies to this step.',
+  oneOrBoth:'This date phrase allows one or both dates. Confirm whether one or both apply to this step.',
+  range:'This date phrase gives a range. Confirm when this step applies within it.',
+  slash:'This date phrase uses a slash with an unclear meaning. Confirm how these dates relate.'
+};
+// Classify only the connectors between date tokens, never ISO hyphens or
+// the comma between a month/day and year. Commas in an explicit choice list
+// follow that choice; a comma alongside a range still represents a list.
+function dateRelations(connectors){
+  const types=new Set();let comma=false;
+  for(const connector of connectors){
+    const value=connector.trim().toLowerCase();
+    if(value.includes('and/or'))types.add('oneOrBoth');
+    else if(/\bor\b/.test(value))types.add('alternatives');
+    else if(/\band\b|&/.test(value))types.add('list');
+    else if(/\b(?:to|through|until|till)\b|[-–—]/.test(value))types.add('range');
+    else if(value.includes('/'))types.add('slash');
+    if(value.includes(','))comma=true;
+  }
+  if(comma && (!types.size || types.has('range') || types.has('slash')))types.add('list');
+  return [...types];
+}
+function tokenConnectors(value,pattern){
+  const tokens=[...value.matchAll(new RegExp(pattern,'gi'))];
+  return tokens.slice(1).map((token,index)=>value.slice(tokens[index].index+tokens[index][0].length,token.index));
+}
+function dateGroup(value){
+  const dayFirst=value.match(DAY_FIRST_GROUP_RE),monthFirst=value.match(MONTH_FIRST_GROUP_RE);
+  if(dayFirst || monthFirst){
+    const days=dayFirst?dayFirst[1]:monthFirst[2],month=dayFirst?dayFirst[2]:monthFirst[1],years=(dayFirst||monthFirst)[3]||'';
+    return {relations:dateRelations([...tokenConnectors(days,DAY),...tokenConnectors(years,'\\d{4}\\b')]),days,month,years};
+  }
+  if(new RegExp(`^${ISO_DATE}`).test(value))return {relations:dateRelations(tokenConnectors(value,`${ISO_DATE}|${DAY}`)),iso:true};
+  return {relations:[]};
+}
+function invalidDateComponent(value,group){
+  if(group.month){
+    const days=group.days.match(/\d+/g),years=group.years.match(/\d{4}/g)||['2000'];
+    // An absent year may permit a leap day. Never manufacture a missing year
+    // for reminders; 2000 only checks whether a month/day is ever possible.
+    return days.some(day=>years.some(year=>!fullDateISO(`${day} ${group.month} ${year}`)));
+  }
+  if(group.iso){
+    let prefix='';
+    return [...value.matchAll(new RegExp(`${ISO_DATE}|${DAY}`,'gi'))].some(match=>{
+      const token=match[0];
+      if(token.length===10){prefix=token.slice(0,8);return !fullDateISO(token);}
+      return !fullDateISO(prefix+token.replace(/(?:st|nd|rd|th)$/i,'').padStart(2,'0'));
+    });
+  }
+  return false;
+}
 const MONTH_ABBREVIATIONS='Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec';
 const ABBREVIATION_RE=new RegExp(`\\b(?:${MONTH_ABBREVIATIONS})\\.$`,'i');
 const DAY_BEFORE_MONTH_RE=new RegExp(`\\b${DAY}\\s+(?:${MONTH_ABBREVIATIONS})\\.$`,'i');
@@ -122,17 +179,30 @@ export function analyzeNotice(text,model,{anchorDate=''}={}){
     }
     if(kind==='background' && (dates.length||contacts.length)){kind='review';flags.push('This sentence contains a date or contact detail. Check whether it matters.');}
     if(crossLineDates.has(index))flags.push('A date may continue across a line break. Read both lines and confirm the full date before choosing a reminder.');
+    const relations=new Set();
+    let joinedConnectors=[];
+    const flushRelations=()=>{dateRelations(joinedConnectors).forEach(type=>relations.add(type));joinedConnectors=[];};
+    dates.slice(1).forEach((date,i)=>{
+      const previous=dates[i],connector=span.text.slice(previous.end,date.start);
+      if(DATE_JOIN_RE.test(connector)){
+        date.ambiguous=true;previous.ambiguous=true;
+        joinedConnectors.push(connector);
+      }else flushRelations();
+    });
+    flushRelations();
     for(const date of dates){
       if(crossLineDates.has(index))date.ambiguous=true;
       date.resolved=anchorRelative(date.text,anchorDate);
       const named=NAMED_MONTH_RE.test(date.text);
-      if((/^\d{4}-\d{2}-\d{2}$/.test(date.text) || namedDateParts(date.text)) && !fullDateISO(date.text))flags.push('This calendar date is invalid. Confirm it with the sender.');
-      if(named && (GROUPED_DAY_RE.test(date.text)||GROUPED_YEAR_RE.test(date.text)))flags.push('This date phrase lists alternatives or a range. Confirm which date applies to your step.');
+      const group=dateGroup(date.text);
+      if(invalidDateComponent(date.text,group))flags.push('This calendar date is invalid. Confirm it with the sender.');
+      if(group.relations.length){date.ambiguous=true;group.relations.forEach(type=>relations.add(type));}
       if(/\b(today|tomorrow)\b/i.test(date.text))flags.push(date.resolved?`Relative date uses your reference date (${anchorDate}).`:'A relative date needs the date this notice was issued.');
       else if(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|week|within)\b/i.test(date.text))flags.push('The exact calendar date is unclear. Confirm it with the sender.');
       else if(!named && /^\d{1,2}[/-]/.test(date.text))flags.push('The day/month order may be ambiguous. Confirm the date format.');
       else if(!/\b\d{4}\b/.test(date.text))flags.push('The year is not stated.');
     }
+    relations.forEach(type=>flags.push(DATE_RELATION_NOTES[type]));
     if(kind==='action' && !dates.length)flags.push('No date is stated in this instruction. Check the rest of the notice.');
     if(dates.length>1)flags.push('More than one date appears in this sentence. Check what each refers to.');
     if(span.text.length>350)flags.push('This is a long sentence. It may contain more than one instruction.');
