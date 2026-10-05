@@ -23,6 +23,11 @@ export function dateSuggestions(card){
   }
   return found;
 }
+export function reminderDefaultDate(card){
+  const suggestions=dateSuggestions(card);
+  // A filtered list of valid dates must not hide a competing unresolved date.
+  return suggestions.length===1 && (card.dates||[]).every(item=>dateSuggestions({dates:[item]}).length===1)?suggestions[0].date:'';
+}
 function calendarText(value){
   return String(value).replace(/\\/g,'\\\\').replace(/\r\n|\r|\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g,'');
 }

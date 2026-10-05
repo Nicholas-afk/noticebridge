@@ -12,6 +12,8 @@ The fictional school-trip demo surfaces a consent form, a $12 payment, a lunch r
 
 No account or API key is required. The model runs in the browser, and pasted notices are not sent to cloud AI or saved in a history.
 
+The **Next steps** view turns that review into something useful outside the app. Readers can choose all-day reminders and download a calendar file with the exact source sentence attached. Full dates from the same sentence can be suggested, but every date must be checked and confirmed by the reader. Ambiguous dates, missing years and competing unresolved date references leave the field blank. Editing a saved date withdraws the reminder until it is confirmed again. The app also prepares an editable draft of questions from the review notes, quoting the relevant original sentences. Nothing is sent to the sender or written into a calendar account.
+
 ## How we built it
 
 The machine-learning pipeline uses Python and scikit-learn to train a four-class logistic regression model over unigram and bigram TF–IDF features. We authored 245 synthetic training sentences and 48 separate holdout sentences, retaining both splits and every evaluation prediction in the repository. Training-only template augmentation does not appear in the holdout.
@@ -21,6 +23,8 @@ The vocabulary, IDF values, coefficients and intercepts are exported as JSON. A 
 Rules supplement the model with conservative checks for instruction cues, relative dates, missing years, numeric date ambiguity, missing instruction dates and invalid ISO dates. These checks are visible review prompts, not inferred facts. Negative instructions are preserved. All background sentences remain accessible.
 
 The interface is built with HTML, CSS and JavaScript. Its document workspace uses flat reading groups, clear labels, keyboard-accessible controls, source highlighting and review progress. Instructions have the strongest hierarchy; uncertainty appears beside the relevant sentence. Optional WebMCP tools let an agent run the same visible analysis workflow and read back its results.
+
+Calendar serialization is a separate, dependency-free module. It validates confirmed dates, uses all-day events with exclusive next-day ends, escapes notice text and folds long lines by UTF-8 bytes. The question draft uses explicit templates keyed to visible review flags rather than generated answers. Both workflows share the same stale-input protection as the checklist, and Clear or refreshed analysis removes their state. The public application and source are hosted on the entrant's GitHub account, `Nicholas-afk`.
 
 ## Challenges we ran into
 
@@ -36,6 +40,8 @@ Dates were another challenge. A weekday or “tomorrow” is not a reliable dead
 - JavaScript/Python prediction and score parity on all 48 holdout sentences.
 - Passing checks for source-span integrity, ambiguous and relative dates, preserved negation, invalid dates and input bounds.
 - Browser checks of review progress, exact source highlighting, returning to the checklist, uncertainty handling, stale-plan protection and WebMCP valid/invalid-input behavior.
+- Calendar checks for invalid dates, leap-day and year rollover, text escaping, UTF-8 folding and rejection of unconfirmed reminders.
+- Browser checks of explicit date confirmation, date-edit withdrawal, blank ambiguous-date suggestions, editable-draft preservation and follow-up reset/stale protection.
 
 ## What we learned
 

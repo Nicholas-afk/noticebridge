@@ -26,6 +26,10 @@ Visit `http://127.0.0.1:48137`. Choose **School trip** for the complete workflow
 - Resolves only “today” and “tomorrow”, and only against an explicitly supplied notice issue date.
 - Keeps every sentence accessible, including those assigned to background.
 - Offers a checklist and local text-file export. It does not save a history.
+- Adds a **Next steps** view for date-confirmed all-day reminders and an editable draft of questions for the sender.
+- Suggests reminder dates only from a valid full date in that same sentence, or an explicitly anchored today/tomorrow reference. Competing unresolved dates leave the field blank. The reader must confirm every date; editing a saved date withdraws its reminder.
+- Exports saved reminders as a local `.ics` calendar file, with the exact sentence and review notes. It adds no inferred time or alarm and does not connect to a calendar account.
+- Builds clarification questions from review notes, keeping each relevant sentence verbatim. The reader edits and downloads the draft; the app sends no messages.
 - Shows review progress, with a direct return from a highlighted source sentence to its checklist item.
 - Pauses marking and downloads when the notice or issue date changes, until the checklist is refreshed. Previous excerpts are explicitly identified as an older snapshot.
 - Exposes optional WebMCP tools that use the same local action pipeline as the interface.
@@ -54,7 +58,7 @@ node prepare.mjs
 node test.mjs
 ```
 
-`dataset.json` includes both splits and their provenance. `test.mjs` checks label and score parity between Python and JavaScript on every holdout sentence, source-span integrity, relative dates, numeric ambiguity, preserved negation, invalid dates and input limits.
+`dataset.json` includes both splits and their provenance. `test.mjs` checks label and score parity between Python and JavaScript on every holdout sentence, source-span integrity, relative dates, numeric ambiguity, preserved negation, invalid dates and input limits. `followup.test.mjs` checks conservative suggestions, competing unresolved dates, leap-day and year rollover, calendar escaping and UTF-8 line folding, rejected unconfirmed/invalid exports and source-linked questions. Run both with `npm test`.
 
 ## Architecture
 
@@ -66,9 +70,14 @@ Pasted notice (tab memory only)
   -> exact date/time/amount extraction + ambiguity checks
   -> evidence-linked action cards + complete original notice
   -> optional local checklist / text export
+  -> reader-confirmed all-day calendar file / editable clarification draft
 ```
 
 Only local assets are requested by the application. The hosting provider receives ordinary page requests; pasted notices are not included in them. The app does not cache itself for offline startup, but inference can continue without network access after its assets load. Exported plans contain the original notice, so readers should choose where to save them.
+
+Calendar export uses [RFC 5545](https://www.rfc-editor.org/rfc/rfc5545.html) date events, CRLF line endings, escaped text, UTF-8 byte-aware folding and an exclusive next-day end. Within one analysis, repeated exports retain event identifiers; some calendar clients may still duplicate imported files. NoticeBridge does not verify calendar-client import behavior. Reminder dates, confirmations and question drafts are discarded when the analysis is refreshed or cleared, and on page reload.
+
+GitHub Pages under `Nicholas-afk` is the primary public host. Publish the built `dist` directory to the repository's `gh-pages` branch. The earlier private Sites copy is not the public demo.
 
 Run `node prepare.mjs` after changing browser code, styles or the trained model and before publishing. It adds content fingerprints to asset URLs, including the engine and model dependencies, so a cached older script cannot be paired with a newer page. No build dependencies are required.
 
@@ -77,6 +86,8 @@ Run `node prepare.mjs` after changing browser code, styles or the trained model 
 The interface puts the source input beside a flat, numbered reading list. Instructions lead; uncertain categories and supporting dates or contacts form separate groups. A restrained green accent, paper-colored background, serif introduction and plain labels replace the original purple hero and nested card layout. Containers are limited to editable source text, its preserved snapshot, and meaningful notices. The direction is informed by [W3C cognitive accessibility guidance on clear step-by-step instructions](https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p07-step-instructions/).
 
 No accessibility certification or user study is claimed. Browser checks verified review progress, exact source highlighting, returning to the checklist, stale-plan protection, refreshed analysis and ambiguity prompts. Layouts were inspected at actual CSS widths of 960 and 1,280 pixels without horizontal overflow. Browser scaling prevented a reliable phone-width check, so phone layout and screen-reader QA remain unverified. The actual application screenshot is in `media/noticebridge-live-demo.jpg`. Download feedback was checked, but the browser did not confirm a completed file download.
+
+Next-step browser checks also verified date suggestions with unchecked confirmations, saving a confirmed reminder, withdrawing it after a date edit, edited-draft preservation across views, stale input blocking follow-up controls, and Clear/refresh removing prior reminders and drafts. The unclear-deadline example supplies no suggested calendar dates. Shared-month phrases such as “9 or 12 October 2026” and invalid named-date review flags remain limitations of the original extractor.
 
 ## Limitations and next work
 

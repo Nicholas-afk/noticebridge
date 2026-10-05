@@ -1,7 +1,16 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {analyzeNotice} from './dist/engine.js';
 const helpers=await import('./dist/followup.js').catch(()=>({}));
 assert.equal(typeof helpers.dateSuggestions,'function','The date suggestion helper must exist.');
 const {dateSuggestions,buildCalendar,buildQuestions}=helpers;
+const defaultDate=helpers.reminderDefaultDate||((card)=>dateSuggestions(card)[0]?.date||'');
+const model=JSON.parse(fs.readFileSync(new URL('./dist/model.json',import.meta.url)));
+for(const text of ['Please return the form by tomorrow for the trip on 14 October 2026.','Please return the form by 08/10 for the trip on 14 October 2026.']){
+  const card=analyzeNotice(text,model).cards[0];
+  assert.equal(card.dates.length,2);
+  assert.equal(defaultDate(card),'','A competing unresolved date must prevent a default reminder date.');
+}
 const dateCard=(values)=>({dates:values.map(text=>({text}))});
 for(const [input,want] of [
   ['9 October 2026','2026-10-09'],['October 9th, 2026','2026-10-09'],
