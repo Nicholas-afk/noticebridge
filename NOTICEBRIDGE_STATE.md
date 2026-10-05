@@ -1,6 +1,6 @@
 # NoticeBridge state
 
-Checked 6 October 2026, Asia/Hong_Kong. Model-audit candidate; independent review and publication are pending. Completed date fixes are preserved.
+Checked 6 October 2026, Asia/Hong_Kong. Model-audit release candidate; independent review is complete and publication is pending. Completed date fixes are preserved.
 
 ## Recovery and releases
 
@@ -8,7 +8,7 @@ Checked 6 October 2026, Asia/Hong_Kong. Model-audit candidate; independent revie
 - Isolated audit worktree: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-model-audit`, branch `model-audit-1.4`. Native worktree creation cannot resolve this nested repository; the previously established Git fallback was reused.
 - Recovered clean main/origin: **b07d1d2bc6410934cff8a0caf9a295082b10a6ad**. No unpublished work or pending date-review finding was lost.
 - Preserved stable **v1.3.0**: **d15d926da45f4602a664ae1b522c046daaaa8488**; prior v1.2.0 remains tagged. Historical state: `docs/verification/NOTICEBRIDGE_STATE_1.3.0.md`.
-- Candidate implementation: **a0df927e8f6e41ba343bb198fe08f8fa1b216c94**, app **1.4.0**, model **1.1.0**. Resolve the containing Git revision for the exact documentation HEAD.
+- Candidate implementation: **99cdc62144656b57b026e19097b38eed2dcd4975**, app **1.4.0**, model **1.1.0**. Resolve the containing Git revision for the exact documentation HEAD.
 - Audit cases and original artifacts frozen before retraining at **c9c99cf**. Baseline model/source/engine/data/evaluation are retained in `docs/model-audit/baseline/`.
 - Source: https://github.com/Nicholas-afk/noticebridge ; demo: https://nicholas-afk.github.io/noticebridge/ ; entry: https://devpost.com/software/noticebridge . User's existing browser tab was preserved; QA used a separate local tab.
 
@@ -34,10 +34,10 @@ Checked 6 October 2026, Asia/Hong_Kong. Model-audit candidate; independent revie
 
 - Full `npm test`, build and whitespace checks pass: original parity/span/input/negation checks, follow-up/calendar safeguards, 100 date regressions, 8 model tests including **93 Python/JavaScript labels/scores within 1e-10**.
 - Both exported models exactly match re-fitted scikit-learn vocabulary/IDF/weights/intercepts, Python 3.14/scikit-learn 1.9.0. Meaningful regressions failed before their fixes. One initial confidence expectation was too strong; signed-consent wording remains explicitly tested as Review.
-- **45 actual local-browser inputs** passed source/category checks: `docs/verification/2026-10-06-model-browser.json`.
+- **53 actual local-browser inputs** (45 classification inputs plus eight tokenizer-boundary probes) passed source/category checks: `docs/verification/2026-10-06-model-browser.json`.
 - Actual workflow verified grouped dates blank/unchecked, distinct warnings/questions, date-only save rejection, confirmed save, exact source highlighting, edited draft/review marks preserved across views, date-edit withdrawal, stale-source blocking, refreshed-analysis reset and Clear reset.
 - Actual downloaded checklist retains review mark, chosen date, exact source and unfamiliar-wording warning; downloaded questions equal the reader's edited draft. Evidence: `docs/verification/2026-10-06-model-workflow.json`.
-- Extraction, conditions, negation, date distinctions and user confirmations are preserved. Independent review and live 1.4.0 checks are pending.
+- Extraction, conditions, negation, date distinctions and user confirmations are preserved. Independent read-only agent review is complete: ready to merge at 99cdc62144656b57b026e19097b38eed2dcd4975, no remaining actionable findings. Reviewer independently reproduced all artifacts and metrics, then resolved the P2 boundary issue and checked 90 additional inputs with maximum score difference 1.11e-16. Live 1.4.0 checks are pending.
 
 ## Deployment and Devpost
 

@@ -1,15 +1,16 @@
 {
   "environment": "Local actual browser, port 48138",
+  "runtimeImplementation": "99cdc62144656b57b026e19097b38eed2dcd4975",
   "cases": [
     {
       "set": "authored",
       "text": "RSVP by Friday.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "RSVP by Friday."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 66%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -19,12 +20,12 @@
     {
       "set": "authored",
       "text": "A signed consent slip is needed for participation.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "A signed consent slip is needed for participation."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 48%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -34,12 +35,12 @@
     {
       "set": "authored",
       "text": "Payment of the balance should reach us before the trip.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Payment of the balance should reach us before the trip."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 67%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -49,12 +50,12 @@
     {
       "set": "authored",
       "text": "Those wishing to join are asked to complete the booking.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Those wishing to join are asked to complete the booking."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 58%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -64,12 +65,12 @@
     {
       "set": "authored",
       "text": "Lunchboxes and water bottles are to be packed.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Lunchboxes and water bottles are to be packed."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 57%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -79,12 +80,12 @@
     {
       "set": "authored",
       "text": "Kindly advise the organiser of any dietary restrictions.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Kindly advise the organiser of any dietary restrictions."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 48%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -94,12 +95,12 @@
     {
       "set": "authored",
       "text": "Notify the office if your child will be absent.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Notify the office if your child will be absent."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 45%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -109,12 +110,12 @@
     {
       "set": "authored",
       "text": "It is essential that every visitor carries photo identification.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "It is essential that every visitor carries photo identification."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 44%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -124,12 +125,12 @@
     {
       "set": "authored",
       "text": "Visitors without a pass will not be admitted.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Visitors without a pass will not be admitted."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 43%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -139,12 +140,12 @@
     {
       "set": "authored",
       "text": "Don’t forget your swimming kit.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Don’t forget your swimming kit."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 67%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -154,12 +155,12 @@
     {
       "set": "authored",
       "text": "Remember: coats, lunch and a water bottle.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Remember: coats, lunch and a water bottle."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 53%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -169,12 +170,12 @@
     {
       "set": "authored",
       "text": "Before departure, check that you have returned the slip.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Before departure, check that you have returned the slip."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 57%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -184,12 +185,12 @@
     {
       "set": "authored",
       "text": "Families can register if they wish.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Families can register if they wish."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 31%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -199,12 +200,12 @@
     {
       "set": "authored",
       "text": "Bring your own snacks if you have allergies.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Bring your own snacks if you have allergies."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 62%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -214,12 +215,12 @@
     {
       "set": "authored",
       "text": "No money needs to be sent.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "No money needs to be sent."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 56%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -229,12 +230,12 @@
     {
       "set": "authored",
       "text": "Attendance must be confirmed through the portal.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Attendance must be confirmed through the portal."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 68%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -244,12 +245,12 @@
     {
       "set": "authored",
       "text": "Forms received after the closing date cannot be accepted.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Forms received after the closing date cannot be accepted."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 33%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -259,12 +260,12 @@
     {
       "set": "authored",
       "text": "For the outing, a waterproof jacket is compulsory.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "For the outing, a waterproof jacket is compulsory."
+      ],
+      "explanations": [
+        "Local model category: Background. Model score: 46%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -274,12 +275,12 @@
     {
       "set": "authored",
       "text": "Could each household nominate one representative?",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Could each household nominate one representative?"
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 47%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -289,12 +290,12 @@
     {
       "set": "authored",
       "text": "Reply only if your arrangements have changed.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "Reply only if your arrangements have changed."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 63%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -304,64 +305,56 @@
     {
       "set": "authored",
       "text": "The club hopes everyone will have fun.",
-      "expectedKinds": [
-        "background"
-      ],
       "background": [
         "The club hopes everyone will have fun."
       ],
       "cards": [],
+      "explanations": [],
       "groups": [],
       "source": "The club hopes everyone will have fun."
     },
     {
       "set": "authored",
       "text": "The volunteer returned the forms last week.",
-      "expectedKinds": [
-        "background"
-      ],
       "background": [
         "The volunteer returned the forms last week."
       ],
       "cards": [],
+      "explanations": [],
       "groups": [],
       "source": "The volunteer returned the forms last week."
     },
     {
       "set": "authored",
       "text": "We paid for the new equipment last summer.",
-      "expectedKinds": [
-        "background"
-      ],
       "background": [
         "We paid for the new equipment last summer."
       ],
       "cards": [],
+      "explanations": [],
       "groups": [],
       "source": "We paid for the new equipment last summer."
     },
     {
       "set": "authored",
       "text": "Families registered in record numbers last year.",
-      "expectedKinds": [
-        "background"
-      ],
       "background": [
         "Families registered in record numbers last year."
       ],
       "cards": [],
+      "explanations": [],
       "groups": [],
       "source": "Families registered in record numbers last year."
     },
     {
       "set": "authored",
       "text": "Thank you for bringing such lovely cakes.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Thank you for bringing such lovely cakes."
+      ],
+      "explanations": [
+        "Local model category: Background. Model score: 65%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -371,12 +364,12 @@
     {
       "set": "authored",
       "text": "The pupils learned how to complete an application.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "The pupils learned how to complete an application."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 40%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -386,12 +379,12 @@
     {
       "set": "authored",
       "text": "Our aim is to connect residents with one another.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Our aim is to connect residents with one another."
+      ],
+      "explanations": [
+        "Local model category: Background. Model score: 38%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -401,25 +394,23 @@
     {
       "set": "authored",
       "text": "Warm wishes from everyone at the centre.",
-      "expectedKinds": [
-        "background"
-      ],
       "background": [
         "Warm wishes from everyone at the centre."
       ],
       "cards": [],
+      "explanations": [],
       "groups": [],
       "source": "Warm wishes from everyone at the centre."
     },
     {
       "set": "authored",
       "text": "Queries about access can be discussed with the duty officer.",
-      "expectedKinds": [
-        "contact"
-      ],
       "background": [],
       "cards": [
         "Queries about access can be discussed with the duty officer."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 78%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Dates & contacts1"
@@ -429,14 +420,14 @@
     {
       "set": "authored",
       "text": "Having trouble with the portal? Our support desk can help.",
-      "expectedKinds": [
-        "review",
-        "contact"
-      ],
       "background": [],
       "cards": [
         "Having trouble with the portal?",
         "Our support desk can help."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 31%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract.",
+        "Local model category: Contact. Model score: 81%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1",
@@ -447,12 +438,12 @@
     {
       "set": "authored",
       "text": "Further guidance is on the council website.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Further guidance is on the council website."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 46%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -462,12 +453,12 @@
     {
       "set": "authored",
       "text": "Should you need assistance, ring the organiser.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Should you need assistance, ring the organiser."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 40%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -477,14 +468,14 @@
     {
       "set": "authored",
       "text": "Need a translated copy? Ask the reception team.",
-      "expectedKinds": [
-        "review",
-        "contact"
-      ],
       "background": [],
       "cards": [
         "Need a translated copy?",
         "Ask the reception team."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 39%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract.",
+        "Local model category: Contact. Model score: 68%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1",
@@ -495,12 +486,12 @@
     {
       "set": "authored",
       "text": "For advice on getting here, write to the transport coordinator.",
-      "expectedKinds": [
-        "contact"
-      ],
       "background": [],
       "cards": [
         "For advice on getting here, write to the transport coordinator."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 67%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Dates & contacts1"
@@ -510,12 +501,12 @@
     {
       "set": "authored",
       "text": "There will be two sessions in the afternoon.",
-      "expectedKinds": [
-        "event"
-      ],
       "background": [],
       "cards": [
         "There will be two sessions in the afternoon."
+      ],
+      "explanations": [
+        "Local model category: Detail. Model score: 85%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Dates & contacts1"
@@ -525,12 +516,12 @@
     {
       "set": "authored",
       "text": "Refreshments are included in the admission price.",
-      "expectedKinds": [
-        "event"
-      ],
       "background": [],
       "cards": [
         "Refreshments are included in the admission price."
+      ],
+      "explanations": [
+        "Local model category: Detail. Model score: 68%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Dates & contacts1"
@@ -540,12 +531,12 @@
     {
       "set": "authored",
       "text": "The replacement bus arrives at the side entrance.",
-      "expectedKinds": [
-        "event"
-      ],
       "background": [],
       "cards": [
         "The replacement bus arrives at the side entrance."
+      ],
+      "explanations": [
+        "Local model category: Detail. Model score: 78%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Dates & contacts1"
@@ -555,12 +546,12 @@
     {
       "set": "authored",
       "text": "The building is unavailable during the renovation.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "The building is unavailable during the renovation."
+      ],
+      "explanations": [
+        "Local model category: Detail. Model score: 46%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -570,12 +561,12 @@
     {
       "set": "authored",
       "text": "Each ticket admits one adult and two children.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Each ticket admits one adult and two children."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 33%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -585,12 +576,12 @@
     {
       "set": "authored",
       "text": "The exhibition continues until the weekend.",
-      "expectedKinds": [
-        "event"
-      ],
       "background": [],
       "cards": [
         "The exhibition continues until the weekend."
+      ],
+      "explanations": [
+        "Local model category: Detail. Model score: 57%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Dates & contacts1"
@@ -600,12 +591,12 @@
     {
       "set": "public",
       "text": "If you would like a physical Library card, stop by any open branch with valid ID.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "If you would like a physical Library card, stop by any open branch with valid ID."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 56%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -615,12 +606,12 @@
     {
       "set": "public",
       "text": "You must accept the offer by the deadline given in the offer letter.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "You must accept the offer by the deadline given in the offer letter."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 53%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -630,12 +621,12 @@
     {
       "set": "public",
       "text": "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 68%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
@@ -645,12 +636,12 @@
     {
       "set": "public",
       "text": "Bring your printed or electronic pass and photo ID to the museum on the date selected.",
-      "expectedKinds": [
-        "review"
-      ],
       "background": [],
       "cards": [
         "Bring your printed or electronic pass and photo ID to the museum on the date selected."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 54%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Questions to check1"
@@ -660,17 +651,137 @@
     {
       "set": "public",
       "text": "All users must present a valid photo ID when checking in.",
-      "expectedKinds": [
-        "action"
-      ],
       "background": [],
       "cards": [
         "All users must present a valid photo ID when checking in."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 61%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
       ],
       "groups": [
         "Instructions1"
       ],
       "source": "All users must present a valid photo ID when checking in."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Please bring lunch水 for Friday.",
+      "background": [],
+      "cards": [
+        "Please bring lunch水 for Friday."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 68%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Please bring lunch水 for Friday."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Ask Noël for advice.",
+      "background": [],
+      "cards": [
+        "Ask Noël for advice."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 61%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "Ask Noël for advice."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Please notify Amélie.",
+      "background": [],
+      "cards": [
+        "Please notify Amélie."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 63%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Please notify Amélie."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Please contact Noël.",
+      "background": [],
+      "cards": [
+        "Please contact Noël."
+      ],
+      "explanations": [
+        "Local model category: Contact. Model score: 40%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Please contact Noël."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Noël will bring lunch.",
+      "background": [],
+      "cards": [
+        "Noël will bring lunch."
+      ],
+      "explanations": [
+        "Local model category: Detail. Model score: 54%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Noël will bring lunch."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Please bring José's notebook.",
+      "background": [],
+      "cards": [
+        "Please bring José's notebook."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 73%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Please bring José's notebook."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Please bring lunch中文.",
+      "background": [],
+      "cards": [
+        "Please bring lunch中文."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 73%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Please bring lunch中文."
+    },
+    {
+      "set": "tokenizer",
+      "text": "Please bring 中文lunch.",
+      "background": [],
+      "cards": [
+        "Please bring 中文lunch."
+      ],
+      "explanations": [
+        "Local model category: Instruction. Model score: 73%. This is an uncalibrated category score, not a guarantee. Dates and amounts are copied from this sentence. The excerpt is an exact source extract."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Please bring 中文lunch."
     }
   ]
 }
