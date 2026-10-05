@@ -5,7 +5,7 @@ Checked 6 October 2026, Asia/Hong_Kong. **Release 1.4.0 is published and verifie
 ## Recovery and releases
 
 - Primary repo: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/outputs/noticebridge`.
-- Implementation used isolated audit worktree: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-model-audit`, branch `model-audit-1.4`. Native worktree creation cannot resolve this nested repository; the previously established Git fallback was reused.
+- Implementation used isolated audit worktree: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-model-audit`, branch `model-audit-1.4`. Native worktree creation cannot resolve this nested repository; the previously established Git fallback was reused. After the clean branch was merged, the temporary checkout/branch and local QA server were removed; the primary checkout is the recovery location.
 - Recovered clean main/origin: **b07d1d2bc6410934cff8a0caf9a295082b10a6ad**. No unpublished work or pending date-review finding was lost.
 - Preserved stable **v1.3.0**: **d15d926da45f4602a664ae1b522c046daaaa8488**; prior v1.2.0 remains tagged. Historical state: `docs/verification/NOTICEBRIDGE_STATE_1.3.0.md`.
 - Current runtime implementation: **99cdc62144656b57b026e19097b38eed2dcd4975**, app **1.4.0**, model **1.1.0**. Verified release/source commit **a6afcd217800dd255e4cf12b2959e25106d1c7be**, preserved as **v1.4.0**. Resolve the containing Git revision for the exact documentation HEAD.
