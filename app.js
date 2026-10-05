@@ -22,7 +22,7 @@ function count(){
   document.querySelectorAll('.reminder-row').forEach(updateReminderRow);
   $('calendar-button').disabled=stale||!reminders.size;
   $('questions-button').disabled=stale||!$('question-draft').value.trim();
-  if(model)$('analyze-button').textContent=stale?'Update checklist':'Find instructions';
+  if(model)$('analyze-button').textContent=stale?'Update checklist':result?'Review checklist':'Find instructions';
   if(stale)$('result-status').textContent='Update needed';else reviewStatus();
 }
 function scrollToPlan(){if(window.innerWidth<=700){$('result-panel').scrollIntoView({block:'start',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});$('plan-heading').setAttribute('tabindex','-1');$('plan-heading').focus({preventScroll:true});}}
