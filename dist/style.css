@@ -24,3 +24,5 @@ button,summary{min-height:24px}
   .card details summary{display:flex;align-items:center}
   .result-tools>.text-button{margin-bottom:0}
 }
+
+.panel-heading h2:focus{outline:2px solid var(--accent);outline-offset:4px}

@@ -54,12 +54,13 @@ function renderFollowup(){
     const date=node('input',{type:'date',id:dateId,min:'1000-01-01',max:'9998-12-31',class:'followup-control','aria-describedby':`${helpId} ${feedbackId}`});
     date.value=defaultDate;
     const field=node('div');field.append(node('label',{for:dateId},`Reminder date for excerpt ${i}`),date);
-    const confirmLabel=node('label',{class:'reminder-confirm'}),confirmation=node('input',{type:'checkbox',class:'followup-control','aria-label':`I checked the date for excerpt ${i}`});
-    confirmLabel.append(confirmation,document.createTextNode('I checked this date against the notice or with the sender.'));
+    const confirmationText='I checked this date against the notice or with the sender.';
+    const confirmLabel=node('label',{class:'reminder-confirm'}),confirmation=node('input',{type:'checkbox',class:'followup-control','aria-label':`${confirmationText} Excerpt ${i}.`});
+    confirmLabel.append(confirmation,document.createTextNode(confirmationText));
     controls.append(field,confirmLabel);row.append(controls);
     const actions=node('div',{class:'reminder-actions'}),save=node('button',{class:'reminder-save',disabled:''},`Save reminder ${i}`),clear=node('button',{class:'text-button followup-control'},`Clear date ${i}`),source=node('button',{class:'source-button','aria-label':`Check source for excerpt ${i}`},'Check source');
     source.addEventListener('click',()=>showSource(card.id,source));
-    const withdraw=()=>{reminders.delete(card.id);updateReminderRow(row);updateReminderCount();};
+    const withdraw=()=>{const saved=reminders.delete(card.id);updateReminderRow(row);updateReminderCount();if(saved)$('live-status').textContent=`Reminder for excerpt ${i} withdrawn. Check and confirm the current date before saving again.`;};
     date.addEventListener('input',()=>{confirmation.checked=false;withdraw();});
     confirmation.addEventListener('change',withdraw);
     clear.addEventListener('click',()=>{date.value='';confirmation.checked=false;withdraw();date.focus();});

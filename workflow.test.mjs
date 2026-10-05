@@ -24,7 +24,7 @@ async function app(){
 test('repeated unchanged analysis preserves reader work and reminder identifiers',async()=>{
   const {$,input,check,downloads}=await app();
   input('notice','Please return the form by 9 October 2026.');$('analyze-button').click();
-  check('Mark excerpt 1 reviewed');check('I checked the date for excerpt 1');document.querySelector('.reminder-save').click();
+  check('Mark excerpt 1 reviewed');check('I checked this date against the notice or with the sender. Excerpt 1.');document.querySelector('.reminder-save').click();
   input('question-draft','Reader edited: please confirm the venue.');$('calendar-button').click();
   $('analyze-button').click();
   assert.equal(document.querySelector('#cards input').checked,true,'Unchanged analysis lost the review mark');
@@ -36,7 +36,7 @@ test('repeated unchanged analysis preserves reader work and reminder identifiers
 });
 test('source and issue-date changes block old exports and announce stale state',async()=>{
   const {$,input,check}=await app();input('notice','Please return the form by 9 October 2026.');$('analyze-button').click();
-  check('I checked the date for excerpt 1');document.querySelector('.reminder-save').click();
+  check('I checked this date against the notice or with the sender. Excerpt 1.');document.querySelector('.reminder-save').click();
   input('anchor-date','2026-10-06');
   assert.equal($('stale-note').hidden,false);assert.equal($('calendar-button').disabled,true);assert.equal($('export-button').disabled,true);
   assert.match($('live-status').textContent,/changed|update|older/i,'Source change was not announced');
@@ -58,7 +58,7 @@ test('validation feedback is associated with the affected fields',async()=>{
   assert.equal($('notice').getAttribute('aria-invalid'),'true');
   assert.ok($('notice').getAttribute('aria-describedby').split(' ').includes('input-error'));
   input('notice','Please return the form tomorrow.');$('analyze-button').click();
-  check('I checked the date for excerpt 1');
+  check('I checked this date against the notice or with the sender. Excerpt 1.');
   const date=document.querySelector('#reminder-list input[type=date]');
   const feedback=document.querySelector('.reminder-feedback');
   assert.equal(date.getAttribute('aria-invalid'),'true');assert.ok(feedback.textContent.length);
@@ -68,7 +68,7 @@ test('UI downloads retain source, reader marks, edited questions and confirmed a
   const {$,input,check,downloads}=await app();
   const source='Please return the form on 9 & 12 October 2026.\nBring lunch; water, a £5 fee and a \\ folder. 親子🌿';
   input('notice',source);$('analyze-button').click();check('Mark excerpt 1 reviewed');
-  input('reminder-sentence-0','2026-10-09');check('I checked the date for excerpt 1');document.querySelector('.reminder-save').click();
+  input('reminder-sentence-0','2026-10-09');check('I checked this date against the notice or with the sender. Excerpt 1.');document.querySelector('.reminder-save').click();
   const draft='Reader draft; a comma, backslash \\ and\nsecond line: 親子🌿';input('question-draft',draft);
   $('export-button').click();$('questions-button').click();$('calendar-button').click();
   assert.deepEqual(downloads.map(x=>x.filename),['noticebridge-plan.txt','noticebridge-questions.txt','noticebridge-reminders.ics']);
@@ -88,7 +88,7 @@ test('toolbar source navigation remembers the current view rather than an older 
 });
 test('failed source update keeps paused work and reversion clears obsolete validation errors',async()=>{
   const {$,input,check}=await app();const source='Please return the form by 9 October 2026.';
-  input('notice',source);$('analyze-button').click();check('Mark excerpt 1 reviewed');check('I checked the date for excerpt 1');document.querySelector('.reminder-save').click();
+  input('notice',source);$('analyze-button').click();check('Mark excerpt 1 reviewed');check('I checked this date against the notice or with the sender. Excerpt 1.');document.querySelector('.reminder-save').click();
   input('question-draft','Reader edited draft.');input('notice','');$('analyze-button').click();
   assert.equal($('calendar-button').disabled,true);assert.equal($('reminder-count').textContent,'1 reminder saved');assert.equal(document.querySelector('#cards input').checked,true);assert.equal($('question-draft').value,'Reader edited draft.');assert.ok($('input-error').textContent);
   input('notice',source);
@@ -96,4 +96,15 @@ test('failed source update keeps paused work and reversion clears obsolete valid
   assert.notEqual($('notice').getAttribute('aria-invalid'),'true');
   assert.equal($('stale-note').hidden,true);assert.equal($('calendar-button').disabled,false);assert.equal($('questions-button').disabled,false);
   $('analyze-button').click();assert.equal($('reminder-count').textContent,'1 reminder saved');assert.equal($('question-draft').value,'Reader edited draft.');
+});
+test('editing a saved date announces withdrawal rather than leaving a saved-status message',async()=>{
+  const {$,input,check}=await app();input('notice','Please return the form by 9 October 2026.');$('analyze-button').click();check('I checked this date against the notice or with the sender. Excerpt 1.');document.querySelector('.reminder-save').click();
+  input('reminder-sentence-0','2026-10-12');
+  assert.equal($('reminder-count').textContent,'0 reminders saved');assert.equal($('calendar-button').disabled,true);
+  assert.match($('live-status').textContent,/withdraw|removed|no longer saved/i,'Withdrawal left an obsolete saved announcement');
+});
+test('confirmation accessible names contain their visible labels for voice control',async()=>{
+  const {input,$}=await app();input('notice','Please return the form by 9 October 2026.');$('analyze-button').click();
+  const label=document.querySelector('.reminder-confirm'),checkbox=label.querySelector('input');
+  assert.ok(checkbox.getAttribute('aria-label').toLowerCase().includes(label.textContent.toLowerCase()),'Accessible name omitted the visible confirmation label');
 });
