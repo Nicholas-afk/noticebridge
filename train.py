@@ -1,7 +1,8 @@
-"""Reproducible NoticeBridge baseline. All examples are authored synthetic data.
+"""Reproducible NoticeBridge classifier. All training examples are authored synthetic data.
 
 The holdout is separate from the training templates. It is a small smoke benchmark,
-not evidence of generalization to real notices or accessibility benefit.
+not evidence of generalization to real notices or accessibility benefit. It has now
+been examined during development; it is a legacy development set, not a blind test.
 """
 import json
 from pathlib import Path
@@ -235,9 +236,14 @@ Kind regards from the library team.
 The programme was established in 2021.
 """)
 
+# Add language diversity; evaluation and public excerpts are not training data.
+supplement = json.loads((ROOT / "training-additions.json").read_text())
+data.extend(supplement["examples"])
 # Deduplicate training sentences, preserving labels.
 data = list({x["text"]: x for x in data}.values())
 assert not set(x["text"] for x in data) & set(x["text"] for x in holdout)
+audit = json.loads((ROOT / "audit-cases.json").read_text())
+assert not set(x["text"] for x in data) & set(x["text"] for x in audit["authored"] + audit["public"])
 vectorizer = TfidfVectorizer(ngram_range=(1, 2), token_pattern=r"(?u)\b[a-zA-Z][a-zA-Z]+\b", sublinear_tf=True)
 X = vectorizer.fit_transform(x["text"] for x in data)
 model = LogisticRegression(C=4.0, class_weight="balanced", max_iter=1500, random_state=23)
@@ -250,11 +256,12 @@ report = {
     "classes": model.classes_.tolist(),
     "classification_report": classification_report([x["label"] for x in holdout], predictions, output_dict=True, zero_division=0),
     "confusion_matrix": confusion_matrix([x["label"] for x in holdout], predictions, labels=model.classes_).tolist(),
-    "limitations": "Authored synthetic examples only; one small held-out benchmark; no real-world user study, no calibrated confidence, English only.",
+    "limitations": "Authored synthetic legacy development set, previously inspected; not a blind test or real-world accuracy estimate. No user study, no calibrated confidence, English only.",
     "predictions": [{**row, "prediction": str(pred), "score": float(max(prob))} for row, pred, prob in zip(holdout, predictions, probs)]
 }
-artifact = {"version": "1.0.0", "classes": model.classes_.tolist(), "vocabulary": vectorizer.vocabulary_, "idf": vectorizer.idf_.tolist(), "weights": model.coef_.tolist(), "bias": model.intercept_.tolist(), "training_examples": len(data), "holdout_examples": len(holdout), "accuracy": report["accuracy"], "tokenizer": "ASCII words of at least two letters; lowercase; unigram + bigram; sublinear TF; L2 normalization"}
+artifact = {"version": "1.1.0", "classes": model.classes_.tolist(), "vocabulary": vectorizer.vocabulary_, "idf": vectorizer.idf_.tolist(), "weights": model.coef_.tolist(), "bias": model.intercept_.tolist(), "training_examples": len(data), "holdout_examples": len(holdout), "accuracy": report["accuracy"], "tokenizer": "ASCII words of at least two letters; lowercase; unigram + bigram; sublinear TF; L2 normalization"}
+artifact.update({"evaluation_scope": "Previously inspected synthetic legacy development set, not a blind test", "legacy_action_errors": sum(row["label"] == "action" and str(pred) != "action" for row, pred in zip(holdout, predictions)), "legacy_action_support": sum(row["label"] == "action" for row in holdout)})
 (ROOT / "dist" / "model.json").write_text(json.dumps(artifact, separators=(",", ":")))
 (ROOT / "evaluation.json").write_text(json.dumps(report, indent=2))
-(ROOT / "dataset.json").write_text(json.dumps({"provenance": "Author-created synthetic school and community notice sentences; no personal data.", "train": data, "holdout": holdout}, indent=2))
+(ROOT / "dataset.json").write_text(json.dumps({"provenance": "Author-created synthetic school and community notice sentences; no personal data.", "supplement_provenance": supplement["provenance"], "train": data, "holdout": holdout}, indent=2))
 print(json.dumps({k: report[k] for k in ["training_examples", "holdout_examples", "accuracy", "classification_report"]}, indent=2))

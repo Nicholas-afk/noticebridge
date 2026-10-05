@@ -1,0 +1,48 @@
+{
+  "notice": "Those wishing to join are asked to complete the booking.\nLunchboxes and water bottles are to be packed.\nReturn the slip on 9 & 12 October 2026.\nReturn the slip on 9 through 12 October 2026.\nReturn the slip on 9 and/or 12 October 2026.\nPlease bring zargle zindle blorx sneevle vorple.",
+  "initial": {
+    "confirmations": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "dates": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "questions": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nThose wishing to join are asked to complete the booking.\nIs there a deadline or a particular day for this instruction?\n\n2. The notice says:\nLunchboxes and water bottles are to be packed.\nIs there a deadline or a particular day for this instruction?\n\n3. The notice says:\nReturn the slip on 9 & 12 October 2026.\nWhich of the listed dates apply to this step: all of them, or only some?\n\n4. The notice says:\nReturn the slip on 9 through 12 October 2026.\nWhen within this range should I act: throughout it, on a particular day, or by its end?\n\n5. The notice says:\nReturn the slip on 9 and/or 12 October 2026.\nShould this step apply to one or both dates, and which dates?\n\n6. The notice says:\nPlease bring zargle zindle blorx sneevle vorple.\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages."
+  },
+  "highlight": {
+    "marked": [
+      "Those wishing to join are asked to complete the booking."
+    ],
+    "source": "Those wishing to join are asked to complete the booking.\nLunchboxes and water bottles are to be packed.\nReturn the slip on 9 & 12 October 2026.\nReturn the slip on 9 through 12 October 2026.\nReturn the slip on 9 and/or 12 October 2026.\nPlease bring zargle zindle blorx sneevle vorple."
+  },
+  "saved": {
+    "checked": true,
+    "count": "1 reminder saved",
+    "draft": "My reviewed question: please confirm which listed dates apply."
+  },
+  "withdrawn": {
+    "calendarDisabled": true,
+    "confirmed": false,
+    "count": "0 reminders saved"
+  },
+  "stale": {
+    "exportDisabled": true,
+    "questionsDisabled": true,
+    "status": "Update needed"
+  },
+  "refreshed": {
+    "draft": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nThose wishing to join are asked to complete the booking.\nIs there a deadline or a particular day for this instruction?\n\n2. The notice says:\nLunchboxes and water bottles are to be packed.\nIs there a deadline or a particular day for this instruction?\n\n3. The notice says:\nReturn the slip on 9 & 12 October 2026.\nWhich of the listed dates apply to this step: all of them, or only some?\n\n4. The notice says:\nReturn the slip on 9 through 12 October 2026.\nWhen within this range should I act: throughout it, on a particular day, or by its end?\n\n5. The notice says:\nReturn the slip on 9 and/or 12 October 2026.\nShould this step apply to one or both dates, and which dates?\n\n6. The notice says:\nPlease bring zargle zindle blorx sneevle vorple.\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\n7. The notice says:\nBring a hat.\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+    "reminders": "0 reminders saved",
+    "status": "0 of 7 reviewed"
+  }
+}

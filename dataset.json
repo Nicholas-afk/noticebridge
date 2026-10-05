@@ -1,5 +1,6 @@
 {
   "provenance": "Author-created synthetic school and community notice sentences; no personal data.",
+  "supplement_provenance": "Developer-authored synthetic language supplement, 6 October 2026, written after audit-cases.json was frozen; informed by observed general failure modes. No evaluation sentence or public excerpt is copied. Model development, not independent annotation.",
   "train": [
     {
       "text": "Please complete the attached form before Friday.",
@@ -980,6 +981,342 @@
     {
       "text": "For questions about accessibility, contact the office team.",
       "label": "contact"
+    },
+    {
+      "label": "action",
+      "text": "A completed registration sheet is needed before you can take part."
+    },
+    {
+      "label": "action",
+      "text": "Written permission is required for all children attending."
+    },
+    {
+      "label": "action",
+      "text": "The remaining fee should be paid before the first lesson."
+    },
+    {
+      "label": "action",
+      "text": "Participants are asked to provide an emergency telephone number."
+    },
+    {
+      "label": "action",
+      "text": "A towel and spare clothing are to be brought to the pool."
+    },
+    {
+      "label": "action",
+      "text": "Kindly notify the instructor of changes to your plans."
+    },
+    {
+      "label": "action",
+      "text": "Advise the trip leader if you cannot come."
+    },
+    {
+      "label": "action",
+      "text": "Inform reception when you require an accessible seat."
+    },
+    {
+      "label": "action",
+      "text": "Tell the secretary which copy of the form you need."
+    },
+    {
+      "label": "action",
+      "text": "It is essential that all participants wear a helmet."
+    },
+    {
+      "label": "action",
+      "text": "People without signed permission cannot take part."
+    },
+    {
+      "label": "action",
+      "text": "Don't forget to pack your lunch."
+    },
+    {
+      "label": "action",
+      "text": "Remember your reading diary and pencil case."
+    },
+    {
+      "label": "action",
+      "text": "Before arriving, check the instructions in your booking email."
+    },
+    {
+      "label": "action",
+      "text": "If you would like to attend, you can book a place online."
+    },
+    {
+      "label": "action",
+      "text": "Take a raincoat with you if wet weather is forecast."
+    },
+    {
+      "label": "action",
+      "text": "No deposit needs to be paid for this session."
+    },
+    {
+      "label": "action",
+      "text": "Your place must be confirmed using the reply form."
+    },
+    {
+      "label": "action",
+      "text": "Applications arriving after Friday will not be considered."
+    },
+    {
+      "label": "action",
+      "text": "For this visit, closed shoes are compulsory."
+    },
+    {
+      "label": "action",
+      "text": "Could all parents check their telephone number on the sheet?"
+    },
+    {
+      "label": "action",
+      "text": "Respond only if you cannot attend the meeting."
+    },
+    {
+      "label": "action",
+      "text": "RSVP to the invitation before the end of the month."
+    },
+    {
+      "label": "action",
+      "text": "A booking is required before visiting the exhibition."
+    },
+    {
+      "label": "action",
+      "text": "Please give the office your preferred language."
+    },
+    {
+      "label": "action",
+      "text": "For Saturday's walk, pack drinking water in your bag."
+    },
+    {
+      "label": "action",
+      "text": "A parent or guardian has to approve the application."
+    },
+    {
+      "label": "action",
+      "text": "Attendees should carry their identity card throughout the visit."
+    },
+    {
+      "label": "action",
+      "text": "Would you please nominate a contact person for your group?"
+    },
+    {
+      "label": "action",
+      "text": "Unless you have already replied, send the completed sheet today."
+    },
+    {
+      "label": "action",
+      "text": "When collecting your equipment, show the receipt to staff."
+    },
+    {
+      "label": "action",
+      "text": "New members are requested to attend a short induction."
+    },
+    {
+      "label": "action",
+      "text": "Consent slips must be signed by an adult."
+    },
+    {
+      "label": "action",
+      "text": "Your balance is payable before departure."
+    },
+    {
+      "label": "action",
+      "text": "Booking confirmations should reach the organiser by noon."
+    },
+    {
+      "label": "action",
+      "text": "All visitors are expected to follow the staff instructions."
+    },
+    {
+      "label": "background",
+      "text": "Our team hopes the residents enjoyed the celebration."
+    },
+    {
+      "label": "background",
+      "text": "The children brought their notebooks to the last workshop."
+    },
+    {
+      "label": "background",
+      "text": "A volunteer submitted the paperwork yesterday."
+    },
+    {
+      "label": "background",
+      "text": "We purchased the equipment several years ago."
+    },
+    {
+      "label": "background",
+      "text": "Many families signed up for the previous programme."
+    },
+    {
+      "label": "background",
+      "text": "Thank you for returning the survey last term."
+    },
+    {
+      "label": "background",
+      "text": "Students practised writing a reply during the lesson."
+    },
+    {
+      "label": "background",
+      "text": "The scheme helps neighbours build lasting friendships."
+    },
+    {
+      "label": "background",
+      "text": "With best regards from the community volunteers."
+    },
+    {
+      "label": "background",
+      "text": "The centre hopes to strengthen connections between families."
+    },
+    {
+      "label": "background",
+      "text": "Kind regards from everyone in the office."
+    },
+    {
+      "label": "background",
+      "text": "The club encourages curiosity and a love of learning."
+    },
+    {
+      "label": "background",
+      "text": "Our pupils wore handmade costumes at last year's play."
+    },
+    {
+      "label": "background",
+      "text": "Several parents paid for new books last month."
+    },
+    {
+      "label": "background",
+      "text": "We returned the borrowed chairs after the festival."
+    },
+    {
+      "label": "background",
+      "text": "Visitors registered for the inaugural event in 2022."
+    },
+    {
+      "label": "background",
+      "text": "Staff completed the training during the summer break."
+    },
+    {
+      "label": "background",
+      "text": "The committee chose the design at its previous meeting."
+    },
+    {
+      "label": "background",
+      "text": "This is a summary of what happened last term."
+    },
+    {
+      "label": "background",
+      "text": "We appreciate everyone who helped organise the outing."
+    },
+    {
+      "label": "background",
+      "text": "The initiative aims to make the neighbourhood welcoming."
+    },
+    {
+      "label": "background",
+      "text": "The project promotes cooperation across the community."
+    },
+    {
+      "label": "background",
+      "text": "Our thanks go to the library volunteers."
+    },
+    {
+      "label": "background",
+      "text": "The club has a long history of supporting local families."
+    },
+    {
+      "label": "contact",
+      "text": "Enquiries about wheelchair access can be discussed with reception."
+    },
+    {
+      "label": "contact",
+      "text": "The help desk can explain how the booking page works."
+    },
+    {
+      "label": "contact",
+      "text": "Guidance on the service is available from our website."
+    },
+    {
+      "label": "contact",
+      "text": "Should you have questions, telephone the centre manager."
+    },
+    {
+      "label": "contact",
+      "text": "For a translated version, ask the school office for help."
+    },
+    {
+      "label": "contact",
+      "text": "For advice about fares, speak with our travel team."
+    },
+    {
+      "label": "contact",
+      "text": "Having difficulty filling in the form? Contact the support team."
+    },
+    {
+      "label": "contact",
+      "text": "The duty officer is happy to answer enquiries."
+    },
+    {
+      "label": "contact",
+      "text": "A librarian can help if you are unsure about the process."
+    },
+    {
+      "label": "contact",
+      "text": "Need more information? Our volunteers can answer questions."
+    },
+    {
+      "label": "contact",
+      "text": "Information about accessibility is on the visitor website."
+    },
+    {
+      "label": "contact",
+      "text": "Write to the help desk for guidance on membership."
+    },
+    {
+      "label": "event",
+      "text": "Three morning sessions are available this week."
+    },
+    {
+      "label": "event",
+      "text": "Tea and coffee are included in the ticket price."
+    },
+    {
+      "label": "event",
+      "text": "The shuttle arrives at the north gate."
+    },
+    {
+      "label": "event",
+      "text": "The hall is unavailable while repairs are underway."
+    },
+    {
+      "label": "event",
+      "text": "A family pass covers two adults and three children."
+    },
+    {
+      "label": "event",
+      "text": "The display continues until the end of the month."
+    },
+    {
+      "label": "event",
+      "text": "The exhibition is open throughout the school holidays."
+    },
+    {
+      "label": "event",
+      "text": "Refreshments will be served after the presentation."
+    },
+    {
+      "label": "event",
+      "text": "The first session is for beginners and the second is for advanced students."
+    },
+    {
+      "label": "event",
+      "text": "The rehearsal has moved to the upstairs studio."
+    },
+    {
+      "label": "event",
+      "text": "Admission costs five dollars for adults."
+    },
+    {
+      "label": "event",
+      "text": "An interpreter will be present during the meeting."
     }
   ],
   "holdout": [

@@ -1,0 +1,23 @@
+# Competition and product assessment — 6 October 2026
+
+## Current official requirements
+
+The [official structured schedule](https://ml-build-challenge-3.devpost.com/details/dates) and [overview deadline](https://ml-build-challenge-3.devpost.com/) close submissions **9 October 2026, 11:45 p.m. PDT**, or **10 October, 2:45 p.m. Hong Kong time**. The [rules body](https://ml-build-challenge-3.devpost.com/rules) instead says **10 October, 9 p.m. PDT**. This official conflict is unresolved; operate against the earlier cutoff. Structured judging runs 10–15 October PDT, with winners listed for 17 October PDT. Recheck the schedule if continuing later.
+
+The overview weights technical implementation 30%, creativity/innovation 20%, real-world impact 20%, design/UX 15%, presentation/documentation 15%. It asks for a social-impact AI/ML project, a clear problem/solution/technology/user explanation and at least one screenshot, video or other file. Source/live demo links are recommended. The title's $400,000 is aggregate non-cash credit marketing, not a cash award. Listed eligibility includes students age 13+; entrant eligibility was not independently verified in this audit.
+
+[Devpost's editing guidance](https://help.devpost.com/article/123-how-to-edit-a-submission) allows submission edits until the deadline. Afterward, portfolio edits do not update the submitted competition version. Video attached to a submission can be separate from portfolio video. The existing NoticeBridge entry is already Submitted, 4/4; this work updates routine project details and preserves its submitted state.
+
+## Value and differentiation
+
+[Gemini in Gmail](https://support.google.com/mail/answer/14355636) supports summaries, prompted action lists, tasks and scheduling. [Copilot in Outlook](https://support.microsoft.com/en-us/outlook/copilot-pages/summarize-an-email-thread-with-copilot-in-outlook) summarizes email threads and can provide citations to source emails. [Goblin Tools Compiler](https://goblin.tools/Compiler) turns text into actionable items and can send them into a task list. Task extraction, citations and confirmations are therefore not novel by themselves. This is a documentation comparison; no head-to-head accuracy test or claim of superiority was performed.
+
+NoticeBridge's focused value is an account-free, local paste-and-review workflow for arbitrary school/community text, with verbatim sentence evidence and conservative calendar files. That combination is useful for a prototype but narrower than integrated mail assistants. It lacks OCR, translation, inbox integration, persistent plans and document-level understanding. Reader benefit is plausible, not demonstrated with parents, carers or staff. Its interface may reduce searching, but the model can add substantial review work; no measured time saving should be claimed.
+
+The implementation is small, reproducible and inspectable, with browser/Python inference parity and meaningful date/export safeguards. The ML contribution is a trained supervised classifier, not novel ML research. English synthetic training, weak semantic generalization, handcrafted date grammar and missing independent user evaluation limit the 30% technical and 20% impact claims. Source tracing and reminder control support UX; transparent evaluation supports documentation. A larger feature set would not resolve the evidence gap.
+
+## Highest-impact feasible change
+
+The audit exposed language coverage and review burden as the immediate technical weakness: only 2/20 instructions in a varied authored check reached Instructions under the old pipeline. The selected bounded improvement diversifies training, retains uncertainty gates, flags unfamiliar vocabulary, fixes corrupted feature lookup, and publishes a complete baseline comparison including worse precision. It improves the existing reading task without new integrations or cloud dependencies. [MODEL_CARD.md](../MODEL_CARD.md) gives the results and their limits.
+
+The strongest remaining weakness is external validation: no independently annotated real-notice corpus and no consented reader study. Five curated public instruction excerpts do not solve that. Future work should prioritize independently labeled notices, annotation disagreements, missed-action and review-burden measures, and reader testing over more features. Mobile, screen-reader and calendar-client verification also remain open.

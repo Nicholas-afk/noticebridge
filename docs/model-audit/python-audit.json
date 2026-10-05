@@ -1,0 +1,1657 @@
+{
+  "runtime": {
+    "python": "3.14.3",
+    "scikit_learn": "1.9.0"
+  },
+  "overlap": {
+    "baseline": {
+      "legacy": {
+        "exact": [],
+        "normalized": [],
+        "nearest": [
+          {
+            "check": "The meal is included in the price.",
+            "training": "Transport is included in the cost.",
+            "cosine": 0.7542803390721271
+          },
+          {
+            "check": "You do not have to buy any materials.",
+            "training": "You do not need to purchase a ticket.",
+            "cosine": 0.5376976451095473
+          },
+          {
+            "check": "If you are unsure, call the front desk.",
+            "training": "Call us if you are unsure which session to choose.",
+            "cosine": 0.5347770378871148
+          },
+          {
+            "check": "If your child is participating, return the enclosed slip.",
+            "training": "Let the office know if your child is absent.",
+            "cosine": 0.5152398324718278
+          },
+          {
+            "check": "The support office is available to explain the process.",
+            "training": "The coordinator is available to answer questions.",
+            "cosine": 0.5078341646105927
+          },
+          {
+            "check": "The outing is scheduled for 21 October at 9 am.",
+            "training": "The workshop is scheduled for Saturday morning.",
+            "cosine": 0.49455335976667775
+          },
+          {
+            "check": "The rehearsal happens in the theatre.",
+            "training": "Transport is included in the cost.",
+            "cosine": 0.4143177779394559
+          },
+          {
+            "check": "The accessibility team can help arrange an interpreter.",
+            "training": "If you need an interpreter, contact reception.",
+            "cosine": 0.39336770793123993
+          },
+          {
+            "check": "Tell reception if you require a large print letter.",
+            "training": "If you need an interpreter, contact reception.",
+            "cosine": 0.39296963971799737
+          },
+          {
+            "check": "Kind regards from the library team.",
+            "training": "Best wishes from the school team.",
+            "cosine": 0.38628106565968273
+          },
+          {
+            "check": "Reserve a seat using the online booking page.",
+            "training": "You must register online to reserve your place.",
+            "cosine": 0.37870601626667244
+          },
+          {
+            "check": "Email trips@example.org to discuss individual needs.",
+            "training": "Our email address is community@example.org.",
+            "cosine": 0.37269538374646577
+          },
+          {
+            "check": "Everyone attending must bring their membership card.",
+            "training": "Students should bring their notebooks.",
+            "cosine": 0.369647604972636
+          },
+          {
+            "check": "The centre shuts at 7 pm on weekdays.",
+            "training": "Doors open at 5 pm.",
+            "cosine": 0.36879886878074475
+          },
+          {
+            "check": "Ensure that the consent section has been signed.",
+            "training": "The programme has been running for five years.",
+            "cosine": 0.36706904498751736
+          },
+          {
+            "check": "We are delighted by the success of last year's activities.",
+            "training": "The children enjoyed their visit last year.",
+            "cosine": 0.3571980463040178
+          },
+          {
+            "check": "Tickets cost eight pounds each.",
+            "training": "Transport is included in the cost.",
+            "cosine": 0.3471779765686897
+          },
+          {
+            "check": "For queries about the fee, contact accounts.",
+            "training": "Pay the fee through the school portal.",
+            "cosine": 0.3467452302589312
+          },
+          {
+            "check": "Do not pay the driver directly.",
+            "training": "Pay the fee through the school portal.",
+            "cosine": 0.3361681149792241
+          },
+          {
+            "check": "The annual celebration takes place in the park.",
+            "training": "The workshop takes place at the library.",
+            "cosine": 0.33412518722657897
+          },
+          {
+            "check": "Dear members of the community.",
+            "training": "We are proud of the achievements of our community.",
+            "cosine": 0.32933026058459935
+          },
+          {
+            "check": "For assistance with your booking, ring the help line.",
+            "training": "Speak to the duty supervisor for assistance.",
+            "cosine": 0.32808850437922094
+          },
+          {
+            "check": "The appointment is at 2 pm on Wednesday.",
+            "training": "Doors open at 5 pm.",
+            "cosine": 0.32765818409176994
+          },
+          {
+            "check": "Hand your completed reply to the front desk by Thursday.",
+            "training": "Enquiries should be directed to the reception desk.",
+            "cosine": 0.3250975495754224
+          },
+          {
+            "check": "We hope the children have an enjoyable experience.",
+            "training": "We hope you enjoyed the recent festival.",
+            "cosine": 0.32485542263512096
+          },
+          {
+            "check": "The programme was established in 2021.",
+            "training": "We encourage families to take an interest in the programme.",
+            "cosine": 0.3242432782978779
+          },
+          {
+            "check": "The duty librarian can answer your questions.",
+            "training": "Speak to the duty supervisor for assistance.",
+            "cosine": 0.31582857559569144
+          },
+          {
+            "check": "Bookings are required by 17 November at 4 pm.",
+            "training": "Participants are required to attend the induction.",
+            "cosine": 0.3100013326741238
+          },
+          {
+            "check": "You can find additional details on our information page.",
+            "training": "You can ask the community team for support.",
+            "cosine": 0.3085878441805531
+          },
+          {
+            "check": "You will need to carry a refillable water bottle.",
+            "training": "You do not need to purchase a ticket.",
+            "cosine": 0.30819123626602035
+          },
+          {
+            "check": "Please ask the supervisor about alternative travel options.",
+            "training": "For advice about the timetable, ask the administrator.",
+            "cosine": 0.3058395261435774
+          },
+          {
+            "check": "The morning session is ninety minutes long.",
+            "training": "The information session is free of charge.",
+            "cosine": 0.30039166578799814
+          },
+          {
+            "check": "Families will meet in the assembly room.",
+            "training": "We encourage families to take an interest in the programme.",
+            "cosine": 0.29913070040996065
+          },
+          {
+            "check": "Our team answers enquiries by email.",
+            "training": "Our team is committed to improving the service.",
+            "cosine": 0.29548530589504096
+          },
+          {
+            "check": "Address any questions to the programme organiser.",
+            "training": "Please bring proof of address to the appointment.",
+            "cosine": 0.28523068566400517
+          },
+          {
+            "check": "The minibus returns at half past four.",
+            "training": "The workshop takes place at the library.",
+            "cosine": 0.2768447123727406
+          },
+          {
+            "check": "The new initiative encourages creative thinking.",
+            "training": "We are pleased to announce a new community programme.",
+            "cosine": 0.27414935055314704
+          },
+          {
+            "check": "Make your selection before the end of the week.",
+            "training": "We are proud of the achievements of our community.",
+            "cosine": 0.27388628749262833
+          },
+          {
+            "check": "The venue has a step free entrance.",
+            "training": "The venue is the sports centre on Bridge Street.",
+            "cosine": 0.2698848658278634
+          },
+          {
+            "check": "Our doors will reopen on 3 February.",
+            "training": "Doors open at 5 pm.",
+            "cosine": 0.2683254101866646
+          },
+          {
+            "check": "Our mission is to make learning accessible to everyone.",
+            "training": "Everyone is welcome at our community events.",
+            "cosine": 0.2570628129523416
+          },
+          {
+            "check": "Many thanks for helping our school community.",
+            "training": "The school visit takes place at the community centre.",
+            "cosine": 0.2523296465592274
+          },
+          {
+            "check": "If anything is unclear, speak with the head of year.",
+            "training": "Get in touch with the volunteers team.",
+            "cosine": 0.24698284271915644
+          },
+          {
+            "check": "The organisers are grateful for the support of families.",
+            "training": "We are proud of the achievements of our community.",
+            "cosine": 0.23066497766938074
+          },
+          {
+            "check": "The final date to send your response is 23 August.",
+            "training": "Please do not send money by post.",
+            "cosine": 0.2285189591231031
+          },
+          {
+            "check": "This circular outlines the arrangements for the new term.",
+            "training": "We apologise for the inconvenience.",
+            "cosine": 0.2018858310105561
+          },
+          {
+            "check": "We have received positive feedback from residents.",
+            "training": "The centre received a generous donation.",
+            "cosine": 0.18971003683635504
+          },
+          {
+            "check": "The scheme builds connections between neighbours.",
+            "training": "The workshop takes place at the library.",
+            "cosine": 0.18138387321831456
+          }
+        ]
+      },
+      "authored": {
+        "exact": [],
+        "normalized": [],
+        "nearest": [
+          {
+            "check": "Thank you for bringing such lovely cakes.",
+            "training": "Thank you for your continued support.",
+            "cosine": 0.6533385999049274
+          },
+          {
+            "check": "Refreshments are included in the admission price.",
+            "training": "Transport is included in the cost.",
+            "cosine": 0.5908853305631543
+          },
+          {
+            "check": "Remember: coats, lunch and a water bottle.",
+            "training": "Bring a packed lunch and a bottle of water.",
+            "cosine": 0.5562242055070488
+          },
+          {
+            "check": "RSVP by Friday.",
+            "training": "Please submit your application by Friday.",
+            "cosine": 0.5556284569348997
+          },
+          {
+            "check": "Notify the office if your child will be absent.",
+            "training": "Let the office know if your child is absent.",
+            "cosine": 0.5337704299939101
+          },
+          {
+            "check": "Bring your own snacks if you have allergies.",
+            "training": "If you have questions, speak to your teacher.",
+            "cosine": 0.5290788919872889
+          },
+          {
+            "check": "Having trouble with the portal? Our support desk can help.",
+            "training": "Our help desk can assist with registration.",
+            "cosine": 0.5014820808549264
+          },
+          {
+            "check": "Payment of the balance should reach us before the trip.",
+            "training": "The application has to reach us before 4 pm.",
+            "cosine": 0.41222524108469083
+          },
+          {
+            "check": "Warm wishes from everyone at the centre.",
+            "training": "Best wishes from the school team.",
+            "cosine": 0.4112940696654876
+          },
+          {
+            "check": "Further guidance is on the council website.",
+            "training": "The entrance is on the ground floor.",
+            "cosine": 0.38765987569262694
+          },
+          {
+            "check": "Attendance must be confirmed through the portal.",
+            "training": "Pay the fee through the school portal.",
+            "cosine": 0.3816282596208385
+          },
+          {
+            "check": "Lunchboxes and water bottles are to be packed.",
+            "training": "Bring a packed lunch and a bottle of water.",
+            "cosine": 0.38013735347442246
+          },
+          {
+            "check": "Families registered in record numbers last year.",
+            "training": "The children enjoyed their visit last year.",
+            "cosine": 0.3655986911772434
+          },
+          {
+            "check": "Before departure, check that you have returned the slip.",
+            "training": "If you have questions, speak to your teacher.",
+            "cosine": 0.35357964105803014
+          },
+          {
+            "check": "No money needs to be sent.",
+            "training": "Questions can be sent to events@example.org.",
+            "cosine": 0.35350398807253736
+          },
+          {
+            "check": "For the outing, a waterproof jacket is compulsory.",
+            "training": "We apologise for the inconvenience.",
+            "cosine": 0.35109217318232416
+          },
+          {
+            "check": "Should you need assistance, ring the organiser.",
+            "training": "Contact the coordinator if you need help.",
+            "cosine": 0.3370904496518321
+          },
+          {
+            "check": "Could each household nominate one representative?",
+            "training": "Choose one workshop on the booking form.",
+            "cosine": 0.3362216372911152
+          },
+          {
+            "check": "For advice on getting here, write to the transport coordinator.",
+            "training": "Write to the office if you need a paper copy.",
+            "cosine": 0.329439141451368
+          },
+          {
+            "check": "Need a translated copy? Ask the reception team.",
+            "training": "You can ask the community team for support.",
+            "cosine": 0.29983941663697694
+          },
+          {
+            "check": "We paid for the new equipment last summer.",
+            "training": "We apologise for the inconvenience.",
+            "cosine": 0.29846019173051375
+          },
+          {
+            "check": "The building is unavailable during the renovation.",
+            "training": "We appreciate your patience during the repairs.",
+            "cosine": 0.29487004710715004
+          },
+          {
+            "check": "The exhibition continues until the weekend.",
+            "training": "The library is open from 9 am until 5 pm.",
+            "cosine": 0.28795280881395596
+          },
+          {
+            "check": "The replacement bus arrives at the side entrance.",
+            "training": "The bus leaves the school at 8 am.",
+            "cosine": 0.28347812162609853
+          },
+          {
+            "check": "A signed consent slip is needed for participation.",
+            "training": "Return the signed permission slip to your teacher.",
+            "cosine": 0.28318561407820486
+          },
+          {
+            "check": "Those wishing to join are asked to complete the booking.",
+            "training": "Please complete the attached form before Friday.",
+            "cosine": 0.2746535780845545
+          },
+          {
+            "check": "Queries about access can be discussed with the duty officer.",
+            "training": "Speak to the duty supervisor for assistance.",
+            "cosine": 0.2613311120051187
+          },
+          {
+            "check": "There will be two sessions in the afternoon.",
+            "training": "The afternoon session starts after lunch.",
+            "cosine": 0.24758329323112988
+          },
+          {
+            "check": "The club hopes everyone will have fun.",
+            "training": "The club session takes place at the library.",
+            "cosine": 0.2427248793785468
+          },
+          {
+            "check": "Kindly advise the organiser of any dietary restrictions.",
+            "training": "Please let us know about dietary needs.",
+            "cosine": 0.239381567871377
+          },
+          {
+            "check": "Visitors without a pass will not be admitted.",
+            "training": "Lunch will be provided at noon.",
+            "cosine": 0.23622290404000343
+          },
+          {
+            "check": "It is essential that every visitor carries photo identification.",
+            "training": "The class meets every Tuesday.",
+            "cosine": 0.23238442087126623
+          },
+          {
+            "check": "Don\u2019t forget your swimming kit.",
+            "training": "Submit your application by 5 October.",
+            "cosine": 0.23140194510321876
+          },
+          {
+            "check": "Our aim is to connect residents with one another.",
+            "training": "Our help desk can assist with registration.",
+            "cosine": 0.2256580210614367
+          },
+          {
+            "check": "The pupils learned how to complete an application.",
+            "training": "Please complete the attached form before Friday.",
+            "cosine": 0.22534094128400367
+          },
+          {
+            "check": "The volunteer returned the forms last week.",
+            "training": "For questions about forms, contact the coordinator.",
+            "cosine": 0.22256263323419362
+          },
+          {
+            "check": "Families can register if they wish.",
+            "training": "If you wish to attend, confirm your attendance.",
+            "cosine": 0.21520488753129127
+          },
+          {
+            "check": "Reply only if your arrangements have changed.",
+            "training": "If you have questions, speak to your teacher.",
+            "cosine": 0.2143213912354262
+          },
+          {
+            "check": "Forms received after the closing date cannot be accepted.",
+            "training": "Applications must be received no later than Monday.",
+            "cosine": 0.19651074045555145
+          },
+          {
+            "check": "Each ticket admits one adult and two children.",
+            "training": "The session lasts for two hours.",
+            "cosine": 0.16137213248921117
+          }
+        ]
+      },
+      "public": {
+        "exact": [],
+        "normalized": [],
+        "nearest": [
+          {
+            "check": "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials.",
+            "training": "Students should bring their notebooks.",
+            "cosine": 0.4614694340166962
+          },
+          {
+            "check": "If you would like a physical Library card, stop by any open branch with valid ID.",
+            "training": "Take your student card with you.",
+            "cosine": 0.32861687932959877
+          },
+          {
+            "check": "You must accept the offer by the deadline given in the offer letter.",
+            "training": "The deadline for responses is 10 October.",
+            "cosine": 0.2966000256736051
+          },
+          {
+            "check": "All users must present a valid photo ID when checking in.",
+            "training": "All visitors must show their booking confirmation.",
+            "cosine": 0.2720576274121338
+          },
+          {
+            "check": "Bring your printed or electronic pass and photo ID to the museum on the date selected.",
+            "training": "The visit includes a guided tour of the museum.",
+            "cosine": 0.262197911941207
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "legacy": {
+        "exact": [],
+        "normalized": [],
+        "nearest": [
+          {
+            "check": "The meal is included in the price.",
+            "training": "Transport is included in the cost.",
+            "cosine": 0.658492756660363
+          },
+          {
+            "check": "Kind regards from the library team.",
+            "training": "Kind regards from everyone in the office.",
+            "cosine": 0.563542049433358
+          },
+          {
+            "check": "Make your selection before the end of the week.",
+            "training": "RSVP to the invitation before the end of the month.",
+            "cosine": 0.5631939731321405
+          },
+          {
+            "check": "You do not have to buy any materials.",
+            "training": "You do not need to purchase a ticket.",
+            "cosine": 0.5433654288169837
+          },
+          {
+            "check": "If you are unsure, call the front desk.",
+            "training": "Call us if you are unsure which session to choose.",
+            "cosine": 0.5107031965022693
+          },
+          {
+            "check": "If your child is participating, return the enclosed slip.",
+            "training": "Let the office know if your child is absent.",
+            "cosine": 0.5102322881458571
+          },
+          {
+            "check": "The outing is scheduled for 21 October at 9 am.",
+            "training": "The workshop is scheduled for Saturday morning.",
+            "cosine": 0.42386222696593684
+          },
+          {
+            "check": "The centre shuts at 7 pm on weekdays.",
+            "training": "Doors open at 5 pm.",
+            "cosine": 0.3865244846889583
+          },
+          {
+            "check": "Email trips@example.org to discuss individual needs.",
+            "training": "Our email address is community@example.org.",
+            "cosine": 0.3783862635826645
+          },
+          {
+            "check": "The support office is available to explain the process.",
+            "training": "The coordinator is available to answer questions.",
+            "cosine": 0.36237383651163757
+          },
+          {
+            "check": "Tickets cost eight pounds each.",
+            "training": "Transport is included in the cost.",
+            "cosine": 0.35964011153855513
+          },
+          {
+            "check": "The scheme builds connections between neighbours.",
+            "training": "The centre hopes to strengthen connections between families.",
+            "cosine": 0.3584622209043113
+          },
+          {
+            "check": "The rehearsal happens in the theatre.",
+            "training": "The rehearsal has moved to the upstairs studio.",
+            "cosine": 0.3521702377457033
+          },
+          {
+            "check": "Everyone attending must bring their membership card.",
+            "training": "Students should bring their notebooks.",
+            "cosine": 0.3515408947760955
+          },
+          {
+            "check": "We hope the children have an enjoyable experience.",
+            "training": "We hope you enjoyed the recent festival.",
+            "cosine": 0.3431717466210704
+          },
+          {
+            "check": "The accessibility team can help arrange an interpreter.",
+            "training": "If you need an interpreter, contact reception.",
+            "cosine": 0.3393440255023538
+          },
+          {
+            "check": "The appointment is at 2 pm on Wednesday.",
+            "training": "Doors open at 5 pm.",
+            "cosine": 0.3386216430727892
+          },
+          {
+            "check": "We are delighted by the success of last year's activities.",
+            "training": "We are proud of the achievements of our community.",
+            "cosine": 0.3375817897886929
+          },
+          {
+            "check": "Tell reception if you require a large print letter.",
+            "training": "Inform reception when you require an accessible seat.",
+            "cosine": 0.3372706041274181
+          },
+          {
+            "check": "Do not pay the driver directly.",
+            "training": "Pay the fee through the school portal.",
+            "cosine": 0.33688152867361687
+          },
+          {
+            "check": "For queries about the fee, contact accounts.",
+            "training": "Pay the fee through the school portal.",
+            "cosine": 0.3364490821404517
+          },
+          {
+            "check": "Ensure that the consent section has been signed.",
+            "training": "The programme has been running for five years.",
+            "cosine": 0.3315510403389679
+          },
+          {
+            "check": "The programme was established in 2021.",
+            "training": "We encourage families to take an interest in the programme.",
+            "cosine": 0.31687696346905636
+          },
+          {
+            "check": "For assistance with your booking, ring the help line.",
+            "training": "Speak to the duty supervisor for assistance.",
+            "cosine": 0.3167305980336842
+          },
+          {
+            "check": "The duty librarian can answer your questions.",
+            "training": "Need more information? Our volunteers can answer questions.",
+            "cosine": 0.30406450893675396
+          },
+          {
+            "check": "Please ask the supervisor about alternative travel options.",
+            "training": "For advice about the timetable, ask the administrator.",
+            "cosine": 0.30021054794357965
+          },
+          {
+            "check": "The annual celebration takes place in the park.",
+            "training": "The workshop takes place at the library.",
+            "cosine": 0.30011709772355105
+          },
+          {
+            "check": "Bookings are required by 17 November at 4 pm.",
+            "training": "Participants are required to attend the induction.",
+            "cosine": 0.2914753901028175
+          },
+          {
+            "check": "Our team answers enquiries by email.",
+            "training": "Reach out to our team for more information.",
+            "cosine": 0.28217028661636806
+          },
+          {
+            "check": "If anything is unclear, speak with the head of year.",
+            "training": "For advice about fares, speak with our travel team.",
+            "cosine": 0.2818899174954134
+          },
+          {
+            "check": "Our doors will reopen on 3 February.",
+            "training": "Doors open at 5 pm.",
+            "cosine": 0.27982759518270733
+          },
+          {
+            "check": "Dear members of the community.",
+            "training": "The community fair takes place at the community centre.",
+            "cosine": 0.27944948583493745
+          },
+          {
+            "check": "The venue has a step free entrance.",
+            "training": "The venue is the sports centre on Bridge Street.",
+            "cosine": 0.27500793924880723
+          },
+          {
+            "check": "The minibus returns at half past four.",
+            "training": "The workshop takes place at the library.",
+            "cosine": 0.2729895748531797
+          },
+          {
+            "check": "You will need to carry a refillable water bottle.",
+            "training": "You do not need to purchase a ticket.",
+            "cosine": 0.2703725369447056
+          },
+          {
+            "check": "Our mission is to make learning accessible to everyone.",
+            "training": "The initiative aims to make the neighbourhood welcoming.",
+            "cosine": 0.26444129237226455
+          },
+          {
+            "check": "Families will meet in the assembly room.",
+            "training": "We encourage families to take an interest in the programme.",
+            "cosine": 0.2641826423781754
+          },
+          {
+            "check": "Many thanks for helping our school community.",
+            "training": "Our thanks go to the library volunteers.",
+            "cosine": 0.2606583643888814
+          },
+          {
+            "check": "Hand your completed reply to the front desk by Thursday.",
+            "training": "Enquiries should be directed to the reception desk.",
+            "cosine": 0.25597150787210365
+          },
+          {
+            "check": "The morning session is ninety minutes long.",
+            "training": "The information session is free of charge.",
+            "cosine": 0.25251035823539275
+          },
+          {
+            "check": "The organisers are grateful for the support of families.",
+            "training": "Having difficulty filling in the form? Contact the support team.",
+            "cosine": 0.24967308466164145
+          },
+          {
+            "check": "Reserve a seat using the online booking page.",
+            "training": "The help desk can explain how the booking page works.",
+            "cosine": 0.23891065595406002
+          },
+          {
+            "check": "You can find additional details on our information page.",
+            "training": "You can ask the community team for support.",
+            "cosine": 0.23840225833505838
+          },
+          {
+            "check": "Address any questions to the programme organiser.",
+            "training": "Please bring proof of address to the appointment.",
+            "cosine": 0.23399747611053312
+          },
+          {
+            "check": "The final date to send your response is 23 August.",
+            "training": "Please do not send money by post.",
+            "cosine": 0.21411031746939588
+          },
+          {
+            "check": "This circular outlines the arrangements for the new term.",
+            "training": "We apologise for the inconvenience.",
+            "cosine": 0.1914268070655197
+          },
+          {
+            "check": "The new initiative encourages creative thinking.",
+            "training": "The initiative aims to make the neighbourhood welcoming.",
+            "cosine": 0.188256922280151
+          },
+          {
+            "check": "We have received positive feedback from residents.",
+            "training": "The centre received a generous donation.",
+            "cosine": 0.1718874931016238
+          }
+        ]
+      },
+      "authored": {
+        "exact": [],
+        "normalized": [],
+        "nearest": [
+          {
+            "check": "Thank you for bringing such lovely cakes.",
+            "training": "Thank you for your continued support.",
+            "cosine": 0.6317542187747414
+          },
+          {
+            "check": "Don\u2019t forget your swimming kit.",
+            "training": "Don't forget to pack your lunch.",
+            "cosine": 0.6023179372997887
+          },
+          {
+            "check": "Queries about access can be discussed with the duty officer.",
+            "training": "Enquiries about wheelchair access can be discussed with reception.",
+            "cosine": 0.5790640712660681
+          },
+          {
+            "check": "It is essential that every visitor carries photo identification.",
+            "training": "It is essential that all participants wear a helmet.",
+            "cosine": 0.5578539752909369
+          },
+          {
+            "check": "Remember: coats, lunch and a water bottle.",
+            "training": "Bring a packed lunch and a bottle of water.",
+            "cosine": 0.5476808077784568
+          },
+          {
+            "check": "Refreshments are included in the admission price.",
+            "training": "Tea and coffee are included in the ticket price.",
+            "cosine": 0.5330546681230091
+          },
+          {
+            "check": "Bring your own snacks if you have allergies.",
+            "training": "If you have questions, speak to your teacher.",
+            "cosine": 0.4983380869970366
+          },
+          {
+            "check": "Notify the office if your child will be absent.",
+            "training": "Let the office know if your child is absent.",
+            "cosine": 0.4831296829413761
+          },
+          {
+            "check": "The exhibition continues until the weekend.",
+            "training": "The display continues until the end of the month.",
+            "cosine": 0.4763418329007678
+          },
+          {
+            "check": "No money needs to be sent.",
+            "training": "No deposit needs to be paid for this session.",
+            "cosine": 0.4354278754993206
+          },
+          {
+            "check": "The replacement bus arrives at the side entrance.",
+            "training": "The shuttle arrives at the north gate.",
+            "cosine": 0.41952502583629137
+          },
+          {
+            "check": "RSVP by Friday.",
+            "training": "Please submit your application by Friday.",
+            "cosine": 0.41907111127074975
+          },
+          {
+            "check": "Further guidance is on the council website.",
+            "training": "Information about accessibility is on the visitor website.",
+            "cosine": 0.4145842961198216
+          },
+          {
+            "check": "Having trouble with the portal? Our support desk can help.",
+            "training": "Our help desk can assist with registration.",
+            "cosine": 0.4011573146411117
+          },
+          {
+            "check": "Visitors without a pass will not be admitted.",
+            "training": "Applications arriving after Friday will not be considered.",
+            "cosine": 0.39875133802167884
+          },
+          {
+            "check": "Attendance must be confirmed through the portal.",
+            "training": "Your place must be confirmed using the reply form.",
+            "cosine": 0.38888595263173453
+          },
+          {
+            "check": "Lunchboxes and water bottles are to be packed.",
+            "training": "A towel and spare clothing are to be brought to the pool.",
+            "cosine": 0.3887817158952373
+          },
+          {
+            "check": "Warm wishes from everyone at the centre.",
+            "training": "Best wishes from the school team.",
+            "cosine": 0.3840623099095295
+          },
+          {
+            "check": "Payment of the balance should reach us before the trip.",
+            "training": "The application has to reach us before 4 pm.",
+            "cosine": 0.3693880195992389
+          },
+          {
+            "check": "We paid for the new equipment last summer.",
+            "training": "Several parents paid for new books last month.",
+            "cosine": 0.36908392383337896
+          },
+          {
+            "check": "For advice on getting here, write to the transport coordinator.",
+            "training": "Write to the help desk for guidance on membership.",
+            "cosine": 0.3649857682665841
+          },
+          {
+            "check": "Families registered in record numbers last year.",
+            "training": "The children enjoyed their visit last year.",
+            "cosine": 0.34980404997765496
+          },
+          {
+            "check": "Those wishing to join are asked to complete the booking.",
+            "training": "Participants are asked to provide an emergency telephone number.",
+            "cosine": 0.34962151215898035
+          },
+          {
+            "check": "Forms received after the closing date cannot be accepted.",
+            "training": "Refreshments will be served after the presentation.",
+            "cosine": 0.3158953718109055
+          },
+          {
+            "check": "Should you need assistance, ring the organiser.",
+            "training": "Booking confirmations should reach the organiser by noon.",
+            "cosine": 0.3135075567607716
+          },
+          {
+            "check": "Need a translated copy? Ask the reception team.",
+            "training": "For a translated version, ask the school office for help.",
+            "cosine": 0.30516715521194004
+          },
+          {
+            "check": "Reply only if your arrangements have changed.",
+            "training": "Respond only if you cannot attend the meeting.",
+            "cosine": 0.3021359172235398
+          },
+          {
+            "check": "A signed consent slip is needed for participation.",
+            "training": "A completed registration sheet is needed before you can take part.",
+            "cosine": 0.2913787834558191
+          },
+          {
+            "check": "The building is unavailable during the renovation.",
+            "training": "The hall is unavailable while repairs are underway.",
+            "cosine": 0.28972907786333396
+          },
+          {
+            "check": "The volunteer returned the forms last week.",
+            "training": "We returned the borrowed chairs after the festival.",
+            "cosine": 0.2796995409743385
+          },
+          {
+            "check": "For the outing, a waterproof jacket is compulsory.",
+            "training": "We appreciate everyone who helped organise the outing.",
+            "cosine": 0.278045912720575
+          },
+          {
+            "check": "Before departure, check that you have returned the slip.",
+            "training": "Your balance is payable before departure.",
+            "cosine": 0.2638774274191556
+          },
+          {
+            "check": "There will be two sessions in the afternoon.",
+            "training": "The afternoon session starts after lunch.",
+            "cosine": 0.24738043487975672
+          },
+          {
+            "check": "Kindly advise the organiser of any dietary restrictions.",
+            "training": "Advise the trip leader if you cannot come.",
+            "cosine": 0.2454579672712392
+          },
+          {
+            "check": "Each ticket admits one adult and two children.",
+            "training": "A family pass covers two adults and three children.",
+            "cosine": 0.24465454167709158
+          },
+          {
+            "check": "Our aim is to connect residents with one another.",
+            "training": "Our team hopes the residents enjoyed the celebration.",
+            "cosine": 0.22952961317028364
+          },
+          {
+            "check": "Families can register if they wish.",
+            "training": "If you wish to attend, confirm your attendance.",
+            "cosine": 0.22487355845499662
+          },
+          {
+            "check": "The club hopes everyone will have fun.",
+            "training": "The club session takes place at the library.",
+            "cosine": 0.21640789645749506
+          },
+          {
+            "check": "Could each household nominate one representative?",
+            "training": "Choose one workshop on the booking form.",
+            "cosine": 0.19580797988595755
+          },
+          {
+            "check": "The pupils learned how to complete an application.",
+            "training": "Please complete the attached form before Friday.",
+            "cosine": 0.17190919090936976
+          }
+        ]
+      },
+      "public": {
+        "exact": [],
+        "normalized": [],
+        "nearest": [
+          {
+            "check": "If you would like a physical Library card, stop by any open branch with valid ID.",
+            "training": "If you would like to attend, you can book a place online.",
+            "cosine": 0.47000422371819567
+          },
+          {
+            "check": "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials.",
+            "training": "Students should bring their notebooks.",
+            "cosine": 0.41791792888823037
+          },
+          {
+            "check": "You must accept the offer by the deadline given in the offer letter.",
+            "training": "The deadline for responses is 10 October.",
+            "cosine": 0.3040019310929361
+          },
+          {
+            "check": "Bring your printed or electronic pass and photo ID to the museum on the date selected.",
+            "training": "The visit includes a guided tour of the museum.",
+            "cosine": 0.23544666058924144
+          },
+          {
+            "check": "All users must present a valid photo ID when checking in.",
+            "training": "An interpreter will be present during the meeting.",
+            "cosine": 0.16843279370460323
+          }
+        ]
+      }
+    }
+  },
+  "candidate_predictions": [
+    {
+      "text": "Hand your completed reply to the front desk by Thursday.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.6354171565607412
+    },
+    {
+      "text": "Reserve a seat using the online booking page.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.4599075090697847
+    },
+    {
+      "text": "You will need to carry a refillable water bottle.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.5533589172321236
+    },
+    {
+      "text": "Do not pay the driver directly.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.6782864507083389
+    },
+    {
+      "text": "Make your selection before the end of the week.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.6271692733022792
+    },
+    {
+      "text": "The final date to send your response is 23 August.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.626418158769664
+    },
+    {
+      "text": "Tell reception if you require a large print letter.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.49056191383880066
+    },
+    {
+      "text": "Ensure that the consent section has been signed.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.42132275203907177
+    },
+    {
+      "text": "Everyone attending must bring their membership card.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.656690744270884
+    },
+    {
+      "text": "Bookings are required by 17 November at 4 pm.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.4735959200753474
+    },
+    {
+      "text": "If your child is participating, return the enclosed slip.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.7538969178033452
+    },
+    {
+      "text": "You do not have to buy any materials.",
+      "label": "action",
+      "split": "legacy",
+      "prediction": "action",
+      "score": 0.6967663102133989
+    },
+    {
+      "text": "The outing is scheduled for 21 October at 9 am.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.728577377091554
+    },
+    {
+      "text": "Our doors will reopen on 3 February.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.564083586997116
+    },
+    {
+      "text": "Families will meet in the assembly room.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.43787456085665766
+    },
+    {
+      "text": "The minibus returns at half past four.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.8774848415294116
+    },
+    {
+      "text": "The morning session is ninety minutes long.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.6624163086467776
+    },
+    {
+      "text": "Tickets cost eight pounds each.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.32763610245895186
+    },
+    {
+      "text": "The centre shuts at 7 pm on weekdays.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.7171456905444454
+    },
+    {
+      "text": "The rehearsal happens in the theatre.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.5179116925625088
+    },
+    {
+      "text": "The annual celebration takes place in the park.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.6948845870072787
+    },
+    {
+      "text": "The appointment is at 2 pm on Wednesday.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.7092035787653477
+    },
+    {
+      "text": "The meal is included in the price.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.7190170110247595
+    },
+    {
+      "text": "The venue has a step free entrance.",
+      "label": "event",
+      "split": "legacy",
+      "prediction": "event",
+      "score": 0.43874748541269315
+    },
+    {
+      "text": "If anything is unclear, speak with the head of year.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.4054929272692874
+    },
+    {
+      "text": "For assistance with your booking, ring the help line.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.5537651677249601
+    },
+    {
+      "text": "Address any questions to the programme organiser.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.382723097857589
+    },
+    {
+      "text": "The duty librarian can answer your questions.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.6940049935013486
+    },
+    {
+      "text": "Email trips@example.org to discuss individual needs.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.7032477555053708
+    },
+    {
+      "text": "The accessibility team can help arrange an interpreter.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.7002082038316745
+    },
+    {
+      "text": "You can find additional details on our information page.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.6356698205298427
+    },
+    {
+      "text": "If you are unsure, call the front desk.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.7448956627261034
+    },
+    {
+      "text": "Please ask the supervisor about alternative travel options.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.6137380364482939
+    },
+    {
+      "text": "For queries about the fee, contact accounts.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.6598855674471362
+    },
+    {
+      "text": "Our team answers enquiries by email.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.647633076403995
+    },
+    {
+      "text": "The support office is available to explain the process.",
+      "label": "contact",
+      "split": "legacy",
+      "prediction": "contact",
+      "score": 0.6666953700802749
+    },
+    {
+      "text": "We are delighted by the success of last year's activities.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.8723964214817596
+    },
+    {
+      "text": "The scheme builds connections between neighbours.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.6224390689852348
+    },
+    {
+      "text": "Many thanks for helping our school community.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.5845584390567101
+    },
+    {
+      "text": "Our mission is to make learning accessible to everyone.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.7258596085768001
+    },
+    {
+      "text": "This circular outlines the arrangements for the new term.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.718948705311483
+    },
+    {
+      "text": "The organisers are grateful for the support of families.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.6088694827219584
+    },
+    {
+      "text": "We hope the children have an enjoyable experience.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.7595998219839791
+    },
+    {
+      "text": "The new initiative encourages creative thinking.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.5413855154035595
+    },
+    {
+      "text": "We have received positive feedback from residents.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.7753342573000683
+    },
+    {
+      "text": "Dear members of the community.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.44136275208741926
+    },
+    {
+      "text": "Kind regards from the library team.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.6837098013684432
+    },
+    {
+      "text": "The programme was established in 2021.",
+      "label": "background",
+      "split": "legacy",
+      "prediction": "background",
+      "score": 0.6897352900197723
+    },
+    {
+      "label": "action",
+      "text": "RSVP by Friday.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.6622514151829514
+    },
+    {
+      "label": "action",
+      "text": "A signed consent slip is needed for participation.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.47887509382143595
+    },
+    {
+      "label": "action",
+      "text": "Payment of the balance should reach us before the trip.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.6675815002006507
+    },
+    {
+      "label": "action",
+      "text": "Those wishing to join are asked to complete the booking.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.5760650132801621
+    },
+    {
+      "label": "action",
+      "text": "Lunchboxes and water bottles are to be packed.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.566386152165889
+    },
+    {
+      "label": "action",
+      "text": "Kindly advise the organiser of any dietary restrictions.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.4811542496653026
+    },
+    {
+      "label": "action",
+      "text": "Notify the office if your child will be absent.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.45372574057251874
+    },
+    {
+      "label": "action",
+      "text": "It is essential that every visitor carries photo identification.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.4354834017386363
+    },
+    {
+      "label": "action",
+      "text": "Visitors without a pass will not be admitted.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.4341823869259916
+    },
+    {
+      "label": "action",
+      "text": "Don\u2019t forget your swimming kit.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.6730938164493303
+    },
+    {
+      "label": "action",
+      "text": "Remember: coats, lunch and a water bottle.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.5252040835897838
+    },
+    {
+      "label": "action",
+      "text": "Before departure, check that you have returned the slip.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.5698125834099913
+    },
+    {
+      "label": "action",
+      "text": "Families can register if they wish.",
+      "split": "authored",
+      "prediction": "contact",
+      "score": 0.3133585882760905
+    },
+    {
+      "label": "action",
+      "text": "Bring your own snacks if you have allergies.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.6224029721016248
+    },
+    {
+      "label": "action",
+      "text": "No money needs to be sent.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.558444315568982
+    },
+    {
+      "label": "action",
+      "text": "Attendance must be confirmed through the portal.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.6825848616543787
+    },
+    {
+      "label": "action",
+      "text": "Forms received after the closing date cannot be accepted.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.3292814875472877
+    },
+    {
+      "label": "action",
+      "text": "For the outing, a waterproof jacket is compulsory.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.4619178687976672
+    },
+    {
+      "label": "action",
+      "text": "Could each household nominate one representative?",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.4684628588811394
+    },
+    {
+      "label": "action",
+      "text": "Reply only if your arrangements have changed.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.6335789608330684
+    },
+    {
+      "label": "background",
+      "text": "The club hopes everyone will have fun.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.568208615334133
+    },
+    {
+      "label": "background",
+      "text": "The volunteer returned the forms last week.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.6446501992306103
+    },
+    {
+      "label": "background",
+      "text": "We paid for the new equipment last summer.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.8712064810502687
+    },
+    {
+      "label": "background",
+      "text": "Families registered in record numbers last year.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.8685323239623902
+    },
+    {
+      "label": "background",
+      "text": "Thank you for bringing such lovely cakes.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.6543670233447396
+    },
+    {
+      "label": "background",
+      "text": "The pupils learned how to complete an application.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.40238401419348985
+    },
+    {
+      "label": "background",
+      "text": "Our aim is to connect residents with one another.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.3844103901684297
+    },
+    {
+      "label": "background",
+      "text": "Warm wishes from everyone at the centre.",
+      "split": "authored",
+      "prediction": "background",
+      "score": 0.6255801701880583
+    },
+    {
+      "label": "contact",
+      "text": "Queries about access can be discussed with the duty officer.",
+      "split": "authored",
+      "prediction": "contact",
+      "score": 0.7760639578639047
+    },
+    {
+      "label": "contact",
+      "text": "Having trouble with the portal? Our support desk can help.",
+      "split": "authored",
+      "prediction": "contact",
+      "score": 0.794762048969635
+    },
+    {
+      "label": "contact",
+      "text": "Further guidance is on the council website.",
+      "split": "authored",
+      "prediction": "contact",
+      "score": 0.4611538001308659
+    },
+    {
+      "label": "contact",
+      "text": "Should you need assistance, ring the organiser.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.40090552470813207
+    },
+    {
+      "label": "contact",
+      "text": "Need a translated copy? Ask the reception team.",
+      "split": "authored",
+      "prediction": "contact",
+      "score": 0.681771840385972
+    },
+    {
+      "label": "contact",
+      "text": "For advice on getting here, write to the transport coordinator.",
+      "split": "authored",
+      "prediction": "contact",
+      "score": 0.6720971987740325
+    },
+    {
+      "label": "event",
+      "text": "There will be two sessions in the afternoon.",
+      "split": "authored",
+      "prediction": "event",
+      "score": 0.8489233515816843
+    },
+    {
+      "label": "event",
+      "text": "Refreshments are included in the admission price.",
+      "split": "authored",
+      "prediction": "event",
+      "score": 0.6754302470275092
+    },
+    {
+      "label": "event",
+      "text": "The replacement bus arrives at the side entrance.",
+      "split": "authored",
+      "prediction": "event",
+      "score": 0.7848351767583281
+    },
+    {
+      "label": "event",
+      "text": "The building is unavailable during the renovation.",
+      "split": "authored",
+      "prediction": "event",
+      "score": 0.4645723882155848
+    },
+    {
+      "label": "event",
+      "text": "Each ticket admits one adult and two children.",
+      "split": "authored",
+      "prediction": "action",
+      "score": 0.3315316890712321
+    },
+    {
+      "label": "event",
+      "text": "The exhibition continues until the weekend.",
+      "split": "authored",
+      "prediction": "event",
+      "score": 0.5737917961248338
+    },
+    {
+      "label": "action",
+      "text": "If you would like a physical Library card, stop by any open branch with valid ID.",
+      "url": "https://www.spl.org/using-the-library/get-started/get-started-in-english/get-started-with-a-library-card",
+      "accessed": "2026-10-06",
+      "context": "Library card application FAQ; conditional instruction.",
+      "split": "public",
+      "prediction": "action",
+      "score": 0.5630660959355067
+    },
+    {
+      "label": "action",
+      "text": "You must accept the offer by the deadline given in the offer letter.",
+      "url": "https://www.gov.uk/schools-admissions/how-to-apply",
+      "accessed": "2026-10-06",
+      "context": "School admissions; explicit required response.",
+      "split": "public",
+      "prediction": "action",
+      "score": 0.534602466676902
+    },
+    {
+      "label": "action",
+      "text": "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials.",
+      "url": "https://blog.spl.org/2026/08/19/planned-system-upgrade-in-september-temporary-service-disruptions-to-expect/",
+      "accessed": "2026-10-06",
+      "context": "Dated library service notice; condition and range must stay intact.",
+      "split": "public",
+      "prediction": "action",
+      "score": 0.6804698863427121
+    },
+    {
+      "label": "action",
+      "text": "Bring your printed or electronic pass and photo ID to the museum on the date selected.",
+      "url": "https://www.spl.org/programs-and-services/arts-and-culture/museum-pass",
+      "accessed": "2026-10-06",
+      "context": "Museum pass use; instruction references a date elsewhere.",
+      "split": "public",
+      "prediction": "action",
+      "score": 0.5379804293917647
+    },
+    {
+      "label": "action",
+      "text": "All users must present a valid photo ID when checking in.",
+      "url": "https://library.harvard.edu/archives-and-special-collections-reading-room",
+      "accessed": "2026-10-06",
+      "context": "Reading room use; explicit requirement.",
+      "split": "public",
+      "prediction": "action",
+      "score": 0.6142144553841032
+    }
+  ],
+  "sha256": {
+    "audit-cases.json": "65c604eed28aa6060a102cce8efc39a645ba476d008436e27a3aabbd8404fa8d",
+    "training-additions.json": "3aeb834a79de55e8040255efcfb8f6c0a9a1cf17cd8b2eee3ae19e566292ef4b",
+    "dataset.json": "6985e025755e86f974c154d9c7d37df6c0b9eb75fcd02b1c5fe632fbe0d22d1f",
+    "evaluation.json": "4dda6c130cda7fde06b05a16ca5a4971accfe258c5551920ada7dfbb427fd596",
+    "dist/model.json": "a3e5c5722520c88d10368dbe5b3079b0f7daaaa04e4d7e57a116a5ceccb6485e",
+    "docs/model-audit/baseline/model.json": "b85c00fb17606983d7b2df9f9e293b2a7b8476a7a5035ae72af4ca5336123c16",
+    "docs/model-audit/baseline/dataset.json": "9a689bc44ed3279c7e76b63e1eaaaa5ddcc05e9a8d03d4957a57d46afd8d1a86",
+    "docs/model-audit/baseline/evaluation.json": "d71cc7e2671bc0a345a586dbdb5e41639bb1b3a4430457032d0c5c9810ad1081",
+    "docs/model-audit/baseline/engine.js": "de007f231b9f5e5c047a29acff57a3b101a6a2b7f75f48492d727b5e98167bda"
+  }
+}

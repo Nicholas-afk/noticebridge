@@ -7,7 +7,7 @@
     "event"
   ],
   "baseline_version": "1.0.0",
-  "candidate_version": "1.0.0",
+  "candidate_version": "1.1.0",
   "case_sha256": "65c604eed28aa6060a102cce8efc39a645ba476d008436e27a3aabbd8404fa8d",
   "models": {
     "baseline": {
@@ -1571,62 +1571,49 @@
     "candidate": {
       "legacy": {
         "count": 48,
-        "correct": 44,
+        "correct": 45,
         "confusion_matrix": [
           [
-            10,
+            11,
             0,
-            1,
+            0,
             1
           ],
           [
             0,
-            10,
-            0,
-            2
-          ],
-          [
-            0,
-            0,
             12,
+            0,
             0
           ],
           [
             0,
+            1,
+            11,
+            0
+          ],
+          [
             0,
+            1,
             0,
-            12
+            11
           ]
         ],
         "action": {
           "support": 12,
-          "true_positive": 10,
+          "true_positive": 11,
           "false_positive": 0,
-          "recall": 0.8333333333333334,
+          "recall": 0.9166666666666666,
           "precision": 1,
-          "listed": 6,
+          "listed": 8,
           "hidden": 0
         },
-        "category_review_sentences": 19,
+        "category_review_sentences": 13,
         "errors": [
-          {
-            "text": "Tell reception if you require a large print letter.",
-            "label": "action",
-            "prediction": "contact",
-            "score": 0.5715745976878682,
-            "kinds": [
-              "contact"
-            ],
-            "categoryReview": false,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
           {
             "text": "Bookings are required by 17 November at 4 pm.",
             "label": "action",
             "prediction": "event",
-            "score": 0.45719759252659764,
+            "score": 0.4735959200753474,
             "kinds": [
               "review"
             ],
@@ -1636,23 +1623,10 @@
             "knownFeatures": 9
           },
           {
-            "text": "The scheme builds connections between neighbours.",
-            "label": "background",
-            "prediction": "event",
-            "score": 0.6181744940376807,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 1
-          },
-          {
-            "text": "Kind regards from the library team.",
-            "label": "background",
-            "prediction": "event",
-            "score": 0.34591397878677,
+            "text": "Families will meet in the assembly room.",
+            "label": "event",
+            "prediction": "background",
+            "score": 0.43787456085665766,
             "kinds": [
               "review"
             ],
@@ -1660,6 +1634,19 @@
             "actionListed": false,
             "visible": true,
             "knownFeatures": 6
+          },
+          {
+            "text": "Address any questions to the programme organiser.",
+            "label": "contact",
+            "prediction": "background",
+            "score": 0.382723097857589,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 8
           }
         ],
         "predictions": [
@@ -1667,46 +1654,46 @@
             "text": "Hand your completed reply to the front desk by Thursday.",
             "label": "action",
             "prediction": "action",
-            "score": 0.5884284523012409,
+            "score": 0.6354171565607412,
             "kinds": [
               "action"
             ],
             "categoryReview": false,
             "actionListed": true,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 8
           },
           {
             "text": "Reserve a seat using the online booking page.",
             "label": "action",
             "prediction": "action",
-            "score": 0.44679843421126847,
+            "score": 0.4599075090697847,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 4
+            "knownFeatures": 9
           },
           {
             "text": "You will need to carry a refillable water bottle.",
             "label": "action",
             "prediction": "action",
-            "score": 0.4103411065654565,
+            "score": 0.5533589172321236,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 8
           },
           {
             "text": "Do not pay the driver directly.",
             "label": "action",
             "prediction": "action",
-            "score": 0.6724882330818306,
+            "score": 0.6782864507083388,
             "kinds": [
               "action"
             ],
@@ -1719,72 +1706,72 @@
             "text": "Make your selection before the end of the week.",
             "label": "action",
             "prediction": "action",
-            "score": 0.6026061813441225,
+            "score": 0.627169273302279,
             "kinds": [
               "action"
             ],
             "categoryReview": false,
             "actionListed": true,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 11
           },
           {
             "text": "The final date to send your response is 23 August.",
             "label": "action",
             "prediction": "action",
-            "score": 0.44948531660868235,
+            "score": 0.626418158769664,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
             "knownFeatures": 5
           },
           {
             "text": "Tell reception if you require a large print letter.",
             "label": "action",
-            "prediction": "contact",
-            "score": 0.5715745976878682,
-            "kinds": [
-              "contact"
-            ],
-            "categoryReview": false,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
-          {
-            "text": "Ensure that the consent section has been signed.",
-            "label": "action",
             "prediction": "action",
-            "score": 0.3767121756386575,
+            "score": 0.49056191383880066,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 8
+          },
+          {
+            "text": "Ensure that the consent section has been signed.",
+            "label": "action",
+            "prediction": "action",
+            "score": 0.42132275203907177,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 8
           },
           {
             "text": "Everyone attending must bring their membership card.",
             "label": "action",
             "prediction": "action",
-            "score": 0.6173689889879581,
+            "score": 0.656690744270884,
             "kinds": [
               "action"
             ],
             "categoryReview": false,
             "actionListed": true,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 8
           },
           {
             "text": "Bookings are required by 17 November at 4 pm.",
             "label": "action",
             "prediction": "event",
-            "score": 0.45719759252659764,
+            "score": 0.4735959200753474,
             "kinds": [
               "review"
             ],
@@ -1797,7 +1784,7 @@
             "text": "If your child is participating, return the enclosed slip.",
             "label": "action",
             "prediction": "action",
-            "score": 0.7121294568849552,
+            "score": 0.7538969178033452,
             "kinds": [
               "action"
             ],
@@ -1810,7 +1797,7 @@
             "text": "You do not have to buy any materials.",
             "label": "action",
             "prediction": "action",
-            "score": 0.5763074355043721,
+            "score": 0.6967663102133989,
             "kinds": [
               "action"
             ],
@@ -1823,20 +1810,20 @@
             "text": "The outing is scheduled for 21 October at 9 am.",
             "label": "event",
             "prediction": "event",
-            "score": 0.7937467681855841,
+            "score": 0.728577377091554,
             "kinds": [
               "event"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 10
+            "knownFeatures": 12
           },
           {
             "text": "Our doors will reopen on 3 February.",
             "label": "event",
             "prediction": "event",
-            "score": 0.5726756560790849,
+            "score": 0.5640835869971161,
             "kinds": [
               "event"
             ],
@@ -1848,8 +1835,8 @@
           {
             "text": "Families will meet in the assembly room.",
             "label": "event",
-            "prediction": "event",
-            "score": 0.4658770595097301,
+            "prediction": "background",
+            "score": 0.43787456085665766,
             "kinds": [
               "review"
             ],
@@ -1862,11 +1849,11 @@
             "text": "The minibus returns at half past four.",
             "label": "event",
             "prediction": "event",
-            "score": 0.8729160258424007,
+            "score": 0.8774848415294116,
             "kinds": [
-              "event"
+              "review"
             ],
-            "categoryReview": false,
+            "categoryReview": true,
             "actionListed": false,
             "visible": true,
             "knownFeatures": 2
@@ -1875,20 +1862,20 @@
             "text": "The morning session is ninety minutes long.",
             "label": "event",
             "prediction": "event",
-            "score": 0.612782951071039,
+            "score": 0.6624163086467776,
             "kinds": [
               "event"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 6
+            "knownFeatures": 7
           },
           {
             "text": "Tickets cost eight pounds each.",
             "label": "event",
             "prediction": "event",
-            "score": 0.3530127888442382,
+            "score": 0.32763610245895186,
             "kinds": [
               "review"
             ],
@@ -1901,7 +1888,7 @@
             "text": "The centre shuts at 7 pm on weekdays.",
             "label": "event",
             "prediction": "event",
-            "score": 0.7284350624434726,
+            "score": 0.7171456905444455,
             "kinds": [
               "event"
             ],
@@ -1914,33 +1901,33 @@
             "text": "The rehearsal happens in the theatre.",
             "label": "event",
             "prediction": "event",
-            "score": 0.4641222893265511,
+            "score": 0.5179116925625088,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 3
+            "knownFeatures": 5
           },
           {
             "text": "The annual celebration takes place in the park.",
             "label": "event",
             "prediction": "event",
-            "score": 0.7912625051705248,
+            "score": 0.6948845870072788,
             "kinds": [
               "event"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 6
+            "knownFeatures": 7
           },
           {
             "text": "The appointment is at 2 pm on Wednesday.",
             "label": "event",
             "prediction": "event",
-            "score": 0.7041848757709966,
+            "score": 0.7092035787653477,
             "kinds": [
               "event"
             ],
@@ -1953,20 +1940,20 @@
             "text": "The meal is included in the price.",
             "label": "event",
             "prediction": "event",
-            "score": 0.6404692386900935,
+            "score": 0.7190170110247595,
             "kinds": [
               "event"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 8
           },
           {
             "text": "The venue has a step free entrance.",
             "label": "event",
             "prediction": "event",
-            "score": 0.4023793120256561,
+            "score": 0.4387474854126932,
             "kinds": [
               "review"
             ],
@@ -1979,20 +1966,7 @@
             "text": "If anything is unclear, speak with the head of year.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.3809674456342069,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 8
-          },
-          {
-            "text": "For assistance with your booking, ring the help line.",
-            "label": "contact",
-            "prediction": "contact",
-            "score": 0.4693187112239964,
+            "score": 0.4054929272692874,
             "kinds": [
               "review"
             ],
@@ -2002,36 +1976,49 @@
             "knownFeatures": 9
           },
           {
-            "text": "Address any questions to the programme organiser.",
+            "text": "For assistance with your booking, ring the help line.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.4013503706001628,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 7
-          },
-          {
-            "text": "The duty librarian can answer your questions.",
-            "label": "contact",
-            "prediction": "contact",
-            "score": 0.5735814942886229,
+            "score": 0.5537651677249601,
             "kinds": [
               "contact"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 10
+          },
+          {
+            "text": "Address any questions to the programme organiser.",
+            "label": "contact",
+            "prediction": "background",
+            "score": 0.382723097857589,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 8
+          },
+          {
+            "text": "The duty librarian can answer your questions.",
+            "label": "contact",
+            "prediction": "contact",
+            "score": 0.6940049935013486,
+            "kinds": [
+              "contact"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 10
           },
           {
             "text": "Email trips@example.org to discuss individual needs.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.7486556706064625,
+            "score": 0.7032477555053708,
             "kinds": [
               "contact"
             ],
@@ -2044,7 +2031,20 @@
             "text": "The accessibility team can help arrange an interpreter.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.6033416106809908,
+            "score": 0.7002082038316745,
+            "kinds": [
+              "contact"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 9
+          },
+          {
+            "text": "You can find additional details on our information page.",
+            "label": "contact",
+            "prediction": "contact",
+            "score": 0.6356698205298428,
             "kinds": [
               "contact"
             ],
@@ -2054,23 +2054,10 @@
             "knownFeatures": 8
           },
           {
-            "text": "You can find additional details on our information page.",
-            "label": "contact",
-            "prediction": "contact",
-            "score": 0.5488150814658247,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 7
-          },
-          {
             "text": "If you are unsure, call the front desk.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.6834590574296308,
+            "score": 0.7448956627261034,
             "kinds": [
               "contact"
             ],
@@ -2083,11 +2070,11 @@
             "text": "Please ask the supervisor about alternative travel options.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.5190030344361284,
+            "score": 0.6137380364482939,
             "kinds": [
-              "review"
+              "contact"
             ],
-            "categoryReview": true,
+            "categoryReview": false,
             "actionListed": false,
             "visible": true,
             "knownFeatures": 7
@@ -2096,7 +2083,7 @@
             "text": "For queries about the fee, contact accounts.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.602846178634287,
+            "score": 0.6598855674471362,
             "kinds": [
               "contact"
             ],
@@ -2109,7 +2096,7 @@
             "text": "Our team answers enquiries by email.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.5953838802136067,
+            "score": 0.6476330764039951,
             "kinds": [
               "contact"
             ],
@@ -2122,20 +2109,20 @@
             "text": "The support office is available to explain the process.",
             "label": "contact",
             "prediction": "contact",
-            "score": 0.6586902320697058,
+            "score": 0.6666953700802748,
             "kinds": [
               "contact"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 8
+            "knownFeatures": 12
           },
           {
             "text": "We are delighted by the success of last year's activities.",
             "label": "background",
             "prediction": "background",
-            "score": 0.8231093906051661,
+            "score": 0.8723964214817596,
             "kinds": [
               "background"
             ],
@@ -2147,34 +2134,21 @@
           {
             "text": "The scheme builds connections between neighbours.",
             "label": "background",
-            "prediction": "event",
-            "score": 0.6181744940376807,
+            "prediction": "background",
+            "score": 0.6224390689852348,
             "kinds": [
-              "review"
+              "background"
             ],
-            "categoryReview": true,
+            "categoryReview": false,
             "actionListed": false,
-            "visible": true,
-            "knownFeatures": 1
+            "visible": false,
+            "knownFeatures": 7
           },
           {
             "text": "Many thanks for helping our school community.",
             "label": "background",
             "prediction": "background",
-            "score": 0.4257997815572972,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 4
-          },
-          {
-            "text": "Our mission is to make learning accessible to everyone.",
-            "label": "background",
-            "prediction": "background",
-            "score": 0.6956784769977847,
+            "score": 0.5845584390567102,
             "kinds": [
               "background"
             ],
@@ -2184,10 +2158,23 @@
             "knownFeatures": 6
           },
           {
+            "text": "Our mission is to make learning accessible to everyone.",
+            "label": "background",
+            "prediction": "background",
+            "score": 0.7258596085768001,
+            "kinds": [
+              "background"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": false,
+            "knownFeatures": 8
+          },
+          {
             "text": "This circular outlines the arrangements for the new term.",
             "label": "background",
             "prediction": "background",
-            "score": 0.5993251999603182,
+            "score": 0.718948705311483,
             "kinds": [
               "background"
             ],
@@ -2200,20 +2187,20 @@
             "text": "The organisers are grateful for the support of families.",
             "label": "background",
             "prediction": "background",
-            "score": 0.5740385795642925,
+            "score": 0.6088694827219584,
             "kinds": [
               "background"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": false,
-            "knownFeatures": 7
+            "knownFeatures": 8
           },
           {
             "text": "We hope the children have an enjoyable experience.",
             "label": "background",
             "prediction": "background",
-            "score": 0.7809268423349878,
+            "score": 0.7595998219839791,
             "kinds": [
               "background"
             ],
@@ -2226,59 +2213,59 @@
             "text": "The new initiative encourages creative thinking.",
             "label": "background",
             "prediction": "background",
-            "score": 0.3712830919429205,
+            "score": 0.5413855154035595,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 2
+            "knownFeatures": 4
           },
           {
             "text": "We have received positive feedback from residents.",
             "label": "background",
             "prediction": "background",
-            "score": 0.7753069064498685,
+            "score": 0.7753342573000683,
             "kinds": [
               "background"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": false,
-            "knownFeatures": 4
+            "knownFeatures": 5
           },
           {
             "text": "Dear members of the community.",
             "label": "background",
             "prediction": "background",
-            "score": 0.3781573857743445,
+            "score": 0.44136275208741926,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 6
+            "knownFeatures": 7
           },
           {
             "text": "Kind regards from the library team.",
             "label": "background",
-            "prediction": "event",
-            "score": 0.34591397878677,
+            "prediction": "background",
+            "score": 0.6837098013684432,
             "kinds": [
-              "review"
+              "background"
             ],
-            "categoryReview": true,
+            "categoryReview": false,
             "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
+            "visible": false,
+            "knownFeatures": 10
           },
           {
             "text": "The programme was established in 2021.",
             "label": "background",
             "prediction": "background",
-            "score": 0.6524940988768009,
+            "score": 0.6897352900197723,
             "kinds": [
               "background"
             ],
@@ -2291,88 +2278,49 @@
       },
       "authored": {
         "count": 40,
-        "correct": 30,
+        "correct": 35,
         "confusion_matrix": [
           [
-            14,
-            2,
+            18,
             1,
-            3
+            1,
+            0
           ],
           [
             1,
-            6,
+            7,
             0,
-            1
+            0
           ],
           [
-            0,
+            1,
             0,
             5,
-            1
+            0
           ],
           [
-            0,
             1,
+            0,
             0,
             5
           ]
         ],
         "action": {
           "support": 20,
-          "true_positive": 14,
-          "false_positive": 1,
-          "recall": 0.7,
-          "precision": 0.9333333333333333,
-          "listed": 2,
+          "true_positive": 18,
+          "false_positive": 3,
+          "recall": 0.9,
+          "precision": 0.8571428571428571,
+          "listed": 10,
           "hidden": 0
         },
-        "category_review_sentences": 31,
+        "category_review_sentences": 19,
         "errors": [
-          {
-            "label": "action",
-            "text": "Lunchboxes and water bottles are to be packed.",
-            "prediction": "background",
-            "score": 0.3688350064635918,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
-          },
-          {
-            "label": "action",
-            "text": "It is essential that every visitor carries photo identification.",
-            "prediction": "event",
-            "score": 0.3916147691690976,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 3
-          },
-          {
-            "label": "action",
-            "text": "Visitors without a pass will not be admitted.",
-            "prediction": "event",
-            "score": 0.4512125984407023,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 4
-          },
           {
             "label": "action",
             "text": "Families can register if they wish.",
             "prediction": "contact",
-            "score": 0.33530680376951344,
+            "score": 0.3133585882760905,
             "kinds": [
               "review"
             ],
@@ -2380,64 +2328,12 @@
             "actionListed": false,
             "visible": true,
             "knownFeatures": 5
-          },
-          {
-            "label": "action",
-            "text": "Forms received after the closing date cannot be accepted.",
-            "prediction": "event",
-            "score": 0.3013127224463042,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
           },
           {
             "label": "action",
             "text": "For the outing, a waterproof jacket is compulsory.",
             "prediction": "background",
-            "score": 0.41574502764787036,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 4
-          },
-          {
-            "label": "background",
-            "text": "The club hopes everyone will have fun.",
-            "prediction": "event",
-            "score": 0.4152276017515113,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
-          },
-          {
-            "label": "background",
-            "text": "The pupils learned how to complete an application.",
-            "prediction": "action",
-            "score": 0.35295276073466414,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
-          {
-            "label": "contact",
-            "text": "Further guidance is on the council website.",
-            "prediction": "event",
-            "score": 0.4516486063288108,
+            "score": 0.4619178687976672,
             "kinds": [
               "review"
             ],
@@ -2447,64 +2343,23 @@
             "knownFeatures": 7
           },
           {
-            "label": "event",
-            "text": "Each ticket admits one adult and two children.",
-            "prediction": "background",
-            "score": 0.38114857586948814,
+            "label": "background",
+            "text": "The pupils learned how to complete an application.",
+            "prediction": "action",
+            "score": 0.4023840141934899,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 5
-          }
-        ],
-        "predictions": [
-          {
-            "label": "action",
-            "text": "RSVP by Friday.",
-            "prediction": "action",
-            "score": 0.6405761827846654,
-            "kinds": [
-              "action"
-            ],
-            "categoryReview": false,
-            "actionListed": true,
-            "visible": true,
-            "knownFeatures": 3
+            "knownFeatures": 7
           },
           {
-            "label": "action",
-            "text": "A signed consent slip is needed for participation.",
+            "label": "contact",
+            "text": "Should you need assistance, ring the organiser.",
             "prediction": "action",
-            "score": 0.36768286472782813,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
-          {
-            "label": "action",
-            "text": "Payment of the balance should reach us before the trip.",
-            "prediction": "action",
-            "score": 0.4974186117519511,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 12
-          },
-          {
-            "label": "action",
-            "text": "Those wishing to join are asked to complete the booking.",
-            "prediction": "action",
-            "score": 0.43180138925845535,
+            "score": 0.40090552470813207,
             "kinds": [
               "review"
             ],
@@ -2514,10 +2369,10 @@
             "knownFeatures": 9
           },
           {
-            "label": "action",
-            "text": "Lunchboxes and water bottles are to be packed.",
-            "prediction": "background",
-            "score": 0.3688350064635918,
+            "label": "event",
+            "text": "Each ticket admits one adult and two children.",
+            "prediction": "action",
+            "score": 0.3315316890712321,
             "kinds": [
               "review"
             ],
@@ -2525,77 +2380,144 @@
             "actionListed": false,
             "visible": true,
             "knownFeatures": 6
-          },
+          }
+        ],
+        "predictions": [
           {
             "label": "action",
-            "text": "Kindly advise the organiser of any dietary restrictions.",
+            "text": "RSVP by Friday.",
             "prediction": "action",
-            "score": 0.3477786112754728,
+            "score": 0.6622514151829514,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 3
-          },
-          {
-            "label": "action",
-            "text": "Notify the office if your child will be absent.",
-            "prediction": "action",
-            "score": 0.3496712445865522,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 13
-          },
-          {
-            "label": "action",
-            "text": "It is essential that every visitor carries photo identification.",
-            "prediction": "event",
-            "score": 0.3916147691690976,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 3
-          },
-          {
-            "label": "action",
-            "text": "Visitors without a pass will not be admitted.",
-            "prediction": "event",
-            "score": 0.4512125984407023,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
             "knownFeatures": 4
           },
           {
             "label": "action",
-            "text": "Don’t forget your swimming kit.",
+            "text": "A signed consent slip is needed for participation.",
             "prediction": "action",
-            "score": 0.8981087362273061,
+            "score": 0.4788750938214359,
             "kinds": [
               "review"
             ],
             "categoryReview": true,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 1
+            "knownFeatures": 7
+          },
+          {
+            "label": "action",
+            "text": "Payment of the balance should reach us before the trip.",
+            "prediction": "action",
+            "score": 0.6675815002006507,
+            "kinds": [
+              "action"
+            ],
+            "categoryReview": false,
+            "actionListed": true,
+            "visible": true,
+            "knownFeatures": 15
+          },
+          {
+            "label": "action",
+            "text": "Those wishing to join are asked to complete the booking.",
+            "prediction": "action",
+            "score": 0.5760650132801621,
+            "kinds": [
+              "action"
+            ],
+            "categoryReview": false,
+            "actionListed": true,
+            "visible": true,
+            "knownFeatures": 11
+          },
+          {
+            "label": "action",
+            "text": "Lunchboxes and water bottles are to be packed.",
+            "prediction": "action",
+            "score": 0.566386152165889,
+            "kinds": [
+              "action"
+            ],
+            "categoryReview": false,
+            "actionListed": true,
+            "visible": true,
+            "knownFeatures": 8
+          },
+          {
+            "label": "action",
+            "text": "Kindly advise the organiser of any dietary restrictions.",
+            "prediction": "action",
+            "score": 0.4811542496653025,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 8
+          },
+          {
+            "label": "action",
+            "text": "Notify the office if your child will be absent.",
+            "prediction": "action",
+            "score": 0.45372574057251874,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 15
+          },
+          {
+            "label": "action",
+            "text": "It is essential that every visitor carries photo identification.",
+            "prediction": "action",
+            "score": 0.4354834017386363,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 10
+          },
+          {
+            "label": "action",
+            "text": "Visitors without a pass will not be admitted.",
+            "prediction": "action",
+            "score": 0.43418238692599165,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 8
+          },
+          {
+            "label": "action",
+            "text": "Don’t forget your swimming kit.",
+            "prediction": "action",
+            "score": 0.6730938164493303,
+            "kinds": [
+              "action"
+            ],
+            "categoryReview": false,
+            "actionListed": true,
+            "visible": true,
+            "knownFeatures": 4
           },
           {
             "label": "action",
             "text": "Remember: coats, lunch and a water bottle.",
             "prediction": "action",
-            "score": 0.4464816677083541,
+            "score": 0.5252040835897838,
             "kinds": [
               "review"
             ],
@@ -2608,20 +2530,20 @@
             "label": "action",
             "text": "Before departure, check that you have returned the slip.",
             "prediction": "action",
-            "score": 0.4667653915995981,
+            "score": 0.5698125834099913,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
-            "knownFeatures": 7
+            "knownFeatures": 12
           },
           {
             "label": "action",
             "text": "Families can register if they wish.",
             "prediction": "contact",
-            "score": 0.33530680376951344,
+            "score": 0.3133585882760905,
             "kinds": [
               "review"
             ],
@@ -2634,12 +2556,12 @@
             "label": "action",
             "text": "Bring your own snacks if you have allergies.",
             "prediction": "action",
-            "score": 0.45663963904620086,
+            "score": 0.6224029721016248,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
             "knownFeatures": 7
           },
@@ -2647,7 +2569,33 @@
             "label": "action",
             "text": "No money needs to be sent.",
             "prediction": "action",
-            "score": 0.3546955914039165,
+            "score": 0.558444315568982,
+            "kinds": [
+              "action"
+            ],
+            "categoryReview": false,
+            "actionListed": true,
+            "visible": true,
+            "knownFeatures": 9
+          },
+          {
+            "label": "action",
+            "text": "Attendance must be confirmed through the portal.",
+            "prediction": "action",
+            "score": 0.6825848616543787,
+            "kinds": [
+              "action"
+            ],
+            "categoryReview": false,
+            "actionListed": true,
+            "visible": true,
+            "knownFeatures": 10
+          },
+          {
+            "label": "action",
+            "text": "Forms received after the closing date cannot be accepted.",
+            "prediction": "action",
+            "score": 0.3292814875472877,
             "kinds": [
               "review"
             ],
@@ -2658,9 +2606,35 @@
           },
           {
             "label": "action",
-            "text": "Attendance must be confirmed through the portal.",
+            "text": "For the outing, a waterproof jacket is compulsory.",
+            "prediction": "background",
+            "score": 0.4619178687976672,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 7
+          },
+          {
+            "label": "action",
+            "text": "Could each household nominate one representative?",
             "prediction": "action",
-            "score": 0.6037604342766927,
+            "score": 0.4684628588811394,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 3
+          },
+          {
+            "label": "action",
+            "text": "Reply only if your arrangements have changed.",
+            "prediction": "action",
+            "score": 0.6335789608330684,
             "kinds": [
               "action"
             ],
@@ -2670,88 +2644,10 @@
             "knownFeatures": 8
           },
           {
-            "label": "action",
-            "text": "Forms received after the closing date cannot be accepted.",
-            "prediction": "event",
-            "score": 0.3013127224463042,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
-          },
-          {
-            "label": "action",
-            "text": "For the outing, a waterproof jacket is compulsory.",
-            "prediction": "background",
-            "score": 0.41574502764787036,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 4
-          },
-          {
-            "label": "action",
-            "text": "Could each household nominate one representative?",
-            "prediction": "action",
-            "score": 0.3983249797674732,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 1
-          },
-          {
-            "label": "action",
-            "text": "Reply only if your arrangements have changed.",
-            "prediction": "action",
-            "score": 0.5195880442813641,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 7
-          },
-          {
             "label": "background",
             "text": "The club hopes everyone will have fun.",
-            "prediction": "event",
-            "score": 0.4152276017515113,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
-          },
-          {
-            "label": "background",
-            "text": "The volunteer returned the forms last week.",
             "prediction": "background",
-            "score": 0.37811722920486507,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 4
-          },
-          {
-            "label": "background",
-            "text": "We paid for the new equipment last summer.",
-            "prediction": "background",
-            "score": 0.7607715401275905,
+            "score": 0.568208615334133,
             "kinds": [
               "background"
             ],
@@ -2762,9 +2658,35 @@
           },
           {
             "label": "background",
+            "text": "The volunteer returned the forms last week.",
+            "prediction": "background",
+            "score": 0.6446501992306103,
+            "kinds": [
+              "background"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": false,
+            "knownFeatures": 7
+          },
+          {
+            "label": "background",
+            "text": "We paid for the new equipment last summer.",
+            "prediction": "background",
+            "score": 0.8712064810502687,
+            "kinds": [
+              "background"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": false,
+            "knownFeatures": 10
+          },
+          {
+            "label": "background",
             "text": "Families registered in record numbers last year.",
             "prediction": "background",
-            "score": 0.6615459918456637,
+            "score": 0.8685323239623902,
             "kinds": [
               "background"
             ],
@@ -2777,86 +2699,20 @@
             "label": "background",
             "text": "Thank you for bringing such lovely cakes.",
             "prediction": "background",
-            "score": 0.6009296255354735,
+            "score": 0.6543670233447396,
             "kinds": [
-              "background"
+              "review"
             ],
-            "categoryReview": false,
+            "categoryReview": true,
             "actionListed": false,
-            "visible": false,
+            "visible": true,
             "knownFeatures": 5
           },
           {
             "label": "background",
             "text": "The pupils learned how to complete an application.",
             "prediction": "action",
-            "score": 0.35295276073466414,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
-          {
-            "label": "background",
-            "text": "Our aim is to connect residents with one another.",
-            "prediction": "background",
-            "score": 0.3441210727316566,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
-          {
-            "label": "background",
-            "text": "Warm wishes from everyone at the centre.",
-            "prediction": "background",
-            "score": 0.5115547561433432,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 9
-          },
-          {
-            "label": "contact",
-            "text": "Queries about access can be discussed with the duty officer.",
-            "prediction": "contact",
-            "score": 0.6920703609059164,
-            "kinds": [
-              "contact"
-            ],
-            "categoryReview": false,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 9
-          },
-          {
-            "label": "contact",
-            "text": "Having trouble with the portal? Our support desk can help.",
-            "prediction": "contact",
-            "score": 0.6580735539647149,
-            "kinds": [
-              "review",
-              "contact"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 10
-          },
-          {
-            "label": "contact",
-            "text": "Further guidance is on the council website.",
-            "prediction": "event",
-            "score": 0.4516486063288108,
+            "score": 0.4023840141934899,
             "kinds": [
               "review"
             ],
@@ -2866,10 +2722,10 @@
             "knownFeatures": 7
           },
           {
-            "label": "contact",
-            "text": "Should you need assistance, ring the organiser.",
-            "prediction": "contact",
-            "score": 0.4926244172341018,
+            "label": "background",
+            "text": "Our aim is to connect residents with one another.",
+            "prediction": "background",
+            "score": 0.38441039016842965,
             "kinds": [
               "review"
             ],
@@ -2879,13 +2735,52 @@
             "knownFeatures": 6
           },
           {
+            "label": "background",
+            "text": "Warm wishes from everyone at the centre.",
+            "prediction": "background",
+            "score": 0.6255801701880582,
+            "kinds": [
+              "background"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": false,
+            "knownFeatures": 10
+          },
+          {
             "label": "contact",
-            "text": "Need a translated copy? Ask the reception team.",
+            "text": "Queries about access can be discussed with the duty officer.",
             "prediction": "contact",
-            "score": 0.6342294304724899,
+            "score": 0.7760639578639049,
+            "kinds": [
+              "contact"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 16
+          },
+          {
+            "label": "contact",
+            "text": "Having trouble with the portal? Our support desk can help.",
+            "prediction": "contact",
+            "score": 0.794762048969635,
             "kinds": [
               "review",
               "contact"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 12
+          },
+          {
+            "label": "contact",
+            "text": "Further guidance is on the council website.",
+            "prediction": "contact",
+            "score": 0.4611538001308659,
+            "kinds": [
+              "review"
             ],
             "categoryReview": true,
             "actionListed": false,
@@ -2894,9 +2789,36 @@
           },
           {
             "label": "contact",
+            "text": "Should you need assistance, ring the organiser.",
+            "prediction": "action",
+            "score": 0.40090552470813207,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 9
+          },
+          {
+            "label": "contact",
+            "text": "Need a translated copy? Ask the reception team.",
+            "prediction": "contact",
+            "score": 0.681771840385972,
+            "kinds": [
+              "review",
+              "contact"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 9
+          },
+          {
+            "label": "contact",
             "text": "For advice on getting here, write to the transport coordinator.",
             "prediction": "contact",
-            "score": 0.5886272288276968,
+            "score": 0.6720971987740326,
             "kinds": [
               "contact"
             ],
@@ -2909,7 +2831,20 @@
             "label": "event",
             "text": "There will be two sessions in the afternoon.",
             "prediction": "event",
-            "score": 0.779524977266349,
+            "score": 0.8489233515816843,
+            "kinds": [
+              "event"
+            ],
+            "categoryReview": false,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 11
+          },
+          {
+            "label": "event",
+            "text": "Refreshments are included in the admission price.",
+            "prediction": "event",
+            "score": 0.6754302470275091,
             "kinds": [
               "event"
             ],
@@ -2920,35 +2855,35 @@
           },
           {
             "label": "event",
-            "text": "Refreshments are included in the admission price.",
-            "prediction": "event",
-            "score": 0.4955925344453464,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 6
-          },
-          {
-            "label": "event",
             "text": "The replacement bus arrives at the side entrance.",
             "prediction": "event",
-            "score": 0.8050886337733176,
+            "score": 0.7848351767583281,
             "kinds": [
               "event"
             ],
             "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 5
+            "knownFeatures": 7
           },
           {
             "label": "event",
             "text": "The building is unavailable during the renovation.",
             "prediction": "event",
-            "score": 0.3871321364714911,
+            "score": 0.4645723882155848,
+            "kinds": [
+              "review"
+            ],
+            "categoryReview": true,
+            "actionListed": false,
+            "visible": true,
+            "knownFeatures": 8
+          },
+          {
+            "label": "event",
+            "text": "Each ticket admits one adult and two children.",
+            "prediction": "action",
+            "score": 0.3315316890712321,
             "kinds": [
               "review"
             ],
@@ -2959,40 +2894,27 @@
           },
           {
             "label": "event",
-            "text": "Each ticket admits one adult and two children.",
-            "prediction": "background",
-            "score": 0.38114857586948814,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 5
-          },
-          {
-            "label": "event",
             "text": "The exhibition continues until the weekend.",
             "prediction": "event",
-            "score": 0.42020349488331565,
+            "score": 0.5737917961248338,
             "kinds": [
-              "review"
+              "event"
             ],
-            "categoryReview": true,
+            "categoryReview": false,
             "actionListed": false,
             "visible": true,
-            "knownFeatures": 2
+            "knownFeatures": 7
           }
         ]
       },
       "public": {
         "count": 5,
-        "correct": 4,
+        "correct": 5,
         "confusion_matrix": [
           [
-            4,
+            5,
             0,
-            1,
+            0,
             0
           ],
           [
@@ -3016,32 +2938,15 @@
         ],
         "action": {
           "support": 5,
-          "true_positive": 4,
+          "true_positive": 5,
           "false_positive": 0,
-          "recall": 0.8,
+          "recall": 1,
           "precision": 1,
-          "listed": 2,
+          "listed": 3,
           "hidden": 0
         },
-        "category_review_sentences": 3,
-        "errors": [
-          {
-            "label": "action",
-            "text": "If you would like a physical Library card, stop by any open branch with valid ID.",
-            "url": "https://www.spl.org/using-the-library/get-started/get-started-in-english/get-started-with-a-library-card",
-            "accessed": "2026-10-06",
-            "context": "Library card application FAQ; conditional instruction.",
-            "prediction": "contact",
-            "score": 0.40739740249517503,
-            "kinds": [
-              "review"
-            ],
-            "categoryReview": true,
-            "actionListed": false,
-            "visible": true,
-            "knownFeatures": 8
-          }
-        ],
+        "category_review_sentences": 2,
+        "errors": [],
         "predictions": [
           {
             "label": "action",
@@ -3049,15 +2954,15 @@
             "url": "https://www.spl.org/using-the-library/get-started/get-started-in-english/get-started-with-a-library-card",
             "accessed": "2026-10-06",
             "context": "Library card application FAQ; conditional instruction.",
-            "prediction": "contact",
-            "score": 0.40739740249517503,
+            "prediction": "action",
+            "score": 0.5630660959355068,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
-            "knownFeatures": 8
+            "knownFeatures": 12
           },
           {
             "label": "action",
@@ -3066,7 +2971,7 @@
             "accessed": "2026-10-06",
             "context": "School admissions; explicit required response.",
             "prediction": "action",
-            "score": 0.5172005357811169,
+            "score": 0.5346024666769021,
             "kinds": [
               "review"
             ],
@@ -3082,14 +2987,14 @@
             "accessed": "2026-10-06",
             "context": "Dated library service notice; condition and range must stay intact.",
             "prediction": "action",
-            "score": 0.5928462758950825,
+            "score": 0.6804698863427121,
             "kinds": [
               "action"
             ],
             "categoryReview": false,
             "actionListed": true,
             "visible": true,
-            "knownFeatures": 11
+            "knownFeatures": 13
           },
           {
             "label": "action",
@@ -3098,14 +3003,14 @@
             "accessed": "2026-10-06",
             "context": "Museum pass use; instruction references a date elsewhere.",
             "prediction": "action",
-            "score": 0.5680130215936172,
+            "score": 0.5379804293917647,
             "kinds": [
-              "action"
+              "review"
             ],
-            "categoryReview": false,
-            "actionListed": true,
+            "categoryReview": true,
+            "actionListed": false,
             "visible": true,
-            "knownFeatures": 10
+            "knownFeatures": 12
           },
           {
             "label": "action",
@@ -3114,14 +3019,14 @@
             "accessed": "2026-10-06",
             "context": "Reading room use; explicit requirement.",
             "prediction": "action",
-            "score": 0.5055706882624736,
+            "score": 0.6142144553841032,
             "kinds": [
-              "review"
+              "action"
             ],
-            "categoryReview": true,
-            "actionListed": false,
+            "categoryReview": false,
+            "actionListed": true,
             "visible": true,
-            "knownFeatures": 3
+            "knownFeatures": 5
           }
         ]
       }

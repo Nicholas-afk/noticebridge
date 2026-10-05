@@ -1,7 +1,7 @@
 {
-  "training_examples": 245,
+  "training_examples": 329,
   "holdout_examples": 48,
-  "accuracy": 0.9166666666666666,
+  "accuracy": 0.9375,
   "classes": [
     "action",
     "background",
@@ -11,357 +11,357 @@
   "classification_report": {
     "action": {
       "precision": 1.0,
-      "recall": 0.8333333333333334,
-      "f1-score": 0.9090909090909091,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9565217391304348,
       "support": 12.0
     },
     "background": {
-      "precision": 1.0,
-      "recall": 0.8333333333333334,
-      "f1-score": 0.9090909090909091,
+      "precision": 0.8571428571428571,
+      "recall": 1.0,
+      "f1-score": 0.9230769230769231,
       "support": 12.0
     },
     "contact": {
-      "precision": 0.9230769230769231,
-      "recall": 1.0,
-      "f1-score": 0.96,
+      "precision": 1.0,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9565217391304348,
       "support": 12.0
     },
     "event": {
-      "precision": 0.8,
-      "recall": 1.0,
-      "f1-score": 0.8888888888888888,
+      "precision": 0.9166666666666666,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9166666666666666,
       "support": 12.0
     },
-    "accuracy": 0.9166666666666666,
+    "accuracy": 0.9375,
     "macro avg": {
-      "precision": 0.9307692307692308,
-      "recall": 0.9166666666666667,
-      "f1-score": 0.9167676767676768,
+      "precision": 0.9434523809523809,
+      "recall": 0.9374999999999999,
+      "f1-score": 0.9381967670011148,
       "support": 48.0
     },
     "weighted avg": {
-      "precision": 0.9307692307692309,
-      "recall": 0.9166666666666666,
-      "f1-score": 0.9167676767676767,
+      "precision": 0.9434523809523809,
+      "recall": 0.9375,
+      "f1-score": 0.938196767001115,
       "support": 48.0
     }
   },
   "confusion_matrix": [
     [
-      10,
+      11,
       0,
-      1,
+      0,
       1
     ],
     [
       0,
-      10,
-      0,
-      2
-    ],
-    [
-      0,
-      0,
       12,
+      0,
       0
     ],
     [
       0,
+      1,
+      11,
+      0
+    ],
+    [
       0,
+      1,
       0,
-      12
+      11
     ]
   ],
-  "limitations": "Authored synthetic examples only; one small held-out benchmark; no real-world user study, no calibrated confidence, English only.",
+  "limitations": "Authored synthetic legacy development set, previously inspected; not a blind test or real-world accuracy estimate. No user study, no calibrated confidence, English only.",
   "predictions": [
     {
       "text": "Hand your completed reply to the front desk by Thursday.",
       "label": "action",
       "prediction": "action",
-      "score": 0.5884284523012409
+      "score": 0.6354171565607412
     },
     {
       "text": "Reserve a seat using the online booking page.",
       "label": "action",
       "prediction": "action",
-      "score": 0.44679843421126847
+      "score": 0.4599075090697847
     },
     {
       "text": "You will need to carry a refillable water bottle.",
       "label": "action",
       "prediction": "action",
-      "score": 0.4103411065654565
+      "score": 0.5533589172321236
     },
     {
       "text": "Do not pay the driver directly.",
       "label": "action",
       "prediction": "action",
-      "score": 0.6724882330818308
+      "score": 0.6782864507083389
     },
     {
       "text": "Make your selection before the end of the week.",
       "label": "action",
       "prediction": "action",
-      "score": 0.6026061813441225
+      "score": 0.6271692733022792
     },
     {
       "text": "The final date to send your response is 23 August.",
       "label": "action",
       "prediction": "action",
-      "score": 0.44948531660868235
+      "score": 0.626418158769664
     },
     {
       "text": "Tell reception if you require a large print letter.",
       "label": "action",
-      "prediction": "contact",
-      "score": 0.5715745976878682
+      "prediction": "action",
+      "score": 0.49056191383880066
     },
     {
       "text": "Ensure that the consent section has been signed.",
       "label": "action",
       "prediction": "action",
-      "score": 0.3767121756386575
+      "score": 0.42132275203907177
     },
     {
       "text": "Everyone attending must bring their membership card.",
       "label": "action",
       "prediction": "action",
-      "score": 0.6173689889879581
+      "score": 0.656690744270884
     },
     {
       "text": "Bookings are required by 17 November at 4 pm.",
       "label": "action",
       "prediction": "event",
-      "score": 0.45719759252659764
+      "score": 0.4735959200753474
     },
     {
       "text": "If your child is participating, return the enclosed slip.",
       "label": "action",
       "prediction": "action",
-      "score": 0.7121294568849552
+      "score": 0.7538969178033452
     },
     {
       "text": "You do not have to buy any materials.",
       "label": "action",
       "prediction": "action",
-      "score": 0.5763074355043721
+      "score": 0.6967663102133989
     },
     {
       "text": "The outing is scheduled for 21 October at 9 am.",
       "label": "event",
       "prediction": "event",
-      "score": 0.793746768185584
+      "score": 0.728577377091554
     },
     {
       "text": "Our doors will reopen on 3 February.",
       "label": "event",
       "prediction": "event",
-      "score": 0.5726756560790849
+      "score": 0.564083586997116
     },
     {
       "text": "Families will meet in the assembly room.",
       "label": "event",
-      "prediction": "event",
-      "score": 0.4658770595097301
+      "prediction": "background",
+      "score": 0.43787456085665766
     },
     {
       "text": "The minibus returns at half past four.",
       "label": "event",
       "prediction": "event",
-      "score": 0.8729160258424007
+      "score": 0.8774848415294116
     },
     {
       "text": "The morning session is ninety minutes long.",
       "label": "event",
       "prediction": "event",
-      "score": 0.612782951071039
+      "score": 0.6624163086467776
     },
     {
       "text": "Tickets cost eight pounds each.",
       "label": "event",
       "prediction": "event",
-      "score": 0.3530127888442382
+      "score": 0.32763610245895186
     },
     {
       "text": "The centre shuts at 7 pm on weekdays.",
       "label": "event",
       "prediction": "event",
-      "score": 0.7284350624434728
+      "score": 0.7171456905444454
     },
     {
       "text": "The rehearsal happens in the theatre.",
       "label": "event",
       "prediction": "event",
-      "score": 0.4641222893265511
+      "score": 0.5179116925625088
     },
     {
       "text": "The annual celebration takes place in the park.",
       "label": "event",
       "prediction": "event",
-      "score": 0.7912625051705248
+      "score": 0.6948845870072787
     },
     {
       "text": "The appointment is at 2 pm on Wednesday.",
       "label": "event",
       "prediction": "event",
-      "score": 0.7041848757709966
+      "score": 0.7092035787653477
     },
     {
       "text": "The meal is included in the price.",
       "label": "event",
       "prediction": "event",
-      "score": 0.6404692386900935
+      "score": 0.7190170110247595
     },
     {
       "text": "The venue has a step free entrance.",
       "label": "event",
       "prediction": "event",
-      "score": 0.4023793120256561
+      "score": 0.43874748541269315
     },
     {
       "text": "If anything is unclear, speak with the head of year.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.3809674456342069
+      "score": 0.4054929272692874
     },
     {
       "text": "For assistance with your booking, ring the help line.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.4693187112239966
+      "score": 0.5537651677249601
     },
     {
       "text": "Address any questions to the programme organiser.",
       "label": "contact",
-      "prediction": "contact",
-      "score": 0.4013503706001628
+      "prediction": "background",
+      "score": 0.382723097857589
     },
     {
       "text": "The duty librarian can answer your questions.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.573581494288623
+      "score": 0.6940049935013486
     },
     {
       "text": "Email trips@example.org to discuss individual needs.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.7486556706064625
+      "score": 0.7032477555053708
     },
     {
       "text": "The accessibility team can help arrange an interpreter.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.6033416106809908
+      "score": 0.7002082038316745
     },
     {
       "text": "You can find additional details on our information page.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.5488150814658246
+      "score": 0.6356698205298427
     },
     {
       "text": "If you are unsure, call the front desk.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.6834590574296306
+      "score": 0.7448956627261034
     },
     {
       "text": "Please ask the supervisor about alternative travel options.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.5190030344361285
+      "score": 0.6137380364482939
     },
     {
       "text": "For queries about the fee, contact accounts.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.6028461786342871
+      "score": 0.6598855674471362
     },
     {
       "text": "Our team answers enquiries by email.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.5953838802136067
+      "score": 0.647633076403995
     },
     {
       "text": "The support office is available to explain the process.",
       "label": "contact",
       "prediction": "contact",
-      "score": 0.6586902320697057
+      "score": 0.6666953700802749
     },
     {
       "text": "We are delighted by the success of last year's activities.",
       "label": "background",
       "prediction": "background",
-      "score": 0.8231093906051659
+      "score": 0.8723964214817596
     },
     {
       "text": "The scheme builds connections between neighbours.",
       "label": "background",
-      "prediction": "event",
-      "score": 0.6181744940376807
+      "prediction": "background",
+      "score": 0.6224390689852348
     },
     {
       "text": "Many thanks for helping our school community.",
       "label": "background",
       "prediction": "background",
-      "score": 0.4257997815572972
+      "score": 0.5845584390567101
     },
     {
       "text": "Our mission is to make learning accessible to everyone.",
       "label": "background",
       "prediction": "background",
-      "score": 0.6956784769977847
+      "score": 0.7258596085768001
     },
     {
       "text": "This circular outlines the arrangements for the new term.",
       "label": "background",
       "prediction": "background",
-      "score": 0.5993251999603183
+      "score": 0.718948705311483
     },
     {
       "text": "The organisers are grateful for the support of families.",
       "label": "background",
       "prediction": "background",
-      "score": 0.5740385795642925
+      "score": 0.6088694827219584
     },
     {
       "text": "We hope the children have an enjoyable experience.",
       "label": "background",
       "prediction": "background",
-      "score": 0.7809268423349878
+      "score": 0.7595998219839791
     },
     {
       "text": "The new initiative encourages creative thinking.",
       "label": "background",
       "prediction": "background",
-      "score": 0.3712830919429205
+      "score": 0.5413855154035595
     },
     {
       "text": "We have received positive feedback from residents.",
       "label": "background",
       "prediction": "background",
-      "score": 0.7753069064498685
+      "score": 0.7753342573000683
     },
     {
       "text": "Dear members of the community.",
       "label": "background",
       "prediction": "background",
-      "score": 0.3781573857743445
+      "score": 0.44136275208741926
     },
     {
       "text": "Kind regards from the library team.",
       "label": "background",
-      "prediction": "event",
-      "score": 0.34591397878677
+      "prediction": "background",
+      "score": 0.6837098013684432
     },
     {
       "text": "The programme was established in 2021.",
       "label": "background",
       "prediction": "background",
-      "score": 0.6524940988768009
+      "score": 0.6897352900197723
     }
   ]
 }

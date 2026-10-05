@@ -1,0 +1,676 @@
+{
+  "environment": "Local actual browser, port 48138",
+  "cases": [
+    {
+      "set": "authored",
+      "text": "RSVP by Friday.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "RSVP by Friday."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "RSVP by Friday."
+    },
+    {
+      "set": "authored",
+      "text": "A signed consent slip is needed for participation.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "A signed consent slip is needed for participation."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "A signed consent slip is needed for participation."
+    },
+    {
+      "set": "authored",
+      "text": "Payment of the balance should reach us before the trip.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Payment of the balance should reach us before the trip."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Payment of the balance should reach us before the trip."
+    },
+    {
+      "set": "authored",
+      "text": "Those wishing to join are asked to complete the booking.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Those wishing to join are asked to complete the booking."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Those wishing to join are asked to complete the booking."
+    },
+    {
+      "set": "authored",
+      "text": "Lunchboxes and water bottles are to be packed.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Lunchboxes and water bottles are to be packed."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Lunchboxes and water bottles are to be packed."
+    },
+    {
+      "set": "authored",
+      "text": "Kindly advise the organiser of any dietary restrictions.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Kindly advise the organiser of any dietary restrictions."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Kindly advise the organiser of any dietary restrictions."
+    },
+    {
+      "set": "authored",
+      "text": "Notify the office if your child will be absent.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Notify the office if your child will be absent."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Notify the office if your child will be absent."
+    },
+    {
+      "set": "authored",
+      "text": "It is essential that every visitor carries photo identification.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "It is essential that every visitor carries photo identification."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "It is essential that every visitor carries photo identification."
+    },
+    {
+      "set": "authored",
+      "text": "Visitors without a pass will not be admitted.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Visitors without a pass will not be admitted."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Visitors without a pass will not be admitted."
+    },
+    {
+      "set": "authored",
+      "text": "Don’t forget your swimming kit.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Don’t forget your swimming kit."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Don’t forget your swimming kit."
+    },
+    {
+      "set": "authored",
+      "text": "Remember: coats, lunch and a water bottle.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Remember: coats, lunch and a water bottle."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Remember: coats, lunch and a water bottle."
+    },
+    {
+      "set": "authored",
+      "text": "Before departure, check that you have returned the slip.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Before departure, check that you have returned the slip."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Before departure, check that you have returned the slip."
+    },
+    {
+      "set": "authored",
+      "text": "Families can register if they wish.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Families can register if they wish."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Families can register if they wish."
+    },
+    {
+      "set": "authored",
+      "text": "Bring your own snacks if you have allergies.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Bring your own snacks if you have allergies."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Bring your own snacks if you have allergies."
+    },
+    {
+      "set": "authored",
+      "text": "No money needs to be sent.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "No money needs to be sent."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "No money needs to be sent."
+    },
+    {
+      "set": "authored",
+      "text": "Attendance must be confirmed through the portal.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Attendance must be confirmed through the portal."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Attendance must be confirmed through the portal."
+    },
+    {
+      "set": "authored",
+      "text": "Forms received after the closing date cannot be accepted.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Forms received after the closing date cannot be accepted."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Forms received after the closing date cannot be accepted."
+    },
+    {
+      "set": "authored",
+      "text": "For the outing, a waterproof jacket is compulsory.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "For the outing, a waterproof jacket is compulsory."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "For the outing, a waterproof jacket is compulsory."
+    },
+    {
+      "set": "authored",
+      "text": "Could each household nominate one representative?",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Could each household nominate one representative?"
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Could each household nominate one representative?"
+    },
+    {
+      "set": "authored",
+      "text": "Reply only if your arrangements have changed.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "Reply only if your arrangements have changed."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "Reply only if your arrangements have changed."
+    },
+    {
+      "set": "authored",
+      "text": "The club hopes everyone will have fun.",
+      "expectedKinds": [
+        "background"
+      ],
+      "background": [
+        "The club hopes everyone will have fun."
+      ],
+      "cards": [],
+      "groups": [],
+      "source": "The club hopes everyone will have fun."
+    },
+    {
+      "set": "authored",
+      "text": "The volunteer returned the forms last week.",
+      "expectedKinds": [
+        "background"
+      ],
+      "background": [
+        "The volunteer returned the forms last week."
+      ],
+      "cards": [],
+      "groups": [],
+      "source": "The volunteer returned the forms last week."
+    },
+    {
+      "set": "authored",
+      "text": "We paid for the new equipment last summer.",
+      "expectedKinds": [
+        "background"
+      ],
+      "background": [
+        "We paid for the new equipment last summer."
+      ],
+      "cards": [],
+      "groups": [],
+      "source": "We paid for the new equipment last summer."
+    },
+    {
+      "set": "authored",
+      "text": "Families registered in record numbers last year.",
+      "expectedKinds": [
+        "background"
+      ],
+      "background": [
+        "Families registered in record numbers last year."
+      ],
+      "cards": [],
+      "groups": [],
+      "source": "Families registered in record numbers last year."
+    },
+    {
+      "set": "authored",
+      "text": "Thank you for bringing such lovely cakes.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Thank you for bringing such lovely cakes."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Thank you for bringing such lovely cakes."
+    },
+    {
+      "set": "authored",
+      "text": "The pupils learned how to complete an application.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "The pupils learned how to complete an application."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "The pupils learned how to complete an application."
+    },
+    {
+      "set": "authored",
+      "text": "Our aim is to connect residents with one another.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Our aim is to connect residents with one another."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Our aim is to connect residents with one another."
+    },
+    {
+      "set": "authored",
+      "text": "Warm wishes from everyone at the centre.",
+      "expectedKinds": [
+        "background"
+      ],
+      "background": [
+        "Warm wishes from everyone at the centre."
+      ],
+      "cards": [],
+      "groups": [],
+      "source": "Warm wishes from everyone at the centre."
+    },
+    {
+      "set": "authored",
+      "text": "Queries about access can be discussed with the duty officer.",
+      "expectedKinds": [
+        "contact"
+      ],
+      "background": [],
+      "cards": [
+        "Queries about access can be discussed with the duty officer."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "Queries about access can be discussed with the duty officer."
+    },
+    {
+      "set": "authored",
+      "text": "Having trouble with the portal? Our support desk can help.",
+      "expectedKinds": [
+        "review",
+        "contact"
+      ],
+      "background": [],
+      "cards": [
+        "Having trouble with the portal?",
+        "Our support desk can help."
+      ],
+      "groups": [
+        "Questions to check1",
+        "Dates & contacts1"
+      ],
+      "source": "Having trouble with the portal? Our support desk can help."
+    },
+    {
+      "set": "authored",
+      "text": "Further guidance is on the council website.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Further guidance is on the council website."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Further guidance is on the council website."
+    },
+    {
+      "set": "authored",
+      "text": "Should you need assistance, ring the organiser.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Should you need assistance, ring the organiser."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Should you need assistance, ring the organiser."
+    },
+    {
+      "set": "authored",
+      "text": "Need a translated copy? Ask the reception team.",
+      "expectedKinds": [
+        "review",
+        "contact"
+      ],
+      "background": [],
+      "cards": [
+        "Need a translated copy?",
+        "Ask the reception team."
+      ],
+      "groups": [
+        "Questions to check1",
+        "Dates & contacts1"
+      ],
+      "source": "Need a translated copy? Ask the reception team."
+    },
+    {
+      "set": "authored",
+      "text": "For advice on getting here, write to the transport coordinator.",
+      "expectedKinds": [
+        "contact"
+      ],
+      "background": [],
+      "cards": [
+        "For advice on getting here, write to the transport coordinator."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "For advice on getting here, write to the transport coordinator."
+    },
+    {
+      "set": "authored",
+      "text": "There will be two sessions in the afternoon.",
+      "expectedKinds": [
+        "event"
+      ],
+      "background": [],
+      "cards": [
+        "There will be two sessions in the afternoon."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "There will be two sessions in the afternoon."
+    },
+    {
+      "set": "authored",
+      "text": "Refreshments are included in the admission price.",
+      "expectedKinds": [
+        "event"
+      ],
+      "background": [],
+      "cards": [
+        "Refreshments are included in the admission price."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "Refreshments are included in the admission price."
+    },
+    {
+      "set": "authored",
+      "text": "The replacement bus arrives at the side entrance.",
+      "expectedKinds": [
+        "event"
+      ],
+      "background": [],
+      "cards": [
+        "The replacement bus arrives at the side entrance."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "The replacement bus arrives at the side entrance."
+    },
+    {
+      "set": "authored",
+      "text": "The building is unavailable during the renovation.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "The building is unavailable during the renovation."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "The building is unavailable during the renovation."
+    },
+    {
+      "set": "authored",
+      "text": "Each ticket admits one adult and two children.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Each ticket admits one adult and two children."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Each ticket admits one adult and two children."
+    },
+    {
+      "set": "authored",
+      "text": "The exhibition continues until the weekend.",
+      "expectedKinds": [
+        "event"
+      ],
+      "background": [],
+      "cards": [
+        "The exhibition continues until the weekend."
+      ],
+      "groups": [
+        "Dates & contacts1"
+      ],
+      "source": "The exhibition continues until the weekend."
+    },
+    {
+      "set": "public",
+      "text": "If you would like a physical Library card, stop by any open branch with valid ID.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "If you would like a physical Library card, stop by any open branch with valid ID."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "If you would like a physical Library card, stop by any open branch with valid ID."
+    },
+    {
+      "set": "public",
+      "text": "You must accept the offer by the deadline given in the offer letter.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "You must accept the offer by the deadline given in the offer letter."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "You must accept the offer by the deadline given in the offer letter."
+    },
+    {
+      "set": "public",
+      "text": "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "From September 8 through September 15, patrons should bring their physical or digital library card when checking out materials."
+    },
+    {
+      "set": "public",
+      "text": "Bring your printed or electronic pass and photo ID to the museum on the date selected.",
+      "expectedKinds": [
+        "review"
+      ],
+      "background": [],
+      "cards": [
+        "Bring your printed or electronic pass and photo ID to the museum on the date selected."
+      ],
+      "groups": [
+        "Questions to check1"
+      ],
+      "source": "Bring your printed or electronic pass and photo ID to the museum on the date selected."
+    },
+    {
+      "set": "public",
+      "text": "All users must present a valid photo ID when checking in.",
+      "expectedKinds": [
+        "action"
+      ],
+      "background": [],
+      "cards": [
+        "All users must present a valid photo ID when checking in."
+      ],
+      "groups": [
+        "Instructions1"
+      ],
+      "source": "All users must present a valid photo ID when checking in."
+    }
+  ]
+}

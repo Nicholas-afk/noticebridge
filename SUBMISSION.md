@@ -16,11 +16,11 @@ The **Next steps** view turns that review into something useful outside the app.
 
 ## How we built it
 
-The machine-learning pipeline uses Python and scikit-learn to train a four-class logistic regression model over unigram and bigram TF–IDF features. We authored 245 synthetic training sentences and 48 separate holdout sentences, retaining both splits and every evaluation prediction in the repository. Training-only template augmentation does not appear in the holdout.
+The machine-learning pipeline uses Python and scikit-learn to train a four-class logistic regression model over unigram and bigram TF–IDF features. The current model uses 329 authored synthetic training examples, including a language-diversity supplement. We preserve the original model, both training splits, a previously inspected 48-example development set, a frozen 40-input authored challenge, and five attributed public instruction excerpts. None of the check examples is copied into training. These are development and convenience checks, not independent real-world validation.
 
 The vocabulary, IDF values, coefficients and intercepts are exported as JSON. A dependency-free JavaScript inference engine reproduces the Python model in the browser. Source spans are tracked from sentence splitting through rendering, so each card can be verified against the exact original substring.
 
-Rules supplement the model with conservative checks for instruction cues, relative dates, missing years, numeric date ambiguity, missing instruction dates and invalid ISO or named full dates. Abbreviated months such as “9 Oct. 2026” stay in their source sentence. These checks are visible review prompts, not inferred facts. Negative instructions are preserved. All background sentences remain accessible.
+Rules supplement the model with unfamiliar-wording review and conservative checks for instruction cues, relative dates, missing years, numeric date ambiguity, missing instruction dates and invalid ISO or named full dates. Abbreviated months such as “9 Oct. 2026” stay in their source sentence. These checks are visible review prompts, not inferred facts. Negative instructions are preserved. All background sentences remain accessible.
 
 The interface is built with HTML, CSS and JavaScript. Its document workspace uses flat reading groups, clear labels, keyboard-accessible controls, source highlighting and review progress. Instructions have the strongest hierarchy; uncertainty appears beside the relevant sentence. Optional WebMCP tools let an agent run the same visible analysis workflow and read back its results.
 
@@ -36,7 +36,9 @@ Dates were another challenge. A weekday or “tomorrow” is not a reliable dead
 
 - A working application with local model inference and no paid AI service requirement.
 - Exact source-linked cards, with no generated paraphrases or invented deadlines.
-- **44/48 correct sentence categories (91.7%)** on the separate synthetic holdout; instruction recall **10/12 (83.3%)**. This is a small prototype benchmark, not real-world validation.
+- Reproduced the original **44/48** synthetic result byte for byte and audited exact/normalized overlap and close paraphrases. The same-author legacy set is now development evidence.
+- On a frozen authored language challenge, category matches improve **30/40 → 35/40** and instructions listed in the checklist **2/20 → 10/20**. Raw instruction precision worsens **93.3% → 85.7%**; all three false predictions remain Review. Five curated public instruction excerpts improve **4/5 → 5/5** raw action labels, with only three confidently listed. These small checks do not establish real-world accuracy or reader benefit.
+- Preserved every error, comparison condition and limitation in the [model audit](https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md), including two previously correct legacy categories lost by retraining. Browser/Python predictions and scores match on all 93 audited inputs.
 - JavaScript/Python prediction and score parity on all 48 holdout sentences.
 - Passing checks for source-span integrity, ambiguous and relative dates, preserved negation, invalid dates and input bounds.
 - Browser checks of review progress, exact source highlighting, returning to the checklist, uncertainty handling, stale-plan protection and WebMCP valid/invalid-input behavior.

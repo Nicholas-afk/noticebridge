@@ -38,27 +38,33 @@ This is extractive information organization, not generative rewriting. Generic c
 
 ## Model and reproducibility
 
-The training corpus contains **245 authored synthetic English sentences**, including training-only template augmentation. The separate holdout contains **48 authored sentences** (12 per class). No real school notices, personal records or third-party training corpus are included.
+Model **1.1.0** uses 329 authored synthetic training examples. It retains the four-class TF–IDF/logistic architecture and adds language diversity for passive requirements, conditions, operational notifications and historical distractors. The original model and all its artifacts are preserved in `docs/model-audit/baseline/`.
 
-| Metric | Result |
-| --- | --- |
-| Sentence category accuracy | 44/48 = 91.7% |
-| Macro F1 | 0.917 |
-| Instruction precision | 1.000 |
-| Instruction recall | 10/12 = 83.3% |
+The original **44/48** result was reproduced byte for byte. No exact or normalized training/test overlap was found, but some examples are close paraphrases, and the same developer authored both splits. The 48 examples are now a legacy development check, not a fresh blind holdout. Current results are:
 
-These are results on a small synthetic benchmark, not estimates of accuracy on real notices. The holdout does not reuse exact training sentences or training augmentation templates, but comes from the same author and domain. Four errors and all scores are retained in `evaluation.json`. Scores are not calibrated reliability estimates.
+| Check | Original | Current |
+| --- | ---: | ---: |
+| Legacy categories | 44/48 | 45/48 |
+| Frozen authored challenge categories | 30/40 | 35/40 |
+| Authored raw instruction recall | 14/20 | 18/20 |
+| Authored raw instruction precision | 93.3% | 85.7% |
+| Authored instructions listed in Instructions | 2/20 | 10/20 |
+| Authored inputs needing category review | 31/40 | 19/40 |
+| Curated public instruction labels | 4/5 | 5/5 |
 
-Training uses unigrams and bigrams, sublinear term frequency, IDF weighting, L2 normalization, balanced class weights and logistic regression (`C=4.0`, seed 23). The trained vocabulary, IDF, coefficients and intercepts are exported to `dist/model.json`. `dist/engine.js` implements the same arithmetic without dependencies.
+Precision became worse. All three current false raw instruction predictions remain Review under the unchanged score threshold; none is confidently listed as an instruction in these checks. The five public excerpts are a small, developer-selected convenience sample containing only instructions; they cannot measure precision or real-world accuracy. No user-benefit or representative accuracy claim follows from these numbers.
+
+Read [MODEL_CARD.md](MODEL_CARD.md) for every error, baseline conditions, label policy, near-overlap, weaknesses and the release decision; [docs/competition-assessment.md](docs/competition-assessment.md) assesses the official rubric and existing tools. `audit-cases.json` was frozen before retraining; it remains development evidence because observed failure patterns informed training. `training-additions.json` preserves the supplement's provenance. Scores are uncalibrated. A heuristic vocabulary-coverage check now prompts review when most distinct words are unfamiliar, and own-property lookups prevent words such as `constructor` from corrupting scores.
 
 ```sh
 python3 -m pip install -r requirements.txt
 python3 train.py
-node prepare.mjs
+npm run audit
+npm run build
 npm test
 ```
 
-`dataset.json` includes both splits and their provenance. `test.mjs` checks label and score parity between Python and JavaScript on every holdout sentence, source-span integrity, relative dates, numeric ambiguity, preserved negation, invalid dates and input limits. `followup.test.mjs` checks conservative suggestions, competing unresolved dates, leap-day and year rollover, calendar escaping and UTF-8 line folding, rejected unconfirmed/invalid exports and source-linked questions. `date.test.mjs` adds 100 adversarial cases for shared-month day lists and ranges, impossible named dates, abbreviated months, number-led sentence boundaries, multi-year dates, cross-line ambiguity, ISO shorthand, date/time boundaries, connector meaning and source preservation. Ambiguous number-led statements after month abbreviations cannot supply a missing year. Run all suites with `npm test`.
+Training uses word unigrams/bigrams, sublinear TF, IDF, L2 normalization, balanced weights, logistic regression C=4.0 and seed 23. `audit-python.py` verifies both exported models against exact re-fitted scikit-learn parameters, saves hashes and overlap checks. `audit.mjs` saves all baseline/current predictions and workflow counts. Browser/Python labels and scores agree on all 93 inputs within 1e-10. Existing span-integrity, input, negation, follow-up/calendar tests and 100 date regressions remain required. Seven model tests cover parity, varied instructions, uncertainty, historical wording and the inherited-property bug.
 
 ## Architecture
 
