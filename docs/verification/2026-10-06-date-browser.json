@@ -1,0 +1,273 @@
+{
+  "date": "2026-10-06 Asia/Hong_Kong",
+  "implementationCommit": "5c3e3eb2e46840346d7599286b08a2c3627ff077",
+  "url": "http://127.0.0.1:48139/",
+  "method": "Actual browser, page WebMCP analysis and DOM inspection of rendered source, reminder controls and question draft",
+  "cases": [
+    {
+      "phrase": "9 & 12 October",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "lists multiple dates",
+      "matchingQuestion": "Which of the listed dates"
+    },
+    {
+      "phrase": "9 through 12 October",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives a range",
+      "matchingQuestion": "When within this range"
+    },
+    {
+      "phrase": "9 and/or 12 October",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "allows one or both",
+      "matchingQuestion": "Should this step apply to one or both"
+    },
+    {
+      "phrase": "9 Oct. or 12 Oct. 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "9 October 2026 through 12",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives a range",
+      "matchingQuestion": "When within this range"
+    },
+    {
+      "phrase": "2026-04-30 or 31 May 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "2026-10-09 or 31 November 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "calendar date is invalid",
+      "matchingQuestion": "correct full calendar date"
+    },
+    {
+      "phrase": "2026-10-09, 12 noon",
+      "dates": [
+        "2026-10-09"
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": null,
+      "matchingQuestion": null
+    },
+    {
+      "phrase": "9 October 2026\nor 12 October 2026",
+      "dates": [
+        "",
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "line break",
+      "matchingQuestion": "line break"
+    },
+    {
+      "phrase": "9 October 2026–2027",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives a range",
+      "matchingQuestion": "When within this range"
+    },
+    {
+      "phrase": "9 October 2026/12 November 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "uses a slash",
+      "matchingQuestion": "What does the slash"
+    },
+    {
+      "phrase": "9 Oct. 2026",
+      "dates": [
+        "2026-10-09"
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": null,
+      "matchingQuestion": null
+    },
+    {
+      "phrase": "9 & 12 October 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "lists multiple dates",
+      "matchingQuestion": "Which of the listed dates"
+    },
+    {
+      "phrase": "9 through 12 October 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives a range",
+      "matchingQuestion": "When within this range"
+    },
+    {
+      "phrase": "9 and/or 12 October 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "allows one or both",
+      "matchingQuestion": "Should this step apply to one or both"
+    },
+    {
+      "phrase": "2026-02-28 or 30–31 May 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "28 February 2026 or 30–31 May 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "9 Oct. or Oct. 12, 2026",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "9 October 2026 or 12, at 10 am",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "2026-10-09 or 12, at 10 am",
+      "dates": [
+        ""
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": "gives alternatives",
+      "matchingQuestion": "Which alternative date"
+    },
+    {
+      "phrase": "2026-10-09 and 12,000 people will join",
+      "dates": [
+        "2026-10-09"
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": null,
+      "matchingQuestion": null
+    },
+    {
+      "phrase": "9 October 2026 and 12,000 people will join",
+      "dates": [
+        "2026-10-09"
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": null,
+      "matchingQuestion": null
+    },
+    {
+      "phrase": "2026-10-09 and 12.5 people will join",
+      "dates": [
+        "2026-10-09"
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": null,
+      "matchingQuestion": null
+    },
+    {
+      "phrase": "9 October 2026 and 12.5 people will join",
+      "dates": [
+        "2026-10-09"
+      ],
+      "exactSource": true,
+      "unchecked": true,
+      "saveDisabled": true,
+      "warning": null,
+      "matchingQuestion": null
+    }
+  ]
+}
