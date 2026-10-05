@@ -195,3 +195,8 @@ for(const phrase of ['9 October 2026 or 12, at 10 am','2026-10-09 or 12, at 10 a
   assert.ok(card.flags.some(flag=>flag.includes('gives alternatives')));
   assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
 });
+for(const fullDate of ['2026-10-09','9 October 2026'])for(const count of ['12,000','12.5'])test(`formatted counts after ${fullDate} stay outside date extraction: ${count}`,()=>{
+  const card=analyze(`Please attend on ${fullDate} and ${count} people will join.`).cards[0];
+  assert.deepEqual(card.dates.map(d=>d.text),[fullDate]);assert.equal(reminderDefaultDate(card),'2026-10-09');
+  assert.ok(!card.flags.some(flag=>flag.startsWith('This date phrase')));
+});

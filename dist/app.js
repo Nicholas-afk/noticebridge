@@ -1,5 +1,5 @@
-import {analyzeNotice,validReferenceDate} from './engine.js?v=db30eae9ca5b';
-import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=1f8bbbeeb5c3';
+import {analyzeNotice,validReferenceDate} from './engine.js?v=de007f231b9f';
+import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=70c973f503a4';
 const $=id=>document.getElementById(id);
 const examples={
   trip:{date:'2026-10-05',text:'Dear parents and carers,\n\nOur Year 6 museum visit will take place on 14 October 2026. The bus leaves school at 9 am and returns at 3 pm.\n\nPlease return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.\n\nFor questions or accessibility needs, email trips@example.org.\n\nThank you for your support.'},
