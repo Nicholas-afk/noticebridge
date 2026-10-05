@@ -5,10 +5,10 @@ import {JSDOM} from 'jsdom';
 const html=await readFile(new URL('./dist/index.html',import.meta.url),'utf8');
 const model=await readFile(new URL('./dist/model.json',import.meta.url),'utf8');
 let sequence=0;
-async function app(){
+async function app({modelStatus=200}={}){
   const dom=new JSDOM(html,{url:'https://noticebridge.test/'});
   globalThis.window=dom.window;globalThis.document=dom.window.document;
-  globalThis.fetch=async()=>new Response(model,{headers:{'Content-Type':'application/json'}});
+  globalThis.fetch=async()=>new Response(model,{status:modelStatus,headers:{'Content-Type':'application/json'}});
   dom.window.matchMedia=()=>({matches:true});
   dom.window.HTMLElement.prototype.scrollIntoView=function(){};
   const downloads=[];
@@ -107,4 +107,10 @@ test('confirmation accessible names contain their visible labels for voice contr
   const {input,$}=await app();input('notice','Please return the form by 9 October 2026.');$('analyze-button').click();
   const label=document.querySelector('.reminder-confirm'),checkbox=label.querySelector('input');
   assert.ok(checkbox.getAttribute('aria-label').toLowerCase().includes(label.textContent.toLowerCase()),'Accessible name omitted the visible confirmation label');
+});
+
+test('typing after a failed model load keeps the recovery explanation visible',async()=>{
+  const {$,input}=await app({modelStatus:503});assert.equal($('analyze-button').disabled,true);const failure=$('input-error').textContent;assert.ok(failure);
+  input('notice','Please return the form by 9 October 2026.');
+  assert.equal($('input-error').textContent,failure,'Typing erased the model-load recovery instruction');assert.equal($('analyze-button').disabled,true);
 });

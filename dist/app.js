@@ -134,7 +134,7 @@ function exportPlan(){
 }
 function requestDownload(text,type,name){const url=URL.createObjectURL(new Blob([text],{type})),link=node('a',{href:url,download:name});document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function sourceEdited(){
-  $('input-error').textContent='';$('notice').removeAttribute('aria-invalid');$('anchor-date').removeAttribute('aria-invalid');count();
+  if(model){$('input-error').textContent='';$('notice').removeAttribute('aria-invalid');$('anchor-date').removeAttribute('aria-invalid');}count();
 }
 $('notice').addEventListener('input',sourceEdited);$('anchor-date').addEventListener('input',sourceEdited);
 $('analyze-button').addEventListener('click',()=>{try{runAnalysis({focusResults:true});}catch{}});
