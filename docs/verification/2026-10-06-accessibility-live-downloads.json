@@ -1,0 +1,23 @@
+{
+  "host": "https://nicholas-afk.github.io/noticebridge/",
+  "app_assets": [
+    "app.js?v=6e09e339b815",
+    "style.css?v=71e187d0d341"
+  ],
+  "actual_browser_downloads": [
+    "noticebridge-reminders (6).ics",
+    "noticebridge-questions (4).txt",
+    "noticebridge-plan (6).txt"
+  ],
+  "parser": "icalendar 6.3.2",
+  "calendar_sha256": "b5c3f10ed42e58cda94dff40a161153bb2ac5c8bfa997442138f8ff89defb180",
+  "calendar_parse_errors": [],
+  "all_day": true,
+  "start": "2026-10-09",
+  "exclusive_end": "2026-10-10",
+  "alarm": false,
+  "TZID": false,
+  "source_and_review_marks_retained": true,
+  "edited_questions_exact": true,
+  "calendar_client_import": "not performed"
+}

@@ -1,0 +1,871 @@
+[
+  {
+    "stage": "public-before-repeat-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": true,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": false,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "question-draft",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 2px"
+    },
+    "live": "Reminder for excerpt 1 saved for 2026-10-09. Download the calendar file to import it.",
+    "questions": "Public smoke draft: please confirm.",
+    "reminders": "1 reminder saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "",
+    "stale": false,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-repeated-analysis-preserves-work-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": true,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": false,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "plan-heading",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 2px"
+    },
+    "live": "Checklist already current. Your review marks, saved reminders and edited questions are kept.",
+    "questions": "Public smoke draft: please confirm.",
+    "reminders": "1 reminder saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "",
+    "stale": false,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-reminder-source-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": true,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": false,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "source-text",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 2px"
+    },
+    "live": "Checklist already current. Your review marks, saved reminders and edited questions are kept.",
+    "questions": "Public smoke draft: please confirm.",
+    "reminders": "1 reminder saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "Please return the signed consent form to your teacher by 9 October 2026.",
+    "stale": false,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-reminder-source-return-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": true,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": false,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "",
+      "label": "Check source for excerpt 1",
+      "outline": "rgb(44, 89, 71) solid 3px"
+    },
+    "live": "Checklist already current. Your review marks, saved reminders and edited questions are kept.",
+    "questions": "Public smoke draft: please confirm.",
+    "reminders": "1 reminder saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "Please return the signed consent form to your teacher by 9 October 2026.",
+    "stale": false,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-three-downloads-requested-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": true,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": false,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "export-button",
+      "label": null,
+      "outline": "rgb(44, 89, 71) none 3px"
+    },
+    "live": "Text-file download requested. It includes the original notice.",
+    "questions": "Public smoke draft: please confirm.",
+    "reminders": "1 reminder saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "Please return the signed consent form to your teacher by 9 October 2026.",
+    "stale": false,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-revised-source-pauses-all-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": true,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": true,
+        "id": "export-button"
+      },
+      {
+        "disabled": true,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": true,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "notice",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 2px"
+    },
+    "live": "You changed the notice or issue date. The old checklist and reminders are paused. Update the checklist before acting or downloading.",
+    "questions": "Public smoke draft: please confirm.",
+    "reminders": "1 reminder saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "disabled": true
+      },
+      {
+        "checked": false,
+        "disabled": true
+      }
+    ],
+    "sourceHighlight": "Please return the signed consent form to your teacher by 9 October 2026.",
+    "stale": true,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-revised-source-fresh-analysis-320",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": false,
+        "date": "2026-10-12",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": true,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "plan-heading",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 2px"
+    },
+    "live": "Plan ready. 1 instructions, 0 useful details, 0 cards need a check.",
+    "questions": "No clarification questions were generated. Read the complete notice to check for anything the model missed.",
+    "reminders": "0 reminders saved",
+    "reviewed": [
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "",
+    "stale": false,
+    "viewport": {
+      "height": 740,
+      "scrollWidth": 320,
+      "width": 320
+    }
+  },
+  {
+    "stage": "public-grouped-dates-unconfirmed-390",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": true,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "",
+      "label": null,
+      "outline": "rgb(38, 60, 51) none 3px"
+    },
+    "live": "Plan ready. 3 instructions, 0 useful details, 3 cards need a check.",
+    "questions": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nPlease return the form on 9 & 12 October 2026.\nWhich of the listed dates apply to this step: all of them, or only some?\n\n2. The notice says:\nRegister on 9 through 12 October 2026.\nWhen within this range should I act: throughout it, on a particular day, or by its end?\n\n3. The notice says:\nBring the booking on 9 and/or 12 October 2026.\nShould this step apply to one or both dates, and which dates?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+    "reminders": "0 reminders saved",
+    "reviewed": [
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "",
+    "stale": false,
+    "viewport": {
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "stage": "public-date-edit-announces-withdrawal-390",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": false,
+        "date": "2026-10-12",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": true,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "reminder-sentence-0",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 2px"
+    },
+    "live": "Reminder for excerpt 1 withdrawn. Check and confirm the current date before saving again.",
+    "questions": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nPlease return the form on 9 & 12 October 2026.\nWhich of the listed dates apply to this step: all of them, or only some?\n\n2. The notice says:\nRegister on 9 through 12 October 2026.\nWhen within this range should I act: throughout it, on a particular day, or by its end?\n\n3. The notice says:\nBring the booking on 9 and/or 12 October 2026.\nShould this step apply to one or both dates, and which dates?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+    "reminders": "0 reminders saved",
+    "reviewed": [
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "",
+    "stale": false,
+    "viewport": {
+      "height": 844,
+      "scrollWidth": 390,
+      "width": 390
+    }
+  },
+  {
+    "stage": "public-desktop-1280",
+    "assets": [
+      "style.css?v=71e187d0d341",
+      "app.js?v=6e09e339b815"
+    ],
+    "dates": [
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "saveDisabled": true
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true
+      }
+    ],
+    "exports": [
+      {
+        "disabled": false,
+        "id": "export-button"
+      },
+      {
+        "disabled": true,
+        "id": "calendar-button"
+      },
+      {
+        "disabled": false,
+        "id": "questions-button"
+      }
+    ],
+    "focus": {
+      "id": "about-button",
+      "label": null,
+      "outline": "rgb(44, 89, 71) solid 3px"
+    },
+    "live": "Excerpt 1 reviewed. 1 of 7 reviewed.",
+    "questions": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nBring a packed lunch and a bottle of water.\nIs there a deadline or a particular day for this instruction?\n\n2. The notice says:\nDo not bring cash on the day of the visit.\nIs there a deadline or a particular day for this instruction?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+    "reminders": "0 reminders saved",
+    "reviewed": [
+      {
+        "checked": true,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      },
+      {
+        "checked": false,
+        "disabled": false
+      }
+    ],
+    "sourceHighlight": "",
+    "stale": false,
+    "viewport": {
+      "height": 720,
+      "scrollWidth": 1280,
+      "width": 1280
+    }
+  }
+]

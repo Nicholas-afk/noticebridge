@@ -1,13 +1,13 @@
 # NoticeBridge state
 
-Checked 6 October 2026, Asia/Hong_Kong. **App 1.4.1 is verified locally; publication is pending.** Phone layouts, semantic accessibility, keyboard journeys and actual export checks are complete within the limits below. Model 1.1.0 and completed date fixes are preserved. Previous model/release detail: `docs/verification/NOTICEBRIDGE_STATE_1.4.0.md`.
+Checked 6 October 2026, Asia/Hong_Kong. **Release 1.4.1 is published and verified.** Phone layouts, semantic accessibility, keyboard journeys and actual export checks are complete within the limits below. Model 1.1.0 and completed date fixes are preserved. Previous model/release detail: `docs/verification/NOTICEBRIDGE_STATE_1.4.0.md`.
 
 ## Recovery and release
 
 - Primary repo: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/outputs/noticebridge`.
-- Isolated checkout: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-accessibility`, branch `accessibility-1.4.1`. Native worktree creation cannot resolve the nested repo; the established Git fallback was reused. Keep it until all source/evidence is committed and the public release verified.
+- Isolated checkout: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-accessibility`, branch `accessibility-1.4.1`. Native worktree creation cannot resolve the nested repo; the established Git fallback was reused. The clean checkout is retained for QA reproduction; recover from the primary repository. The local QA server is stopped.
 - Recovered clean main/origin at **72325ebc17c289790ca7bbde66b6e2487668c7f9**. Stable **v1.4.0**, **v1.3.0** and **v1.2.0** are preserved. No earlier work was discarded.
-- Runtime implementation/final review: **4fb95c3d8309a4faa383901e15d0efa31924a522**, app **1.4.1**, model **1.1.0**. Resolve the containing Git revision for exact current documentation HEAD; the release tag will identify verified source.
+- Runtime implementation/final review: **4fb95c3d8309a4faa383901e15d0efa31924a522**, app **1.4.1**, model **1.1.0**. Verified source before deployment: **0f1b8cc1398fcbebf05bd8552df687fe2a6273be**. **v1.4.1** identifies the verified release, including documentation; resolve the containing Git revision for exact documentation HEAD. The outside outputs checkpoint also records the final full HEAD after commit.
 - Source: https://github.com/Nicholas-afk/noticebridge ; demo: https://nicholas-afk.github.io/noticebridge/ ; entry: https://devpost.com/software/noticebridge . User's original browser tab was preserved; QA used separate tabs and fictional text.
 
 ## Implementation
@@ -31,7 +31,8 @@ Checked 6 October 2026, Asia/Hong_Kong. **App 1.4.1 is verified locally; publica
 
 ## Deployment and Devpost
 
-- Public demo currently remains verified **1.4.0**, Pages **109400ca179966fd62186276a23cc75e272f42cb**. Publish only built `dist`; local QA tools/fixtures are not runtime assets. Preserve Pages history and stable tags before updating.
+- **Public 1.4.1 deployed**, Pages **7b230ddb74f2a989df567ffa236d690f5190814c**, confirmed built with no error. Matching app/style fingerprints: **6e09e339b815 / 71e187d0d341**. Only built `dist` is deployed; no QA diagnostics/dependencies are present. Previous Pages **109400ca179966fd62186276a23cc75e272f42cb**, stable tags and the 1.4.0 source archive are preserved.
+- **10 published browser observations** at 320/390/1280 CSS pixels verified saved-work preservation, exact source/return, stale export/review guards, fresh-source reset, blank grouped-date defaults, withdrawal announcements and desktop reflow. Actual published plan/questions/calendar downloads also passed disk/parser checks. Evidence: `docs/verification/2026-10-06-accessibility-live.json` and `2026-10-06-accessibility-live-downloads.json`. Public captures: `media/noticebridge-mobile-live-1.4.1.jpg`, `media/noticebridge-desktop-live-1.4.1.jpg`.
 - Previously verified Devpost: **Submitted, 4/4**, entrant `ncywtanner`, entry `1216996-noticebridge`. Existing model story/metrics and ten gallery images remain accurate. No Devpost edit or final agreement/submission was performed in this pass. This is prior verified status, not a fresh check.
 - Earlier official cutoff: **10 October 2026, 2:45 p.m. Hong Kong / 9 October, 11:45 p.m. PDT**. Rules body gives a conflicting later cutoff. Rubric: implementation 30%, innovation 20%, impact 20%, UX 15%, presentation 15%. Edit submitted entry before the earlier deadline. Sources in `docs/competition-assessment.md`; not freshly researched in this accessibility pass.
 
@@ -41,4 +42,4 @@ Checked 6 October 2026, Asia/Hong_Kong. **App 1.4.1 is verified locally; publica
 - **Actual screen-reader speech unverified**: VoiceOver Utility exists, but the native control connection failed while reaching accessibility settings; no active screen reader/output was verified. Semantic tree, labels, keyboard and axe are partial evidence only.
 - **Physical phones/touch/virtual keyboard, native browser zoom, OS date-picker interaction and actual calendar-client imports remain unverified.** Parser compatibility does not prove client duplication/display/notification behavior. No accessibility certification or measured reader benefit exists.
 - No automatic cross-notice conflict resolution, OCR or translation. English lexical model/date patterns can miss unfamiliar language. One reminder per excerpt; no inferred time/alarm. Progress is tab-only and lost on reload.
-- Next: verify release publicly, then independent de-identified notices, consented reader tests including screen readers/physical devices, annotation disagreement/calibration and calendar-client import checks. No essential participation blocker prevents this release. Preserve stable versions, the user's browser tab and submitted entry.
+- Requested release work is complete; no pending runtime review or unpublished runtime change remains. Next: independently annotated de-identified notices, consented reader tests including screen readers/physical devices, annotation disagreement/calibration and calendar-client import checks. No essential participation blocker prevented this release. Preserve stable versions, the user's browser tab and submitted entry.
