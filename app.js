@@ -1,5 +1,5 @@
 import {analyzeNotice,validReferenceDate} from './engine.js?v=5d25f7074322';
-import {dateSuggestions,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=f1d0b4f457b8';
+import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=001555fd19d1';
 const $=id=>document.getElementById(id);
 const examples={
   trip:{date:'2026-10-05',text:'Dear parents and carers,\n\nOur Year 6 museum visit will take place on 14 October 2026. The bus leaves school at 9 am and returns at 3 pm.\n\nPlease return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.\n\nFor questions or accessibility needs, email trips@example.org.\n\nThank you for your support.'},
@@ -40,11 +40,11 @@ function renderFollowup(){
   for(const card of eligible){
     const i=result.cards.indexOf(card)+1,row=node('article',{class:'reminder-row','data-id':card.id});
     row.append(node('p',{class:'card-context'},`Excerpt ${i} · Sentence ${card.index+1}`),node('p',{class:'instruction'},card.text));
-    const suggestions=dateSuggestions(card),helpId=`date-help-${card.id}`;
-    row.append(node('p',{id:helpId,class:'group-help'},suggestions.length===1?`Suggested from “${suggestions[0].source}”. Check it before saving.`:suggestions.length>1?'More than one date appears. Choose the date that applies to this reminder.':'No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.'));
+    const suggestions=dateSuggestions(card),defaultDate=reminderDefaultDate(card),helpId=`date-help-${card.id}`;
+    row.append(node('p',{id:helpId,class:'group-help'},defaultDate?`Suggested from “${suggestions[0].source}”. Check it before saving.`:card.dates.length>1?'More than one date reference appears. Confirm which date applies to this reminder.':'No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.'));
     const controls=node('div',{class:'reminder-fields'}),dateId=`reminder-${card.id}`;
     const date=node('input',{type:'date',id:dateId,min:'1000-01-01',max:'9998-12-31',class:'followup-control','aria-describedby':helpId});
-    date.value=suggestions.length===1?suggestions[0].date:'';
+    date.value=defaultDate;
     const field=node('div');field.append(node('label',{for:dateId},`Reminder date for excerpt ${i}`),date);
     const confirmLabel=node('label',{class:'reminder-confirm'}),confirmation=node('input',{type:'checkbox',class:'followup-control','aria-label':`I checked the date for excerpt ${i}`});
     confirmLabel.append(confirmation,document.createTextNode('I checked this date against the notice or with the sender.'));
