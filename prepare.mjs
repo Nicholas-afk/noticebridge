@@ -9,8 +9,12 @@ const fingerprint=text=>createHash('sha256').update(text).digest('hex').slice(0,
 // Fingerprint dependencies first, then the script that references them.
 const engine=fingerprint(await read('engine.js'));
 const model=fingerprint(await read('model.json'));
+let followup=await read('followup.js');
+followup=followup.replace(/from '\.\/engine\.js(?:\?v=[a-f0-9]+)?'/,"from './engine.js?v="+engine+"'");
+await writeFile(new URL('followup.js',root),followup);
 let app=await read('app.js');
 app=app.replace(/from '\.\/engine\.js(?:\?v=[a-f0-9]+)?'/,"from './engine.js?v="+engine+"'");
+app=app.replace(/from '\.\/followup\.js(?:\?v=[a-f0-9]+)?'/,"from './followup.js?v="+fingerprint(followup)+"'");
 app=app.replace(/fetch\('\.\/model\.json(?:\?v=[a-f0-9]+)?'\)/,"fetch('./model.json?v="+model+"')");
 await writeFile(new URL('app.js',root),app);
 
