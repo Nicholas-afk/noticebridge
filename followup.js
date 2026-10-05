@@ -1,4 +1,4 @@
-import {validReferenceDate,fullDateISO} from './engine.js?v=55dabd461f5d';
+import {validReferenceDate,fullDateISO} from './engine.js?v=7896ba538fe7';
 
 export function validReminderDate(value){
   return typeof value==='string' && validReferenceDate(value) && +value.slice(0,4)>=1000 && +value.slice(0,4)<=9998;
@@ -6,6 +6,7 @@ export function validReminderDate(value){
 export function dateSuggestions(card){
   const found=[];
   for(const item of card.dates||[]){
+    if(item.ambiguous)continue;
     const text=item.text.trim(),date=/^(today|tomorrow)$/i.test(text)?item.resolved:fullDateISO(text);
     if(validReminderDate(date) && !found.some(x=>x.date===date))found.push({date,source:item.text});
   }
@@ -47,6 +48,7 @@ export function buildCalendar(result,entries,{now=new Date(),uidPrefix=globalThi
   lines.push('END:VCALENDAR');return lines.map(foldLine).join('\r\n')+'\r\n';
 }
 function questionFor(flag){
+  if(flag.includes('line break'))return 'Does this date continue across the line break, and which full date applies to this step?';
   if(flag.includes('alternatives or a range'))return 'Which date should I use, or does this instruction apply to every date in the range?';
   if(flag.includes('relative date needs'))return 'On what date was this notice issued, and what calendar date does the relative deadline mean?';
   if(flag.includes('Relative date uses'))return 'Is the issue date I supplied correct for this notice?';
