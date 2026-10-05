@@ -1,0 +1,172 @@
+[
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 41,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "violations": []
+    },
+    "cssWidth": 320,
+    "overflow": false,
+    "stage": "local-320-checklist"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 41,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "violations": []
+    },
+    "cssWidth": 320,
+    "overflow": false,
+    "stage": "local-320-Checklist"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 40,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "violations": []
+    },
+    "cssWidth": 320,
+    "overflow": false,
+    "stage": "local-320-Next steps"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 40,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 740,
+        "width": 320
+      },
+      "violations": []
+    },
+    "cssWidth": 320,
+    "overflow": false,
+    "stage": "local-320-Source"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 41,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "violations": []
+    },
+    "cssWidth": 390,
+    "overflow": false,
+    "stage": "local-390-Checklist"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 40,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "violations": []
+    },
+    "cssWidth": 390,
+    "overflow": false,
+    "stage": "local-390-Next steps"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 40,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "violations": []
+    },
+    "cssWidth": 390,
+    "overflow": false,
+    "stage": "local-390-Source"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 41,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "violations": []
+    },
+    "cssWidth": 1280,
+    "overflow": false,
+    "stage": "local-1280-Checklist"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 40,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "violations": []
+    },
+    "cssWidth": 1280,
+    "overflow": false,
+    "stage": "local-1280-Next steps"
+  },
+  {
+    "audit": {
+      "incomplete": [],
+      "passedRules": 40,
+      "tool": "axe-core",
+      "url": "http://localhost:48138/?qa=1",
+      "version": "4.11.1",
+      "viewport": {
+        "height": 720,
+        "width": 1280
+      },
+      "violations": []
+    },
+    "cssWidth": 1280,
+    "overflow": false,
+    "stage": "local-1280-Source"
+  }
+]

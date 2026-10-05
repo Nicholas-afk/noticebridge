@@ -24,7 +24,7 @@ Rules supplement the model with unfamiliar-wording review and conservative check
 
 The interface is built with HTML, CSS and JavaScript. Its document workspace uses flat reading groups, clear labels, keyboard-accessible controls, source highlighting and review progress. Instructions have the strongest hierarchy; uncertainty appears beside the relevant sentence. Optional WebMCP tools let an agent run the same visible analysis workflow and read back its results.
 
-Calendar serialization is a separate, dependency-free module. It validates confirmed dates, uses all-day events with exclusive next-day ends, escapes notice text and folds long lines by UTF-8 bytes. The question draft uses explicit templates keyed to visible review flags rather than generated answers. Both workflows share the same stale-input protection as the checklist, and Clear or refreshed analysis removes their state. The public application and source are hosted on the entrant's GitHub account, `Nicholas-afk`.
+Calendar serialization is a separate, dependency-free module. It validates confirmed dates, uses all-day events with exclusive next-day ends, escapes notice text and folds long lines by UTF-8 bytes. The question draft uses explicit templates keyed to visible review flags rather than generated answers. Both workflows share the same stale-input protection as the checklist, and Clear or a successful changed-source analysis removes their state; identical-source analysis preserves reader work. The public application and source are hosted on the entrant's GitHub account, `Nicholas-afk`.
 
 ## Challenges we ran into
 
@@ -52,7 +52,7 @@ A compact, task-specific model can make a useful interaction possible without tr
 
 ## What's next
 
-We want to test the workflow with consenting readers and community staff, collect independently annotated notices with personal information removed, evaluate on a larger real-world holdout, calibrate model confidence and verify mobile and screen-reader accessibility. No user study, accessibility certification or measured reduction in missed deadlines is claimed for this prototype.
+We want to test the workflow with consenting readers and community staff, collect independently annotated notices with personal information removed, evaluate on a larger real-world holdout, calibrate model confidence and test physical phones and actual screen-reader speech beyond the completed browser reflow and semantic checks. No user study, accessibility certification or measured reduction in missed deadlines is claimed for this prototype.
 
 ## Target users and intended impact
 
@@ -61,3 +61,7 @@ Parents and carers reading school letters, students organizing club notices, and
 ## AI assistance and team
 
 Solo entry under `ncywtanner`. OpenAI Codex assisted with concept development, implementation, authored synthetic data, testing, diagrams and documentation. No sponsor API or sponsor-credit use is claimed. The project remains an English-language prototype for everyday notices, not legal, medical or emergency interpretation.
+
+## Demonstration materials
+
+[52-second captured walkthrough](https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4): actual application screens with fictional notices, covering source-linked instructions, reader-confirmed all-day reminders, unresolved alternatives and an edited question draft. Silent and captioned; captured states rather than continuous screen recording. [Manual demo and provenance](https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md), [evaluation conditions](https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md).

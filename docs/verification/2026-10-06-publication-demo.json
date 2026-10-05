@@ -1,0 +1,29 @@
+{
+  "programs": [],
+  "stream_groups": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "codec_type": "video",
+      "width": 1920,
+      "height": 1080,
+      "pix_fmt": "yuv420p",
+      "r_frame_rate": "30/1"
+    }
+  ],
+  "format": {
+    "duration": "52.000000",
+    "size": "2643184"
+  },
+  "tool": "HyperFrames 0.8.134",
+  "application": "1.4.2",
+  "model": "1.1.0",
+  "sha256": "d454b625dde488b0b2eba5ea5dfeeb5c5772948b15004fb844768a5f16a90c9a",
+  "actual_UI_captures": 6,
+  "continuous_recording": false,
+  "fictional_notices_only": true,
+  "audio": false,
+  "check": "0 lint/runtime/layout/motion issues; 30/30 text contrast checks passed",
+  "visual_review": "16 snapshots across scene midpoints and either side of all five cuts, plus editable Studio source scene at 20s",
+  "source": "media/demo-source"
+}

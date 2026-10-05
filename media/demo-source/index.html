@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js" integrity="sha384-sG0Hv1tP1lZCk9KQmrIbY/XNwi+OY84GQqhMscbnsoBFqAz8KNCil1kvfL3Hbbk2" crossorigin="anonymous"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #fffdf7;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-xn63" id="root" data-composition-id="main" data-start="0" data-duration="52" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-kfwb" id="el-f01" class="scene" data-composition-id="f01" data-composition-src="compositions/frames/f01.html" data-start="0" data-duration="8" data-track-index="1"></div>
+
+      <div data-hf-id="hf-27j2" id="el-f02" class="scene" data-composition-id="f02" data-composition-src="compositions/frames/f02.html" data-start="8" data-duration="8" data-track-index="1"></div>
+
+      <div data-hf-id="hf-nj54" id="el-f03" class="scene" data-composition-id="f03" data-composition-src="compositions/frames/f03.html" data-start="16" data-duration="8" data-track-index="1"></div>
+
+      <div data-hf-id="hf-lkl7" id="el-f04" class="scene" data-composition-id="f04" data-composition-src="compositions/frames/f04.html" data-start="24" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-cpg1" id="el-f05" class="scene" data-composition-id="f05" data-composition-src="compositions/frames/f05.html" data-start="34" data-duration="10" data-track-index="1"></div>
+
+      <div data-hf-id="hf-b9l8" id="el-f06" class="scene" data-composition-id="f06" data-composition-src="compositions/frames/f06.html" data-start="44" data-duration="8" data-track-index="1"></div>
+
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

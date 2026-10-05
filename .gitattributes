@@ -1,2 +1,2 @@
 # Preserve the exact CRLF bytes of calendar downloads and their recorded hashes.
-*.ics -text
+*.ics -text whitespace=-blank-at-eol,cr-at-eol

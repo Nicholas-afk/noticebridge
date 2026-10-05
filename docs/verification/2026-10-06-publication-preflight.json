@@ -1,0 +1,11 @@
+{
+  "base_commit": "96047ae90140cad65bcd05bf4e844db4746317ac",
+  "stable_tag": "v1.4.1",
+  "previous_pages": "7b230ddb74f2a989df567ffa236d690f5190814c",
+  "recoverable_bundle": "noticebridge-pre-1.4.2.bundle (outside public repository)",
+  "previous_source_zip_sha256": "a952c9012df63585aa23904df7ca526360a9f99241d98464c5b4033e1c657a74",
+  "public_candidate_files_scanned": 126,
+  "credential_pattern_findings": 0,
+  "unrelated_hosting_metadata_removed": ".openai/hosting.json",
+  "model_engine_followup_style_unchanged": true
+}

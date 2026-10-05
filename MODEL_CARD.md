@@ -1,6 +1,6 @@
 # NoticeBridge classifier 1.1.0
 
-Audited 6 October 2026. App release 1.4.0. This is an English text organizer for everyday notices, with exact source extracts and human review. It does not establish whether an instruction applies to a particular reader, understand an entire document, or confirm a reminder.
+Audited 6 October 2026. Current app release 1.4.2; model weights and extraction rules are unchanged from 1.4.0. This is an English text organizer for everyday notices, with exact source extracts and human review. It does not establish whether an instruction applies to a particular reader, understand an entire document, or confirm a reminder.
 
 ## What the model contributes
 
@@ -65,9 +65,14 @@ python3 -m pip install -r requirements.txt
 python3 train.py
 npm run audit
 npm run build
+npm ci
 npm test
 ```
 
 `train.py` writes the model, training split and legacy evaluation. `audit-python.py` re-fits both saved splits and verifies their exported vocabulary, IDF, weights and intercepts exactly. It records environment, hashes, normalized overlap, nearest neighbours and Python predictions. `audit.mjs` records all 93 predictions, errors, confusion matrices and downstream counts for both versions plus the rule baseline. The browser engine matches Python labels/scores on all 93 inputs within 1e-10. The original 100 date regressions, source integrity and follow-up checks remain required. Browser evidence is saved under `docs/verification/`.
 
 No real-world accuracy, calibrated confidence, reading-effort reduction, deadline reduction, user study or accessibility certification is claimed. The next evidence that could change the deployment decision is an independently annotated, de-identified notice set plus consented reader testing. Freeze that set before future model tuning, include non-actions and diverse sources, measure missed instructions and unnecessary review, and report disagreement and regressions.
+
+## Current release presentation
+
+Application 1.4.2 clarifies that Reviewed means wording checked rather than task completed, and labels repeat analysis Review checklist. Model 1.1.0 and extraction/serialization are unchanged. The fresh comparison is in [EVALUATION.md](EVALUATION.md); data boundaries and user authority are in [ARCHITECTURE.md](ARCHITECTURE.md). [DEMO.md](DEMO.md) uses actual fictional-notice captures and makes no accuracy or reader-impact claim.

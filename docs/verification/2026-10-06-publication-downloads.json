@@ -1,0 +1,31 @@
+{
+  "application": "1.4.2",
+  "actual_browser_downloads": 3,
+  "names": [
+    "noticebridge-reminders.ics",
+    "noticebridge-plan.txt",
+    "noticebridge-questions.txt"
+  ],
+  "browser_collision_suffixes": [
+    7,
+    7,
+    6
+  ],
+  "parser": "icalendar 6.3.2",
+  "all_day": true,
+  "start": "2026-10-09",
+  "exclusive_end": "2026-10-10",
+  "time_inferred": false,
+  "alarm": false,
+  "source_exact": true,
+  "reviewed_retained": true,
+  "reader_edited_questions_byte_equal": true,
+  "CRLF": true,
+  "max_line_bytes": 75,
+  "calendar_client_import": "unverified",
+  "files": {
+    "school-trip.ics": "f4632f38df00170e4776436435254509838f2b66654ce60fb2ddfb959ac6c510",
+    "school-trip-plan.txt": "ddfd8ae5328a135601d10fd266cd89d4bf9be45c9e3ecdbab3165d6c90833482",
+    "edited-questions.txt": "44858fc37f5dfd0cf194a767a6f6b3bba60527dd63d6b2a1719179f554744abe"
+  }
+}

@@ -1,119 +1,79 @@
 # NoticeBridge
 
-Evidence-linked next steps for school and community notices.
+Find the instructions in an everyday notice, then check them against the sender’s exact words.
 
-NoticeBridge helps readers find what they need to do, when it is due and which details need clarification. Paste a notice, review its instructions in a numbered checklist, and select **Check source** to highlight the exact original sentence. The browser never sends pasted text to cloud AI.
+**[Try the application](https://nicholas-afk.github.io/noticebridge/)** · [52-second captured walkthrough](https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4) · [Devpost entry](https://devpost.com/software/noticebridge)
 
-## Try it
+## One notice, four instructions
 
-**[Open the public demo](https://nicholas-afk.github.io/noticebridge/)** · **[Devpost project](https://devpost.com/software/noticebridge)**
+Choose **School trip** to load and analyze the fictional example. The fictional notice includes:
 
-Choose **School trip** for a complete example. You can also serve the `dist` directory locally:
+> Please return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.
+
+These four sentences appear as four instructions, in their original wording. **Check source** highlights the selected sentence inside the complete notice. Dates, times and amounts remain tied to their own sentence. No generated paraphrase replaces the source.
+
+![School trip checklist: exact original wording with a review control and source link](media/current/02-actions.jpg)
+
+**Reviewed** means you checked the wording; it does not mean the task is done. All sentences remain accessible, including ones the model places in background. Read the complete notice because the classifier can miss instructions.
+
+## Review uncertainty before acting
+
+In **Next steps**, a valid full date from the same sentence can be suggested, but the confirmation starts unchecked. The reader must check it before saving a reminder. Editing or unchecking the date withdraws the saved reminder.
+
+The **Dates to check** example quotes “9 or 12 October 2026” as alternatives, leaves its reminder date blank, flags the impossible “31 November 2026”, and recognizes “9 Oct. 2026”. Lists, ranges and one-or-both wording have distinct review notes and questions. The app does not choose an endpoint or resolve conflicting notices.
+
+Readers can edit and download a question draft. Nothing is sent. Calendar downloads contain all-day entries with source quotations, no inferred time or alert. Text plans contain the full notice and review state. Import calendar files yourself; duplicate-import behavior varies by client and is unverified here.
+
+![Exact sentence highlighted in the complete source](media/current/03-source.jpg)
+
+Repeated analysis of the identical notice and issue date preserves review marks, reader edits, confirmations and reminders. Changing either pauses old work and all exports; a successful updated analysis starts fresh. Exact source reversion restores the matching checklist. Clear or reload discards tab progress. Files already downloaded or imported cannot be withdrawn.
+
+## Local processing
+
+No account, API key or backend is needed. Sentence classification runs in the browser using a trained TF–IDF/logistic regression model. Notice text and review progress stay in tab memory. The application requests same-origin code and model assets, without uploading the notice or using cloud inference, analytics, persistent history or a service worker. The host still receives ordinary page requests. Offline startup is unsupported; analysis can continue after the assets load. Downloaded files persist wherever you save them.
+
+## Evidence and limitations
+
+Release **1.4.2** refines review wording and presentation. Model **1.1.0**, extraction rules and calendar serialization are unchanged from the verified release.
+
+| Development check | Original model | Model 1.1.0 |
+| --- | ---: | ---: |
+| Legacy sentence categories | 44/48 | 45/48 |
+| Authored challenge categories | 30/40 | 35/40 |
+| Authored raw instruction recall | 14/20 | 18/20 |
+| Authored raw instruction precision | 14/15 (93.3%) | 18/21 (85.7%) |
+| Authored instructions confidently listed | 2/20 | 10/20 |
+
+**Precision worsened.** The three false raw instruction predictions remained Review under the unchanged thresholds. These same-author synthetic checks and five developer-selected public instructions do not establish real-world accuracy, accessibility or reader benefit. Scores are uncalibrated; unfamiliar language, sentence splitting and cross-sentence dependencies remain weaknesses. English only; no OCR, translation, uploads or conflict resolution. Intended for everyday notices, not legal, medical or emergency interpretation.
+
+See [evaluation conditions and unfavorable results](EVALUATION.md), [model artifacts and every error](MODEL_CARD.md), [architecture and data boundaries](ARCHITECTURE.md), [competition assessment](docs/competition-assessment.md), and [release record](NOTICEBRIDGE_STATE.md).
+
+Actual browser checks cover 320–1440 CSS-pixel widths, keyboard/source return, labels, focus, validation, changing-result announcements and exports. Twenty-five recorded axe checks from 1.4.1 had no violations. This is partial evidence. Actual screen-reader speech, physical phones, native browser zoom, OS date-picker interaction and calendar-client imports remain unverified. [Detailed accessibility/export audit](docs/accessibility-export-audit.md).
+
+![390 CSS-pixel phone layout](media/current/07-mobile.jpg)
+
+## Run and reproduce
+
+Node 22.18.0 was used for the release checks. Runtime has no dependencies. Development tools are pinned by the lockfile.
 
 ```sh
-python3 -m http.server 48137 --bind 127.0.0.1 --directory dist
+npm ci
+npm test
+npm run build
+npm run serve
 ```
 
-Visit `http://127.0.0.1:48137`. Choose **School trip** for the complete workflow or **Unclear deadline** for uncertainty handling. All examples are fictional. This is a static application, with no API key, account, backend or paid inference service.
-
-## What it does
-
-- Runs a trained TF–IDF + logistic regression classifier on each sentence in the browser.
-- Groups instructions, event details, contacts and background text.
-- Extracts dates, times and currency amounts without inventing missing information.
-- Preserves negative instructions such as “Do not bring cash.”
-- Highlights uncertain categories, missing years, ambiguous numeric dates, grouped dates, impossible full calendar dates and unsupported relative deadlines.
-- Resolves only “today” and “tomorrow”, and only against an explicitly supplied notice issue date.
-- Keeps every sentence accessible, including those assigned to background.
-- Offers a checklist and local text-file export. It does not save a history.
-- Adds a **Next steps** view for date-confirmed all-day reminders and an editable draft of questions for the sender.
-- Suggests reminder dates only from a valid full date in that same sentence, or an explicitly anchored today/tomorrow reference. Grouped day and year phrases stay unresolved, without choosing an endpoint. Warnings and questions distinguish lists (`9 & 12`), alternatives (`9 or 12`), one-or-both wording (`9 and/or 12`), ranges (`9 through 12`) and an unclear slash. Shortened ISO or named endpoints stay quoted as a whole; explicitly named endpoints retain their own months. Commas in choice lists do not turn choices into instructions to attend every date. A grouping split across notice lines is flagged whether its connector ends the first line or starts the next; dates on either side are not suggested automatically. Competing unresolved dates leave the field blank. The reader must confirm every date; editing a saved date withdraws its reminder.
-- Exports saved reminders as a local `.ics` calendar file, with the exact sentence and review notes. It adds no inferred time or alarm and does not connect to a calendar account.
-- Builds clarification questions from review notes, keeping each relevant sentence verbatim. The reader edits and downloads the draft; the app sends no messages.
-- Shows review progress, with a direct return from a highlighted source sentence to its checklist item.
-- Pauses marking and downloads when the notice or issue date changes, until the checklist is refreshed. Previous excerpts are explicitly identified as an older snapshot.
-- Exposes optional WebMCP tools that use the same local action pipeline as the interface.
-
-This is extractive information organization, not generative rewriting. Generic card headings are assigned by explicit rules; full instructions remain verbatim. Details from another sentence are not silently attached to an instruction.
-
-## Model and reproducibility
-
-Model **1.1.0** uses 329 authored synthetic training examples. It retains the four-class TF–IDF/logistic architecture and adds language diversity for passive requirements, conditions, operational notifications and historical distractors. The original model and all its artifacts are preserved in `docs/model-audit/baseline/`.
-
-The original **44/48** result was reproduced byte for byte. No exact or normalized training/test overlap was found, but some examples are close paraphrases, and the same developer authored both splits. The 48 examples are now a legacy development check, not a fresh blind holdout. Current results are:
-
-| Check | Original | Current |
-| --- | ---: | ---: |
-| Legacy categories | 44/48 | 45/48 |
-| Frozen authored challenge categories | 30/40 | 35/40 |
-| Authored raw instruction recall | 14/20 | 18/20 |
-| Authored raw instruction precision | 93.3% | 85.7% |
-| Authored instructions listed in Instructions | 2/20 | 10/20 |
-| Authored inputs needing category review | 31/40 | 19/40 |
-| Curated public instruction labels | 4/5 | 5/5 |
-
-Precision became worse. All three current false raw instruction predictions remain Review under the unchanged score threshold; none is confidently listed as an instruction in these checks. The five public excerpts are a small, developer-selected convenience sample containing only instructions; they cannot measure precision or real-world accuracy. No user-benefit or representative accuracy claim follows from these numbers.
-
-Read [MODEL_CARD.md](MODEL_CARD.md) for every error, baseline conditions, label policy, near-overlap, weaknesses and the release decision; [docs/competition-assessment.md](docs/competition-assessment.md) assesses the official rubric and existing tools. `audit-cases.json` was frozen before retraining; it remains development evidence because observed failure patterns informed training. `training-additions.json` preserves the supplement's provenance. Scores are uncalibrated. A heuristic vocabulary-coverage check now prompts review when most distinct words are unfamiliar, and own-property lookups prevent words such as `constructor` from corrupting scores.
+Open `http://127.0.0.1:48137`. For local axe diagnostics, use `npm run serve:audit` and `http://localhost:48138/?qa=1`; diagnostics are absent from the public build.
 
 ```sh
 python3 -m pip install -r requirements.txt
 python3 train.py
 npm run audit
 npm run build
-npm ci
-npm test
 ```
 
-Training uses word unigrams/bigrams, sublinear TF, IDF, L2 normalization, balanced weights, logistic regression C=4.0 and seed 23. `audit-python.py` verifies both exported models against exact re-fitted scikit-learn parameters, saves hashes and overlap checks. `audit.mjs` saves all baseline/current predictions and workflow counts. Browser/Python labels and scores agree on all 93 evaluation inputs and eight additional accent/mixed-script boundary probes within 1e-10. Unicode-aware browser boundaries avoid treating accented names as unrelated ASCII prefixes. Existing span-integrity, input, negation, follow-up/calendar tests and 100 date regressions remain required. Eight model tests cover parity, varied instructions, uncertainty, historical wording and the inherited-property bug.
+The audit checks scikit-learn/exported JavaScript parity, training overlap and baseline/current predictions. The original model is preserved in `docs/model-audit/baseline/`. Tests include source spans, follow-up safeguards, 100 date cases, eight model tests and ten real-app workflow tests. Independent calendar fixture parsing is documented in the export audit.
 
-## Architecture
+Publish the built `dist` tree to the existing `gh-pages` branch after preparing matching content fingerprints. [Demo source, provenance and manual journey](DEMO.md). Historical captures remain identified in [media inventory](media/README.md).
 
-```text
-Pasted notice (tab memory only)
-  -> sentence spans (exact start/end positions)
-  -> local TF–IDF features + logistic regression
-  -> category uncertainty and instruction-cue review gate
-  -> exact date/time/amount extraction + ambiguity checks
-  -> evidence-linked action cards + complete original notice
-  -> optional local checklist / text export
-  -> reader-confirmed all-day calendar file / editable clarification draft
-```
-
-Only local assets are requested by the application. The hosting provider receives ordinary page requests; pasted notices are not included in them. The app does not cache itself for offline startup, but inference can continue without network access after its assets load. Exported plans contain the original notice, so readers should choose where to save them.
-
-Calendar export uses [RFC 5545](https://www.rfc-editor.org/rfc/rfc5545.html) date events, CRLF line endings, escaped text, UTF-8 byte-aware folding and an exclusive next-day end. Within one analysis, repeated exports retain event identifiers; some calendar clients may still duplicate imported files. NoticeBridge does not verify calendar-client import behavior. Reminder dates, confirmations, review marks and question drafts are preserved when the identical source and issue date are analysed again. Changed source pauses old work until a successful update resets it. Clear and page reload discard tab progress.
-
-GitHub Pages under `Nicholas-afk` is the primary public host. Publish the built `dist` directory to the repository's `gh-pages` branch. The earlier private Sites copy is not the public demo.
-
-Run `node prepare.mjs` after changing browser code, styles or the trained model and before publishing. It adds content fingerprints to asset URLs, including the engine and model dependencies, so a cached older script cannot be paired with a newer page. No runtime or build dependencies are required. `npm ci` installs pinned development-only jsdom and axe tools from the lockfile for workflow tests and local accessibility QA; run `npm run serve:audit` and open `http://localhost:48138/?qa=1`. The ordinary `npm run serve` page does not include diagnostics.
-
-## Accessibility and design
-
-The interface puts the source input beside a flat, numbered reading list. Instructions lead; uncertain categories and supporting dates or contacts form separate groups. A restrained green accent, paper-colored background, serif introduction and plain labels replace the original purple hero and nested card layout. Containers are limited to editable source text, its preserved snapshot, and meaningful notices. The direction is informed by [W3C cognitive accessibility guidance on clear step-by-step instructions](https://www.w3.org/WAI/WCAG2/supplemental/patterns/o4p07-step-instructions/).
-
-No accessibility certification or user study is claimed. Release 1.4.1 was inspected in the actual browser at measured CSS widths of 320, 390, 768, 1280 and 1440 pixels across Checklist, Next steps and Source, without horizontal overflow. Twenty-five persisted axe-core 4.11.1 checks reported zero violations; this is partial automated evidence. Keyboard navigation, skip link, focus return, field validation, visible outlines and result/withdrawal announcements were exercised. Phone controls have larger label targets and editable borders meet 3:1 contrast. Same-source analysis now preserves reader work. The precise scenarios, unfavorable findings, fixes, export fixtures and limits are in [docs/accessibility-export-audit.md](docs/accessibility-export-audit.md). Actual screen-reader speech, native browser zoom, physical-device interaction and calendar-client imports remain unverified. Representative captures are `media/noticebridge-mobile-checklist.jpg`, `media/noticebridge-mobile-reminders.jpg` and `media/noticebridge-desktop-accessibility.jpg`.
-
-Next-step browser checks also verified date suggestions with unchecked confirmations, saving a confirmed reminder, withdrawing it after a date edit, edited-draft preservation across views, stale input blocking follow-up controls, and Clear/refresh removing prior reminders and drafts. The unclear-deadline example supplies no suggested calendar dates. The **Dates to check** example keeps “9 or 12 October 2026” unresolved, flags “31 November 2026” as invalid, and preserves the abbreviated date “9 Oct. 2026”. The same review notes appear beside reminder selection and in the clarification draft. The 1.3.0 public captures are in `media/noticebridge-date-meaning.jpg` and `media/noticebridge-grouped-dates.jpg`. Additional browser checks covered the three requested phrases with and without years, shortened ISO and named endpoints, grouped month abbreviations, separate endpoint months, noon after an ISO date, and a connector starting the next line. Grouped and invalid date fields stayed blank with confirmation unchecked. A downloaded reviewed checklist retained its review mark, exact phrases, distinct warnings and reader-confirmed reminder; its calendar download retained the source and warning with valid CRLF and all-day boundaries. Browser checks verified blank grouped/invalid date fields, the valid abbreviated-date suggestion, visible warnings, saving after confirmation and withdrawal after editing the date, with no horizontal overflow on the published application at an actual 1,280-pixel CSS width.
-
-## Limitations and next work
-
-- English text only; no OCR, translation, document uploads or automatic web scraping.
-- The small model can miss or misclassify unfamiliar wording.
-- Sentence splitting is conservative and imperfect for unusual punctuation.
-- Instructions that depend on another paragraph still require the reader to check the source.
-- Dates are quoted; grouped day lists and ranges, weekday references, missing years and numeric date formats remain unresolved. Date extraction is a conservative English pattern matcher, not a general date parser. Month abbreviations followed by uncertain wording may be split conservatively, leaving a year unresolved.
-- Intended for everyday notices, not legal, medical or emergency interpretation.
-- No observed reduction in missed deadlines or reading effort is claimed.
-
-The 1.4.0 release additionally passed 53 local and 55 published browser cases for varied language, exact source text, accented names and uncertainty guards; live reminder confirmation and withdrawal also passed. Its actual fictional-notice capture is `media/noticebridge-language-review.jpg`.
-
-See [NOTICEBRIDGE_STATE.md](NOTICEBRIDGE_STATE.md) for the current release, deployment, review evidence and handoff state.
-
-Next steps are consented testing with readers and community staff, independently annotated real notices with identifying information removed, a larger held-out benchmark, confidence calibration, and accessibility testing on mobile devices and screen readers.
-
-## Build disclosure
-
-Created for the ML Empowerment Build Challenge 3.0 under the entrant's `ncywtanner` account.
-
-MIT licensed. See `LICENSE`.
+Created for ML Empowerment Build Challenge 3.0 under `ncywtanner`. OpenAI Codex assisted with concept, implementation, synthetic examples, testing and documentation. MIT licensed; demonstration fonts retain their separate OFL licenses.

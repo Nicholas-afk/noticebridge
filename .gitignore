@@ -1,5 +1,5 @@
 .sites-runtime/
-.openai/*credential*
+.openai/
 *.tar.gz
 .DS_Store
 node_modules/
