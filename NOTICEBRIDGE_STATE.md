@@ -1,6 +1,6 @@
 # NoticeBridge state
 
-Checked 6 October 2026, Asia/Hong_Kong. **Release 1.4.2 is published and verified.** Application, public exports and competition materials are complete within the limits below. Model 1.1.0 and all completed date/accessibility fixes are preserved. Previous checkpoint: `docs/verification/NOTICEBRIDGE_STATE_1.4.1.md`.
+Checked 6 October 2026, Asia/Hong_Kong. **Release 1.4.2 is published and verified; the existing Devpost submission was freshly updated and remains SUBMITTED, 4/4.** Application, public exports and competition materials are complete within the limits below. Model 1.1.0 and all completed date/accessibility fixes are preserved. Previous checkpoint: `docs/verification/NOTICEBRIDGE_STATE_1.4.1.md`.
 
 ## Scope and recovery
 
@@ -33,7 +33,7 @@ Independent final read-only review found no remaining Critical or Important find
 - Demonstration: https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4
 - Entry: https://devpost.com/software/noticebridge
 
-Release implementation **7a5c5b2c1a5e10f87d725597adb56c1e6db3f69f** was fast-forwarded into existing main. The merged tree passed the full suite and idempotent build before push. **v1.4.2** identifies the final verified source including documentation; resolve the tag/containing Git revision for exact final HEAD. The outside outputs checkpoint records the full final SHA after commit.
+Release implementation **7a5c5b2c1a5e10f87d725597adb56c1e6db3f69f** was fast-forwarded into existing main. The merged tree passed the full suite and idempotent build before push. **v1.4.2** identifies stable release commit **84ee422f1aecc4d9ad7baac54b50fe07b4fdeb4a**. The later submission-only documentation commit does not move this tag or change the deployed application. Resolve the containing Git revision for the current documentation HEAD; the outside outputs checkpoint records that full SHA after commit.
 
 Pages **6e8181c21e80e217e94db4cb63131b186e713e1f** is built with no error; it retains prior Pages 7b230dd as parent. Public app/style fingerprints **062983589030 / 71e187d0d341** match the prepared release. The Pages tree equals this release’s `dist` tree. No diagnostics/dependencies/private hosting metadata are deployed.
 
@@ -43,7 +43,7 @@ Public captures: `media/current/08-public-desktop.jpg`, `09-public-phone.jpg`, `
 
 Devpost freshly verified after **Save & continue**: **Submitted, 4/4**, entry `1216996-noticebridge`. Story now accurately describes identical-source preservation, completed browser/semantic checks and remaining physical-device/speech limits. Two current fictional-notice source/390px captures were added, retaining the ten historical images with their existing captions. The new hosted MP4 appears in the story and Try it out links. Devpost’s embed field accepts YouTube/Vimeo; no such account upload was needed, and the video is linked rather than embedded. Public page contents/captions/links were checked in a fresh tab. `2026-10-06-publication-devpost.json` and `media/current/11-devpost-release.jpg`. Existing final agreement and submitted state were not repeated or changed.
 
-Earlier official cutoff is 10 October 2026 2:45 p.m. Hong Kong / 9 October 11:45 p.m. PDT; rules body conflicts with a later date. Rubric implementation 30%, innovation 20%, impact 20%, UX 15%, presentation 15%. Sources and prior check date are in docs/competition-assessment.md; not freshly researched in this presentation pass.
+Earlier official cutoff is 10 October 2026 2:45 p.m. Hong Kong / 9 October 11:45 p.m. PDT; rules body conflicts with a later date. Rubric implementation 30%, innovation 20%, impact 20%, UX 15%, presentation 15%. The schedule, overview, official rules and Devpost editing guidance were freshly reopened for the submission update below; the deadline conflict remains unresolved. Sources and rubric mapping are in docs/competition-assessment.md.
 
 ## Material limitations and next actions
 
@@ -52,3 +52,20 @@ Actual screen-reader speech, physical phones/touch/virtual keyboard, native brow
 The main weakness remains external validation: independently annotated de-identified notices, annotation disagreements, calibrated uncertainty and consented reader studies. The demonstration improves clarity of the existing evidence; it does not close that gap. Next release work should prioritize those evaluations and real assistive technology/device/client checks over extra features.
 
 Requested publication and artifact updates are complete. No pending runtime review or essential user-participation blocker remains. Primary repository is the recovery source; isolated QA checkout and separate demonstration sources are preserved. Temporary QA/preview services will be stopped at completion; the original user browser tab was not reloaded or altered.
+
+
+## Final existing-submission update — 6 October 2026
+
+Freshly inspected the public entry and followed its **Edit hackathon submission** link to competition entry **1216996-noticebridge**. Status was **SUBMITTED, 4/4 steps done**. Preserved the original story/captions outside the public repository and verified `noticebridge-pre-devpost-audit.bundle`, containing the full existing history and stable release refs, before editing.
+
+The official structured schedule/overview still close at **9 October 2026 11:45 p.m. PDT / 10 October 2:45 p.m. Hong Kong**; the rules body still lists a later **10 October 9 p.m. PDT**. Use the earlier cutoff. Devpost's current guidance and the finalization page allow edits before the deadline; portfolio-only changes after it do not change the judged submission. The published rules retain the 30/20/20/15/15 rubric. `docs/competition-assessment.md` now maps each criterion to evidence and its actual constraint, without predicting a judge score.
+
+Saved a rewritten story led by the exact fictional School trip notice and four resulting instructions. It covers target users, review versus task completion, reminder authority, lists/alternatives/one-or-both/ranges, stale-source protection, model/pipeline contribution, privacy boundaries, development evaluation, adverse results, actual accessibility checks and outstanding validation. AI disclosure now names Codex's concept, code/data, debugging, verification, demo and documentation work under entrant direction. Current public overview and unresolved-alternative captures were added; four 1.4.2 images now lead the 14-image gallery. The ten earlier images remain, with historical captures labeled. Three Try it out links remain correct: repository, application and hosted MP4. Video is linked, not embedded; no YouTube/Vimeo upload was needed.
+
+After **Save & continue**, the same finalization page still showed **SUBMITTED, 4/4**, disabled checked existing terms, and disabled **Project submitted!**. No agreement was newly accepted, no entry duplicated or withdrawn, and no further final action was required. A fresh public tab showed the updated opening, metrics table, unfavorable precision result, limitations and disclosure. Every gallery image loaded and its caption matched the saved form order. Proof: `media/current/12-devpost-submitted.jpg`, `13-devpost-presentation.jpg`; record: `docs/verification/2026-10-06-submission-devpost.json`.
+
+All ten unique final story/product/entry links and all fourteen original gallery-image links passed anonymous HTTP 200 checks with certificate verification enabled. Anonymous entry HTML contained the updated story and all gallery links. No cookies or credential headers are retained in public evidence. The public video freshly played at 52 seconds, 1920×1080, readyState 4, with no error. The public visitor again produced four School trip instructions, highlighted the exact consent sentence, and left alternative/invalid dates blank and unconfirmed. `2026-10-06-submission-links.json` records access checks; the submission record contains visitor/video observations. Fresh `node audit.mjs` reproduced existing comparison artifacts without differences: legacy 44/48→45/48, authored 30/40→35/40, recall 14/20→18/20, **precision 14/15→18/21 (worse)**; three false raw actions remain Review. This update makes no runtime, model, serializer or ML-accuracy change, so the broader unchanged suites were not needlessly repeated.
+
+Stable source/release **84ee422f1aecc4d9ad7baac54b50fe07b4fdeb4a**, Pages **6e8181c21e80e217e94db4cb63131b186e713e1f**, and release ZIP/video digests remain unchanged. Fresh GitHub Pages status is built, no error; v1.4.2 is public and not a draft/prerelease. The immutable release package remains the recovery source; current main additionally contains the updated submission materials and evidence. External outputs STATE/receipt preserve the exact documentation commit after publication.
+
+No essential participation blocker remains for these permitted edits. The unresolved official deadline discrepancy, independently unverified entrant eligibility, lack of independent real-world/user evaluation, uncalibrated scores, and untested actual screen-reader/device/calendar-client behavior remain recorded limitations. Next work should address independent evidence and actual assistive-technology/device checks. Recheck dates and edit policy before any later submission change.

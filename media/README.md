@@ -21,3 +21,6 @@ Actual browser captures, 6 October 2026, using fictional built-in notices. Deskt
 Other existing media are earlier releases or authored explanatory diagrams. The original evaluation graphic reports **44/48** for model 1.0.0; it is historical and must not be presented as the current model result. Model 1.1.0 has 45/48 legacy development category matches, with stricter limitations described in EVALUATION.md. The 1.3.0 grouped-date and 1.4.0 language-review captures remain regression evidence. The 1.4.1 accessibility/public captures remain evidence for the completed workflow/layout fixes. Current presentation uses `current/` images.
 
 All demo examples are fictional. No private notice, credentials, user account page, hosting metadata or unrelated personal file is included.
+
+
+Final submission verification captures (6 October 2026): `current/12-devpost-submitted.jpg` shows the existing entry still SUBMITTED, 4/4 after permitted Save & continue; `current/13-devpost-presentation.jpg` shows the updated public entry with the current application screenshot first. These are actual browser captures of the Devpost page, not application features or new ML evidence. The final gallery order/captions and public-access checks are retained in `docs/verification/2026-10-06-submission-devpost.json` and `2026-10-06-submission-links.json`.

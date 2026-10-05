@@ -1,0 +1,295 @@
+{
+  "checkedAt": "2026-10-05T19:40:08.196Z",
+  "release": "1.4.2",
+  "releaseCommit": "84ee422f1aecc4d9ad7baac54b50fe07b4fdeb4a",
+  "entryId": "1216996-noticebridge",
+  "entryUrl": "https://devpost.com/software/noticebridge",
+  "statusBefore": "SUBMITTED; 4/4 steps done",
+  "statusAfter": "SUBMITTED; 4/4 steps done",
+  "finalizationUrl": "https://devpost.com/submit-to/31196-ml-empowerment-build-challenge-3-0-400-000-in-prizes/manage/submissions/1216996-noticebridge/finalization",
+  "saveAction": "Save & continue on existing competition project details",
+  "finalConfirmation": {
+    "terms": {
+      "checked": true,
+      "disabled": true
+    },
+    "submittedButton": [
+      {
+        "disabled": true,
+        "text": " Project submitted!"
+      }
+    ]
+  },
+  "newAgreementAccepted": false,
+  "newEntryCreated": false,
+  "withdrawn": false,
+  "prepared": {
+    "story": "## One notice, four instructions\n\n**[Try NoticeBridge](https://nicholas-afk.github.io/noticebridge/)** · **[Watch the 52-second walkthrough](https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4)** · [Source and reproducible release](https://github.com/Nicholas-afk/noticebridge/releases/tag/v1.4.2)\n\nChoose **School trip** to load and analyze a fictional notice containing:\n\n> Please return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.\n\nThe application lists these four sentences as four instructions, without rewriting them. **Check source** highlights the selected sentence in the complete original notice. A reader can check the consent deadline, preserve the “Do not bring cash” restriction, and ask about missing information before choosing a reminder.\n\n## Problem, users and intended value\n\nA school or community notice mixes instructions, event details, contacts and exceptions. Parents and carers, students organizing club activities, and community members preparing for workshops may need to find several next steps in one paragraph. NoticeBridge explores a focused response: a local, source-linked reading checklist that makes checking part of the workflow.\n\nThe intended benefit is less effort finding instructions and fewer guesses about dates. This remains a hypothesis: no reader study, user testimonial, measured time saving or reduction in missed deadlines is claimed. It is an English-language prototype for everyday notices.\n\n## How the reader stays in control\n\n1. **Paste the complete notice or load an example.** A compact classifier groups instructions, details, contacts and background. Every sentence remains available, including ones the model does not promote.\n2. **Review exact wording.** Each card links to its original sentence. “Reviewed” means wording checked, not task completed. Read the full source too: classification can miss instructions.\n3. **Resolve uncertainty before reminders.** A valid full date in the same sentence may be suggested, but confirmation starts unchecked. “9 & 12 October” is a list, “9 or 12 October” alternatives, “9 and/or 12 October” one or both, and “9 through 12 October” a range. Each stays unresolved with a matching review note and question; the app does not choose an endpoint. Invalid dates such as “31 November 2026” also remain unresolved. An optional issue date supports only “today” and “tomorrow”.\n4. **Take away a checked plan.** Download a text checklist, an editable clarification draft, or reader-confirmed all-day calendar entries with source quotations. Nothing is sent to the sender or written to a calendar account. Editing or unchecking a saved date withdraws that reminder until confirmed again.\n\nIdentical-source analysis preserves review marks, edited questions and reminders. Changed source text or issue date pauses old work and all exports; successful updated analysis resets it. Exact source reversion restores the matching checklist. Clear or reload discards tab progress. Files already downloaded or imported cannot be withdrawn.\n\n## Technical contribution and challenges\n\nPython/scikit-learn trains a four-class logistic regression model on unigram and bigram TF–IDF features. Model 1.1.0 uses **329 authored synthetic sentences**. Vocabulary, IDF values, coefficients and intercepts are exported as JSON; dependency-free JavaScript reproduces inference locally. Labels and scores agree with Python on 93 audited inputs plus eight token-boundary probes within 1e-10. Source offsets survive sentence splitting and rendering, so cards point to exact original substrings.\n\nRules add visible review prompts for unfamiliar vocabulary, instruction cues and uncertain dates. Model scores are uncalibrated, and lexical classification cannot reliably understand cross-sentence dependencies. The audit exposed weak language coverage and corrupted vocabulary lookup; diversified training, Unicode-aware boundaries, safer feature lookup and a vocabulary-coverage review gate improved the existing task. The reported comparison measures these pipeline changes together, not retraining alone.\n\nA separate calendar module validates confirmed dates, uses all-day starts with exclusive next-day ends, escapes text and folds lines by UTF-8 bytes. Clarification questions are explicit templates tied to visible review flags. Reader edits and confirmations remain authoritative. [Architecture and data boundaries](https://github.com/Nicholas-afk/noticebridge/blob/main/ARCHITECTURE.md).\n\nThe implementation uses HTML, CSS, JavaScript, Python and scikit-learn, hosted on GitHub Pages. No account, API key or cloud inference is required. Notice text and progress stay in tab memory; there is no notice upload, analytics or saved history. The host receives ordinary page/asset requests. Offline startup is unsupported.\n\n## Evaluation: gains and unfavorable results\n\nThe original **44/48** synthetic result was reproduced and audited. No exact or normalized training/check duplicates were found, but same-author paraphrase and domain overlap exists. The 40-input authored challenge was frozen before retraining; its observed errors informed added training examples. These are development checks, not independent real-world accuracy.\n\n| Check | Original pipeline | Current pipeline |\n| --- | --- | --- |\n| Legacy sentence categories | 44/48 | 45/48 |\n| Authored challenge categories | 30/40 | 35/40 |\n| Authored raw instruction recall | 14/20 | 18/20 |\n| Authored raw instruction precision | 14/15 (93.3%) | 18/21 (85.7%) |\n| Authored instructions confidently listed | 2/20 | 10/20 |\n\n**Precision worsened:** false raw instruction predictions increased from one to three. All three current false positives remain in Review, rather than the confidently listed Instructions group. Two previously correct legacy event/contact labels also regressed and now need Review. Every error remains in the denominator and [model card](https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md).\n\nFive developer-selected public instruction excerpts improved from 4/5 to 5/5 raw instruction labels; only three are confidently listed. This instruction-only convenience sample cannot estimate precision or representative accuracy. A deliberately narrow anchored-rule baseline finds 2/20 authored instructions with no false positives in that sample; this is not a comparison against commercial assistants. [Full conditions, artifacts and reproduction](https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md).\n\n## Demonstrated behavior and differentiation\n\nThe verified 1.4.2 release has exact source navigation, explicit reminder confirmation, editable question drafts, stale-source protection and repeat-analysis preservation. Regression checks include 100 grouped/range/invalid-date cases. Actual browser journeys exercise downloads and source changes; independent calendar parsing checks dates, escaping and all-day assumptions.\n\nBrowser reflow, keyboard, labels, focus and result-announcement semantics were checked. Ten fresh automated accessibility runs across nine width/view combinations reported zero violations or incomplete results. **Actual screen-reader speech, physical phones, native zoom and calendar-client imports remain unverified.** These checks are partial evidence, not accessibility certification.\n\nTask extraction and source citations already exist in other tools. NoticeBridge's focused approach combines account-free local processing of pasted notices, verbatim evidence, visible uncertainty and reader-controlled exports. No head-to-head superiority or novel ML research is claimed. [Competition and tool assessment](https://github.com/Nicholas-afk/noticebridge/blob/main/docs/competition-assessment.md).\n\nThe walkthrough is silent and captioned, using six actual application captures with fictional notices. It shows source-linked instructions, a confirmed reminder, unresolved alternatives and a reader-edited question draft. It is a sequence of captured states, not continuous screen recording. [Manual demo and capture provenance](https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md).\n\n## Limitations, learning and next steps\n\nA useful classifier still needs visible evidence and a way to catch mistakes. English synthetic training, unfamiliar wording and sentence boundaries limit generalization. There is no OCR, translation, automatic conflict resolution, persistent history, timed reminder or alarm. One all-day reminder per excerpt requires the reader's chosen date; ask the sender which revised or conflicting notice applies. The prototype is not intended for legal, medical or emergency interpretation.\n\nThe strongest remaining weakness is independent validation. Next work should prioritize de-identified, independently annotated real notices, annotation disagreements, calibrated uncertainty, consented reader studies and actual assistive-technology/device checks. More features or synthetic examples would not establish reader benefit.\n\n## Team and AI-assistance disclosure\n\nSolo entry under **ncywtanner**. OpenAI Codex performed concept exploration, implementation, synthetic-data authoring, debugging, verification, demo assembly and documentation under the entrant's direction. No independent user feedback or human-only development is claimed. No sponsor API or sponsor-credit use is claimed. Public code is MIT licensed; demonstration fonts retain their OFL licenses.\n",
+    "links": [
+      "https://github.com/Nicholas-afk/noticebridge",
+      "https://nicholas-afk.github.io/noticebridge/",
+      "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4"
+    ],
+    "captions": [
+      "1.4.2 public application: the fictional School trip notice produces four verbatim instructions with review and source controls.",
+      "1.4.2 actual source view: the consent instruction is highlighted verbatim in the complete fictional School trip notice.",
+      "1.4.2 actual review: “9 or 12 October 2026” stays blank and unconfirmed. The reader asks which alternative applies. Fictional notice.",
+      "1.4.2 actual 390px browser layout. Reviewed means wording checked, not task done. Fictional School trip notice.",
+      "Concept diagram, not an interface capture: how original wording becomes checkable instructions.",
+      "Local classifier and review checks. Exact source spans remain available throughout the pipeline.",
+      "Original classifier 1.0.0: 44/48 synthetic categories, 10/12 instruction labels. Historical development check, not real-world accuracy.",
+      "Earlier interface prototype, before the document-workspace redesign. Fictional school-trip notice.",
+      "Earlier browser capture of the document workspace. See the latest aligned overview for the current interface.",
+      "Checklist workspace before the Next steps release. Exact wording beside a numbered reading list. Fictional school-trip example.",
+      "Earlier release: a reader-confirmed reminder keeps the exact source sentence. Current behavior is shown in the 1.4.2 walkthrough.",
+      "Earlier release: an impossible date stays unresolved beside reminder selection. See the current 1.4.2 uncertainty view.",
+      "Live 1.3.0 demo: grouped dates keep their exact wording and get specific review notes. Fictional workshop notice.",
+      "Live 1.4.0: conditional instructions appear beside their exact source. Dates still require review. Fictional notice."
+    ],
+    "videoEmbed": ""
+  },
+  "publicVerification": {
+    "gallery": [
+      {
+        "caption": "1.4.2 public application: the fictional School trip notice produces four verbatim instructions with review and source controls.",
+        "complete": true,
+        "height": 453,
+        "number": 1,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/706/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/706/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "1.4.2 actual source view: the consent instruction is highlighted verbatim in the complete fictional School trip notice.",
+        "complete": true,
+        "height": 453,
+        "number": 2,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/638/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/638/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "1.4.2 actual review: “9 or 12 October 2026” stays blank and unconfirmed. The reader asks which alternative applies. Fictional notice.",
+        "complete": true,
+        "height": 453,
+        "number": 3,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/707/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/707/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "1.4.2 actual 390px browser layout. Reviewed means wording checked, not task done. Fictional School trip notice.",
+        "complete": true,
+        "height": 573,
+        "number": 4,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/637/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/637/datas/original.jpg",
+        "width": 265
+      },
+      {
+        "caption": "Concept diagram, not an interface capture: how original wording becomes checkable instructions.",
+        "complete": true,
+        "height": 537,
+        "number": 5,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/124/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/124/datas/original.png",
+        "width": 806
+      },
+      {
+        "caption": "Local classifier and review checks. Exact source spans remain available throughout the pipeline.",
+        "complete": true,
+        "height": 537,
+        "number": 6,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/125/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/125/datas/original.png",
+        "width": 806
+      },
+      {
+        "caption": "Original classifier 1.0.0: 44/48 synthetic categories, 10/12 instruction labels. Historical development check, not real-world accuracy.",
+        "complete": true,
+        "height": 537,
+        "number": 7,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/126/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/126/datas/original.png",
+        "width": 806
+      },
+      {
+        "caption": "Earlier interface prototype, before the document-workspace redesign. Fictional school-trip notice.",
+        "complete": true,
+        "height": 573,
+        "number": 8,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/355/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/355/datas/original.jpg",
+        "width": 466
+      },
+      {
+        "caption": "Earlier browser capture of the document workspace. See the latest aligned overview for the current interface.",
+        "complete": true,
+        "height": 554,
+        "number": 9,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/858/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/858/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "Checklist workspace before the Next steps release. Exact wording beside a numbered reading list. Fictional school-trip example.",
+        "complete": true,
+        "height": 554,
+        "number": 10,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/511/213/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/511/213/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "Earlier release: a reader-confirmed reminder keeps the exact source sentence. Current behavior is shown in the 1.4.2 walkthrough.",
+        "complete": true,
+        "height": 453,
+        "number": 11,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/330/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/330/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "Earlier release: an impossible date stays unresolved beside reminder selection. See the current 1.4.2 uncertainty view.",
+        "complete": true,
+        "height": 453,
+        "number": 12,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/551/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/551/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "Live 1.3.0 demo: grouped dates keep their exact wording and get specific review notes. Fictional workshop notice.",
+        "complete": true,
+        "height": 453,
+        "number": 13,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/854/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/854/datas/original.jpg",
+        "width": 806
+      },
+      {
+        "caption": "Live 1.4.0: conditional instructions appear beside their exact source. Dates still require review. Fictional notice.",
+        "complete": true,
+        "height": 453,
+        "number": 14,
+        "src": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/196/datas/gallery.jpg",
+        "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/196/datas/original.jpg",
+        "width": 806
+      }
+    ],
+    "headings": [
+      "One notice, four instructions",
+      "Problem, users and intended value",
+      "How the reader stays in control",
+      "Technical contribution and challenges",
+      "Evaluation: gains and unfavorable results",
+      "Demonstrated behavior and differentiation",
+      "Limitations, learning and next steps",
+      "Team and AI-assistance disclosure"
+    ],
+    "productLinks": [
+      {
+        "text": "Try NoticeBridge",
+        "url": "https://nicholas-afk.github.io/noticebridge/"
+      },
+      {
+        "text": "Watch the 52-second walkthrough",
+        "url": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4"
+      },
+      {
+        "text": "Source and reproducible release",
+        "url": "https://github.com/Nicholas-afk/noticebridge/releases/tag/v1.4.2"
+      },
+      {
+        "text": "Architecture and data boundaries",
+        "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/ARCHITECTURE.md"
+      },
+      {
+        "text": "model card",
+        "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md"
+      },
+      {
+        "text": "Full conditions, artifacts and reproduction",
+        "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md"
+      },
+      {
+        "text": "Competition and tool assessment",
+        "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/docs/competition-assessment.md"
+      },
+      {
+        "text": "Manual demo and capture provenance",
+        "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md"
+      },
+      {
+        "text": "GitHub Repo",
+        "url": "https://github.com/Nicholas-afk/noticebridge"
+      },
+      {
+        "text": "nicholas-afk.github.io",
+        "url": "https://nicholas-afk.github.io/noticebridge/"
+      },
+      {
+        "text": "nicholas-afk.github.io",
+        "url": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4"
+      }
+    ],
+    "storyChecks": {
+      "aiDisclosure": true,
+      "developmentCaveat": true,
+      "example": true,
+      "precisionLoss": true,
+      "screenReaderUnverified": true
+    }
+  },
+  "visitorObservations": [
+    {
+      "checkedAt": "2026-10-05T19:34:03.570Z",
+      "condition": "Public School trip example",
+      "text": "2\nReview the checklist\n0 of 7 reviewed\n\n4 instructions · 3 details · 2 with review notes\n\nChecklist\nNext steps\nSource\nDownload .txt\nInstructions\n4\n\nRead the exact wording, including restrictions and exceptions.\n\n01\n\nSentence 4\n\nPlease return the signed consent form to your teacher by 9 October 2026.\n\n9 October 2026\nHow this was identified\nReviewed\nCheck source\n02\n\nSentence 5\n\nPay the $12 trip fee through the school portal by 9 October 2026.\n\n9 October 2026\n$12\nHow this was identified\nReviewed\nCheck source\n03\n\nSentence 6\n\nBring a packed lunch and a bottle of water.\n\nNo date is stated in this instruction. Check the rest of the notice.\n\nHow this was identified\nReviewed\nCheck source\n04\n\nSentence 7\n\nDo not bring cash on the day of the visit.\n\nNo date is stated in this instruction. Check the rest of the notice.\n\nHow this was identified\nReviewed\nCheck source\nDates & contacts\n3\n\nSupporting information from the same notice.\n\n05\n\nSentence 2 · Detail\n\nOur Year 6 museum visit will take place on 14 October 2026.\n\n14 October 2026\nHow this was identified\nReviewed\nCheck source\n06\n\nSentence 3 · Detail\n\nThe bus leaves school at 9 am and returns at 3 pm.\n\n9 am\n3 pm\nHow this was identified\nReviewed\nCheck source\n07\n\nSentence 8 · Contact\n\nFor questions or accessibility needs, email trips@example.org.\n\nHow this was identified\nReviewed\nCheck source\nOther sentences (2)\n\nReviewed means you checked the wording; it does not mean the task is done. Read the complete source before acting: the model can miss instructions or place them in the wrong group. For revised or conflicting notices, ask the sender which version applies; this tool does not resolve conflicts.\n\nPlan ready. 4 instructions, 3 useful details, 2 cards need a check."
+    },
+    {
+      "condition": "Exact source link",
+      "sourceMark": "Please return the signed consent form to your teacher by 9 October 2026."
+    },
+    {
+      "condition": "Alternatives and invalid dates remain unconfirmed",
+      "allConfirmations": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "alternative": {
+        "saveEnabled": false,
+        "value": ""
+      },
+      "calendarEnabled": false,
+      "invalid": {
+        "confirmation": false,
+        "value": ""
+      },
+      "overflow": false,
+      "questionDraft": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nPlease return the booking form by 31 November 2026.\nWhat is the correct full calendar date?\n\n2. The notice says:\nCommunity workshop notice\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\n3. The notice says:\nPlease choose a session on 9 or 12 October 2026.\nDoes this sentence require me to do anything, and are there any conditions I should check?\nWhich alternative date applies to this step?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+      "width": 1280
+    }
+  ],
+  "videoVerification": {
+    "url": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4",
+    "metadata": {
+      "currentTime": 52,
+      "duration": 52,
+      "error": null,
+      "height": 1080,
+      "paused": true,
+      "readyState": 4,
+      "width": 1920
+    },
+    "observedPlaying": {
+      "currentTime": 32.756269,
+      "paused": false,
+      "readyState": 4,
+      "error": null
+    },
+    "description": "Fresh public native MP4 tab played automatically; actual application-state captioned sequence."
+  }
+}

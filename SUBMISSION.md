@@ -1,67 +1,70 @@
-## Inspiration
+## One notice, four instructions
 
-A school letter can contain a trip date, a consent deadline, a payment instruction and an exception in one dense paragraph. Finding the next step can be difficult when a reader is tired, unfamiliar with the language or managing several family responsibilities. W3C cognitive accessibility guidance recommends clear, step-by-step instructions. NoticeBridge explores how machine learning can help surface those steps while keeping the original words easy to check.
+**[Try NoticeBridge](https://nicholas-afk.github.io/noticebridge/)** · **[Watch the 52-second walkthrough](https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4)** · [Source and reproducible release](https://github.com/Nicholas-afk/noticebridge/releases/tag/v1.4.2)
 
-We chose a focused challenge: make everyday notices easier to act on without replacing them with an untraceable AI summary.
+Choose **School trip** to load and analyze a fictional notice containing:
 
-## What it does
+> Please return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.
 
-Paste an English school or community notice. NoticeBridge organizes its sentences into instructions, event details, contacts and background. A numbered checklist puts instructions first, shows dates, times and amounts exactly as written, and highlights questions the reader should confirm. Every item has a **Check source** button that highlights the exact sentence in the complete original notice, with a direct return to the checklist.
+The application lists these four sentences as four instructions, without rewriting them. **Check source** highlights the selected sentence in the complete original notice. A reader can check the consent deadline, preserve the “Do not bring cash” restriction, and ask about missing information before choosing a reminder.
 
-The fictional school-trip demo surfaces a consent form, a $12 payment, a lunch requirement and “Do not bring cash.” The unclear-deadline demo shows why “tomorrow” needs the notice's issue date and why `08/10` should not be silently interpreted. Readers can mark excerpts reviewed and request a local text-file download. If the input changes, marking and downloading pause until the checklist is refreshed, preventing an old plan from being used for an edited notice.
+## Problem, users and intended value
 
-No account or API key is required. The model runs in the browser, and pasted notices are not sent to cloud AI or saved in a history.
+A school or community notice mixes instructions, event details, contacts and exceptions. Parents and carers, students organizing club activities, and community members preparing for workshops may need to find several next steps in one paragraph. NoticeBridge explores a focused response: a local, source-linked reading checklist that makes checking part of the workflow.
 
-The **Next steps** view turns that review into something useful outside the app. Readers can choose all-day reminders and download a calendar file with the exact source sentence attached. Full dates from the same sentence can be suggested, but every date must be checked and confirmed by the reader. Ambiguous dates, missing years and competing unresolved date references leave the field blank. Grouped dates stay unresolved while their meaning remains visible: “9 & 12 October” lists dates, “9 or 12 October” gives alternatives, “9 and/or 12 October” allows one or both, and “9 through 12 October” gives a range. Each gets a matching question. Shortened ISO and named endpoints stay quoted, and separate named endpoints retain their own months. The reader chooses and confirms a reminder date after checking the source. Impossible full dates such as “31 November 2026” get an explicit review note. Dates that appear to continue across a line break are flagged whether the connector ends the first line or begins the next, and dates on either side require a choice. Those notes remain visible while choosing reminders. Editing a saved date withdraws the reminder until it is confirmed again. The app also prepares an editable draft of questions from the review notes, quoting the relevant original sentences. Nothing is sent to the sender or written into a calendar account.
+The intended benefit is less effort finding instructions and fewer guesses about dates. This remains a hypothesis: no reader study, user testimonial, measured time saving or reduction in missed deadlines is claimed. It is an English-language prototype for everyday notices.
 
-## How we built it
+## How the reader stays in control
 
-The machine-learning pipeline uses Python and scikit-learn to train a four-class logistic regression model over unigram and bigram TF–IDF features. The current model uses 329 authored synthetic training examples, including a language-diversity supplement. We preserve the original model, both training splits, a previously inspected 48-example development set, a frozen 40-input authored challenge, and five attributed public instruction excerpts. None of the check examples is copied into training. These are development and convenience checks, not independent real-world validation.
+1. **Paste the complete notice or load an example.** A compact classifier groups instructions, details, contacts and background. Every sentence remains available, including ones the model does not promote.
+2. **Review exact wording.** Each card links to its original sentence. “Reviewed” means wording checked, not task completed. Read the full source too: classification can miss instructions.
+3. **Resolve uncertainty before reminders.** A valid full date in the same sentence may be suggested, but confirmation starts unchecked. “9 & 12 October” is a list, “9 or 12 October” alternatives, “9 and/or 12 October” one or both, and “9 through 12 October” a range. Each stays unresolved with a matching review note and question; the app does not choose an endpoint. Invalid dates such as “31 November 2026” also remain unresolved. An optional issue date supports only “today” and “tomorrow”.
+4. **Take away a checked plan.** Download a text checklist, an editable clarification draft, or reader-confirmed all-day calendar entries with source quotations. Nothing is sent to the sender or written to a calendar account. Editing or unchecking a saved date withdraws that reminder until confirmed again.
 
-The vocabulary, IDF values, coefficients and intercepts are exported as JSON. A dependency-free JavaScript inference engine reproduces the Python model in the browser. Source spans are tracked from sentence splitting through rendering, so each card can be verified against the exact original substring.
+Identical-source analysis preserves review marks, edited questions and reminders. Changed source text or issue date pauses old work and all exports; successful updated analysis resets it. Exact source reversion restores the matching checklist. Clear or reload discards tab progress. Files already downloaded or imported cannot be withdrawn.
 
-Rules supplement the model with unfamiliar-wording review and conservative checks for instruction cues, relative dates, missing years, numeric date ambiguity, missing instruction dates and invalid ISO or named full dates. Abbreviated months such as “9 Oct. 2026” stay in their source sentence. These checks are visible review prompts, not inferred facts. Negative instructions are preserved. All background sentences remain accessible.
+## Technical contribution and challenges
 
-The interface is built with HTML, CSS and JavaScript. Its document workspace uses flat reading groups, clear labels, keyboard-accessible controls, source highlighting and review progress. Instructions have the strongest hierarchy; uncertainty appears beside the relevant sentence. Optional WebMCP tools let an agent run the same visible analysis workflow and read back its results.
+Python/scikit-learn trains a four-class logistic regression model on unigram and bigram TF–IDF features. Model 1.1.0 uses **329 authored synthetic sentences**. Vocabulary, IDF values, coefficients and intercepts are exported as JSON; dependency-free JavaScript reproduces inference locally. Labels and scores agree with Python on 93 audited inputs plus eight token-boundary probes within 1e-10. Source offsets survive sentence splitting and rendering, so cards point to exact original substrings.
 
-Calendar serialization is a separate, dependency-free module. It validates confirmed dates, uses all-day events with exclusive next-day ends, escapes notice text and folds long lines by UTF-8 bytes. The question draft uses explicit templates keyed to visible review flags rather than generated answers. Both workflows share the same stale-input protection as the checklist, and Clear or a successful changed-source analysis removes their state; identical-source analysis preserves reader work. The public application and source are hosted on the entrant's GitHub account, `Nicholas-afk`.
+Rules add visible review prompts for unfamiliar vocabulary, instruction cues and uncertain dates. Model scores are uncalibrated, and lexical classification cannot reliably understand cross-sentence dependencies. The audit exposed weak language coverage and corrupted vocabulary lookup; diversified training, Unicode-aware boundaries, safer feature lookup and a vocabulary-coverage review gate improved the existing task. The reported comparison measures these pipeline changes together, not retraining alone.
 
-## Challenges we ran into
+A separate calendar module validates confirmed dates, uses all-day starts with exclusive next-day ends, escapes text and folds lines by UTF-8 bytes. Clarification questions are explicit templates tied to visible review flags. Reader edits and confirmations remain authoritative. [Architecture and data boundaries](https://github.com/Nicholas-afk/noticebridge/blob/main/ARCHITECTURE.md).
 
-The model's first holdout evaluation missed two of twelve instructions. That result exposed the danger of treating a classifier as a complete reading substitute. We kept the entire source, added an instruction-cue review gate, displayed uncertainty and documented the limitations.
+The implementation uses HTML, CSS, JavaScript, Python and scikit-learn, hosted on GitHub Pages. No account, API key or cloud inference is required. Notice text and progress stay in tab memory; there is no notice upload, analytics or saved history. The host receives ordinary page/asset requests. Offline startup is unsupported.
 
-Dates were another challenge. A weekday or “tomorrow” is not a reliable deadline without context, and numeric formats can conflict. We resolve only “today” and “tomorrow” when the reader supplies the notice's issue date; other uncertain dates remain questions to ask the sender. We also avoid attaching a date from another sentence without evidence.
+## Evaluation: gains and unfavorable results
 
-## Accomplishments
+The original **44/48** synthetic result was reproduced and audited. No exact or normalized training/check duplicates were found, but same-author paraphrase and domain overlap exists. The 40-input authored challenge was frozen before retraining; its observed errors informed added training examples. These are development checks, not independent real-world accuracy.
 
-- A working application with local model inference and no paid AI service requirement.
-- Exact source-linked cards, with no generated paraphrases or invented deadlines.
-- Reproduced the original **44/48** synthetic result byte for byte and audited exact/normalized overlap and close paraphrases. The same-author legacy set is now development evidence.
-- On a frozen authored language challenge, category matches improve **30/40 → 35/40** and instructions listed in the checklist **2/20 → 10/20**. Raw instruction precision worsens **93.3% → 85.7%**; all three false predictions remain Review. Five curated public instruction excerpts improve **4/5 → 5/5** raw action labels, with only three confidently listed. These small checks do not establish real-world accuracy or reader benefit.
-- Preserved every error, comparison condition and limitation in the [model audit](https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md), including two previously correct legacy categories lost by retraining.
-- JavaScript/Python prediction and score parity on all 93 audited inputs, plus eight extra accented-name and token-boundary probes.
-- Passing checks for source-span integrity, ambiguous and relative dates, preserved negation, invalid dates and input bounds.
-- Browser checks of review progress, exact source highlighting, returning to the checklist, uncertainty handling, stale-plan protection and WebMCP valid/invalid-input behavior.
-- Calendar checks for invalid dates, leap-day and year rollover, text escaping, UTF-8 folding and rejection of unconfirmed reminders.
-- 100 additional date cases covering lists, alternatives, one-or-both wording, ranges, impossible dates and endpoints, abbreviated months, number-led sentence boundaries, multi-year dates, cross-line ambiguity, shortened ISO/named dates and date/time boundaries.
-- Browser checks of explicit date confirmation, date-edit withdrawal, blank ambiguous-date suggestions, editable-draft preservation and follow-up reset/stale protection.
+| Check | Original pipeline | Current pipeline |
+| --- | --- | --- |
+| Legacy sentence categories | 44/48 | 45/48 |
+| Authored challenge categories | 30/40 | 35/40 |
+| Authored raw instruction recall | 14/20 | 18/20 |
+| Authored raw instruction precision | 14/15 (93.3%) | 18/21 (85.7%) |
+| Authored instructions confidently listed | 2/20 | 10/20 |
 
-## What we learned
+**Precision worsened:** false raw instruction predictions increased from one to three. All three current false positives remain in Review, rather than the confidently listed Instructions group. Two previously correct legacy event/contact labels also regressed and now need Review. Every error remains in the denominator and [model card](https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md).
 
-A compact, task-specific model can make a useful interaction possible without transmitting private notices to an AI service. The more important design lesson is that a reader needs visible evidence and a way to spot missing information. A confident-looking summary would hide those gaps; an evidence-linked plan makes checking part of the experience.
+Five developer-selected public instruction excerpts improved from 4/5 to 5/5 raw instruction labels; only three are confidently listed. This instruction-only convenience sample cannot estimate precision or representative accuracy. A deliberately narrow anchored-rule baseline finds 2/20 authored instructions with no false positives in that sample; this is not a comparison against commercial assistants. [Full conditions, artifacts and reproduction](https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md).
 
-## What's next
+## Demonstrated behavior and differentiation
 
-We want to test the workflow with consenting readers and community staff, collect independently annotated notices with personal information removed, evaluate on a larger real-world holdout, calibrate model confidence and test physical phones and actual screen-reader speech beyond the completed browser reflow and semantic checks. No user study, accessibility certification or measured reduction in missed deadlines is claimed for this prototype.
+The verified 1.4.2 release has exact source navigation, explicit reminder confirmation, editable question drafts, stale-source protection and repeat-analysis preservation. Regression checks include 100 grouped/range/invalid-date cases. Actual browser journeys exercise downloads and source changes; independent calendar parsing checks dates, escaping and all-day assumptions.
 
-## Target users and intended impact
+Browser reflow, keyboard, labels, focus and result-announcement semantics were checked. Ten fresh automated accessibility runs across nine width/view combinations reported zero violations or incomplete results. **Actual screen-reader speech, physical phones, native zoom and calendar-client imports remain unverified.** These checks are partial evidence, not accessibility certification.
 
-Parents and carers reading school letters, students organizing club notices, and community members preparing for workshops or appointments. The intended benefit is less effort finding instructions and fewer guesses about dates or exceptions. That benefit remains a hypothesis to test with users.
+Task extraction and source citations already exist in other tools. NoticeBridge's focused approach combines account-free local processing of pasted notices, verbatim evidence, visible uncertainty and reader-controlled exports. No head-to-head superiority or novel ML research is claimed. [Competition and tool assessment](https://github.com/Nicholas-afk/noticebridge/blob/main/docs/competition-assessment.md).
 
-## AI assistance and team
+The walkthrough is silent and captioned, using six actual application captures with fictional notices. It shows source-linked instructions, a confirmed reminder, unresolved alternatives and a reader-edited question draft. It is a sequence of captured states, not continuous screen recording. [Manual demo and capture provenance](https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md).
 
-Solo entry under `ncywtanner`. OpenAI Codex assisted with concept development, implementation, authored synthetic data, testing, diagrams and documentation. No sponsor API or sponsor-credit use is claimed. The project remains an English-language prototype for everyday notices, not legal, medical or emergency interpretation.
+## Limitations, learning and next steps
 
-## Demonstration materials
+A useful classifier still needs visible evidence and a way to catch mistakes. English synthetic training, unfamiliar wording and sentence boundaries limit generalization. There is no OCR, translation, automatic conflict resolution, persistent history, timed reminder or alarm. One all-day reminder per excerpt requires the reader's chosen date; ask the sender which revised or conflicting notice applies. The prototype is not intended for legal, medical or emergency interpretation.
 
-[52-second captured walkthrough](https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4): actual application screens with fictional notices, covering source-linked instructions, reader-confirmed all-day reminders, unresolved alternatives and an edited question draft. Silent and captioned; captured states rather than continuous screen recording. [Manual demo and provenance](https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md), [evaluation conditions](https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md).
+The strongest remaining weakness is independent validation. Next work should prioritize de-identified, independently annotated real notices, annotation disagreements, calibrated uncertainty, consented reader studies and actual assistive-technology/device checks. More features or synthetic examples would not establish reader benefit.
+
+## Team and AI-assistance disclosure
+
+Solo entry under **ncywtanner**. OpenAI Codex performed concept exploration, implementation, synthetic-data authoring, debugging, verification, demo assembly and documentation under the entrant's direction. No independent user feedback or human-only development is claimed. No sponsor API or sponsor-credit use is claimed. Public code is MIT licensed; demonstration fonts retain their OFL licenses.

@@ -1,0 +1,328 @@
+{
+  "checkedAt": "2026-10-05T19:37:31.752585+00:00",
+  "scope": "All unique product/artifact links in final submission story, repo and entry; anonymous HEAD requests",
+  "initialToolLimitation": "System Python lacks issuer CA bundle; retried with system curl certificate verification enabled. No TLS checks bypassed.",
+  "results": [
+    {
+      "url": "https://nicholas-afk.github.io/noticebridge/",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://nicholas-afk.github.io/noticebridge/",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "last-modified": "Mon, 05 Oct 2026 19:17:05 GMT",
+        "etag": "\"6ac3f7b1-240b\"",
+        "accept-ranges": "bytes",
+        "content-length": "9227"
+      }
+    },
+    {
+      "url": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4",
+      "contentType": "video/mp4",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "last-modified": "Mon, 05 Oct 2026 19:17:05 GMT",
+        "etag": "\"6ac3f7b1-2854f0\"",
+        "accept-ranges": "bytes",
+        "content-length": "2643184"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/releases/tag/v1.4.2",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge/releases/tag/v1.4.2",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"a8ddf5fd2e165b169afbdf81724bb70a\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/ARCHITECTURE.md",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge/blob/main/ARCHITECTURE.md",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"460ba3b807ee3f3309f6d85092f39633\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"75311d3988505a77c7d7ace99df1ceb2\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge/blob/main/EVALUATION.md",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"8830e3f4938555e2e270649b38e4e2e3\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/docs/competition-assessment.md",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge/blob/main/docs/competition-assessment.md",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"7930a60ee1b20c5b8fcf9c8494e4ea05\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge/blob/main/DEMO.md",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"b9f248f0781d7d33fd7b093cef31141e\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://github.com/Nicholas-afk/noticebridge",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "etag": "W/\"99b394aff6c3f486858ca82b84463a64\"",
+        "accept-ranges": "bytes"
+      }
+    },
+    {
+      "url": "https://devpost.com/software/noticebridge",
+      "exitCode": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled",
+      "status": 200,
+      "resolved": "https://devpost.com/software/noticebridge",
+      "contentType": "text/html; charset=utf-8",
+      "sslVerifyResult": 0,
+      "publicMetadata": {
+        "content-length": "97207",
+        "etag": "W/\"530cdfa057487d5547b994f5d4325010\""
+      }
+    }
+  ],
+  "privacy": "Only allowlisted public response metadata is retained; response cookies/session headers are excluded.",
+  "galleryCheckedAt": "2026-10-05T19:41:03.337096+00:00",
+  "galleryResults": [
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/706/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/706/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/638/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/638/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/707/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/707/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/637/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/637/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/124/datas/original.png",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/124/datas/original.png",
+      "contentType": "image/png",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/125/datas/original.png",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/125/datas/original.png",
+      "contentType": "image/png",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/126/datas/original.png",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/126/datas/original.png",
+      "contentType": "image/png",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/355/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/355/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/858/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/510/858/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/511/213/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/511/213/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/330/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/330/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/551/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/551/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/854/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/521/854/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    },
+    {
+      "url": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/196/datas/original.jpg",
+      "exitCode": 0,
+      "status": 200,
+      "resolved": "https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/005/522/196/datas/original.jpg",
+      "contentType": "image/jpeg",
+      "sslVerifyResult": 0,
+      "error": "",
+      "authentication": "No cookies or Authorization header; certificate verification enabled"
+    }
+  ],
+  "anonymousEntryContent": {
+    "exitCode": 0,
+    "updatedStory": true,
+    "currentCover": true,
+    "currentAlternative": true,
+    "all14ImageLinks": true,
+    "loginRequiredForStory": false
+  },
+  "releaseAssetResults": [
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/releases/download/v1.4.2/noticebridge-source.zip",
+      "exitCode": 0,
+      "status": 200,
+      "contentType": "application/octet-stream",
+      "sslVerifyResult": 0,
+      "authentication": "No cookies or Authorization header; certificate verification enabled; temporary redirect queries are not retained"
+    },
+    {
+      "url": "https://github.com/Nicholas-afk/noticebridge/releases/download/v1.4.2/noticebridge-demo.mp4",
+      "exitCode": 0,
+      "status": 200,
+      "contentType": "application/octet-stream",
+      "sslVerifyResult": 0,
+      "authentication": "No cookies or Authorization header; certificate verification enabled; temporary redirect queries are not retained"
+    }
+  ],
+  "releaseAssetsCheckedAt": "2026-10-05T19:44:39.344320+00:00",
+  "stablePackage": {
+    "file": "noticebridge-source.zip",
+    "sha256": "c175d71cd74ccba676811369e94bd940f472b79ad24e2a6dc29197bb98c1aae8",
+    "releaseCommit": "84ee422f1aecc4d9ad7baac54b50fe07b4fdeb4a",
+    "containsLaterSubmissionDocs": false
+  }
+}

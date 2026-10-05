@@ -1,12 +1,12 @@
 # Competition and product assessment — 6 October 2026
 
-## Current official requirements
+## Current official requirements (freshly rechecked for the submitted-entry update)
 
 The [official structured schedule](https://ml-build-challenge-3.devpost.com/details/dates) and [overview deadline](https://ml-build-challenge-3.devpost.com/) close submissions **9 October 2026, 11:45 p.m. PDT**, or **10 October, 2:45 p.m. Hong Kong time**. The [rules body](https://ml-build-challenge-3.devpost.com/rules) instead says **10 October, 9 p.m. PDT**. This official conflict is unresolved; operate against the earlier cutoff. Structured judging runs 10–15 October PDT, with winners listed for 17 October PDT. Recheck the schedule if continuing later.
 
 The overview weights technical implementation 30%, creativity/innovation 20%, real-world impact 20%, design/UX 15%, presentation/documentation 15%. It asks for a social-impact AI/ML project, a clear problem/solution/technology/user explanation and at least one screenshot, video or other file. Source/live demo links are recommended. The title's $400,000 is aggregate non-cash credit marketing, not a cash award. Listed eligibility includes students age 13+; entrant eligibility was not independently verified in this audit.
 
-[Devpost's editing guidance](https://help.devpost.com/article/123-how-to-edit-a-submission) allows submission edits until the deadline. Afterward, portfolio edits do not update the submitted competition version. Video attached to a submission can be separate from portfolio video. The existing NoticeBridge entry is already Submitted, 4/4; this work updates routine project details and preserves its submitted state.
+[Devpost's editing guidance](https://help.devpost.com/article/123-how-to-edit-a-submission) allows submission edits until the deadline. Afterward, portfolio edits do not update the submitted competition version. Video attached to a submission can be separate from portfolio video. The existing NoticeBridge entry `1216996-noticebridge` was freshly observed as **SUBMITTED, 4/4** before edits and after **Save & continue**. The finalization page explicitly permits edits until the deadline. Its previously accepted agreement and Project submitted button remain disabled; no new agreement or submission action was taken. No duplicate entry or withdrawal was created.
 
 ## Value and differentiation
 
@@ -21,3 +21,20 @@ The implementation is small, reproducible and inspectable, with browser/Python i
 The audit exposed language coverage and review burden as the immediate technical weakness: only 2/20 instructions in a varied authored check reached Instructions under the old pipeline. The selected bounded improvement diversifies training, retains uncertainty gates, flags unfamiliar vocabulary, fixes corrupted feature lookup, and publishes a complete baseline comparison including worse precision. It improves the existing reading task without new integrations or cloud dependencies. [MODEL_CARD.md](../MODEL_CARD.md) gives the results and their limits.
 
 The strongest remaining weakness is external validation: no independently annotated real-notice corpus and no consented reader study. Five curated public instruction excerpts do not solve that. Future work should prioritize independently labeled notices, annotation disagreements, missed-action and review-burden measures, and reader testing over more features. Actual browser reflow and semantic/keyboard/export checks were completed in 1.4.1 and rechecked for 1.4.2. Physical phones, actual screen-reader speech, native zoom and calendar-client imports remain unverified. The 1.4.2 captured walkthrough improves presentation with actual notice/source/reminder states; it does not address the independent-validation gap.
+
+
+## Final presentation against the rubric
+
+The weights below are from the current [official rules](https://ml-build-challenge-3.devpost.com/rules); they are criteria, not predicted scores.
+
+| Criterion | Evidence made easy to inspect | Material constraint |
+| --- | --- | --- |
+| Technical implementation — 30% | Trained 329-sentence supervised model, exported local inference, source offsets, parity artifacts and reproducible baseline/current audit; date and export guardrails. | Same-author development checks, uncalibrated scores and lexical/cross-sentence errors; precision worsened. |
+| Creativity and innovation — 20% | Local paste-and-review workflow, verbatim evidence and reader-authoritative reminders/drafts work together without an account. | Extraction and citations already exist; no novel ML research or superiority over commercial assistants is demonstrated. |
+| Real-world impact — 20% | Concrete school-letter problem, intended parents/carers/student/community users, and a working fictional example. | No independent notice corpus, reader study, testimonials or measured time/deadline benefit. This remains the most consequential weakness. |
+| Design and experience — 15% | Current desktop/source/uncertainty/390px captures; checked semantics, keyboard behavior, stale-state controls and conservative dates. | Automated/semantic checks do not establish screen-reader speech, physical-device behavior or accessibility certification. |
+| Presentation and documentation — 15% | One notice and four exact instructions lead the story; actual 52-second captured walkthrough, current screenshots first, explicit losses/conditions/AI disclosure, public source/release/live links. | Video is an externally linked silent MP4 rather than a Devpost YouTube/Vimeo embed. Historical images remain after four current captures and are labeled. |
+
+The existing story was rewritten around the School trip example, reader control, technical contribution, development results and limitations. Two actual 1.4.2 views were added: the public desktop overview and the unresolved-alternative reminder view. Gallery order now begins overview → exact source → alternatives → phone, followed by the retained historical material. There are 14 images; each caption matches its public image and all loaded successfully. The release video remains linked in the opening and Try it out section; the official requirement asks for at least one demonstration file, not an embedded video.
+
+Anonymous certificate-verified requests returned HTTP 200 for all ten unique story/product/entry links and all fourteen gallery original-image URLs. An anonymous GET also contained the updated story, current cover/alternative images and every gallery link. A fresh browser played the 52-second video at 1920×1080 with no playback error, and exercised four school instructions, an exact source highlight and blank/unconfirmed alternative/invalid dates. Link and UI evidence is in `docs/verification/2026-10-06-submission-links.json` and `2026-10-06-submission-devpost.json`. Entry eligibility remains an entrant responsibility; student/age status was not independently verified.
