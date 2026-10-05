@@ -7,13 +7,16 @@ const examples={
   unclear:{date:'',text:'Community garden volunteer day\n\nThe activity takes place on Saturday at 10 am.\n\nPlease return the registration form by tomorrow. Bring gloves and a bottle of water. Payment is due by 08/10.\n\nIf you need an interpreter, contact the coordinator.\n\nThank you for helping our neighbourhood.'},
   dates:{date:'',text:'Community workshop notice\n\nPlease choose a session on 9 or 12 October 2026.\n\nPlease return the booking form by 31 November 2026. Please register online by 9 Oct. 2026.\n\nFor questions, email workshops@example.org.'}
 };
-let model=null,result=null,view='plan',selected=null,completed=new Set(),reminders=new Map(),calendarId='';
+let model=null,result=null,view='plan',selected=null,completed=new Set(),reminders=new Map(),calendarId='',lastStale=false,sourceReturn=null;
 function node(tag,attrs={},text){const el=document.createElement(tag);for(const [key,value]of Object.entries(attrs)){if(key==='class')el.className=value;else el.setAttribute(key,value);}if(text!==undefined)el.textContent=text;return el;}
 function isStale(){return !!result&&(result.source!==$('notice').value||result.anchorDate!==$('anchor-date').value);}
 function reviewStatus(){if(result)$('result-status').textContent=`${completed.size} of ${result.cards.length} reviewed`;}
 function count(){
   $('characters').textContent=`${$('notice').value.length.toLocaleString()} / 20,000 characters`;
   const stale=isStale();$('stale-note').hidden=!stale;$('export-button').disabled=stale;
+  if(stale&&!lastStale)$('live-status').textContent='You changed the notice or issue date. The old checklist and reminders are paused. Update the checklist before acting or downloading.';
+  if(!stale&&lastStale)$('live-status').textContent='The source matches the checklist again. Your existing review marks, reminders and questions are kept.';
+  lastStale=stale;
   document.querySelectorAll('#cards input[type="checkbox"]').forEach(check=>check.disabled=stale);
   document.querySelectorAll('.followup-control').forEach(control=>control.disabled=stale);
   document.querySelectorAll('.reminder-row').forEach(updateReminderRow);
@@ -32,7 +35,9 @@ function updateReminderCount(){
 function updateReminderRow(row){
   const date=row.querySelector('input[type="date"]'),confirmation=row.querySelector('input[type="checkbox"]'),save=row.querySelector('.reminder-save');
   save.disabled=isStale()||!validReminderDate(date.value)||!confirmation.checked||reminders.has(row.dataset.id);
-  row.querySelector('.reminder-feedback').textContent=reminders.has(row.dataset.id)?`Saved for ${date.value}.`:confirmation.checked&&!validReminderDate(date.value)?'Choose a valid date before saving.':'';
+  const invalid=confirmation.checked&&!validReminderDate(date.value);
+  date.setAttribute('aria-invalid',String(invalid));
+  row.querySelector('.reminder-feedback').textContent=reminders.has(row.dataset.id)?`Saved for ${date.value}.`:invalid?'Choose a valid date before saving.':'';
 }
 function renderFollowup(){
   $('reminder-list').replaceChildren();
@@ -45,15 +50,17 @@ function renderFollowup(){
     const suggestions=dateSuggestions(card),defaultDate=reminderDefaultDate(card),helpId=`date-help-${card.id}`;
     row.append(node('p',{id:helpId,class:'group-help'},defaultDate?`Suggested from “${suggestions[0].source}”. Check it before saving.`:card.dates.length>1?'More than one date reference appears. Confirm which date applies to this reminder.':'No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.'));
     const controls=node('div',{class:'reminder-fields'}),dateId=`reminder-${card.id}`;
-    const date=node('input',{type:'date',id:dateId,min:'1000-01-01',max:'9998-12-31',class:'followup-control','aria-describedby':helpId});
+    const feedbackId=`date-feedback-${card.id}`;
+    const date=node('input',{type:'date',id:dateId,min:'1000-01-01',max:'9998-12-31',class:'followup-control','aria-describedby':`${helpId} ${feedbackId}`});
     date.value=defaultDate;
     const field=node('div');field.append(node('label',{for:dateId},`Reminder date for excerpt ${i}`),date);
-    const confirmLabel=node('label',{class:'reminder-confirm'}),confirmation=node('input',{type:'checkbox',class:'followup-control','aria-label':`I checked the date for excerpt ${i}`});
-    confirmLabel.append(confirmation,document.createTextNode('I checked this date against the notice or with the sender.'));
+    const confirmationText='I checked this date against the notice or with the sender.';
+    const confirmLabel=node('label',{class:'reminder-confirm'}),confirmation=node('input',{type:'checkbox',class:'followup-control','aria-label':`${confirmationText} Excerpt ${i}.`});
+    confirmLabel.append(confirmation,document.createTextNode(confirmationText));
     controls.append(field,confirmLabel);row.append(controls);
-    const actions=node('div',{class:'reminder-actions'}),save=node('button',{class:'reminder-save',disabled:''},`Save reminder ${i}`),clear=node('button',{class:'text-button followup-control'},`Clear date ${i}`),source=node('button',{class:'source-button'},'Check source');
-    source.addEventListener('click',()=>showSource(card.id));
-    const withdraw=()=>{reminders.delete(card.id);updateReminderRow(row);updateReminderCount();};
+    const actions=node('div',{class:'reminder-actions'}),save=node('button',{class:'reminder-save',disabled:''},`Save reminder ${i}`),clear=node('button',{class:'text-button followup-control'},`Clear date ${i}`),source=node('button',{class:'source-button','aria-label':`Check source for excerpt ${i}`},'Check source');
+    source.addEventListener('click',()=>showSource(card.id,source));
+    const withdraw=()=>{const saved=reminders.delete(card.id);updateReminderRow(row);updateReminderCount();if(saved)$('live-status').textContent=`Reminder for excerpt ${i} withdrawn. Check and confirm the current date before saving again.`;};
     date.addEventListener('input',()=>{confirmation.checked=false;withdraw();});
     confirmation.addEventListener('change',withdraw);
     clear.addEventListener('click',()=>{date.value='';confirmation.checked=false;withdraw();date.focus();});
@@ -62,11 +69,11 @@ function renderFollowup(){
       reminders.set(card.id,{id:card.id,date:date.value,confirmed:true});updateReminderRow(row);updateReminderCount();
       $('live-status').textContent=`Reminder for excerpt ${i} saved for ${date.value}. Download the calendar file to import it.`;
     });
-    actions.append(save,clear,source);row.append(actions,node('p',{class:'reminder-feedback','aria-live':'polite'}));$('reminder-list').append(row);
+    actions.append(save,clear,source);row.append(actions,node('p',{id:feedbackId,class:'reminder-feedback','aria-live':'polite'}));$('reminder-list').append(row);
   }
   $('question-draft').value=buildQuestions(result);updateReminderCount();
 }
-function showSource(id){selected=id;const card=result.cards.find(x=>x.id===id);const el=$('source-text');el.replaceChildren();if(card){el.append(document.createTextNode(result.source.slice(0,card.start)),node('mark',{},result.source.slice(card.start,card.end)),document.createTextNode(result.source.slice(card.end)));$('source-help').textContent=`Sentence ${card.index+1} is highlighted in the complete notice used for this checklist.`;}else el.textContent=result.source;setView('source');el.setAttribute('tabindex','-1');el.focus({preventScroll:true});el.querySelector('mark')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});}
+function showSource(id,origin){sourceReturn={view,target:origin};$('back-to-plan').textContent=view==='followup'?'Back to next steps':'Back to checklist';selected=id;const card=result.cards.find(x=>x.id===id);const el=$('source-text');el.replaceChildren();if(card){el.append(document.createTextNode(result.source.slice(0,card.start)),node('mark',{},result.source.slice(card.start,card.end)),document.createTextNode(result.source.slice(card.end)));$('source-help').textContent=`Sentence ${card.index+1} is highlighted in the complete notice used for this checklist.`;}else el.textContent=result.source;setView('source');el.setAttribute('tabindex','-1');el.focus({preventScroll:true});el.querySelector('mark')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});}
 function render(){
   $('empty-state').hidden=true;$('results').hidden=false;$('stale-note').hidden=true;
   const summary=result.summary;
@@ -97,7 +104,7 @@ function render(){
     const bottom=node('div',{class:'card-bottom'}),label=node('label'),check=node('input',{type:'checkbox','aria-label':`Mark excerpt ${i+1} reviewed`});
     check.checked=completed.has(card.id);article.classList.toggle('checked',check.checked);
     check.addEventListener('change',()=>{if(check.checked)completed.add(card.id);else completed.delete(card.id);article.classList.toggle('checked',check.checked);reviewStatus();$('live-status').textContent=`Excerpt ${i+1} ${check.checked?'reviewed':'not reviewed'}. ${completed.size} of ${result.cards.length} reviewed.`;});label.append(check,document.createTextNode('Reviewed'));
-    const evidence=node('button',{class:'source-button'},'Check source');evidence.addEventListener('click',()=>showSource(card.id));bottom.append(label,evidence);main.append(bottom);article.append(node('span',{class:'card-number','aria-hidden':'true'},String(i+1).padStart(2,'0')),main);group.append(article);
+    const evidence=node('button',{class:'source-button','aria-label':`Check source for excerpt ${i+1}`},'Check source');evidence.addEventListener('click',()=>showSource(card.id,evidence));bottom.append(label,evidence);main.append(bottom);article.append(node('span',{class:'card-number','aria-hidden':'true'},String(i+1).padStart(2,'0')),main);group.append(article);
     });$('cards').append(group);
   });
   $('background-details').hidden=!result.background.length;$('background-summary').textContent=`Other sentences (${result.background.length})`;
@@ -108,8 +115,14 @@ function render(){
 function runAnalysis({focusResults=false}={}){
   if(!model)throw new Error('The model is still loading.');
   $('input-error').textContent='';
-  try{result=analyzeNotice($('notice').value,model,{anchorDate:$('anchor-date').value});completed=new Set();reminders.clear();calendarId=crypto.randomUUID();selected=null;render();if(focusResults)scrollToPlan();return {summary:result.summary,cards:result.cards.map(({id,text,kind,start,end,flags})=>({id,text,kind,start,end,flags}))};}
-  catch(error){$('input-error').textContent=error.message;throw error;}
+  $('notice').removeAttribute('aria-invalid');$('anchor-date').removeAttribute('aria-invalid');
+  if(result&&!isStale()){
+    $('live-status').textContent='Checklist already current. Your review marks, saved reminders and edited questions are kept.';
+    if(focusResults)scrollToPlan();
+    return {summary:result.summary,cards:result.cards.map(({id,text,kind,start,end,flags})=>({id,text,kind,start,end,flags}))};
+  }
+  try{result=analyzeNotice($('notice').value,model,{anchorDate:$('anchor-date').value});completed=new Set();reminders.clear();calendarId=crypto.randomUUID();selected=null;sourceReturn=null;$('back-to-plan').textContent='Back to checklist';render();if(focusResults)scrollToPlan();return {summary:result.summary,cards:result.cards.map(({id,text,kind,start,end,flags})=>({id,text,kind,start,end,flags}))};}
+  catch(error){$('input-error').textContent=error.message;const field=$('anchor-date').value&&!validReferenceDate($('anchor-date').value)?$('anchor-date'):$('notice');field.setAttribute('aria-invalid','true');field.focus();throw error;}
 }
 function exportPlan(){
   if(!result||isStale())return;
@@ -120,17 +133,23 @@ function exportPlan(){
   requestDownload(lines.join('\n'),'text/plain;charset=utf-8','noticebridge-plan.txt');$('live-status').textContent='Text-file download requested. It includes the original notice.';
 }
 function requestDownload(text,type,name){const url=URL.createObjectURL(new Blob([text],{type})),link=node('a',{href:url,download:name});document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-$('notice').addEventListener('input',count);$('anchor-date').addEventListener('input',count);
+function sourceEdited(){
+  if(model){$('input-error').textContent='';$('notice').removeAttribute('aria-invalid');$('anchor-date').removeAttribute('aria-invalid');}count();
+}
+$('notice').addEventListener('input',sourceEdited);$('anchor-date').addEventListener('input',sourceEdited);
 $('analyze-button').addEventListener('click',()=>{try{runAnalysis({focusResults:true});}catch{}});
 document.querySelectorAll('[data-example]').forEach(b=>b.addEventListener('click',()=>{try{loadExample(b.dataset.example);}catch{}}));
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{
+  if(b.dataset.view==='source'&&view!=='source'){sourceReturn={view,target:b};$('back-to-plan').textContent=view==='followup'?'Back to next steps':'Back to checklist';}
+  setView(b.dataset.view);
+}));
 $('clear-button').addEventListener('click',()=>{
-  $('notice').value='';$('anchor-date').value='';result=null;selected=null;completed.clear();reminders.clear();calendarId='';$('question-draft').value='';updateReminderCount();
+  $('notice').value='';$('anchor-date').value='';result=null;selected=null;sourceReturn=null;completed.clear();reminders.clear();calendarId='';$('question-draft').value='';updateReminderCount();
   for(const id of ['cards','source-text','background-list','warnings','stats','reminder-list'])$(id).replaceChildren();
-  $('results').hidden=true;$('empty-state').hidden=false;$('input-error').textContent='';$('result-status').textContent='No notice yet';
+  $('results').hidden=true;$('empty-state').hidden=false;$('input-error').textContent='';$('notice').removeAttribute('aria-invalid');$('anchor-date').removeAttribute('aria-invalid');$('result-status').textContent='No notice yet';
   setView('plan');count();$('notice').focus();$('live-status').textContent='Notice and checklist cleared.';
 });
-$('back-to-plan').addEventListener('click',()=>{setView('plan');const card=selected?document.querySelector(`[data-card="${selected}"]`):$('plan-heading');card?.focus({preventScroll:true});card?.scrollIntoView({block:'nearest',behavior:'instant'});});
+$('back-to-plan').addEventListener('click',()=>{setView(sourceReturn?.view||'plan');const origin=sourceReturn?.target||$('plan-heading');origin.setAttribute('tabindex',origin.tagName==='BUTTON'?'0':'-1');origin.focus({preventScroll:true});origin.scrollIntoView({block:'nearest',behavior:'instant'});});
 $('export-button').addEventListener('click',exportPlan);
 $('question-draft').addEventListener('input',count);
 $('questions-button').addEventListener('click',()=>{if(!result||isStale()||!$('question-draft').value.trim())return;requestDownload($('question-draft').value,'text/plain;charset=utf-8','noticebridge-questions.txt');$('live-status').textContent='Questions-file download requested. Review it before sharing; nothing has been sent.';});

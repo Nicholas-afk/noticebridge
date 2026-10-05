@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#f5f4ee">
   <title>NoticeBridge — Read, check, act</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 3h14l6 6v20H6z' fill='%232c5947'/%3E%3Cpath d='M20 3v7h6M11 15h10M11 20h10M11 25h6' fill='none' stroke='%23fffdf7' stroke-width='2'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css?v=4cbefe434f27">
-  <script type="module" src="app.js?v=837c9d95d0db"></script>
+  <link rel="stylesheet" href="style.css?v=71e187d0d341">
+  <script type="module" src="app.js?v=6e09e339b815"></script>
 </head>
 <body>
 <a class="skip" href="#notice">Skip to notice</a>
@@ -21,9 +21,9 @@
     <section class="input-panel" aria-labelledby="notice-heading">
       <div class="panel-heading"><h2 id="notice-heading"><span class="step" aria-hidden="true">1</span>Start with the original</h2><span class="small-label">English text</span></div>
       <label for="notice" class="field-label">Paste your notice</label>
-      <textarea id="notice" maxlength="20000" spellcheck="false" aria-describedby="notice-privacy" placeholder="Paste the complete message here, including dates, exceptions and contact details."></textarea>
+      <textarea id="notice" maxlength="20000" spellcheck="false" aria-describedby="notice-privacy input-error" placeholder="Paste the complete message here, including dates, exceptions and contact details."></textarea>
       <div class="input-meta"><span id="characters">0 / 20,000 characters</span><button class="text-button" id="clear-button">Clear</button></div>
-      <div class="date-field"><label for="anchor-date">Notice issue date <span>(optional)</span></label><input id="anchor-date" type="date" aria-describedby="date-help"><p id="date-help">Use the sender’s date to interpret “today” or “tomorrow”.</p></div>
+      <div class="date-field"><label for="anchor-date">Notice issue date <span>(optional)</span></label><input id="anchor-date" type="date" aria-describedby="date-help input-error"><p id="date-help">Use the sender’s date to interpret “today” or “tomorrow”.</p></div>
       <button id="analyze-button" class="primary" disabled>Loading local model…</button>
       <p id="input-error" class="error" role="alert"></p>
       <p class="privacy-note" id="notice-privacy">Processing stays on your device. Your text is kept only in this tab; there is no saved history.</p>
@@ -34,10 +34,10 @@
       <div class="empty-state" id="empty-state"><h3>Your next steps will appear here.</h3><p>Each item keeps the sender’s exact words. Use <strong>Check source</strong> to see where it came from, then mark it reviewed.</p><dl class="empty-guide"><div><dt>Instructions</dt><dd>Forms to return, things to bring, payments and exceptions.</dd></div><div><dt>Questions to check</dt><dd>Unclear dates or sentences the model is uncertain about.</dd></div><div><dt>Dates &amp; contacts</dt><dd>When an event happens and where to ask for help.</dd></div></dl><p class="empty-caution">Read the complete notice too. This prototype can miss instructions.</p></div>
       <div id="results" hidden>
         <p class="result-summary" id="stats"></p>
-        <p id="stale-note" class="banner" hidden>You changed the notice. Update the checklist before marking items, saving reminders or downloading files. The excerpts below still show the previous notice.</p>
+        <p id="stale-note" class="banner" hidden>You changed the notice or issue date. Update the checklist before marking items, saving reminders or downloading files. The excerpts below still show the previous analysis.</p>
         <div id="warnings"></div>
         <div class="result-tools"><div role="group" aria-label="Result view"><button class="view active" data-view="plan" aria-pressed="true">Checklist</button><button class="view" data-view="followup" aria-pressed="false">Next steps</button><button class="view" data-view="source" aria-pressed="false">Source</button></div><button class="text-button" id="export-button">Download .txt</button></div>
-        <div id="plan-view"><div id="cards"></div><details id="background-details"><summary id="background-summary">Other sentences</summary><div id="background-list"></div></details><p class="review-reminder">Before acting, read the complete source. The model can miss instructions or place them in the wrong group.</p></div>
+        <div id="plan-view"><div id="cards"></div><details id="background-details"><summary id="background-summary">Other sentences</summary><div id="background-list"></div></details><p class="review-reminder">Before acting, read the complete source. The model can miss instructions or place them in the wrong group. For revised or conflicting notices, ask the sender which version applies; this tool does not resolve conflicts.</p></div>
         <div id="source-view" hidden><div class="source-caption"><p class="source-help" id="source-help">The complete notice used for this checklist. A selected excerpt will be highlighted.</p><button class="text-button" id="back-to-plan">Back to checklist</button></div><div id="source-text" class="source-text"></div></div>
         <div id="followup-view" hidden>
           <section class="followup-section" aria-labelledby="reminders-heading">

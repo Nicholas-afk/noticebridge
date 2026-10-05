@@ -13,3 +13,16 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:20px;bo
 .followup-section{margin-bottom:34px}.followup-section>h3{font-size:17px;margin:0 0 8px}.followup-toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 12px}.followup-toolbar p{margin:0;font-size:13px;color:var(--muted)}.reminder-row{border-bottom:1px solid var(--line);padding:21px 0}.reminder-fields{display:grid;grid-template-columns:1fr 1.3fr;gap:18px;align-items:end;margin:13px 0}.reminder-fields>div label{display:block;font-size:13px;margin-bottom:6px}.reminder-fields input[type=date]{width:100%;min-width:0;padding:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:2px}.reminder-confirm{font-size:13px;display:flex;align-items:flex-start;gap:8px;line-height:1.45;padding-bottom:7px}.reminder-confirm input{flex:0 0 auto;accent-color:var(--accent);width:17px;height:17px;margin:1px 0 0}.reminder-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}.reminder-save{background:var(--wash);color:var(--accent);padding:7px 12px;border:1px solid var(--line);border-radius:2px;font-size:13px}.reminder-feedback{font-size:13px;color:var(--accent);margin:8px 0 0}.reminder-feedback:empty{display:none}#question-draft{height:310px;padding:15px;line-height:1.6;font-size:15px}.result-tools{flex-wrap:wrap}.result-tools>div{flex-wrap:wrap;gap:18px}
 @media(max-width:900px){.reminder-fields{grid-template-columns:1fr;gap:12px}.reminder-fields input[type=date]{max-width:220px}.reminder-confirm{padding:0}}
 @media(max-width:430px){.followup-toolbar{align-items:flex-start;flex-direction:column;gap:3px}.reminder-fields input[type=date]{max-width:100%;font-size:16px}#question-draft{font-size:16px}.result-tools{column-gap:18px;row-gap:2px}}
+/* Keep editable controls distinct from decorative dividers. */
+textarea,.date-field input,.reminder-fields input[type=date]{border-color:#7b887e}
+button,summary{min-height:24px}
+.card-bottom label{min-height:28px}
+@media(max-width:700px){
+  button,summary,.card-bottom label,.reminder-confirm{min-height:44px}
+  .date-field input{font-size:16px}
+  .panel-heading{flex-wrap:wrap}
+  .card details summary{display:flex;align-items:center}
+  .result-tools>.text-button{margin-bottom:0}
+}
+
+.panel-heading h2:focus{outline:2px solid var(--accent);outline-offset:4px}
