@@ -105,6 +105,8 @@ Next-step browser checks also verified date suggestions with unchecked confirmat
 - Intended for everyday notices, not legal, medical or emergency interpretation.
 - No observed reduction in missed deadlines or reading effort is claimed.
 
+The 1.4.0 release additionally passed 53 local and 55 published browser cases for varied language, exact source text, accented names and uncertainty guards; live reminder confirmation and withdrawal also passed. Its actual fictional-notice capture is `media/noticebridge-language-review.jpg`.
+
 See [NOTICEBRIDGE_STATE.md](NOTICEBRIDGE_STATE.md) for the current release, deployment, review evidence and handoff state.
 
 Next steps are consented testing with readers and community staff, independently annotated real notices with identifying information removed, a larger held-out benchmark, confidence calibration, and accessibility testing on mobile devices and screen readers.

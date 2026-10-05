@@ -1,14 +1,14 @@
 # NoticeBridge state
 
-Checked 6 October 2026, Asia/Hong_Kong. Model-audit release candidate; independent review is complete and publication is pending. Completed date fixes are preserved.
+Checked 6 October 2026, Asia/Hong_Kong. **Release 1.4.0 is published and verified.** The model audit, review-driven fixes, competition-entry update and recovery documentation are complete. Completed date fixes are preserved.
 
 ## Recovery and releases
 
 - Primary repo: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/outputs/noticebridge`.
-- Isolated audit worktree: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-model-audit`, branch `model-audit-1.4`. Native worktree creation cannot resolve this nested repository; the previously established Git fallback was reused.
+- Implementation used isolated audit worktree: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-model-audit`, branch `model-audit-1.4`. Native worktree creation cannot resolve this nested repository; the previously established Git fallback was reused.
 - Recovered clean main/origin: **b07d1d2bc6410934cff8a0caf9a295082b10a6ad**. No unpublished work or pending date-review finding was lost.
 - Preserved stable **v1.3.0**: **d15d926da45f4602a664ae1b522c046daaaa8488**; prior v1.2.0 remains tagged. Historical state: `docs/verification/NOTICEBRIDGE_STATE_1.3.0.md`.
-- Candidate implementation: **99cdc62144656b57b026e19097b38eed2dcd4975**, app **1.4.0**, model **1.1.0**. Resolve the containing Git revision for the exact documentation HEAD.
+- Current runtime implementation: **99cdc62144656b57b026e19097b38eed2dcd4975**, app **1.4.0**, model **1.1.0**. Verified release/source commit **a6afcd217800dd255e4cf12b2959e25106d1c7be**, preserved as **v1.4.0**. Resolve the containing Git revision for the exact documentation HEAD.
 - Audit cases and original artifacts frozen before retraining at **c9c99cf**. Baseline model/source/engine/data/evaluation are retained in `docs/model-audit/baseline/`.
 - Source: https://github.com/Nicholas-afk/noticebridge ; demo: https://nicholas-afk.github.io/noticebridge/ ; entry: https://devpost.com/software/noticebridge . User's existing browser tab was preserved; QA used a separate local tab.
 
@@ -37,17 +37,17 @@ Checked 6 October 2026, Asia/Hong_Kong. Model-audit release candidate; independe
 - **53 actual local-browser inputs** (45 classification inputs plus eight tokenizer-boundary probes) passed source/category checks: `docs/verification/2026-10-06-model-browser.json`.
 - Actual workflow verified grouped dates blank/unchecked, distinct warnings/questions, date-only save rejection, confirmed save, exact source highlighting, edited draft/review marks preserved across views, date-edit withdrawal, stale-source blocking, refreshed-analysis reset and Clear reset.
 - Actual downloaded checklist retains review mark, chosen date, exact source and unfamiliar-wording warning; downloaded questions equal the reader's edited draft. Evidence: `docs/verification/2026-10-06-model-workflow.json`.
-- Extraction, conditions, negation, date distinctions and user confirmations are preserved. Independent read-only agent review is complete: ready to merge at 99cdc62144656b57b026e19097b38eed2dcd4975, no remaining actionable findings. Reviewer independently reproduced all artifacts and metrics, then resolved the P2 boundary issue and checked 90 additional inputs with maximum score difference 1.11e-16. Live 1.4.0 checks are pending.
+- Extraction, conditions, negation, date distinctions and user confirmations are preserved. Independent read-only agent review is complete: ready to merge at 99cdc62144656b57b026e19097b38eed2dcd4975, no remaining actionable findings. Reviewer independently reproduced all artifacts and metrics, then resolved the P2 boundary issue and checked 90 additional inputs with maximum score difference 1.11e-16. **55 actual live-browser cases passed** (40 authored, five public, eight boundary probes and two bug/uncertainty guards); live grouped-date confirmation, draft/review persistence and date-edit withdrawal also passed. Evidence: `docs/verification/2026-10-06-model-live-browser.json`. Viewport 1280×720 CSS pixels, no horizontal overflow.
 
 ## Deployment and Devpost
 
-- Public release remains **1.3.0**, Pages **2f98b716de338a21b196f9473721ef673c704745**, freshly rechecked built without error. Candidate has not been published.
+- **Public 1.4.0 is deployed**, Pages **109400ca179966fd62186276a23cc75e272f42cb**, confirmed built with no error. The published app loads 329 training examples and the matching asset fingerprints. Prior 1.3.0 deployment 2f98b716de338a21b196f9473721ef673c704745 remains in Pages history.
 - Management page freshly confirms **Submitted, 4/4**, entrant `ncywtanner`, entry `1216996-noticebridge`. Routine details editable; final submission/agreement is preserved and will not be repeated.
-- Proposed updated story is in `SUBMISSION.md`, not yet saved on Devpost. Preserve 9 gallery images; qualify original classifier chart as historical when updating.
+- The `SUBMISSION.md` story was saved and publicly verified with improved counts, worse precision, lost legacy categories and explicit development/convenience limits. All nine original gallery images remain; the original evaluation caption now clearly identifies model 1.0.0 as historical. A genuine live 1.4.0 image was added as the tenth image. Management still confirms Submitted, 4/4, checked/disabled agreement and disabled Project submitted button; no final agreement/submission was repeated. Proof: `../noticebridge-1-4-submitted.jpg`, `../noticebridge-1-4-entry.jpg`. Live capture: `media/noticebridge-language-review.jpg`.
 
 ## Remaining weaknesses and next actions
 
 - No essential user-participation blocker prevents current work. Official deadline discrepancy and entrant eligibility are unverified; this audit makes no eligibility representation.
 - Priority: independently annotated de-identified notices, consented reader tests, annotation disagreement, calibration, missed-action/review-burden measures. No user study, accessibility certification or measured deadline/reading-effort benefit exists.
 - English lexical sentence model; no OCR/translation/document understanding. Vocabulary gate can overflag names and miss familiar-word ambiguity. Conservative English dates remain incomplete; one reminder per excerpt, no inferred time/alarm. Mobile, screen-reader and calendar-client import verification remain open.
-- Finish independent review, fix substantive findings, preserve candidate tag, publish, verify live behavior, save routine Devpost story/historical caption, then record exact release/deployment/review status, mirror state and refresh source archive.
+- Requested work is complete; no pending review or unpublished runtime change remains. Recover from this checkpoint and Git status before future changes. Next work should prioritize independent labeled notices and consented reader testing, then mobile/screen-reader/calendar-client checks. Preserve v1.3.0 and v1.4.0, the user browser tab and the existing submitted entry. No automatic model-confidence or real-world accuracy claim is authorized by these results.

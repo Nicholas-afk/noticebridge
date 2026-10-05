@@ -38,8 +38,8 @@ Dates were another challenge. A weekday or “tomorrow” is not a reliable dead
 - Exact source-linked cards, with no generated paraphrases or invented deadlines.
 - Reproduced the original **44/48** synthetic result byte for byte and audited exact/normalized overlap and close paraphrases. The same-author legacy set is now development evidence.
 - On a frozen authored language challenge, category matches improve **30/40 → 35/40** and instructions listed in the checklist **2/20 → 10/20**. Raw instruction precision worsens **93.3% → 85.7%**; all three false predictions remain Review. Five curated public instruction excerpts improve **4/5 → 5/5** raw action labels, with only three confidently listed. These small checks do not establish real-world accuracy or reader benefit.
-- Preserved every error, comparison condition and limitation in the [model audit](https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md), including two previously correct legacy categories lost by retraining. Browser/Python predictions and scores match on all 93 audited inputs.
-- JavaScript/Python prediction and score parity on all 93 audited inputs (legacy, authored challenge and curated public excerpts).
+- Preserved every error, comparison condition and limitation in the [model audit](https://github.com/Nicholas-afk/noticebridge/blob/main/MODEL_CARD.md), including two previously correct legacy categories lost by retraining.
+- JavaScript/Python prediction and score parity on all 93 audited inputs, plus eight extra accented-name and token-boundary probes.
 - Passing checks for source-span integrity, ambiguous and relative dates, preserved negation, invalid dates and input bounds.
 - Browser checks of review progress, exact source highlighting, returning to the checklist, uncertainty handling, stale-plan protection and WebMCP valid/invalid-input behavior.
 - Calendar checks for invalid dates, leap-day and year rollover, text escaping, UTF-8 folding and rejection of unconfirmed reminders.
