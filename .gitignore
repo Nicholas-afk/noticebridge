@@ -2,3 +2,4 @@
 .openai/*credential*
 *.tar.gz
 .DS_Store
+node_modules/

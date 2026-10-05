@@ -1,14 +1,19 @@
 {
   "name": "noticebridge",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": true,
   "type": "module",
   "description": "Local machine-learning checklists grounded in notice evidence",
   "scripts": {
     "build": "node prepare.mjs",
-    "test": "node test.mjs && node followup.test.mjs && node --test date.test.mjs && node --test model.test.mjs",
+    "test": "node test.mjs && node followup.test.mjs && node --test date.test.mjs && node --test model.test.mjs && node --test workflow.test.mjs",
     "serve": "python3 -m http.server 48137 --bind 127.0.0.1 --directory dist",
     "train": "python3 train.py",
-    "audit": "python3 audit-python.py && node audit.mjs"
+    "audit": "python3 audit-python.py && node audit.mjs",
+    "serve:audit": "python3 scripts/browser-audit-server.py"
+  },
+  "devDependencies": {
+    "axe-core": "^4.11.1",
+    "jsdom": "^29.0.0"
   }
 }
