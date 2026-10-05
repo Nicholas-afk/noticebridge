@@ -1,6 +1,6 @@
 // Injected by the local QA server only. No notice leaves the browser.
 const panel=document.createElement('aside');
-panel.id='qa-diagnostics';panel.setAttribute('aria-label','Local QA diagnostics');
+panel.id='qa-diagnostics';panel.style.overflowWrap='anywhere';panel.setAttribute('aria-label','Local QA diagnostics');
 const button=document.createElement('button');button.textContent='Run accessibility audit';
 const output=document.createElement('pre');output.id='qa-report';output.style.whiteSpace='pre-wrap';
 panel.append(button,output);document.body.append(panel);

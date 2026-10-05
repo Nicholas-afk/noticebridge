@@ -77,3 +77,23 @@ test('UI downloads retain source, reader marks, edited questions and confirmed a
   assert.equal(await downloads[1].blob.text(),draft);
   const calendar=(await downloads[2].blob.text()).replace(/\r\n /g,'');assert.ok(calendar.includes('DTSTART;VALUE=DATE:20261009\r\nDTEND;VALUE=DATE:20261010'));assert.ok(calendar.includes('Please return the form on 9 & 12 October 2026.'));assert.ok(calendar.includes('lists multiple dates'));assert.ok(!calendar.includes('VALARM'));assert.ok(!calendar.includes('TZID'));
 });
+test('toolbar source navigation remembers the current view rather than an older excerpt visit',async()=>{
+  const {$,input}=await app();input('notice','Please return the form by 9 October 2026.');$('analyze-button').click();
+  document.querySelector('#cards .source-button').click();$('back-to-plan').click();
+  document.querySelector('[data-view=followup]').click();
+  const toolbarSource=document.querySelector('[data-view=source]');toolbarSource.click();
+  $('back-to-plan').click();
+  assert.equal($('followup-view').hidden,false,'Toolbar Source used an older navigation origin');
+  assert.equal(document.activeElement,toolbarSource);
+});
+test('failed source update keeps paused work and reversion clears obsolete validation errors',async()=>{
+  const {$,input,check}=await app();const source='Please return the form by 9 October 2026.';
+  input('notice',source);$('analyze-button').click();check('Mark excerpt 1 reviewed');check('I checked the date for excerpt 1');document.querySelector('.reminder-save').click();
+  input('question-draft','Reader edited draft.');input('notice','');$('analyze-button').click();
+  assert.equal($('calendar-button').disabled,true);assert.equal($('reminder-count').textContent,'1 reminder saved');assert.equal(document.querySelector('#cards input').checked,true);assert.equal($('question-draft').value,'Reader edited draft.');assert.ok($('input-error').textContent);
+  input('notice',source);
+  assert.equal($('input-error').textContent,'','Restoring valid source left an obsolete validation error');
+  assert.notEqual($('notice').getAttribute('aria-invalid'),'true');
+  assert.equal($('stale-note').hidden,true);assert.equal($('calendar-button').disabled,false);assert.equal($('questions-button').disabled,false);
+  $('analyze-button').click();assert.equal($('reminder-count').textContent,'1 reminder saved');assert.equal($('question-draft').value,'Reader edited draft.');
+});

@@ -132,10 +132,16 @@ function exportPlan(){
   requestDownload(lines.join('\n'),'text/plain;charset=utf-8','noticebridge-plan.txt');$('live-status').textContent='Text-file download requested. It includes the original notice.';
 }
 function requestDownload(text,type,name){const url=URL.createObjectURL(new Blob([text],{type})),link=node('a',{href:url,download:name});document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-$('notice').addEventListener('input',count);$('anchor-date').addEventListener('input',count);
+function sourceEdited(){
+  $('input-error').textContent='';$('notice').removeAttribute('aria-invalid');$('anchor-date').removeAttribute('aria-invalid');count();
+}
+$('notice').addEventListener('input',sourceEdited);$('anchor-date').addEventListener('input',sourceEdited);
 $('analyze-button').addEventListener('click',()=>{try{runAnalysis({focusResults:true});}catch{}});
 document.querySelectorAll('[data-example]').forEach(b=>b.addEventListener('click',()=>{try{loadExample(b.dataset.example);}catch{}}));
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{
+  if(b.dataset.view==='source'&&view!=='source'){sourceReturn={view,target:b};$('back-to-plan').textContent=view==='followup'?'Back to next steps':'Back to checklist';}
+  setView(b.dataset.view);
+}));
 $('clear-button').addEventListener('click',()=>{
   $('notice').value='';$('anchor-date').value='';result=null;selected=null;sourceReturn=null;completed.clear();reminders.clear();calendarId='';$('question-draft').value='';updateReminderCount();
   for(const id of ['cards','source-text','background-list','warnings','stats','reminder-list'])$(id).replaceChildren();
