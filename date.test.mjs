@@ -7,7 +7,7 @@ const model=JSON.parse(fs.readFileSync(new URL('./dist/model.json',import.meta.u
 const analyze=text=>analyzeNotice(text,model);
 
 // Losing the earlier day or choosing one end of a range must fail these fixtures.
-for(const phrase of ['9 or 12 October 2026','9 and 12 October 2026','9, 10 and 12 October 2026','9–12 October 2026','9 - 12 Oct. 2026','9 to 12 October 2026','October 9–12, 2026','Oct. 9 or 12, 2026']){
+for(const phrase of ['9 or 12 October 2026','9 and 12 October 2026','9, 10 and 12 October 2026','9–12 October 2026','9 - 12 Oct. 2026','9 to 12 October 2026','October 9–12, 2026','Oct. 9 or 12, 2026','9 & 12 October 2026','9&12 October 2026','9 through 12 October 2026','9 and/or 12 October 2026','October 9 through 12, 2026','9, 10 & 12 October 2026','9 until 12 October 2026','9 till 12 October 2026','9/12 October 2026','9 October 2026–2027','9 Oct. 2026-2027','October 9, 2026 or 2027']){
   test(`preserve grouped date without selecting a reminder: ${phrase}`,()=>{
     const source=`Please choose a session on ${phrase}.`,result=analyze(source),card=result.cards[0];
     assert.equal(result.sentences.length,1);
@@ -50,4 +50,35 @@ test('two different months without a first year cannot borrow that year',()=>{
 });
 test('partial dates and numeric dates stay unresolved',()=>{
   for(const phrase of ['9 October','9 or 12 October','08/10/2026','Saturday'])assert.equal(reminderDefaultDate(analyze(`Please register on ${phrase}.`).cards[0]),'');
+});
+
+test('number-led statements after a month abbreviation do not become dates',()=>{
+  const source='The club ends in Oct. 9 volunteers are needed.',result=analyze(source);
+  assert.equal(result.sentences.length,2);
+  assert.ok(result.cards.every(card=>!card.dates.length));
+});
+test('a following statement cannot supply a missing year',()=>{
+  const source='Please return the form by 9 Oct. 2027 applications open in January.',result=analyze(source);
+  assert.equal(result.sentences.length,2);
+  assert.equal(result.cards[0].dates[0].text,'9 Oct.');
+  assert.equal(reminderDefaultDate(result.cards[0]),'');
+  assert.ok(result.cards[0].flags.some(flag=>flag.includes('year is not')));
+});
+for(const phrase of ['9 or\n12 October 2026','9 &\n12 October 2026','9 October 2026 to\n12 October 2026']){
+  test(`a date spanning a line break cannot select its last part: ${phrase}`,()=>{
+    const result=analyze(`Please choose a session on ${phrase}.`);
+    assert.ok(result.cards.every(card=>!reminderDefaultDate(card)));
+    assert.ok(result.cards.some(card=>card.flags.some(flag=>flag.includes('line break'))));
+    for(const span of [...result.cards,...result.background])assert.equal(result.source.slice(span.start,span.end),span.text);
+  });
+}
+test('ordinary independent lines keep their own explicit full dates',()=>{
+  const result=analyze('Please register by 9 October 2026.\nPlease pay by 12 October 2026.');
+  assert.deepEqual(result.cards.map(reminderDefaultDate),['2026-10-09','2026-10-12']);
+});
+test('abbreviated dates retain ordinary time continuations',()=>{
+  for(const phrase of ['9 Oct. 2026 at 10 am','Oct. 9, 2026 at 10 am']){
+    const result=analyze(`Please attend on ${phrase}.`);
+    assert.equal(result.sentences.length,1);assert.equal(reminderDefaultDate(result.cards[0]),'2026-10-09');
+  }
 });

@@ -12,7 +12,7 @@ The fictional school-trip demo surfaces a consent form, a $12 payment, a lunch r
 
 No account or API key is required. The model runs in the browser, and pasted notices are not sent to cloud AI or saved in a history.
 
-The **Next steps** view turns that review into something useful outside the app. Readers can choose all-day reminders and download a calendar file with the exact source sentence attached. Full dates from the same sentence can be suggested, but every date must be checked and confirmed by the reader. Ambiguous dates, missing years and competing unresolved date references leave the field blank. Shared-month lists and ranges, such as “9 or 12 October 2026”, stay quoted as a whole and require a choice. Impossible full dates such as “31 November 2026” get an explicit review note. Those notes remain visible while choosing reminders. Editing a saved date withdraws the reminder until it is confirmed again. The app also prepares an editable draft of questions from the review notes, quoting the relevant original sentences. Nothing is sent to the sender or written into a calendar account.
+The **Next steps** view turns that review into something useful outside the app. Readers can choose all-day reminders and download a calendar file with the exact source sentence attached. Full dates from the same sentence can be suggested, but every date must be checked and confirmed by the reader. Ambiguous dates, missing years and competing unresolved date references leave the field blank. Shared-month lists and ranges, such as “9 or 12 October 2026”, stay quoted as a whole and require a choice. Impossible full dates such as “31 November 2026” get an explicit review note. Dates that appear to continue across a line break are flagged, and dates on either side require a choice. Those notes remain visible while choosing reminders. Editing a saved date withdraws the reminder until it is confirmed again. The app also prepares an editable draft of questions from the review notes, quoting the relevant original sentences. Nothing is sent to the sender or written into a calendar account.
 
 ## How we built it
 
@@ -41,7 +41,7 @@ Dates were another challenge. A weekday or “tomorrow” is not a reliable dead
 - Passing checks for source-span integrity, ambiguous and relative dates, preserved negation, invalid dates and input bounds.
 - Browser checks of review progress, exact source highlighting, returning to the checklist, uncertainty handling, stale-plan protection and WebMCP valid/invalid-input behavior.
 - Calendar checks for invalid dates, leap-day and year rollover, text escaping, UTF-8 folding and rejection of unconfirmed reminders.
-- 25 additional date cases covering shared-month alternatives and ranges, impossible named dates, abbreviated months and conservative reminder defaults.
+- 44 additional date cases covering shared-month alternatives and ranges, impossible named dates, abbreviated months, number-led sentence boundaries, multi-year dates, cross-line ambiguity and conservative reminder defaults.
 - Browser checks of explicit date confirmation, date-edit withdrawal, blank ambiguous-date suggestions, editable-draft preservation and follow-up reset/stale protection.
 
 ## What we learned

@@ -27,7 +27,7 @@ Visit `http://127.0.0.1:48137`. Choose **School trip** for the complete workflow
 - Keeps every sentence accessible, including those assigned to background.
 - Offers a checklist and local text-file export. It does not save a history.
 - Adds a **Next steps** view for date-confirmed all-day reminders and an editable draft of questions for the sender.
-- Suggests reminder dates only from a valid full date in that same sentence, or an explicitly anchored today/tomorrow reference. Grouped day lists and ranges stay quoted as one phrase, without choosing an endpoint. Competing unresolved dates leave the field blank. The reader must confirm every date; editing a saved date withdraws its reminder.
+- Suggests reminder dates only from a valid full date in that same sentence, or an explicitly anchored today/tomorrow reference. Grouped day and year lists or ranges stay quoted as one phrase, without choosing an endpoint. A grouping split across notice lines is flagged; dates on either side are not suggested automatically. Competing unresolved dates leave the field blank. The reader must confirm every date; editing a saved date withdraws its reminder.
 - Exports saved reminders as a local `.ics` calendar file, with the exact sentence and review notes. It adds no inferred time or alarm and does not connect to a calendar account.
 - Builds clarification questions from review notes, keeping each relevant sentence verbatim. The reader edits and downloads the draft; the app sends no messages.
 - Shows review progress, with a direct return from a highlighted source sentence to its checklist item.
@@ -58,7 +58,7 @@ node prepare.mjs
 npm test
 ```
 
-`dataset.json` includes both splits and their provenance. `test.mjs` checks label and score parity between Python and JavaScript on every holdout sentence, source-span integrity, relative dates, numeric ambiguity, preserved negation, invalid dates and input limits. `followup.test.mjs` checks conservative suggestions, competing unresolved dates, leap-day and year rollover, calendar escaping and UTF-8 line folding, rejected unconfirmed/invalid exports and source-linked questions. `date.test.mjs` adds 25 adversarial cases for shared-month day lists and ranges, impossible named dates, abbreviated months and source preservation. Run all suites with `npm test`.
+`dataset.json` includes both splits and their provenance. `test.mjs` checks label and score parity between Python and JavaScript on every holdout sentence, source-span integrity, relative dates, numeric ambiguity, preserved negation, invalid dates and input limits. `followup.test.mjs` checks conservative suggestions, competing unresolved dates, leap-day and year rollover, calendar escaping and UTF-8 line folding, rejected unconfirmed/invalid exports and source-linked questions. `date.test.mjs` adds 44 adversarial cases for shared-month day lists and ranges, impossible named dates, abbreviated months, number-led sentence boundaries, multi-year dates, cross-line ambiguity and source preservation. Ambiguous number-led statements after month abbreviations cannot supply a missing year. Run all suites with `npm test`.
 
 ## Architecture
 
@@ -87,7 +87,7 @@ The interface puts the source input beside a flat, numbered reading list. Instru
 
 No accessibility certification or user study is claimed. Browser checks verified review progress, exact source highlighting, returning to the checklist, stale-plan protection, refreshed analysis and ambiguity prompts. Layouts were inspected at actual CSS widths of 960 and 1,280 pixels without horizontal overflow. Browser scaling prevented a reliable phone-width check, so phone layout and screen-reader QA remain unverified. The actual application screenshot is in `media/noticebridge-live-demo.jpg`. Completed browser downloads of the calendar, questions and plan files were verified on disk with the expected fictional source text. Calendar-client import behavior remains unverified.
 
-Next-step browser checks also verified date suggestions with unchecked confirmations, saving a confirmed reminder, withdrawing it after a date edit, edited-draft preservation across views, stale input blocking follow-up controls, and Clear/refresh removing prior reminders and drafts. The unclear-deadline example supplies no suggested calendar dates. The **Dates to check** example keeps “9 or 12 October 2026” unresolved, flags “31 November 2026” as invalid, and preserves the abbreviated date “9 Oct. 2026”. The same review notes appear beside reminder selection and in the clarification draft. Browser checks verified blank grouped/invalid date fields, the valid abbreviated-date suggestion, visible warnings, saving after confirmation and withdrawal after editing the date, with no horizontal overflow at the inspected 1,280-pixel CSS width.
+Next-step browser checks also verified date suggestions with unchecked confirmations, saving a confirmed reminder, withdrawing it after a date edit, edited-draft preservation across views, stale input blocking follow-up controls, and Clear/refresh removing prior reminders and drafts. The unclear-deadline example supplies no suggested calendar dates. The **Dates to check** example keeps “9 or 12 October 2026” unresolved, flags “31 November 2026” as invalid, and preserves the abbreviated date “9 Oct. 2026”. The same review notes appear beside reminder selection and in the clarification draft. Browser checks verified blank grouped/invalid date fields, the valid abbreviated-date suggestion, visible warnings, saving after confirmation and withdrawal after editing the date, with no horizontal overflow in the inspected browser. The browser reported a scaled 5,120-pixel CSS width in this release, so that check does not establish ordinary desktop or phone layout quality.
 
 ## Limitations and next work
 
@@ -95,7 +95,7 @@ Next-step browser checks also verified date suggestions with unchecked confirmat
 - The small model can miss or misclassify unfamiliar wording.
 - Sentence splitting is conservative and imperfect for unusual punctuation.
 - Instructions that depend on another paragraph still require the reader to check the source.
-- Dates are quoted; grouped day lists and ranges, weekday references, missing years and numeric date formats remain unresolved. Date extraction is a conservative English pattern matcher, not a general date parser.
+- Dates are quoted; grouped day lists and ranges, weekday references, missing years and numeric date formats remain unresolved. Date extraction is a conservative English pattern matcher, not a general date parser. Month abbreviations followed by uncertain wording may be split conservatively, leaving a year unresolved.
 - Intended for everyday notices, not legal, medical or emergency interpretation.
 - No observed reduction in missed deadlines or reading effort is claimed.
 
