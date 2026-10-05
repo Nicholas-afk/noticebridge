@@ -1,10 +1,11 @@
-import {analyzeNotice,validReferenceDate} from './engine.js?v=5d25f7074322';
-import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=001555fd19d1';
+import {analyzeNotice,validReferenceDate} from './engine.js?v=55dabd461f5d';
+import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=26e0fff7294d';
 const $=id=>document.getElementById(id);
 const examples={
   trip:{date:'2026-10-05',text:'Dear parents and carers,\n\nOur Year 6 museum visit will take place on 14 October 2026. The bus leaves school at 9 am and returns at 3 pm.\n\nPlease return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.\n\nFor questions or accessibility needs, email trips@example.org.\n\nThank you for your support.'},
   library:{date:'2026-10-05',text:'Community Library — Creative Saturday\n\nThe workshop takes place at the community library on 17 October 2026 at 10 am. The session lasts for two hours.\n\nPlease register online by 12 October 2026. Bring your library card. You do not need to purchase any materials.\n\nIf you need help completing the form, call the library team. Our email address is library@example.org.\n\nEveryone is welcome at our community events.'},
-  unclear:{date:'',text:'Community garden volunteer day\n\nThe activity takes place on Saturday at 10 am.\n\nPlease return the registration form by tomorrow. Bring gloves and a bottle of water. Payment is due by 08/10.\n\nIf you need an interpreter, contact the coordinator.\n\nThank you for helping our neighbourhood.'}
+  unclear:{date:'',text:'Community garden volunteer day\n\nThe activity takes place on Saturday at 10 am.\n\nPlease return the registration form by tomorrow. Bring gloves and a bottle of water. Payment is due by 08/10.\n\nIf you need an interpreter, contact the coordinator.\n\nThank you for helping our neighbourhood.'},
+  dates:{date:'',text:'Community workshop notice\n\nPlease choose a session on 9 or 12 October 2026.\n\nPlease return the booking form by 31 November 2026. Please register online by 9 Oct. 2026.\n\nFor questions, email workshops@example.org.'}
 };
 let model=null,result=null,view='plan',selected=null,completed=new Set(),reminders=new Map(),calendarId='';
 function node(tag,attrs={},text){const el=document.createElement(tag);for(const [key,value]of Object.entries(attrs)){if(key==='class')el.className=value;else el.setAttribute(key,value);}if(text!==undefined)el.textContent=text;return el;}
@@ -40,6 +41,7 @@ function renderFollowup(){
   for(const card of eligible){
     const i=result.cards.indexOf(card)+1,row=node('article',{class:'reminder-row','data-id':card.id});
     row.append(node('p',{class:'card-context'},`Excerpt ${i} · Sentence ${card.index+1}`),node('p',{class:'instruction'},card.text));
+    card.flags.forEach(flag=>row.append(node('p',{class:'flag'},flag)));
     const suggestions=dateSuggestions(card),defaultDate=reminderDefaultDate(card),helpId=`date-help-${card.id}`;
     row.append(node('p',{id:helpId,class:'group-help'},defaultDate?`Suggested from “${suggestions[0].source}”. Check it before saving.`:card.dates.length>1?'More than one date reference appears. Confirm which date applies to this reminder.':'No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.'));
     const controls=node('div',{class:'reminder-fields'}),dateId=`reminder-${card.id}`;
