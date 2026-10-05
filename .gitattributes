@@ -1,0 +1,2 @@
+# Preserve the exact CRLF bytes of calendar downloads and their recorded hashes.
+*.ics -text
