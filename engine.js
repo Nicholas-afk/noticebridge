@@ -15,17 +15,21 @@ export function splitSentences(text) {
 }
 
 export function classify(text, model) {
-  const words=text.toLowerCase().match(/\b[a-zA-Z][a-zA-Z]+\b/g)||[];
+  // Match scikit-learn's Unicode word boundaries without treating accented
+  // names as ASCII prefixes (for example, Noël must not add the feature "no").
+  const words=text.toLowerCase().match(/(?<![\p{L}\p{N}_])[a-zA-Z][a-zA-Z]+(?![\p{L}\p{N}_])/gu)||[];
   const terms=[...words,...words.slice(0,-1).map((w,i)=>w+' '+words[i+1])];
   const counts=new Map();
-  for(const term of terms){const i=model.vocabulary[term];if(i!==undefined)counts.set(i,(counts.get(i)||0)+1);}
+  for(const term of terms){if(Object.hasOwn(model.vocabulary,term)){const i=model.vocabulary[term];counts.set(i,(counts.get(i)||0)+1);}}
   const features=[...counts].map(([i,n])=>[i,(1+Math.log(n))*model.idf[i]]);
   const norm=Math.sqrt(features.reduce((sum,[,v])=>sum+v*v,0));
   const logits=model.weights.map((row,k)=>model.bias[k]+features.reduce((sum,[i,v])=>sum+row[i]*(norm?v/norm:0),0));
   const highest=Math.max(...logits),exp=logits.map(x=>Math.exp(x-highest)),total=exp.reduce((a,b)=>a+b,0);
   const probabilities=Object.fromEntries(model.classes.map((label,k)=>[label,exp[k]/total]));
   const k=logits.indexOf(highest);
-  return {label:model.classes[k],score:exp[k]/total,probabilities,knownFeatures:features.length};
+  const uniqueWords=[...new Set(words)];
+  const vocabularyCoverage=uniqueWords.length?uniqueWords.filter(word=>Object.hasOwn(model.vocabulary,word)).length/uniqueWords.length:0;
+  return {label:model.classes[k],score:exp[k]/total,probabilities,knownFeatures:features.length,vocabularyCoverage};
 }
 
 const MONTHS='January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec';
@@ -190,6 +194,7 @@ export function analyzeNotice(text,model,{anchorDate=''}={}){
     }else if(prediction.score<0.55 || prediction.knownFeatures<2){
       kind='review';flags.push('The category is uncertain. Check this sentence.');
     }
+    if(prediction.vocabularyCoverage<0.5){kind='review';flags.push('Much of this wording is unfamiliar to the model. Check the complete sentence.');}
     if(kind==='background' && (dates.length||contacts.length)){kind='review';flags.push('This sentence contains a date or contact detail. Check whether it matters.');}
     if(crossLineDates.has(index))flags.push('A date may continue across a line break. Read both lines and confirm the full date before choosing a reminder.');
     const relations=new Set();
