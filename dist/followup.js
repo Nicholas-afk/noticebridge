@@ -1,4 +1,4 @@
-import {validReferenceDate,fullDateISO} from './engine.js?v=7896ba538fe7';
+import {validReferenceDate,fullDateISO} from './engine.js?v=76cd648a4822';
 
 export function validReminderDate(value){
   return typeof value==='string' && validReferenceDate(value) && +value.slice(0,4)>=1000 && +value.slice(0,4)<=9998;
@@ -49,7 +49,11 @@ export function buildCalendar(result,entries,{now=new Date(),uidPrefix=globalThi
 }
 function questionFor(flag){
   if(flag.includes('line break'))return 'Does this date continue across the line break, and which full date applies to this step?';
-  if(flag.includes('alternatives or a range'))return 'Which date should I use, or does this instruction apply to every date in the range?';
+  if(flag.includes('lists multiple dates'))return 'Which of the listed dates apply to this step: all of them, or only some?';
+  if(flag.includes('gives alternatives'))return 'Which alternative date applies to this step?';
+  if(flag.includes('allows one or both'))return 'Should this step apply to one or both dates, and which dates?';
+  if(flag.includes('gives a range'))return 'When within this range should I act: throughout it, on a particular day, or by its end?';
+  if(flag.includes('uses a slash'))return 'What does the slash mean here: separate dates, a choice, or a range?';
   if(flag.includes('relative date needs'))return 'On what date was this notice issued, and what calendar date does the relative deadline mean?';
   if(flag.includes('Relative date uses'))return 'Is the issue date I supplied correct for this notice?';
   if(flag.includes('year is not'))return 'Which year does this date refer to?';

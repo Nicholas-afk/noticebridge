@@ -15,8 +15,8 @@ for(const phrase of ['9 or 12 October 2026','9 and 12 October 2026','9, 10 and 1
     assert.equal(card.dates[0].text,phrase);
     assert.equal(card.text.slice(card.dates[0].start,card.dates[0].end),phrase);
     assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
-    assert.ok(card.flags.some(flag=>flag.includes('alternatives')||flag.includes('range')));
-    const questions=buildQuestions(result);assert.ok(questions.includes(source));assert.ok(questions.includes('Which date'));
+    assert.ok(card.flags.some(flag=>flag.startsWith('This date phrase')));
+    const questions=buildQuestions(result);assert.ok(questions.includes(source));
   });
 }
 for(const phrase of ['31 April 2026','April 31, 2026','29 February 2026','Feb. 29, 2026','0 October 2026','32nd October 2026','31 November 2026']){
@@ -81,4 +81,69 @@ test('abbreviated dates retain ordinary time continuations',()=>{
     const result=analyze(`Please attend on ${phrase}.`);
     assert.equal(result.sentences.length,1);assert.equal(reminderDefaultDate(result.cards[0]),'2026-10-09');
   }
+});
+
+// These assertions detect changing a list into an exclusive choice, or a range
+// into endpoint choices. The quoted wording must remain intact in the draft.
+for(const [phrase,warning,question] of [
+  ['9 & 12 October 2026','lists multiple dates','Which of the listed dates'],
+  ['9, 10 and 12 October 2026','lists multiple dates','Which of the listed dates'],
+  ['October 9, 10 & 12, 2026','lists multiple dates','Which of the listed dates'],
+  ['9 or 12 October 2026','gives alternatives','Which alternative date'],
+  ['9, 10 or 12 October 2026','gives alternatives','Which alternative date'],
+  ['9 and/or 12 October 2026','allows one or both','Should this step apply to one or both'],
+  ['9 through 12 October 2026','gives a range','When within this range'],
+  ['9–12 October 2026','gives a range','When within this range'],
+  ['9 October 2026 through 12 October 2026','gives a range','When within this range'],
+  ['9 Oct. 2026 or 12 Oct. 2026','gives alternatives','Which alternative date'],
+  ['9 October 2026 and/or 12 November 2026','allows one or both','Should this step apply to one or both'],
+  ['9 October 2026 & 9 October 2026','lists multiple dates','Which of the listed dates'],
+  ['9/12 October 2026','uses a slash','What does the slash'],
+  ['9 October 2026/12 November 2026','uses a slash','What does the slash'],
+  ['9 October 2026–2027','gives a range','When within this range'],
+  ['October 9, 2026 or 2027','gives alternatives','Which alternative date'],
+])test(`keep date meaning in warnings and draft: ${phrase}`,()=>{
+  const source=`Please choose a session on ${phrase}.`,result=analyze(source),card=result.cards[0];
+  assert.ok(card.flags.some(flag=>flag.includes(warning)),JSON.stringify(card.flags));
+  assert.ok(buildQuestions(result).includes(question));assert.ok(buildQuestions(result).includes(source));
+  assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
+  for(const date of card.dates)assert.equal(card.text.slice(date.start,date.end),date.text);
+});
+for(const [phrase,warning] of [
+  ['2026-10-09–12','gives a range'],['2026-10-09/12','uses a slash'],
+  ['2026-10-09 through 12','gives a range'],['2026-10-09 and/or 12','allows one or both'],
+  ['2026-10-09 to 2026-10-12','gives a range'],['2026-10-09 or 2026-10-12','gives alternatives'],
+])test(`do not silently suggest the first ISO endpoint: ${phrase}`,()=>{
+  const card=analyze(`Please attend on ${phrase}.`).cards[0];
+  assert.equal(card.dates.length,1);assert.equal(card.dates[0].text,phrase);
+  assert.ok(card.flags.some(flag=>flag.includes(warning)));
+  assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
+});
+for(const phrase of ['31 or 30 February 2026','April 30 & 31, 2026','29 February 2024 or 2025','2026-02-30–31'])test(`warn about invalid components in a date group: ${phrase}`,()=>{
+  const result=analyze(`Please register on ${phrase}.`),card=result.cards[0];
+  assert.ok(card.flags.some(flag=>flag.includes('calendar date is invalid')));
+  assert.ok(buildQuestions(result).includes('correct full calendar date'));assert.equal(reminderDefaultDate(card),'');
+});
+test('mixed grouping keeps both list and range questions',()=>{
+  const result=analyze('Please attend on 9–12, 15 October 2026.'),card=result.cards[0];
+  assert.equal(card.dates[0].text,'9–12, 15 October 2026');
+  assert.ok(buildQuestions(result).includes('When within this range'));
+  assert.ok(buildQuestions(result).includes('Which of the listed dates'));
+  assert.equal(reminderDefaultDate(card),'');
+});
+test('independent dates inside a sentence keep individual suggestions',()=>{
+  const card=analyze('Please register by 9 October 2026; the workshop takes place on 12 October 2026.').cards[0];
+  assert.deepEqual(dateSuggestions(card).map(s=>s.date),['2026-10-09','2026-10-12']);
+  assert.equal(reminderDefaultDate(card),'');assert.ok(!card.flags.some(flag=>flag.startsWith('This date phrase')));
+});
+test('full-date choice lists do not turn their commas into additional list instructions',()=>{
+  const result=analyze('Please register on 9 October 2026, 12 October 2026 or 15 November 2026.'),card=result.cards[0];
+  assert.ok(card.flags.some(flag=>flag.includes('gives alternatives')));
+  assert.ok(!card.flags.some(flag=>flag.includes('lists multiple dates')));
+  assert.ok(!buildQuestions(result).includes('all of them'));assert.deepEqual(dateSuggestions(card),[]);
+});
+for(const phrase of ['2026-02-28–30','2026-04-30 & 31'])test(`detect invalid short ISO endpoint: ${phrase}`,()=>{
+  const result=analyze(`Please attend on ${phrase}.`);
+  assert.ok(result.cards[0].flags.some(flag=>flag.includes('calendar date is invalid')));
+  assert.equal(reminderDefaultDate(result.cards[0]),'');
 });
