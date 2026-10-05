@@ -25,5 +25,6 @@
   "audio": false,
   "check": "0 lint/runtime/layout/motion issues; 30/30 text contrast checks passed",
   "visual_review": "16 snapshots across scene midpoints and either side of all five cuts, plus editable Studio source scene at 20s",
-  "source": "media/demo-source"
+  "source": "media/demo-source",
+  "post_render_review": "Encoded 20s source frame inspected; public native video played with readyState 4, 52s duration and no error."
 }

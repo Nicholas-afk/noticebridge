@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NoticeBridge//Source-linked reminders//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:95250fd7-24aa-4ff7-beb3-7cedf360f0d9-3@noticebridge.local
+DTSTAMP:20261005T191910Z
+DTSTART;VALUE=DATE:20261009
+DTEND;VALUE=DATE:20261010
+SUMMARY:NoticeBridge: Please return the signed consent form to your teacher
+  by 9 October 2026.
+DESCRIPTION:Original sentence 4:\nPlease return the signed consent form to 
+ your teacher by 9 October 2026.\n\nReminder date confirmed by the reader: 
+ 2026-10-09. This is an all-day reminder\, not an inferred event time.\n\n\
+ nCheck the complete notice before acting. NoticeBridge can miss instructio
+ ns.
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

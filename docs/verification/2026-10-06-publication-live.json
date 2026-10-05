@@ -1,0 +1,144 @@
+[
+  {
+    "cssWidth": 1280,
+    "intro": "Turn a school or community notice into a checklist you can check against the original. Review the sender’s exact words, and ask about unclear dates before choosing a reminder.",
+    "qaPanel": false,
+    "script": "app.js?v=062983589030",
+    "stage": "fresh-public-release",
+    "style": "style.css?v=71e187d0d341"
+  },
+  {
+    "focus": "source-text",
+    "mark": "Please return the signed consent form to your teacher by 9 October 2026.",
+    "stage": "public-source",
+    "stats": "4 instructions · 3 details · 2 with review notes"
+  },
+  {
+    "modelFacts": "TF–IDF + logistic regression · 329 authored training sentences · 48 previously inspected synthetic development examples · 93.8% sentence-category accuracy on that development set. 1 of 12 development instructions were misclassified. These scores are not real-world validation. The model audit also reports harder examples and regressions.",
+    "rows": [
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "text": "Excerpt 1 · Sentence 4Please return the signed consent form to your teacher by 9 October 2026.Suggested from “9 October 2026”. Check it before saving.Reminder date for excerpt 1I checked this date against the notice or with the sender.Save reminder 1Clear date 1Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "text": "Excerpt 2 · Sentence 5Pay the $12 trip fee through the school portal by 9 October 2026.Suggested from “9 October 2026”. Check it before saving.Reminder date for excerpt 2I checked this date against the notice or with the sender.Save reminder 2Clear date 2Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "text": "Excerpt 3 · Sentence 6Bring a packed lunch and a bottle of water.No date is stated in this instruction. Check the rest of the notice.No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.Reminder date for excerpt 3I checked this date against the notice or with the sender.Save reminder 3Clear date 3Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "text": "Excerpt 4 · Sentence 7Do not bring cash on the day of the visit.No date is stated in this instruction. Check the rest of the notice.No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.Reminder date for excerpt 4I checked this date against the notice or with the sender.Save reminder 4Clear date 4Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-14",
+        "text": "Excerpt 5 · Sentence 2Our Year 6 museum visit will take place on 14 October 2026.Suggested from “14 October 2026”. Check it before saving.Reminder date for excerpt 5I checked this date against the notice or with the sender.Save reminder 5Clear date 5Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "text": "Excerpt 6 · Sentence 3The bus leaves school at 9 am and returns at 3 pm.No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.Reminder date for excerpt 6I checked this date against the notice or with the sender.Save reminder 6Clear date 6Check source"
+      }
+    ],
+    "stage": "public-date-defaults"
+  },
+  {
+    "announcement": "Checklist already current. Your review marks, saved reminders and edited questions are kept.",
+    "confirmed": true,
+    "date": "2026-10-09",
+    "questions": "Please confirm that the form deadline is 9 October.\nCan I bring a support person?",
+    "reminders": "1 reminder saved",
+    "reviewed": true,
+    "stage": "public-repeat-keeps-reader-work",
+    "status": "1 of 7 reviewed"
+  },
+  {
+    "banner": "You changed the notice or issue date. Update the checklist before marking items, saving reminders or downloading files. The excerpts below still show the previous analysis.",
+    "bannerVisible": true,
+    "button": "Update checklist",
+    "calendarDisabled": true,
+    "planDisabled": true,
+    "questionsDisabled": true,
+    "reviewDisabled": true,
+    "stage": "public-edited-source-paused"
+  },
+  {
+    "planEnabled": true,
+    "questions": "Please confirm that the form deadline is 9 October.\nCan I bring a support person?",
+    "reminders": "1 reminder saved",
+    "reviewed": true,
+    "stage": "public-exact-reversion"
+  },
+  {
+    "confirmed": false,
+    "questions": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nBring a packed lunch and a bottle of water.\nIs there a deadline or a particular day for this instruction?\n\n2. The notice says:\nDo not bring cash on the day of the visit.\nIs there a deadline or a particular day for this instruction?\n\n3. The notice says:\nRevised notice: ask the teacher which version applies.\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+    "reminders": "0 reminders saved",
+    "reviewed": false,
+    "stage": "public-updated-source-reset"
+  },
+  {
+    "cssWidth": 320,
+    "overflow": false,
+    "questions": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nPlease return the booking form by 31 November 2026.\nWhat is the correct full calendar date?\n\n2. The notice says:\nCommunity workshop notice\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\n3. The notice says:\nPlease choose a session on 9 or 12 October 2026.\nDoes this sentence require me to do anything, and are there any conditions I should check?\nWhich alternative date applies to this step?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
+    "reminders": "0 reminders saved",
+    "rows": [
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true,
+        "text": "Excerpt 1 · Sentence 3Please return the booking form by 31 November 2026.This calendar date is invalid. Confirm it with the sender.No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.Reminder date for excerpt 1I checked this date against the notice or with the sender.Save reminder 1Clear date 1Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "2026-10-09",
+        "saveDisabled": true,
+        "text": "Excerpt 2 · Sentence 4Please register online by 9 Oct. 2026.Suggested from “9 Oct. 2026”. Check it before saving.Reminder date for excerpt 2I checked this date against the notice or with the sender.Save reminder 2Clear date 2Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true,
+        "text": "Excerpt 3 · Sentence 1Community workshop noticeThe category is uncertain. Check this sentence.No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.Reminder date for excerpt 3I checked this date against the notice or with the sender.Save reminder 3Clear date 3Check source"
+      },
+      {
+        "confirmed": false,
+        "date": "",
+        "saveDisabled": true,
+        "text": "Excerpt 4 · Sentence 2Please choose a session on 9 or 12 October 2026.The category is uncertain. Check this sentence.This date phrase gives alternatives. Confirm which date applies to this step.No full, unambiguous date in this sentence. Confirm a date with the sender before choosing one.Reminder date for excerpt 4I checked this date against the notice or with the sender.Save reminder 4Clear date 4Check source"
+      }
+    ],
+    "stage": "public-320-ambiguous-dates"
+  },
+  {
+    "cssWidth": 320,
+    "mark": "Please choose a session on 9 or 12 October 2026.",
+    "overflow": false,
+    "stage": "public-320-uncertain-source"
+  },
+  {
+    "announcement": "Reminder for excerpt 2 withdrawn. Check and confirm the current date before saving again.",
+    "reminders": "0 reminders saved",
+    "stage": "public-date-edit-withdrawal"
+  },
+  {
+    "button": "Review checklist",
+    "cssWidth": 390,
+    "overflow": false,
+    "stage": "public-390-checklist",
+    "stats": "4 instructions · 3 details · 2 with review notes"
+  },
+  {
+    "button": "Review checklist",
+    "cssWidth": 1280,
+    "overflow": false,
+    "stage": "public-1280-checklist",
+    "stats": "4 instructions · 3 details · 2 with review notes"
+  }
+]

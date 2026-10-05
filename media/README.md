@@ -14,7 +14,7 @@ Actual browser captures, 6 October 2026, using fictional built-in notices. Deskt
 - `current/demo-poster.png`: rendered source scene from the 52-second captured walkthrough.
 - `demo-source/`: reproducible demonstration sources, capture hashes and OFL font licenses. Public video is `dist/media/noticebridge-demo.mp4`.
 
-`01`–`05` were captured on the local QA route with its diagnostics outside the image; app behavior is identical to the ordinary route. `06`–`07` use the ordinary route. Publication screenshots and verification are recorded in the release state.
+`01`–`05` were captured on the local QA route with its diagnostics outside the image; app behavior is identical to the ordinary route. `06`–`07` use the ordinary route. `08-public-desktop.jpg`, `09-public-phone.jpg` and `10-public-video.jpg` verify the published application/video. `11-devpost-release.jpg` shows the saved competition page. Their precise verification is recorded in the release state.
 
 ## Preserved history
 

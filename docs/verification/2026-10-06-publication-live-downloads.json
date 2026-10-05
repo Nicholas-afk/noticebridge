@@ -1,0 +1,22 @@
+{
+  "application": "1.4.2",
+  "origin": "https://nicholas-afk.github.io/noticebridge/",
+  "actual_browser_downloads": 3,
+  "parser": "icalendar 6.3.2",
+  "start": "2026-10-09",
+  "exclusive_end": "2026-10-10",
+  "all_day": true,
+  "alarm": false,
+  "TZID": false,
+  "source_exact": true,
+  "reader_edit_byte_equal": true,
+  "review_progress_preserved": true,
+  "CRLF": true,
+  "max_line_bytes": 75,
+  "client_import": "unverified",
+  "files": {
+    "school-trip.ics": "136a262b9ea6c2dd94627d20349ba8cec8d873221b48c47c2546447aeed3a7e4",
+    "school-trip-plan.txt": "ddfd8ae5328a135601d10fd266cd89d4bf9be45c9e3ecdbab3165d6c90833482",
+    "edited-questions.txt": "e7fe2b3dafc27695221dbdfa3cdb8a03268d3d7512af1a39802ba644d21f1295"
+  }
+}

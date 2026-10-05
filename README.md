@@ -48,7 +48,7 @@ Release **1.4.2** refines review wording and presentation. Model **1.1.0**, extr
 
 See [evaluation conditions and unfavorable results](EVALUATION.md), [model artifacts and every error](MODEL_CARD.md), [architecture and data boundaries](ARCHITECTURE.md), [competition assessment](docs/competition-assessment.md), and [release record](NOTICEBRIDGE_STATE.md).
 
-Actual browser checks cover 320–1440 CSS-pixel widths, keyboard/source return, labels, focus, validation, changing-result announcements and exports. Twenty-five recorded axe checks from 1.4.1 had no violations. This is partial evidence. Actual screen-reader speech, physical phones, native browser zoom, OS date-picker interaction and calendar-client imports remain unverified. [Detailed accessibility/export audit](docs/accessibility-export-audit.md).
+Actual browser checks cover 320–1440 CSS-pixel widths, keyboard/source return, labels, focus, validation, changing-result announcements and exports. Twenty-five recorded axe checks from 1.4.1 had no violations; ten fresh 1.4.2 runs across nine unique width/view combinations also had no violations or incomplete results. This is partial evidence. Actual screen-reader speech, physical phones, native browser zoom, OS date-picker interaction and calendar-client imports remain unverified. [Detailed accessibility/export audit](docs/accessibility-export-audit.md).
 
 ![390 CSS-pixel phone layout](media/current/07-mobile.jpg)
 

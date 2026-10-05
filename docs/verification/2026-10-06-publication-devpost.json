@@ -1,0 +1,20 @@
+{
+  "demoLinks": [
+    {
+      "href": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4",
+      "text": "52-second captured walkthrough"
+    },
+    {
+      "href": "https://nicholas-afk.github.io/noticebridge/media/noticebridge-demo.mp4",
+      "text": "nicholas-afk.github.io"
+    }
+  ],
+  "galleryCount": 12,
+  "newCaptions": true,
+  "selectedGallery": "11 of 12",
+  "storyUpdated": true,
+  "url": "https://devpost.com/software/noticebridge",
+  "videoEmbed": "Devpost field supports YouTube/Vimeo; MP4 provided as story and Try it out links",
+  "submissionStatus": "Submitted, 4/4 after Save & continue",
+  "finalAgreementRepeated": false
+}
