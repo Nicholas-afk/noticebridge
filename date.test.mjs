@@ -147,3 +147,34 @@ for(const phrase of ['2026-02-28–30','2026-04-30 & 31'])test(`detect invalid s
   assert.ok(result.cards[0].flags.some(flag=>flag.includes('calendar date is invalid')));
   assert.equal(reminderDefaultDate(result.cards[0]),'');
 });
+for(const [phrase,invalid] of [['2026-04-30 or 31 May 2026',false],['2026-10-09 or 31 November 2026',true]])test(`a named ISO alternative keeps its own month: ${phrase}`,()=>{
+  const result=analyze(`Please attend on ${phrase}.`),card=result.cards[0];
+  assert.deepEqual(card.dates.map(d=>d.text),[phrase.slice(0,10),phrase.slice(14)]);
+  assert.equal(card.flags.some(flag=>flag.includes('calendar date is invalid')),invalid);
+  assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
+  assert.ok(card.flags.some(flag=>flag.includes('gives alternatives')));
+});
+for(const suffix of ['12 noon','12:30 pm','12 pm','12 people must attend'])test(`an ISO date does not swallow a following time or count: ${suffix}`,()=>{
+  const card=analyze(`Please attend on 2026-10-09, ${suffix}.`).cards[0];
+  assert.deepEqual(card.dates.map(d=>d.text),['2026-10-09']);
+  assert.equal(reminderDefaultDate(card),'2026-10-09');
+  assert.ok(!card.flags.some(flag=>flag.startsWith('This date phrase')));
+});
+for(const [phrase,warning] of [
+  ['9 October 2026 through 12','gives a range'],['October 9, 2026 or 12','gives alternatives'],
+  ['9 Oct. or 12 Oct. 2026','gives alternatives'],['9 Oct. through 12 Oct. 2026','gives a range'],
+  ['9 Oct. and/or 12 Oct. 2026','allows one or both'],
+])test(`trailing short or abbreviated endpoints cannot select the full endpoint: ${phrase}`,()=>{
+  const source=`Please register on ${phrase}.`,result=analyze(source);
+  assert.equal(result.sentences.length,1);
+  assert.ok(result.cards[0].flags.some(flag=>flag.includes(warning)));
+  assert.equal(reminderDefaultDate(result.cards[0]),'');assert.deepEqual(dateSuggestions(result.cards[0]),[]);
+  assert.ok(buildQuestions(result).includes(source));
+});
+for(const connector of ['or','through','and/or','&','–'])test(`a date connector at the start of the next line blocks both reminders: ${connector}`,()=>{
+  const result=analyze(`Please register on 9 October 2026\n${connector} 12 October 2026.`);
+  assert.ok(result.cards.every(card=>!reminderDefaultDate(card)));
+  assert.ok(result.cards.every(card=>dateSuggestions(card).length===0));
+  assert.ok(result.cards.every(card=>card.flags.some(flag=>flag.includes('line break'))));
+  for(const span of [...result.cards,...result.background])assert.equal(result.source.slice(span.start,span.end),span.text);
+});
