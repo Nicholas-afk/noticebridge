@@ -1,24 +1,12 @@
-import {validReferenceDate} from './engine.js?v=5d25f7074322';
+import {validReferenceDate,fullDateISO} from './engine.js?v=55dabd461f5d';
 
-const months=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 export function validReminderDate(value){
   return typeof value==='string' && validReferenceDate(value) && +value.slice(0,4)>=1000 && +value.slice(0,4)<=9998;
 }
 export function dateSuggestions(card){
   const found=[];
   for(const item of card.dates||[]){
-    let date=null;const text=item.text.trim();
-    if(/^\d{4}-\d{2}-\d{2}$/.test(text))date=text;
-    else if(/^(today|tomorrow)$/i.test(text))date=item.resolved;
-    else{
-      const dayFirst=text.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)\s+(\d{4})$/i);
-      const monthFirst=text.match(/^([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?[,]?\s+(\d{4})$/i);
-      if(dayFirst||monthFirst){
-        const day=dayFirst?dayFirst[1]:monthFirst[2],month=dayFirst?dayFirst[2]:monthFirst[1],year=(dayFirst||monthFirst)[3];
-        const m=months.indexOf(month.slice(0,3).toLowerCase());
-        if(m>=0)date=`${year}-${String(m+1).padStart(2,'0')}-${day.padStart(2,'0')}`;
-      }
-    }
+    const text=item.text.trim(),date=/^(today|tomorrow)$/i.test(text)?item.resolved:fullDateISO(text);
     if(validReminderDate(date) && !found.some(x=>x.date===date))found.push({date,source:item.text});
   }
   return found;
@@ -59,6 +47,7 @@ export function buildCalendar(result,entries,{now=new Date(),uidPrefix=globalThi
   lines.push('END:VCALENDAR');return lines.map(foldLine).join('\r\n')+'\r\n';
 }
 function questionFor(flag){
+  if(flag.includes('alternatives or a range'))return 'Which date should I use, or does this instruction apply to every date in the range?';
   if(flag.includes('relative date needs'))return 'On what date was this notice issued, and what calendar date does the relative deadline mean?';
   if(flag.includes('Relative date uses'))return 'Is the issue date I supplied correct for this notice?';
   if(flag.includes('year is not'))return 'Which year does this date refer to?';

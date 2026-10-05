@@ -8,7 +8,8 @@ export function splitSentences(text) {
   for(let i=0;i<text.length;i++) {
     const c=text[i], previous=text.slice(Math.max(start,i-8),i+1);
     if(c==='\n')emit(i+1);
-    else if(/[.!?]/.test(c) && (i===text.length-1 || /\s/.test(text[i+1])) && !/\b(?:Mr|Mrs|Ms|Dr|Prof|St|e\.g|i\.e)\.$/i.test(previous))emit(i+1);
+    else if(/[.!?]/.test(c) && (i===text.length-1 || /\s/.test(text[i+1])) && !/\b(?:Mr|Mrs|Ms|Dr|Prof|St|e\.g|i\.e)\.$/i.test(previous)
+      && !(/\b(?:Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.$/i.test(previous) && /^\s+\d/.test(text.slice(i+1))))emit(i+1);
   }
   emit(text.length); return spans;
 }
@@ -28,7 +29,19 @@ export function classify(text, model) {
 }
 
 const MONTHS='January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec';
-const DATE_RE=new RegExp(`\\b(?:\\d{1,2}(?:st|nd|rd|th)?\\s+(?:${MONTHS})(?:\\s+\\d{4})?|(?:${MONTHS})\\s+\\d{1,2}(?:st|nd|rd|th)?(?:,?\\s+\\d{4})?|\\d{4}-\\d{2}-\\d{2}|\\d{1,2}[/-]\\d{1,2}(?:[/-]\\d{2,4})?|(?:next\\s+|this\\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)|today|tomorrow|next week|within\\s+\\d+\\s+days?)\\b`,'gi');
+const MONTH_TOKEN=`(?:${MONTHS})\\b\\.?`;
+const DAY='\\d{1,2}(?:st|nd|rd|th)?\\b';
+const DAY_SEPARATOR='(?:\\s*[-–—]\\s*|\\s+(?:to|and|or)\\s+|\\s*,\\s*(?:(?:and|or)\\s+)?)';
+const DAY_LIST=`${DAY}(?:${DAY_SEPARATOR}${DAY})*`;
+const DATE_RE=new RegExp(`\\b(?:${DAY_LIST}\\s+${MONTH_TOKEN}(?:,?\\s+\\d{4}\\b)?|${MONTH_TOKEN}\\s+${DAY_LIST}(?:,?\\s+\\d{4}\\b)?|\\d{4}-\\d{2}-\\d{2}\\b|\\d{1,2}[/-]\\d{1,2}(?:[/-]\\d{2,4})?\\b|(?:next\\s+|this\\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b|today\\b|tomorrow\\b|next week\\b|within\\s+\\d+\\s+days?\\b)`,'gi');
+const NAMED_MONTH_RE=new RegExp(`\\b(?:${MONTHS})\\b`,'i');
+const GROUPED_DAY_RE=new RegExp(`\\b${DAY}${DAY_SEPARATOR}${DAY}`,'i');
+function namedDateParts(value){
+  const dayFirst=value.match(new RegExp(`^(\\d{1,2})(?:st|nd|rd|th)?\\s+(${MONTHS})\\.?[,]?\\s+(\\d{4})$`,'i'));
+  const monthFirst=value.match(new RegExp(`^(${MONTHS})\\.?\\s+(\\d{1,2})(?:st|nd|rd|th)?[,]?\\s+(\\d{4})$`,'i'));
+  if(!dayFirst && !monthFirst)return null;
+  return {day:dayFirst?dayFirst[1]:monthFirst[2],month:dayFirst?dayFirst[2]:monthFirst[1],year:(dayFirst||monthFirst)[3]};
+}
 const TIME_RE=/\b(?:\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)|noon|midnight)\b/gi;
 function matches(text,re){return [...text.matchAll(re)].map(x=>({text:x[0],start:x.index,end:x.index+x[0].length}));}
 function anchorRelative(value,anchor){
@@ -41,6 +54,18 @@ export function validReferenceDate(value){
   if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;
   const d=new Date(value+'T12:00:00Z');
   return !Number.isNaN(d.getTime()) && d.toISOString().slice(0,10)===value;
+}
+// Only a single, explicit, valid full date can become a reminder suggestion.
+// Grouped days, partial dates, numeric date formats and weekdays remain unresolved.
+export function fullDateISO(value){
+  if(typeof value!=='string')return null;
+  const text=value.trim();let date=text;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(text)){
+    const parts=namedDateParts(text);if(!parts)return null;
+    const month=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(parts.month.slice(0,3).toLowerCase())+1;
+    date=`${parts.year}-${String(month).padStart(2,'0')}-${parts.day.padStart(2,'0')}`;
+  }
+  return validReferenceDate(date)?date:null;
 }
 const actionCues=/^(?:please\s+)?(?:you\s+(?:must|need to|will need to)|parents?\s+(?:must|need to)|students?\s+(?:must|should)|do not|don't|return|submit|complete|bring|pay|register|reserve|hand|ensure|make sure|remember|sign|book|wear|collect|upload|renew|confirm|send|keep|wait|choose)\b/i;
 function titleFor(text,label){
@@ -76,10 +101,12 @@ export function analyzeNotice(text,model,{anchorDate=''}={}){
     if(kind==='background' && (dates.length||contacts.length)){kind='review';flags.push('This sentence contains a date or contact detail. Check whether it matters.');}
     for(const date of dates){
       date.resolved=anchorRelative(date.text,anchorDate);
-      if(/^\d{4}-\d{2}-\d{2}$/.test(date.text) && !validReferenceDate(date.text))flags.push('This calendar date is invalid. Confirm it with the sender.');
+      const named=NAMED_MONTH_RE.test(date.text);
+      if((/^\d{4}-\d{2}-\d{2}$/.test(date.text) || namedDateParts(date.text)) && !fullDateISO(date.text))flags.push('This calendar date is invalid. Confirm it with the sender.');
+      if(named && GROUPED_DAY_RE.test(date.text))flags.push('This date phrase lists alternatives or a range. Confirm which date applies to your step.');
       if(/\b(today|tomorrow)\b/i.test(date.text))flags.push(date.resolved?`Relative date uses your reference date (${anchorDate}).`:'A relative date needs the date this notice was issued.');
       else if(/\b(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|week|within)\b/i.test(date.text))flags.push('The exact calendar date is unclear. Confirm it with the sender.');
-      else if(/^\d{1,2}[/-]/.test(date.text))flags.push('The day/month order may be ambiguous. Confirm the date format.');
+      else if(!named && /^\d{1,2}[/-]/.test(date.text))flags.push('The day/month order may be ambiguous. Confirm the date format.');
       else if(!/\b\d{4}\b/.test(date.text))flags.push('The year is not stated.');
     }
     if(kind==='action' && !dates.length)flags.push('No date is stated in this instruction. Check the rest of the notice.');
