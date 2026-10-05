@@ -35,11 +35,16 @@ const DAY_SEPARATOR='(?:\\s*[-–—&/]\\s*|\\s+(?:to|through|until|till|and/or|
 const DAY_LIST=`${DAY}(?:${DAY_SEPARATOR}${DAY})*`;
 const YEAR_LIST=`\\d{4}\\b(?:${DAY_SEPARATOR}\\d{4}\\b)*`;
 const ISO_DATE='\\d{4}-\\d{2}-\\d{2}\\b';
-const ISO_LIST=`${ISO_DATE}(?:${DAY_SEPARATOR}(?:${ISO_DATE}|${DAY}))*`;
-const DATE_RE=new RegExp(`\\b(?:${DAY_LIST}\\s+${MONTH_TOKEN}(?:,?\\s+${YEAR_LIST})?|${MONTH_TOKEN}\\s+${DAY_LIST}(?:,?\\s+${YEAR_LIST})?|${ISO_LIST}|\\d{1,2}[/-]\\d{1,2}(?:[/-]\\d{2,4})?\\b|(?:next\\s+|this\\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b|today\\b|tomorrow\\b|next week\\b|within\\s+\\d+\\s+days?\\b)`,'gi');
+// A shortened endpoint must end like a date. Do not consume the day of a
+// following named date, a clock time, or a number-led statement.
+const SHORT_DAY=`${DAY}(?=$|[.!?;)]|${DAY_SEPARATOR}(?:${ISO_DATE}|${DAY})|\\s+(?:at|by|on|with|before|after)\\b)`;
+const SHORT_TAIL=`(?:${DAY_SEPARATOR}${SHORT_DAY})*`;
+const NAMED_DATE=`(?:${DAY_LIST}\\s+${MONTH_TOKEN}(?:,?\\s+${YEAR_LIST})?|${MONTH_TOKEN}\\s+${DAY_LIST}(?:,?\\s+${YEAR_LIST})?)`;
+const ISO_LIST=`${ISO_DATE}(?:${DAY_SEPARATOR}(?:${ISO_DATE}|${SHORT_DAY}))*`;
+const DATE_RE=new RegExp(`\\b(?:${NAMED_DATE}${SHORT_TAIL}|${ISO_LIST}|\\d{1,2}[/-]\\d{1,2}(?:[/-]\\d{2,4})?\\b|(?:next\\s+|this\\s+)?(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b|today\\b|tomorrow\\b|next week\\b|within\\s+\\d+\\s+days?\\b)`,'gi');
 const NAMED_MONTH_RE=new RegExp(`\\b(?:${MONTHS})\\b`,'i');
-const DAY_FIRST_GROUP_RE=new RegExp(`^(${DAY_LIST})\\s+(${MONTHS})\\.?[,]?(?:\\s+(${YEAR_LIST}))?$`,'i');
-const MONTH_FIRST_GROUP_RE=new RegExp(`^(${MONTHS})\\.?\\s+(${DAY_LIST})[,]?(?:\\s+(${YEAR_LIST}))?$`,'i');
+const DAY_FIRST_GROUP_RE=new RegExp(`^(${DAY_LIST})\\s+(${MONTHS})\\.?[,]?(?:\\s+(${YEAR_LIST}))?(${SHORT_TAIL})$`,'i');
+const MONTH_FIRST_GROUP_RE=new RegExp(`^(${MONTHS})\\.?\\s+(${DAY_LIST})[,]?(?:\\s+(${YEAR_LIST}))?(${SHORT_TAIL})$`,'i');
 const DATE_JOIN_RE=new RegExp(`^${DAY_SEPARATOR}$`,'i');
 const DATE_RELATION_NOTES={
   list:'This date phrase lists multiple dates. Confirm which dates apply to this step.',
@@ -72,8 +77,9 @@ function tokenConnectors(value,pattern){
 function dateGroup(value){
   const dayFirst=value.match(DAY_FIRST_GROUP_RE),monthFirst=value.match(MONTH_FIRST_GROUP_RE);
   if(dayFirst || monthFirst){
-    const days=dayFirst?dayFirst[1]:monthFirst[2],month=dayFirst?dayFirst[2]:monthFirst[1],years=(dayFirst||monthFirst)[3]||'';
-    return {relations:dateRelations([...tokenConnectors(days,DAY),...tokenConnectors(years,'\\d{4}\\b')]),days,month,years};
+    const days=dayFirst?dayFirst[1]:monthFirst[2],month=dayFirst?dayFirst[2]:monthFirst[1],years=(dayFirst||monthFirst)[3]||'',tail=(dayFirst||monthFirst)[4];
+    const tailConnectors=[...tail.matchAll(new RegExp(`(${DAY_SEPARATOR})${DAY}`,'gi'))].map(match=>match[1]);
+    return {relations:dateRelations([...tokenConnectors(days,DAY),...tokenConnectors(years,'\\d{4}\\b'),...tailConnectors]),days:days+tail,month,years};
   }
   if(new RegExp(`^${ISO_DATE}`).test(value))return {relations:dateRelations(tokenConnectors(value,`${ISO_DATE}|${DAY}`)),iso:true};
   return {relations:[]};
@@ -102,10 +108,13 @@ const DAY_BEFORE_MONTH_RE=new RegExp(`\\b${DAY}\\s+(?:${MONTH_ABBREVIATIONS})\\.
 const DATE_CONTINUATION='(?=$|[^A-Za-z0-9\\s]|\\s+(?:at|by|on|from|to|through|until|till|and|or|with|in|for|before|after)\\b)';
 const YEAR_CONTINUATION_RE=new RegExp(`^\\s+${YEAR_LIST}${DATE_CONTINUATION}`,'i');
 const DAY_CONTINUATION_RE=new RegExp(`^\\s+${DAY_LIST}(?:,?\\s+${YEAR_LIST})?${DATE_CONTINUATION}`,'i');
+const ABBREVIATED_JOIN_RE=new RegExp(`^${DAY_SEPARATOR}(?:${DAY_LIST}\\s+${MONTH_TOKEN}|${ISO_DATE}|${SHORT_DAY})`,'i');
 function monthAbbreviationContinues(text,start,index){
   const prefix=text.slice(Math.max(start,index-16),index+1);
   if(!ABBREVIATION_RE.test(prefix))return false;
-  return (DAY_BEFORE_MONTH_RE.test(prefix)?YEAR_CONTINUATION_RE:DAY_CONTINUATION_RE).test(text.slice(index+1));
+  const suffix=text.slice(index+1);
+  return (DAY_BEFORE_MONTH_RE.test(prefix)?YEAR_CONTINUATION_RE:DAY_CONTINUATION_RE).test(suffix)
+    || (DAY_BEFORE_MONTH_RE.test(prefix) && ABBREVIATED_JOIN_RE.test(suffix));
 }
 const LINE_DATE_END_RE=/\b\d{1,4}(?:st|nd|rd|th)?(?:\s*[-–—&/,]|\s+(?:to|through|until|till|and\/or|and|or))\s*$/i;
 function namedDateParts(value){
@@ -160,7 +169,11 @@ export function analyzeNotice(text,model,{anchorDate=''}={}){
   const crossLineDates=new Set();
   sentences.forEach((span,index)=>{
     const previous=sentences[index-1];
-    if(previous && /\n/.test(text.slice(previous.end,span.start)) && LINE_DATE_END_RE.test(previous.text) && matches(span.text,DATE_RE).some(date=>date.start===0)){
+    if(!previous || !/\n/.test(text.slice(previous.end,span.start)))return;
+    const previousDates=matches(previous.text,DATE_RE),nextDates=matches(span.text,DATE_RE);
+    const startsWithJoinedDate=nextDates.some(date=>DATE_JOIN_RE.test(' '+span.text.slice(0,date.start)));
+    const previousEndsWithDate=previousDates.some(date=>date.end===previous.text.length);
+    if((LINE_DATE_END_RE.test(previous.text) && nextDates.some(date=>date.start===0)) || (previousEndsWithDate && startsWithJoinedDate)){
       crossLineDates.add(index-1);crossLineDates.add(index);
     }
   });
