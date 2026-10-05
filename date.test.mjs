@@ -178,3 +178,20 @@ for(const connector of ['or','through','and/or','&','–'])test(`a date connecto
   assert.ok(result.cards.every(card=>card.flags.some(flag=>flag.includes('line break'))));
   for(const span of [...result.cards,...result.background])assert.equal(result.source.slice(span.start,span.end),span.text);
 });
+for(const phrase of ['2026-02-28 or 30–31 May 2026','28 February 2026 or 30–31 May 2026'])test(`a following named day group keeps its own month: ${phrase}`,()=>{
+  const result=analyze(`Please register on ${phrase}.`),card=result.cards[0];
+  assert.equal(card.dates.length,2);assert.equal(card.dates[1].text,'30–31 May 2026');
+  assert.ok(!card.flags.some(flag=>flag.includes('calendar date is invalid')));
+  assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
+});
+test('a month-first abbreviated endpoint stays in the alternative sentence',()=>{
+  const source='Please register on 9 Oct. or Oct. 12, 2026.',result=analyze(source);
+  assert.equal(result.sentences.length,1);assert.equal(result.cards[0].dates.length,2);
+  assert.ok(result.cards[0].flags.some(flag=>flag.includes('gives alternatives')));
+  assert.ok(buildQuestions(result).includes(source));assert.equal(reminderDefaultDate(result.cards[0]),'');
+});
+for(const phrase of ['9 October 2026 or 12, at 10 am','2026-10-09 or 12, at 10 am'])test(`punctuation after a short endpoint does not restore a default: ${phrase}`,()=>{
+  const card=analyze(`Please register on ${phrase}.`).cards[0];
+  assert.ok(card.flags.some(flag=>flag.includes('gives alternatives')));
+  assert.equal(reminderDefaultDate(card),'');assert.deepEqual(dateSuggestions(card),[]);
+});
