@@ -1,5 +1,5 @@
-import {analyzeNotice,validReferenceDate} from './engine.js?v=d0e95a9d0305';
-import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=2bdb4fd5e6ea';
+import {analyzeNotice,validReferenceDate} from './engine.js?v=319b40d16795';
+import {dateSuggestions,reminderDefaultDate,validReminderDate,buildCalendar,buildQuestions} from './followup.js?v=bfc49bba1a67';
 const $=id=>document.getElementById(id);
 const examples={
   trip:{date:'2026-10-05',text:'Dear parents and carers,\n\nOur Year 6 museum visit will take place on 14 October 2026. The bus leaves school at 9 am and returns at 3 pm.\n\nPlease return the signed consent form to your teacher by 9 October 2026. Pay the $12 trip fee through the school portal by 9 October 2026. Bring a packed lunch and a bottle of water. Do not bring cash on the day of the visit.\n\nFor questions or accessibility needs, email trips@example.org.\n\nThank you for your support.'},
@@ -157,7 +157,7 @@ try{
   const response=await fetch('./model.json?v=a3e5c5722520');if(!response.ok)throw new Error('Model file unavailable.');model=await response.json();
   $('analyze-button').disabled=false;$('analyze-button').textContent='Find instructions';
   document.querySelectorAll('[data-example]').forEach(button=>button.disabled=false);
-  $('model-facts').textContent=`TF–IDF + logistic regression · ${model.training_examples} authored training sentences · ${model.holdout_examples} previously inspected synthetic development examples · ${Math.round(model.accuracy*1000)/10}% sentence-category accuracy on that test set. ${model.legacy_action_errors} of ${model.legacy_action_support} development instructions were misclassified. These scores are not real-world validation. The model audit also reports harder examples and regressions.`;
+  $('model-facts').textContent=`TF–IDF + logistic regression · ${model.training_examples} authored training sentences · ${model.holdout_examples} previously inspected synthetic development examples · ${Math.round(model.accuracy*1000)/10}% sentence-category accuracy on that development set. ${model.legacy_action_errors} of ${model.legacy_action_support} development instructions were misclassified. These scores are not real-world validation. The model audit also reports harder examples and regressions.`;
   await registerTools();
 }catch(error){$('analyze-button').textContent='Model unavailable';$('input-error').textContent='The local model could not load. Refresh the page to try again.';}
 count();

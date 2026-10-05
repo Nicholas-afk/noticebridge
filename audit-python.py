@@ -37,7 +37,12 @@ for name, path in [("baseline", "docs/model-audit/baseline/"), ("candidate", "")
             predicted = model.predict(vectorizer.transform(row["text"] for row in rows))
             probabilities = model.predict_proba(vectorizer.transform(row["text"] for row in rows))
             report["candidate_predictions"].extend({**row, "split": split, "prediction": str(pred), "score": float(max(prob))} for row, pred, prob in zip(rows, predicted, probabilities))
-report["sha256"] = {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in ["audit-cases.json", "training-additions.json", "dataset.json", "evaluation.json", "dist/model.json", "docs/model-audit/baseline/model.json", "docs/model-audit/baseline/dataset.json", "docs/model-audit/baseline/evaluation.json", "docs/model-audit/baseline/engine.js"]}
+    if name == "candidate":
+        probes = ["Please bring lunch水 for Friday.", "Ask Noël for advice.", "Please notify Amélie.", "Please contact Noël.", "Noël will bring lunch.", "Please bring José's notebook.", "Please bring lunch中文.", "Please bring 中文lunch."]
+        predicted = model.predict(vectorizer.transform(probes))
+        probabilities = model.predict_proba(vectorizer.transform(probes))
+        report["tokenizer_probes"] = [{"text": text, "prediction": str(pred), "score": float(max(prob))} for text, pred, prob in zip(probes, predicted, probabilities)]
+report["sha256"] = {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in ["audit-cases.json", "training-additions.json", "dataset.json", "evaluation.json", "dist/model.json", "docs/model-audit/baseline/model.json", "docs/model-audit/baseline/dataset.json", "docs/model-audit/baseline/evaluation.json", "docs/model-audit/baseline/engine.js", "dist/engine.js", "train.py", "audit.mjs", "audit-python.py"]}
 (ROOT / "docs/model-audit/python-audit.json").write_text(json.dumps(report, indent=2) + "\n")
 print("Both exports exactly match re-fitted scikit-learn parameters; zero exact/normalized overlap in all six comparisons.")
 for name, splits in report["overlap"].items():

@@ -1643,6 +1643,48 @@
       "score": 0.6142144553841032
     }
   ],
+  "tokenizer_probes": [
+    {
+      "text": "Please bring lunch\u6c34 for Friday.",
+      "prediction": "action",
+      "score": 0.681099437419679
+    },
+    {
+      "text": "Ask No\u00ebl for advice.",
+      "prediction": "contact",
+      "score": 0.614357980425266
+    },
+    {
+      "text": "Please notify Am\u00e9lie.",
+      "prediction": "action",
+      "score": 0.634042961813246
+    },
+    {
+      "text": "Please contact No\u00ebl.",
+      "prediction": "contact",
+      "score": 0.4004600017725076
+    },
+    {
+      "text": "No\u00ebl will bring lunch.",
+      "prediction": "event",
+      "score": 0.5353927442919579
+    },
+    {
+      "text": "Please bring Jos\u00e9's notebook.",
+      "prediction": "action",
+      "score": 0.7299527872546729
+    },
+    {
+      "text": "Please bring lunch\u4e2d\u6587.",
+      "prediction": "action",
+      "score": 0.7299527872546729
+    },
+    {
+      "text": "Please bring \u4e2d\u6587lunch.",
+      "prediction": "action",
+      "score": 0.7299527872546729
+    }
+  ],
   "sha256": {
     "audit-cases.json": "65c604eed28aa6060a102cce8efc39a645ba476d008436e27a3aabbd8404fa8d",
     "training-additions.json": "3aeb834a79de55e8040255efcfb8f6c0a9a1cf17cd8b2eee3ae19e566292ef4b",
@@ -1652,6 +1694,10 @@
     "docs/model-audit/baseline/model.json": "b85c00fb17606983d7b2df9f9e293b2a7b8476a7a5035ae72af4ca5336123c16",
     "docs/model-audit/baseline/dataset.json": "9a689bc44ed3279c7e76b63e1eaaaa5ddcc05e9a8d03d4957a57d46afd8d1a86",
     "docs/model-audit/baseline/evaluation.json": "d71cc7e2671bc0a345a586dbdb5e41639bb1b3a4430457032d0c5c9810ad1081",
-    "docs/model-audit/baseline/engine.js": "de007f231b9f5e5c047a29acff57a3b101a6a2b7f75f48492d727b5e98167bda"
+    "docs/model-audit/baseline/engine.js": "de007f231b9f5e5c047a29acff57a3b101a6a2b7f75f48492d727b5e98167bda",
+    "dist/engine.js": "319b40d167955777fce7f2ebb27b75ad36cf9cc6f6bb73905f70040476696e39",
+    "train.py": "2f0c9ab08c357e49f02c6f73502ae2d5c0265f9629dc5c5fb77a32c22aabb17e",
+    "audit.mjs": "c21a35bf626f4f4a8c9c73ee418390ce0356921e9ef34e6df0285c112f60808d",
+    "audit-python.py": "f5a84dd3987319a738fd97402912ef717a1a78cb4831d542dff705ea19b87e4f"
   }
 }

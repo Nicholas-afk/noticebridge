@@ -8,6 +8,10 @@ test('browser inference matches re-fitted Python scores on all 93 audited inputs
   assert.equal(audit.candidate_predictions.length,93);
   for(const row of audit.candidate_predictions){const pred=classify(row.text,model);assert.equal(pred.label,row.prediction,row.text);assert.ok(Math.abs(pred.score-row.score)<1e-10,row.text);}
 });
+test('accented names and mixed-script boundaries retain Python/browser tokenizer parity',()=>{
+  const audit=JSON.parse(fs.readFileSync(new URL('./docs/model-audit/python-audit.json',import.meta.url)));
+  for(const row of audit.tokenizer_probes){const pred=classify(row.text,model);assert.equal(pred.label,row.prediction,row.text);assert.ok(Math.abs(pred.score-row.score)<1e-10,row.text);}
+});
 test('passive and conditional instructions remain in the instruction checklist',()=>{
   for(const text of ['Lunchboxes and water bottles are to be packed.','Those wishing to join are asked to complete the booking.']){
     const plan=analyzeNotice(text,model);

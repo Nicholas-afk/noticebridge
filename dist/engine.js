@@ -15,7 +15,9 @@ export function splitSentences(text) {
 }
 
 export function classify(text, model) {
-  const words=text.toLowerCase().match(/\b[a-zA-Z][a-zA-Z]+\b/g)||[];
+  // Match scikit-learn's Unicode word boundaries without treating accented
+  // names as ASCII prefixes (for example, Noël must not add the feature "no").
+  const words=text.toLowerCase().match(/(?<![\p{L}\p{N}_])[a-zA-Z][a-zA-Z]+(?![\p{L}\p{N}_])/gu)||[];
   const terms=[...words,...words.slice(0,-1).map((w,i)=>w+' '+words[i+1])];
   const counts=new Map();
   for(const term of terms){if(Object.hasOwn(model.vocabulary,term)){const i=model.vocabulary[term];counts.set(i,(counts.get(i)||0)+1);}}

@@ -1,54 +1,53 @@
 # NoticeBridge state
 
-Checked 6 October 2026, Asia/Hong_Kong. This checkpoint preserves the previously completed project and finishes the date-review work.
+Checked 6 October 2026, Asia/Hong_Kong. Model-audit candidate; independent review and publication are pending. Completed date fixes are preserved.
 
-## Repository and recovery
+## Recovery and releases
 
-- Primary repository: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/outputs/noticebridge`.
-- Public source: https://github.com/Nicholas-afk/noticebridge
-- Demo: https://nicholas-afk.github.io/noticebridge/
-- Recovered main and origin/main were clean at `57f68fc301bbcc589322b94b5fbe61cff76f50dd`, with no unpublished changes or pending live review. Both earlier reviewers had completed; their previous fixes were preserved.
-- Prior verified release is preserved by the pushed annotated tag **v1.2.0** at `57f68fc`.
-- Current runtime implementation commit: **`5c3e3eb2e46840346d7599286b08a2c3627ff077`**. Version **1.3.0** adds the reviewed date fixes. The published release/source commit is **`d15d926da45f4602a664ae1b522c046daaaa8488`**, preserved by the pushed annotated tag **v1.3.0**. Subsequent documentation commits add live proof; use the containing Git commit for the exact HEAD of this state checkpoint.
-- Browser recovery preserved the user's public app tab and completed entry. Fictional QA used a separate local tab and isolated worktree.
+- Primary repo: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/outputs/noticebridge`.
+- Isolated audit worktree: `/Users/nicholastanner/Documents/Codex/2026-10-05/ple/work/noticebridge-model-audit`, branch `model-audit-1.4`. Native worktree creation cannot resolve this nested repository; the previously established Git fallback was reused.
+- Recovered clean main/origin: **b07d1d2bc6410934cff8a0caf9a295082b10a6ad**. No unpublished work or pending date-review finding was lost.
+- Preserved stable **v1.3.0**: **d15d926da45f4602a664ae1b522c046daaaa8488**; prior v1.2.0 remains tagged. Historical state: `docs/verification/NOTICEBRIDGE_STATE_1.3.0.md`.
+- Candidate implementation: **a0df927e8f6e41ba343bb198fe08f8fa1b216c94**, app **1.4.0**, model **1.1.0**. Resolve the containing Git revision for the exact documentation HEAD.
+- Audit cases and original artifacts frozen before retraining at **c9c99cf**. Baseline model/source/engine/data/evaluation are retained in `docs/model-audit/baseline/`.
+- Source: https://github.com/Nicholas-afk/noticebridge ; demo: https://nicholas-afk.github.io/noticebridge/ ; entry: https://devpost.com/software/noticebridge . User's existing browser tab was preserved; QA used a separate local tab.
 
-## Implemented behavior
+## Competition and improvement decision
 
-- `9 & 12 October` remains a list; `9 or 12 October` remains alternatives; `9 and/or 12 October` remains one-or-both wording; `9 through 12 October` remains a range. Slashes receive a question about their meaning. Mixed groups retain the relevant questions rather than being reduced to one endpoint.
-- Grouped days, grouped years, joined full dates, shortened ISO endpoints (`2026-10-09–12`) and shortened named endpoints (`9 October 2026 through 12`) remain unresolved. Date controls start blank and confirmation remains unchecked.
-- Named endpoint groups keep their own months: `28 February 2026 or 30–31 May 2026` does not invent February 30. Explicit invalid components are flagged; missing years are never supplied for reminders.
-- Day-first and month-first grouped month abbreviations remain in one sentence. Number-led new statements cannot provide a missing year. A connector at the end of a line or beginning of the next blocks suggestions on both sides and preserves separate source spans.
-- Noon, clock times, ordinary counts, formatted counts and decimals following a full date are not consumed as shortened days.
-- The same review flags feed checklist warnings, reminder rows, question drafts, checklist export and calendar descriptions. Exact source quotations remain unchanged.
-- Saving still requires a valid reader-chosen date and explicit confirmation. Editing the date withdraws the reminder and unchecks confirmation. Stale input blocks review marks and exports; refreshing or clearing removes previous reminders, review marks and edited drafts. View changes preserve them while the source is unchanged.
-- No model retraining, new dependency, cloud inference, inferred event time, automatic calendar-account write, or saved notice history was introduced.
+- Official overview/structured schedule: **9 October 2026, 11:45 p.m. PDT / 10 October, 2:45 p.m. Hong Kong**. Rules body conflicts, giving **10 October, 9 p.m. PDT**. Operate against the earlier cutoff; discrepancy remains unresolved.
+- Rubric: implementation 30%, innovation 20%, impact 20%, UX 15%, presentation 15%. Devpost permits submission edits until the deadline; subsequent portfolio edits do not update the submitted competition version. Precise official sources and competitor assessment: `docs/competition-assessment.md`.
+- Task extraction/citations already exist in Gemini, Copilot and Goblin Tools. NoticeBridge's modest distinction is a local, account-free, exact-source notice workflow with conservative reminders. No commercial-tool superiority or novel ML architecture claim is made.
+- Immediate consequential weakness: varied wording and excessive category-review workload. The chosen improvement diversifies the current classifier and its evaluation, avoiding new integrations. Independent real-notice/reader evidence remains the strongest unresolved weakness.
 
-## Verification evidence
+## Implementation and results
 
-- Full `npm test` passed: 48 Python/JavaScript prediction and score comparisons, 8 source-span fixtures, input and negation checks, follow-up/calendar rejection and serialization checks, and **100 date regression tests**. New failure cases were observed before their fixes.
-- `npm run build` and `git diff --check` passed. Asset fingerprints cover matching engine, model, follow-up and app dependencies.
-- Independent read-only review ended **ready to merge at `5c3e3eb`**, with 37 additional production-code probes and no remaining actionable findings in the supported grammar. All substantive findings were fixed, including the regressions discovered during review.
-- **24 actual-browser cases** checked rendered source equality, date values, unchecked confirmations, disabled save buttons, visible warnings and matching clarification questions locally and again on the published GitHub site. Evidence: `docs/verification/2026-10-06-date-browser.json` and `docs/verification/2026-10-06-live-browser.json`.
-- Browser interaction verified manual date entry alone cannot save; confirmation enables saving; editing withdraws the saved reminder; review marks and edited questions persist across views; source highlighting is exact; stale inputs disable controls; refresh and Clear reset state.
-- Actual downloaded checklist retained `[x]` review state, exact source, distinct warnings and its reader-confirmed reminder. Actual calendar download retained that source and warning, real CRLF bytes, an all-day start of 2026-10-09 and exclusive end of 2026-10-10. Calendar-client import behavior is not claimed.
+- Added 84 authored language-diversity training examples: passive requirements, conditional requests, operational notifications, exemptions, historical distractors. Total 329. Same TF–IDF/logistic architecture, balanced weights, C=4, seed 23.
+- Retained .55 score/minimum-feature review gates. Added a heuristic unfamiliar-wording note below 50% distinct ASCII-word vocabulary coverage; it is not calibrated confidence. Independent review reproduced an accented-name boundary mismatch; browser Unicode-aware boundaries now match Python without retraining. Eight new accent/mixed-script probes pass. Fixed inherited-property lookups: `constructor` no longer corrupts scores.
+- Original 245-example training reproduced model/data/evaluation **byte for byte**. No exact/normalized train/check overlap in either model; semantic/author/domain overlap remains. Original highest nearest-neighbour cosine .754. Full hashes, neighbours and re-fit checks: `docs/model-audit/python-audit.json`.
+- Legacy categories **44/48→45/48**, raw action recall **10/12→11/12**. Two previously correct event/contact categories regress; both remain Review. The bookings requirement stays misclassified and remains Review.
+- Frozen 40-input authored challenge: categories **30/40→35/40**, raw action recall **14/20→18/20**, Instructions listings **2/20→10/20**, category-review inputs **31/40→19/40**. Raw action precision worsens **93.3%→85.7%**; all 3 false raw action predictions remain Review, none confidently listed.
+- Five developer-selected public instruction excerpts: raw action labels **4/5→5/5**, Instructions listings **2/5→3/5**. Instructions only, three organizations, tiny convenience sample; cannot establish precision/population accuracy/reader benefit.
+- Binary anchored instruction rule detects 5/12 legacy, 2/20 authored, 2/5 public actions, with no sample false positives. No checked action was hidden in Background by either app pipeline.
+- All checks remain development/convenience evidence; failure patterns informed new training. Every prediction/error/condition and unfavorable result: `docs/model-audit/comparison.json`, `MODEL_CARD.md`. The candidate is preferred for measured workflow improvement with conservative gating, not an unsupported real-world accuracy claim.
+
+## Verification
+
+- Full `npm test`, build and whitespace checks pass: original parity/span/input/negation checks, follow-up/calendar safeguards, 100 date regressions, 8 model tests including **93 Python/JavaScript labels/scores within 1e-10**.
+- Both exported models exactly match re-fitted scikit-learn vocabulary/IDF/weights/intercepts, Python 3.14/scikit-learn 1.9.0. Meaningful regressions failed before their fixes. One initial confidence expectation was too strong; signed-consent wording remains explicitly tested as Review.
+- **45 actual local-browser inputs** passed source/category checks: `docs/verification/2026-10-06-model-browser.json`.
+- Actual workflow verified grouped dates blank/unchecked, distinct warnings/questions, date-only save rejection, confirmed save, exact source highlighting, edited draft/review marks preserved across views, date-edit withdrawal, stale-source blocking, refreshed-analysis reset and Clear reset.
+- Actual downloaded checklist retains review mark, chosen date, exact source and unfamiliar-wording warning; downloaded questions equal the reader's edited draft. Evidence: `docs/verification/2026-10-06-model-workflow.json`.
+- Extraction, conditions, negation, date distinctions and user confirmations are preserved. Independent review and live 1.4.0 checks are pending.
 
 ## Deployment and Devpost
 
-- Previous Pages deployment `4ada9ccdfc85c7cf10597961acb1927963ac642c` was verified built without error during recovery.
-- **1.3.0 is published and verified live.** Pages deployment commit **`2f98b716de338a21b196f9473721ef673c704745`** has status **built**, with no reported error. All 24 live cases passed. Saving and date-edit withdrawal also passed on the published app; all three grouped phrases started blank and unchecked. Actual viewport was 1,280 × 720 CSS pixels, with no horizontal overflow.
-- Public captures: `media/noticebridge-date-meaning.jpg` shows the source beside its list warning; `media/noticebridge-grouped-dates.jpg` shows the three distinct warnings. Both are actual browser captures of fictional notices. Previous captures remain preserved.
-- Devpost entry: https://devpost.com/software/noticebridge
-- Entry ID: `1216996-noticebridge`; entrant `ncywtanner` / Nicholas Tanner.
-- The management page visibly confirmed **Submitted, 4/4 steps done**. The prior final submission and its checked, disabled agreement are preserved. Routine project-story updates remain available until the deadline.
-- Story source: `SUBMISSION.md`. The routine story update was saved and publicly verified: it explains all date distinctions and **100 additional date cases**. A genuine live 1.3.0 screenshot and caption were added as the ninth gallery image; earlier media were preserved. The management page still reports **Submitted, 4/4 steps done**. No final submission or agreement was repeated.
-- Local Devpost proof: `../noticebridge-1-3-submitted.jpg` and `../noticebridge-1-3-entry.jpg`. The source archive `../noticebridge-source.zip` is refreshed from tracked public files; private/internal directories are excluded.
+- Public release remains **1.3.0**, Pages **2f98b716de338a21b196f9473721ef673c704745**, freshly rechecked built without error. Candidate has not been published.
+- Management page freshly confirms **Submitted, 4/4**, entrant `ncywtanner`, entry `1216996-noticebridge`. Routine details editable; final submission/agreement is preserved and will not be repeated.
+- Proposed updated story is in `SUBMISSION.md`, not yet saved on Devpost. Preserve 9 gallery images; qualify original classifier chart as historical when updating.
 
 ## Remaining weaknesses and next actions
 
-- No essential user-participation blocker is currently open.
-- English pattern-based date extraction remains conservative and incomplete. Descending ranges and weekday/date consistency are not semantically checked. Unusual punctuation or paragraph dependencies can still require manual source review.
-- One reminder is supported per excerpt; readers may need to choose an appropriate day for a multi-day instruction. The app never confirms that choice for them.
-- Classification metrics remain a small authored synthetic benchmark: 44/48 categories (91.7%), 10/12 instruction recall (83.3%). No real-world accuracy, calibrated confidence, user study or deadline-reduction claim is made.
-- Phone layout, screen-reader use and calendar-client imports remain unverified. Desktop browser behavior has been exercised at actual 1,280-pixel CSS width without horizontal overflow.
-- Next useful work: consented reader/staff testing; independent annotation of de-identified real notices; a larger holdout and confidence calibration; mobile and screen-reader accessibility; calendar-client import checks; an authentic recorded demo.
-- The requested review/release work is complete. No unpublished runtime changes or pending review remain. Future continuation should start by checking this state, Git HEAD/status, Pages status and the existing submitted Devpost entry. Preserve both release tags and the user’s browser tab. Do not reopen fixed review findings without a new reproduction.
+- No essential user-participation blocker prevents current work. Official deadline discrepancy and entrant eligibility are unverified; this audit makes no eligibility representation.
+- Priority: independently annotated de-identified notices, consented reader tests, annotation disagreement, calibration, missed-action/review-burden measures. No user study, accessibility certification or measured deadline/reading-effort benefit exists.
+- English lexical sentence model; no OCR/translation/document understanding. Vocabulary gate can overflag names and miss familiar-word ambiguity. Conservative English dates remain incomplete; one reminder per excerpt, no inferred time/alarm. Mobile, screen-reader and calendar-client import verification remain open.
+- Finish independent review, fix substantive findings, preserve candidate tag, publish, verify live behavior, save routine Devpost story/historical caption, then record exact release/deployment/review status, mirror state and refresh source archive.

@@ -44,5 +44,15 @@
     "draft": "Hello,\nI would like to check a few details in your notice.\n\n1. The notice says:\nThose wishing to join are asked to complete the booking.\nIs there a deadline or a particular day for this instruction?\n\n2. The notice says:\nLunchboxes and water bottles are to be packed.\nIs there a deadline or a particular day for this instruction?\n\n3. The notice says:\nReturn the slip on 9 & 12 October 2026.\nWhich of the listed dates apply to this step: all of them, or only some?\n\n4. The notice says:\nReturn the slip on 9 through 12 October 2026.\nWhen within this range should I act: throughout it, on a particular day, or by its end?\n\n5. The notice says:\nReturn the slip on 9 and/or 12 October 2026.\nShould this step apply to one or both dates, and which dates?\n\n6. The notice says:\nPlease bring zargle zindle blorx sneevle vorple.\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\n7. The notice says:\nBring a hat.\nDoes this sentence require me to do anything, and are there any conditions I should check?\n\nThank you.\n\nDraft prepared locally by NoticeBridge. Review and edit it before sharing; the app does not send messages.",
     "reminders": "0 reminders saved",
     "status": "0 of 7 reviewed"
+  },
+  "downloads_verified": {
+    "plan": "Actual noticebridge-plan (3).txt: reviewed mark, reader-confirmed 2026-10-09 date, original source and unfamiliar-wording warning present.",
+    "questions": "Actual noticebridge-questions (1).txt equals the reader-edited draft exactly."
+  },
+  "cleared": {
+    "draft": "",
+    "resultsHidden": true,
+    "source": "",
+    "status": "No notice yet"
   }
 }

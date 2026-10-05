@@ -64,7 +64,7 @@ npm run build
 npm test
 ```
 
-Training uses word unigrams/bigrams, sublinear TF, IDF, L2 normalization, balanced weights, logistic regression C=4.0 and seed 23. `audit-python.py` verifies both exported models against exact re-fitted scikit-learn parameters, saves hashes and overlap checks. `audit.mjs` saves all baseline/current predictions and workflow counts. Browser/Python labels and scores agree on all 93 inputs within 1e-10. Existing span-integrity, input, negation, follow-up/calendar tests and 100 date regressions remain required. Seven model tests cover parity, varied instructions, uncertainty, historical wording and the inherited-property bug.
+Training uses word unigrams/bigrams, sublinear TF, IDF, L2 normalization, balanced weights, logistic regression C=4.0 and seed 23. `audit-python.py` verifies both exported models against exact re-fitted scikit-learn parameters, saves hashes and overlap checks. `audit.mjs` saves all baseline/current predictions and workflow counts. Browser/Python labels and scores agree on all 93 evaluation inputs and eight additional accent/mixed-script boundary probes within 1e-10. Unicode-aware browser boundaries avoid treating accented names as unrelated ASCII prefixes. Existing span-integrity, input, negation, follow-up/calendar tests and 100 date regressions remain required. Eight model tests cover parity, varied instructions, uncertainty, historical wording and the inherited-property bug.
 
 ## Architecture
 
